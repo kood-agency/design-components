@@ -1,0 +1,46 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["import", "react", "typescript", "unicorn"],
+  "categories": {
+    "correctness": "deny",
+    "suspicious": "deny",
+    "perf": "deny"
+  },
+  "rules": {
+    "eqeqeq": "deny",
+    "no-console": "deny",
+    "no-debugger": "deny",
+    "no-var": "deny",
+    "prefer-const": "deny",
+    "react/react-in-jsx-scope": "off"
+  },
+  "overrides": [
+    {
+      "files": ["src/shadcn/**/*"],
+      "rules": {
+        "unicorn/filename-case": "off",
+        "eqeqeq": "off",
+        "no-shadow": "off",
+        "react/jsx-no-constructed-context-values": "off",
+        "react/no-array-index-key": "off",
+        "no-underscore-dangle": "off",
+        "react/no-unstable-nested-components": "off",
+        "react/purity": "off",
+        "react/set-state-in-effect": "off"
+      }
+    },
+    {
+      "files": [".storybook/**/*", "**/*.css"],
+      "rules": {
+        "import/no-unassigned-import": "off"
+      }
+    },
+    {
+      "files": ["src/hooks/**/*"],
+      "rules": {
+        "react/set-state-in-effect": "off"
+      }
+    }
+  ],
+  "ignorePatterns": ["dist/**", "storybook-static/**"]
+}

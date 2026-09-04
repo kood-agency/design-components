@@ -1,0 +1,40 @@
+# 의존성
+node_modules/
+
+# 빌드 결과물 (npm에는 dist만 발행)
+dist/
+storybook-static/
+*.tsbuildinfo
+
+# 락파일: pnpm이 기준. npm/yarn/bun 락은 커밋하지 않음
+package-lock.json
+yarn.lock
+bun.lock
+
+# 환경변수
+.env
+.env.*
+!.env.example
+
+# 로그
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 에디터
+.vscode/*
+.idea/
+
+# 커버리지
+coverage/
+
+# AI 작업 파일 (개인 확인용, 공유 안 함)
+.omo/
+AGENTS.md
+AGENTS.ko.md
+CLAUDE.md
+CLAUDE.local.md
