@@ -13,6 +13,8 @@ export * from "./components/carousel";
 export * from "./components/chart";
 export * from "./components/checkbox";
 export * from "./components/collapsible";
+export * from "./components/combobox";
+export * from "./components/command";
 export * from "./components/context-menu";
 export * from "./components/dialog";
 export * from "./components/drawer";
