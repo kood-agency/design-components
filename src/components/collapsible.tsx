@@ -5,8 +5,14 @@ function Collapsible({ ...props }: CollapsiblePrimitive.Root.Props) {
   return <CollapsiblePrimitive.Root data-slot="collapsible" {...props} />;
 }
 
-function CollapsibleTrigger({ ...props }: CollapsiblePrimitive.Trigger.Props) {
-  return <CollapsiblePrimitive.Trigger data-slot="collapsible-trigger" {...props} />;
+function CollapsibleTrigger({ className, ...props }: CollapsiblePrimitive.Trigger.Props) {
+  return (
+    <CollapsiblePrimitive.Trigger
+      data-slot="collapsible-trigger"
+      className={cn("max-md:min-h-11 max-md:min-w-11", className)}
+      {...props}
+    />
+  );
 }
 
 function CollapsibleContent({ className, ...props }: CollapsiblePrimitive.Panel.Props) {
