@@ -17,7 +17,10 @@ function InputOTP({
       data-slot="input-otp"
       containerClassName={cn("cn-input-otp flex items-center max-md:min-h-11", containerClassName)}
       spellCheck={false}
-      className={cn("disabled:cursor-not-allowed max-md:min-h-11", className)}
+      className={cn(
+        "focus-visible:outline-ring focus-visible:!outline-ring outline-none focus-visible:!outline-2 focus-visible:outline-2 focus-visible:!outline-offset-2 focus-visible:outline-offset-2 focus-visible:!outline-solid focus-visible:outline-solid disabled:cursor-not-allowed max-md:min-h-11",
+        className,
+      )}
       {...props}
     />
   );
