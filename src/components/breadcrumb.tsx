@@ -39,7 +39,7 @@ function BreadcrumbLink({ className, render, ...props }: useRender.ComponentProp
     props: mergeProps<"a">(
       {
         className: cn(
-          "text-foreground-muted transition-colors duration-(--duration-enter) ease-standard hover:text-accent-foreground motion-reduce:transition-none",
+          "text-foreground-muted relative transition-colors duration-(--duration-enter) ease-standard hover:text-accent-foreground motion-reduce:transition-none after:absolute after:-inset-3 after:content-['']",
           className,
         ),
       },
