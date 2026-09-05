@@ -1,5 +1,6 @@
 dist
 storybook-static
+src/shadcn
 node_modules
 *.log
 pnpm-lock.yaml
