@@ -22,7 +22,6 @@ export * from "./shadcn/drawer";
 export * from "./shadcn/dropdown-menu";
 export * from "./shadcn/empty";
 export * from "./shadcn/field";
-export * from "./shadcn/form";
 export * from "./shadcn/hover-card";
 export * from "./shadcn/input";
 export * from "./shadcn/input-group";
