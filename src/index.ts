@@ -36,7 +36,6 @@ export * from "./shadcn/popover";
 export * from "./shadcn/progress";
 export * from "./shadcn/radio-group";
 export * from "./shadcn/resizable";
-export * from "./shadcn/scroll-area";
 export * from "./shadcn/select";
 export * from "./shadcn/separator";
 export * from "./shadcn/sheet";
