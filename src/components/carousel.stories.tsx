@@ -1,3 +1,4 @@
+import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
   Carousel,
@@ -55,4 +56,31 @@ export const Vertical: Story = {
       </Carousel>
     </div>
   ),
+};
+
+export const WithClickHandler: Story = {
+  render: () => {
+    const [clicks, setClicks] = React.useState(0);
+
+    return (
+      <div className="mx-12 max-w-sm">
+        <Carousel>
+          <CarouselContent>
+            {slides.map((label) => (
+              <CarouselItem key={label}>
+                <div className="bg-secondary text-foreground flex h-40 items-center justify-center rounded-md text-sm font-medium">
+                  {label}
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext onClick={() => setClicks((count) => count + 1)} />
+        </Carousel>
+        <output data-slot="carousel-click-count" className="mt-3 block text-sm">
+          Next clicks: {clicks}
+        </output>
+      </div>
+    );
+  },
 };
