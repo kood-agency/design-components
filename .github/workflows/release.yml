@@ -3,6 +3,7 @@ name: release
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 concurrency:
   group: release-${{ github.ref }}
@@ -31,6 +32,6 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm run check
       - run: pnpm run build
-      - run: pnpm exec semantic-release
+      - run: pnpm exec semantic-release ${{ github.event_name == 'workflow_dispatch' && '--dry-run' || '' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
