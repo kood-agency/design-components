@@ -1,6 +1,6 @@
 {
   "name": "@kood/components",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "kood design components — React + shadcn/ui + Base UI",
   "type": "module",
   "main": "./dist/index.cjs",
