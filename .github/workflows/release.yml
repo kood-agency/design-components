@@ -28,6 +28,7 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
+      - run: npm install --global npm@latest
       - run: pnpm install --frozen-lockfile
       - run: pnpm run check
       - run: pnpm run build
@@ -35,4 +36,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           HUSKY: 0
-          NPM_CONFIG_LOGLEVEL: verbose
