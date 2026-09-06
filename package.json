@@ -2,6 +2,10 @@
   "name": "@kood/components",
   "version": "1.0.0",
   "description": "kood design components — React + shadcn/ui + Base UI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kood-agency/design-components"
+  },
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
