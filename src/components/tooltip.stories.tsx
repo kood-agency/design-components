@@ -26,7 +26,7 @@ export const Default: Story = {
 export const Sides: Story = {
   render: () => (
     <TooltipProvider delay={0}>
-      <div className="flex items-center gap-8 p-16">
+      <div className="flex flex-wrap items-center justify-center gap-4 p-4 sm:gap-8 sm:p-16">
         <Tooltip>
           <TooltipTrigger delay={0} render={<Button variant="secondary" />}>
             Top

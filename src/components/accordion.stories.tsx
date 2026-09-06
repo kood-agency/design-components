@@ -11,7 +11,7 @@ type Story = StoryObj<typeof Accordion>;
 
 export const Default: Story = {
   render: () => (
-    <Accordion className="w-96" defaultValue={["item-1"]}>
+    <Accordion className="w-full max-w-96" defaultValue={["item-1"]}>
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>Yes. It uses Base UI primitives with WAI-ARIA patterns.</AccordionContent>
@@ -30,7 +30,7 @@ export const Default: Story = {
 
 export const Multiple: Story = {
   render: () => (
-    <Accordion className="w-96" multiple defaultValue={["item-1", "item-2"]}>
+    <Accordion className="w-full max-w-96" multiple defaultValue={["item-1", "item-2"]}>
       <AccordionItem value="item-1">
         <AccordionTrigger>First item</AccordionTrigger>
         <AccordionContent>First panel stays open with others.</AccordionContent>

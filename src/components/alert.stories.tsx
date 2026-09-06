@@ -12,7 +12,7 @@ type Story = StoryObj<typeof Alert>;
 
 export const Default: Story = {
   render: () => (
-    <Alert className="w-96">
+    <Alert className="w-full max-w-96">
       <AlertTitle>Heads up</AlertTitle>
       <AlertDescription>This is the default card-styled alert.</AlertDescription>
     </Alert>
@@ -22,7 +22,7 @@ export const Default: Story = {
 export const Info: Story = {
   args: { variant: "info" },
   render: (args) => (
-    <Alert {...args} className="w-96">
+    <Alert {...args} className="w-full max-w-96">
       <AlertTitle>Info</AlertTitle>
       <AlertDescription>Accent-tinted informational banner.</AlertDescription>
     </Alert>
@@ -32,7 +32,7 @@ export const Info: Story = {
 export const Destructive: Story = {
   args: { variant: "destructive" },
   render: (args) => (
-    <Alert {...args} className="w-96">
+    <Alert {...args} className="w-full max-w-96">
       <AlertTitle>Error</AlertTitle>
       <AlertDescription>Something went wrong. Try again.</AlertDescription>
     </Alert>
@@ -42,7 +42,7 @@ export const Destructive: Story = {
 export const WithIcon: Story = {
   args: { variant: "info" },
   render: (args) => (
-    <Alert {...args} className="w-96">
+    <Alert {...args} className="w-full max-w-96">
       <InfoIcon />
       <AlertTitle>With icon</AlertTitle>
       <AlertDescription>Informational banner with a leading icon.</AlertDescription>

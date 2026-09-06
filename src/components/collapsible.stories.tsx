@@ -11,7 +11,7 @@ type Story = StoryObj<typeof Collapsible>;
 
 export const Default: Story = {
   render: () => (
-    <Collapsible className="w-96">
+    <Collapsible className="w-full max-w-96">
       <CollapsibleTrigger className="text-foreground hover:text-accent-foreground focus-visible:outline-ring rounded-md px-3 py-2 text-sm font-semibold outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid">
         Toggle
       </CollapsibleTrigger>

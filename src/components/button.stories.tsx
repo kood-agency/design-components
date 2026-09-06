@@ -25,7 +25,7 @@ export const Link: Story = { args: { variant: "link" } };
 
 export const Sizes: Story = {
   render: () => (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-wrap items-center justify-center gap-2">
       <Button size="xs">xs</Button>
       <Button size="sm">sm</Button>
       <Button size="default">default</Button>

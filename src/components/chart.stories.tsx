@@ -45,7 +45,7 @@ const lineConfig = {
 
 export const Bar: Story = {
   render: () => (
-    <ChartContainer config={barConfig} className="min-h-64 w-full max-w-xl">
+    <ChartContainer config={barConfig} className="min-h-64 w-[calc(100vw-2rem)] max-w-xl">
       <BarChart data={data} accessibilityLayer>
         <CartesianGrid vertical={false} />
         <XAxis dataKey="month" tickLine={false} axisLine={false} />
@@ -62,7 +62,7 @@ export const Bar: Story = {
 
 export const Line: Story = {
   render: () => (
-    <ChartContainer config={lineConfig} className="min-h-64 w-full max-w-xl">
+    <ChartContainer config={lineConfig} className="min-h-64 w-[calc(100vw-2rem)] max-w-xl">
       <LineChart data={data} accessibilityLayer>
         <CartesianGrid vertical={false} />
         <XAxis dataKey="month" tickLine={false} axisLine={false} />

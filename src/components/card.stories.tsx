@@ -21,7 +21,7 @@ type Story = StoryObj<typeof Card>;
 
 export const Default: Story = {
   render: () => (
-    <Card className="w-96">
+    <Card className="w-full max-w-96">
       <CardHeader>
         <CardTitle>Project overview</CardTitle>
         <CardDescription>Status of the current design system release.</CardDescription>
@@ -36,7 +36,7 @@ export const Default: Story = {
 
 export const WithAction: Story = {
   render: () => (
-    <Card className="w-96">
+    <Card className="w-full max-w-96">
       <CardHeader>
         <CardTitle>Notifications</CardTitle>
         <CardDescription>You have 3 unread messages.</CardDescription>
@@ -53,7 +53,7 @@ export const WithAction: Story = {
 
 export const Nested: Story = {
   render: () => (
-    <Card className="w-96">
+    <Card className="w-full max-w-96">
       <CardHeader>
         <CardTitle>Nested region</CardTitle>
         <CardDescription>One nested card, never a third level.</CardDescription>
@@ -67,7 +67,7 @@ export const Nested: Story = {
 
 export const Small: Story = {
   render: () => (
-    <Card size="sm" className="w-80">
+    <Card size="sm" className="w-full max-w-80">
       <CardHeader>
         <CardTitle>Compact card</CardTitle>
         <CardDescription>Small size uses 16px padding.</CardDescription>
