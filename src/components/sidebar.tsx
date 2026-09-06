@@ -316,7 +316,7 @@ function SidebarHeader({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-header"
       data-sidebar="header"
-      className={cn("flex flex-col gap-2 px-3 py-4", className)}
+      className={cn("flex flex-col gap-2 px-3 py-4 group-data-[collapsible=icon]:p-2", className)}
       {...props}
     />
   );
@@ -327,7 +327,7 @@ function SidebarFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="sidebar-footer"
       data-sidebar="footer"
-      className={cn("flex flex-col gap-2 px-3 py-4", className)}
+      className={cn("flex flex-col gap-2 px-3 py-4 group-data-[collapsible=icon]:p-2", className)}
       {...props}
     />
   );
@@ -350,7 +350,7 @@ function SidebarContent({ className, ...props }: React.ComponentProps<"div">) {
       data-slot="sidebar-content"
       data-sidebar="content"
       className={cn(
-        "no-scrollbar flex min-h-0 flex-1 flex-col gap-2 overflow-auto px-3 py-4 group-data-[collapsible=icon]:overflow-hidden",
+        "no-scrollbar flex min-h-0 flex-1 flex-col gap-2 overflow-auto px-3 py-4 group-data-[collapsible=icon]:overflow-hidden group-data-[collapsible=icon]:p-2",
         className,
       )}
       {...props}

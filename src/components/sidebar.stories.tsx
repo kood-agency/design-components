@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { CalendarIcon, HomeIcon, InboxIcon, SearchIcon, SettingsIcon } from "lucide-react";
+import {
+  CalendarIcon,
+  CircleUserIcon,
+  HomeIcon,
+  InboxIcon,
+  SearchIcon,
+  SettingsIcon,
+} from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -34,7 +41,7 @@ type Story = StoryObj<typeof Sidebar>;
 function DemoNav() {
   return (
     <>
-      <SidebarHeader>
+      <SidebarHeader className="group-data-[collapsible=icon]:hidden">
         <SidebarInput placeholder="Search" />
       </SidebarHeader>
       <SidebarContent>
@@ -101,6 +108,7 @@ function DemoNav() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="sm" tooltip="Account">
+              <CircleUserIcon />
               <span>Ada Lovelace</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -181,7 +189,7 @@ export const Inset: Story = {
 
 export const Mobile: Story = {
   render: () => (
-    <div style={{ width: 375, height: 640 }}>
+    <div style={{ width: "100%", height: 640 }}>
       <SidebarProvider>
         <Sidebar collapsible="offcanvas">
           <DemoNav />
