@@ -26,3 +26,18 @@ export const WithLabel: Story = {
 };
 
 export const Checked: Story = { args: { defaultChecked: true } };
+
+export const Sizes: Story = {
+  render: () => (
+    <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2">
+        <Switch id="switch-small" size="sm" />
+        <Label htmlFor="switch-small">Small</Label>
+      </div>
+      <div className="flex items-center gap-2">
+        <Switch id="switch-default" />
+        <Label htmlFor="switch-default">Default</Label>
+      </div>
+    </div>
+  ),
+};
