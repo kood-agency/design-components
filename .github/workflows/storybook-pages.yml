@@ -2,7 +2,7 @@ name: storybook-pages
 
 on:
   push:
-    branches: [dev]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
