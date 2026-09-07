@@ -10,8 +10,48 @@ bun add @kood/components
 
 ```tsx
 import { Button, Calendar, Dialog } from "@kood/components";
+import "@kood/components/globals.css";
+```
+
+또는 아래처럼 CSS 파일을 직접 import해도 됩니다(호환용).
+
+```tsx
 import "@kood/components/styles.css";
 ```
+
+## 스타일 커스텀 (오버라이딩)
+
+컴포넌트는 전부 CSS 변수 토큰(`--background`, `--primary`, `--ring`, `--sidebar*` 등)을 참조합니다. `globals.css`를 import한 뒤, **더 뒤에서(또는 `:root`보다 구체적인 선택자로) 변수만 다시 정의하면** 기본 디자인을 덮어쓸 수 있습니다. 덮어쓰는 변수만 골라서 정의하고 나머지는 두면 됩니다.
+
+```css
+/* my-theme.css — globals.css 다음에 배치 */
+:root {
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --primary: #6366f1;
+  --primary-foreground: #ffffff;
+  --ring: #6366f1;
+  --radius: 10px;
+}
+
+/* 다크·라이트를 별도로 바꾸려면 */
+.dark {
+  --background: #020617;
+}
+.light {
+  --background: #ffffff;
+}
+```
+
+```tsx
+import "@kood/components/globals.css";
+import "./my-theme.css"; // 변수 오버라이딩 — 반드시 globals.css 다음에
+```
+
+### 동작 원리
+
+- 컴포넌트의 스타일(`bg-primary`, `text-muted-foreground` 등)은 precompiled CSS 안에서 `var(--primary)`, `var(--muted-foreground)`를 참조합니다. 변수 값만 바꾸면 컴포넌트 전체에 즉시 반영됩니다.
+- 어떤 변수를 바꿀 수 있는지는 `dist/globals.css`의 `:root`, `.dark`, `.light` 블록에서 확인할 수 있습니다.
 
 ## 개발
 
