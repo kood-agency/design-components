@@ -12,6 +12,7 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
@@ -122,14 +123,16 @@ export function DataTable() {
               <span className="sr-only">표시할 열 설정</span>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-44">
-              <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuCheckboxItem checked>Header</DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem checked>Section Type</DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem checked>Status</DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem checked>Target</DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem checked>Limit</DropdownMenuCheckboxItem>
-              <DropdownMenuCheckboxItem checked>Reviewer</DropdownMenuCheckboxItem>
+              <DropdownMenuGroup>
+                <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuCheckboxItem checked>Header</DropdownMenuCheckboxItem>
+                <DropdownMenuCheckboxItem checked>Section Type</DropdownMenuCheckboxItem>
+                <DropdownMenuCheckboxItem checked>Status</DropdownMenuCheckboxItem>
+                <DropdownMenuCheckboxItem checked>Target</DropdownMenuCheckboxItem>
+                <DropdownMenuCheckboxItem checked>Limit</DropdownMenuCheckboxItem>
+                <DropdownMenuCheckboxItem checked>Reviewer</DropdownMenuCheckboxItem>
+              </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
           <Button size="sm" variant="outline">

@@ -85,9 +85,9 @@ export function SiteHeader() {
                 <span className="sr-only">Open {group.label} menu</span>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-52">
-                <DropdownMenuLabel>{group.label}</DropdownMenuLabel>
-                <DropdownMenuSeparator />
                 <DropdownMenuGroup>
+                  <DropdownMenuLabel>{group.label}</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
                   {group.items.map((item) => (
                     <DropdownMenuItem key={item.title}>
                       <item.icon className="size-4" />
@@ -113,21 +113,21 @@ export function SiteHeader() {
               <span className="sr-only">Open settings menu</span>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
-              <DropdownMenuLabel className="p-0 font-normal">
-                <div className="flex items-center gap-2 px-2 py-1.5 text-left text-sm">
-                  <Avatar className="size-8">
-                    <AvatarFallback className="text-xs">CN</AvatarFallback>
-                  </Avatar>
-                  <span className="grid flex-1 text-left leading-tight">
-                    <span className="truncate font-medium">Carolyn Newton</span>
-                    <span className="text-muted-foreground truncate text-xs">
-                      c.newton@example.com
-                    </span>
-                  </span>
-                </div>
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator />
               <DropdownMenuGroup>
+                <DropdownMenuLabel className="p-0 font-normal">
+                  <div className="flex items-center gap-2 px-2 py-1.5 text-left text-sm">
+                    <Avatar className="size-8">
+                      <AvatarFallback className="text-xs">CN</AvatarFallback>
+                    </Avatar>
+                    <span className="grid flex-1 text-left leading-tight">
+                      <span className="truncate font-medium">Carolyn Newton</span>
+                      <span className="text-muted-foreground truncate text-xs">
+                        c.newton@example.com
+                      </span>
+                    </span>
+                  </div>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
                 <DropdownMenuItem>
                   <SquareUserIcon className="size-4" /> <span>Account</span>
                 </DropdownMenuItem>

@@ -3,6 +3,7 @@ import { ChevronsUpDownIcon, PlusIcon } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -55,11 +56,13 @@ export function NavMain({ title, items, ...props }: NavMainProps) {
                     <span className="sr-only">Open project switcher</span>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent side="right" align="start" className="min-w-56">
-                    <DropdownMenuLabel>Projects</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem>Design Engineering</DropdownMenuItem>
-                    <DropdownMenuItem>Sales &amp; Marketing</DropdownMenuItem>
-                    <DropdownMenuItem>Travel</DropdownMenuItem>
+                    <DropdownMenuGroup>
+                      <DropdownMenuLabel>Projects</DropdownMenuLabel>
+                      <DropdownMenuSeparator />
+                      <DropdownMenuItem>Design Engineering</DropdownMenuItem>
+                      <DropdownMenuItem>Sales &amp; Marketing</DropdownMenuItem>
+                      <DropdownMenuItem>Travel</DropdownMenuItem>
+                    </DropdownMenuGroup>
                   </DropdownMenuContent>
                 </DropdownMenu>
               )}
@@ -126,21 +129,23 @@ export function NavUser({ user }: NavUserProps) {
           <span className="sr-only">Open user menu</span>
         </DropdownMenuTrigger>
         <DropdownMenuContent side="top" align="start" className="min-w-56">
-          <DropdownMenuLabel className="p-0 font-normal">
-            <div className="flex items-center gap-2 px-2 py-1.5 text-left text-sm">
-              <span className="bg-accent text-accent-foreground flex size-8 items-center justify-center rounded-full text-xs font-medium">
-                {user.initials}
-              </span>
-              <span className="grid flex-1 text-left leading-tight">
-                <span className="truncate font-medium">{user.name}</span>
-                <span className="text-muted-foreground truncate text-xs">{user.email}</span>
-              </span>
-            </div>
-          </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Account</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Notifications</DropdownMenuItem>
+          <DropdownMenuGroup>
+            <DropdownMenuLabel className="p-0 font-normal">
+              <div className="flex items-center gap-2 px-2 py-1.5 text-left text-sm">
+                <span className="bg-accent text-accent-foreground flex size-8 items-center justify-center rounded-full text-xs font-medium">
+                  {user.initials}
+                </span>
+                <span className="grid flex-1 text-left leading-tight">
+                  <span className="truncate font-medium">{user.name}</span>
+                  <span className="text-muted-foreground truncate text-xs">{user.email}</span>
+                </span>
+              </div>
+            </DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>Account</DropdownMenuItem>
+            <DropdownMenuItem>Billing</DropdownMenuItem>
+            <DropdownMenuItem>Notifications</DropdownMenuItem>
+          </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem>Log out</DropdownMenuItem>
         </DropdownMenuContent>
