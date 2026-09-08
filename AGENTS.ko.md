@@ -26,6 +26,9 @@ pnpm이 기준입니다. 추적되는 락파일은 `pnpm-lock.yaml`뿐이며 npm
 ## 작업 흐름
 
 - `src/components/ui/`에 컴포넌트를 추가하거나 변경하기 전에 `src/shadcn/<name>.tsx`와 `DESIGN.md`를 읽습니다. 클래스는 반드시 토큰 레이어(token layer)를 사용하고, `check:slop`를 포함하는 `pnpm check`를 실행합니다.
+- 글래스는 일반 클래스 허용이 아닌 좁은 디자인 계약 예외입니다. 공유 `kood-glass` / `kood-glass-strong` 레시피만 `--glass-background`, `--glass-strong-background`, `--glass-hover`, `--glass-active`, `--glass-solid`, `--glass-strong-solid`, `--glass-blur`와 문서화한 반투명 채움, 절제된 12px 필터를 씁니다. `glass-strong`은 불투명도만 높입니다. 컴포넌트 수준 blur와 alpha 유틸리티, shadow를 더하지 않습니다.
+- glass와 glass-strong은 뉴트럴이며 opt-in으로만 씁니다. 기존 기본값은 솔리드 클래스를 유지하고 시맨틱 variant와 시맨틱 toast도 솔리드로 남습니다. 실제 표면은 기존 `variant`가 레이아웃 이름이 아닐 때 `variant?: "default" | "glass" | "glass-strong"`을 쓰며 Sidebar, NavigationMenu, Toaster는 별도 `appearance` union을 씁니다. 어느 prop도 native DOM으로 전달하지 않고 클래스와 `data-variant` 또는 `data-appearance`를 냅니다. ToggleGroup, navigation viewport, glass CommandDialog 내부에서는 이중 필터를 피하고 실제 표면 소유자에게만 재질을 전달합니다.
+- 불투명 솔리드 대체 표시는 필수입니다. 표준 또는 접두사 지원 아래에서만 반투명 필터를 켜고 disabled 또는 truthy `data-disabled` 표면, `forced-colors`, reduced-transparency 모드는 불투명하게 유지하며 필터를 끕니다. 전경색과 테두리, 포커스, 시맨틱 상태, 그림자의 책임을 보존합니다.
 - vendored 원본은 `pnpm dlx shadcn@latest add <name> -y -o`로 추가하거나 갱신한 뒤 `pnpm fix:ui`를 실행합니다.
 - 배포하는 컴포넌트 옆에 story를 두고 Storybook에서 사용자에게 보이는 동작을 확인합니다.
 

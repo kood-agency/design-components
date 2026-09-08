@@ -26,6 +26,9 @@ pnpm is canonical; only `pnpm-lock.yaml` is tracked (npm, yarn, and bun lockfile
 ## Workflow
 
 - Before adding or changing a component in `src/components/ui/`, read `src/shadcn/<name>.tsx` and `DESIGN.md`; classes MUST use the token layer; run `pnpm check` (includes `check:slop`).
+- Glass is a narrow design-contract exception, not a general class permission. Only the shared `kood-glass` / `kood-glass-strong` recipe may use `--glass-background`, `--glass-strong-background`, `--glass-hover`, `--glass-active`, `--glass-solid`, `--glass-strong-solid`, and `--glass-blur`, the documented translucent fill, and the modest 12px filter. `glass-strong` increases opacity only. Do not add component-level blur, alpha utilities, or shadows.
+- Keep glass and glass-strong neutral and opt-in. Existing defaults retain their solid classes; semantic variants and semantic toasts remain solid. Visible surfaces use `variant?: "default" | "glass" | "glass-strong"` unless an existing `variant` names layout; Sidebar, NavigationMenu, and Toaster use the separate `appearance` union. Never forward either prop to native DOM: emit classes and `data-variant` or `data-appearance`. Propagate material only to the visible owner, avoiding double filtering in ToggleGroup, navigation viewports, and glass CommandDialog interiors.
+- The opaque solid fallback is mandatory. Enable translucent filtering only under standard or prefixed support; disabled or truthy `data-disabled` surfaces, `forced-colors`, and reduced-transparency modes stay opaque with filters disabled. Preserve foreground, border, focus, semantic-state, and shadow ownership.
 - Add or refresh vendored originals only with `pnpm dlx shadcn@latest add <name> -y -o`, then run `pnpm fix:ui`.
 - Keep stories beside their shipped component and verify user-visible behavior in Storybook.
 
