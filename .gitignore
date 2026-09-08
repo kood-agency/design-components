@@ -32,9 +32,6 @@ Thumbs.db
 # 커버리지
 coverage/
 
-# AI 작업 파일 (개인 확인용, 공유 안 함)
+# 개인 AI 작업 파일 (공유 안 함)
 .omo/
-AGENTS.md
-AGENTS.ko.md
-CLAUDE.md
 CLAUDE.local.md
