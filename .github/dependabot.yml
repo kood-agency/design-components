@@ -1,0 +1,30 @@
+# Dependabot configuration for @kood/components.
+# pnpm is the package manager (see packageManager in package.json); Dependabot
+# runs pnpm updates through the npm ecosystem, which tracks pnpm-lock.yaml.
+# github-actions keeps workflow action references (checkout, setup-node, ...) current.
+version: 2
+updates:
+  # npm ecosystem = package.json + pnpm-lock.yaml (pnpm is a documented alias).
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Seoul"
+    open-pull-requests-limit: 5
+    groups:
+      # Group minor+patch npm updates into one PR; majors stay solo (default).
+      minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
+  # Keep GitHub Actions references up to date.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Seoul"
+    open-pull-requests-limit: 5
