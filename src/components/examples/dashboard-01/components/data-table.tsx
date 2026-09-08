@@ -30,35 +30,35 @@ import {
 const rows = [
   {
     id: "1",
-    header: "Cover page",
-    type: "Cover page",
-    status: "In Process" as const,
+    header: "주식회사 코오드 디자인 시스템 운영 및 고객 성공 통합 관리 본부 분기 운영 계획서",
+    type: "분기 운영 계획",
+    status: "진행 중" as const,
     target: 18,
     limit: 5,
-    reviewer: "Eddie Lake",
+    reviewer: "김서윤 운영 책임자",
   },
   {
     id: "2",
-    header: "Table of contents",
-    type: "Table of contents",
-    status: "Done" as const,
+    header: "고객 성공 통합 관리 본부 서비스 품질 검토 및 개선 항목 목록",
+    type: "서비스 품질 검토",
+    status: "완료" as const,
     target: 29,
     limit: 24,
-    reviewer: "Eddie Lake",
+    reviewer: "박도윤 고객 성공 매니저",
   },
 ];
 
 function StatusCell({ status }: { status: (typeof rows)[number]["status"] }) {
-  if (status === "Done") {
+  if (status === "완료") {
     return (
       <span className="text-muted-foreground inline-flex items-center gap-1.5">
-        <CheckIcon className="text-success size-3.5" /> Done
+        <CheckIcon className="text-success size-3.5" /> 완료
       </span>
     );
   }
   return (
     <span className="text-muted-foreground inline-flex items-center gap-1.5">
-      <LoaderCircleIcon className="size-3.5" /> In Process
+      <LoaderCircleIcon className="size-3.5" /> 진행 중
     </span>
   );
 }
@@ -68,12 +68,12 @@ function DocumentsTable() {
     <Table>
       <TableHeader className="bg-transparent">
         <TableRow className="hover:bg-transparent">
-          <TableHead>Header</TableHead>
-          <TableHead>Section Type</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead className="text-right">Target</TableHead>
-          <TableHead className="text-right">Limit</TableHead>
-          <TableHead>Reviewer</TableHead>
+          <TableHead>문서 이름</TableHead>
+          <TableHead>분류</TableHead>
+          <TableHead>상태</TableHead>
+          <TableHead className="text-right">목표</TableHead>
+          <TableHead className="text-right">한도</TableHead>
+          <TableHead>검토 담당</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -96,9 +96,9 @@ function DocumentsTable() {
 
 export function DataTable() {
   return (
-    <Tabs value="outline">
-      <TabsList className="w-fit">
-        <TabsTrigger value="outline">Outline</TabsTrigger>
+    <Tabs value="outline" className="min-w-0">
+      <TabsList className="max-w-full flex-wrap justify-start">
+        <TabsTrigger value="outline">개요</TabsTrigger>
         <TabsTrigger value="past-performance" className="gap-1.5">
           Past Performance{" "}
           <Badge variant="outline" className="px-1">
@@ -111,15 +111,15 @@ export function DataTable() {
             2
           </Badge>
         </TabsTrigger>
-        <TabsTrigger value="focus-documents">Focus Documents</TabsTrigger>
+        <TabsTrigger value="focus-documents">중점 문서</TabsTrigger>
       </TabsList>
       <TabsContent value="outline" className="mt-4">
         <div className="mb-3 flex items-center justify-between gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
-              <Settings2Icon className="size-4" /> Customize Columns
+              <Settings2Icon className="size-4" /> 열 설정
               <ChevronDownIcon className="text-muted-foreground size-3.5" />
-              <span className="sr-only">Customize columns</span>
+              <span className="sr-only">표시할 열 설정</span>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-44">
               <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
@@ -133,12 +133,12 @@ export function DataTable() {
             </DropdownMenuContent>
           </DropdownMenu>
           <Button size="sm" variant="outline">
-            <PlusIcon className="size-4" /> Add Section
+            <PlusIcon className="size-4" /> 문서 추가
           </Button>
         </div>
         <DocumentsTable />
         <p className="text-muted-foreground mt-4 flex items-center gap-1.5 text-xs">
-          <ChevronsUpDownIcon className="size-3.5" /> Drag handles to reorder sections
+          <ChevronsUpDownIcon className="size-3.5" /> 드래그 핸들로 문서 순서를 바꿀 수 있습니다
         </p>
       </TabsContent>
       <TabsContent value="past-performance" className="mt-4" />

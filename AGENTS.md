@@ -7,7 +7,7 @@
 | `src/components/ui/`     | Shipped, DESIGN.md-styled components (53 components and their stories). Published via the package root.                                                                   |
 | `src/components/examples/` | Storybook-only examples (not published).                                                                                                                              |
 | `src/shadcn/`            | Vendored shadcn/ui **Base UI (`base-nova`)** originals. They are reference-only, are not exported, and may change only through `shadcn add -o` followed by `pnpm fix:ui`. |
-| `src/styles/globals.css` | Design token layer: dark is the default in `.dark`, light is in `.light`, and `[data-font]` selects the font. Published to `dist/globals.css` (plus a `dist/styles.css` compatibility copy) and imported as `@kood/components/globals.css`. |
+| `src/styles/globals.css` | Design token layer: dark is the default in `:root`/`.dark`, light is in `.light`, and `[data-font]` selects the font. Published to `dist/globals.css` (plus a `dist/styles.css` compatibility copy) and imported as `@kood/components/globals.css`. |
 | `scripts/check-slop.mjs` | Enforces component class restrictions, including token-only colors and prohibited utility patterns.                                                                       |
 
 ## Commands
@@ -29,8 +29,10 @@
 
 ## Consumers
 
-- Consumers import the stylesheet as `import "@kood/components/globals.css"`; the build also keeps a `dist/styles.css` copy so the published `./styles.css` path keeps working. Both are **precompiled** Tailwind output (component utilities + design tokens) so consumers do not need a Tailwind config for kood components.
-- The CSS is token-driven: component utilities resolve to `var(--background)`, `var(--primary)`, etc. Consumers restyle by overriding those custom properties **after** the import (`:root`/`.dark`/`.light` blocks in `dist/globals.css` list every token). Verified working on Vite + `@tailwindcss/vite` and Next.js (both keep the token values and apply consumer overrides).
+- Consumers import the **precompiled** stylesheet as `import "@kood/components/globals.css"`; the published `./styles.css` compatibility path is an identical precompiled copy. Component utilities and design tokens are included, so consumers do not need a Tailwind config for kood components.
+- The CSS is role-driven. Override custom properties **after** the import, using `:root`/`.dark`/`.light` as appropriate: canvas/content (`--background`, `--foreground`, `--foreground-muted`, `--muted-foreground`), surfaces/boundaries (`--card`, `--popover`, `--secondary`, `--muted`, `--border`, `--input`, `--sidebar`), action/focus (`--primary`, `--primary-foreground`, `--accent`, `--accent-foreground`, `--ring`), semantic/state, and code roles. Do not claim that changing one background or accent variable updates the other roles automatically.
+- `--kood-font-sans` and `--kood-font-mono` are the public font hooks; Tailwind's `--font-sans` and `--font-mono` alias them. `--radius` is the base (default `8px`): `--radius-xs/sm/md/lg/xl/2xl` derive at `.5/.75/1/1.5/2/3` times it. A later named value such as `--radius-md: 7px` overrides only that radius name; `none` and `full` are independent.
+- Task7 consumer QA inputs: import `@kood/components/globals.css` and then an override stylesheet; exercise both `.dark` and `.light`, base and named radius overrides, and both public font hooks. Also import `@kood/components/styles.css` as the compatibility equivalent. The negative fixture reverses that stylesheet order and must observe that the override does not win.
 - Do NOT ship the raw `src/styles/globals.css` as the import target: its `@theme inline` maps tokens to runtime CSS variables, and when a consumer Tailwind pipeline reprocesses it the literal token values (`--background:#0a1724`) are dropped, breaking theming.
 - When the published stylesheet or the token set changes (adding/removing an export subpath, new `--*` tokens, layout of the token blocks), update `README.md` (usage + theming) together with this file.
 

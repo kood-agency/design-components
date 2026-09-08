@@ -3,8 +3,8 @@
  *
  * Starts a static Bun.serve on the given port serving `storybook-static`, drives
  * `Bun.WebView` (Chrome backend so CDP hover emulation is available) against the
- * built iframe, and exports polling helpers. Fixed sleeps are forbidden: every
- * wait polls via `view.evaluate` at 50ms up to a bounded timeout.
+ * built iframe, and exports bounded subscription helpers. Fixed sleeps are
+ * forbidden: readiness waits observe the document before awaiting a change.
  */
 import { existsSync } from "node:fs";
 import { resolve } from "node:path";
@@ -42,14 +42,46 @@ export async function stopServer() {
   }
 }
 
-/** Poll `view.evaluate(expr)` every 50ms until truthy or timeoutMs elapses. */
+/** Resolve when `expr` becomes truthy through a DOM lifecycle or mutation signal. */
 export async function waitFor(view, expr, timeoutMs = 10_000) {
-  const deadline = Date.now() + timeoutMs;
-  for (;;) {
-    if (await view.evaluate(expr)) return true;
-    if (Date.now() > deadline) throw new Error(`waitFor timed out after ${timeoutMs}ms: ${expr}`);
-    await Bun.sleep(50);
-  }
+  const ready = await view.evaluate(`
+    new Promise((resolve) => {
+      const matches = () => {
+        try {
+          return Boolean(${expr});
+        } catch {
+          return false;
+        }
+      };
+      let timeout;
+      const finish = (value) => {
+        observer.disconnect();
+        document.removeEventListener("readystatechange", onSignal);
+        window.removeEventListener("load", onSignal);
+        clearTimeout(timeout);
+        resolve(value);
+      };
+      const onSignal = () => {
+        if (matches()) finish(true);
+      };
+      const observer = new MutationObserver(onSignal);
+      observer.observe(document.documentElement, {
+        attributes: true,
+        childList: true,
+        characterData: true,
+        subtree: true,
+      });
+      if (matches()) {
+        finish(true);
+        return;
+      }
+      document.addEventListener("readystatechange", onSignal);
+      window.addEventListener("load", onSignal, { once: true });
+      timeout = setTimeout(() => finish(false), ${timeoutMs});
+    })
+  `);
+  if (!ready) throw new Error(`waitFor timed out after ${timeoutMs}ms: ${expr}`);
+  return true;
 }
 
 let _view;
@@ -136,8 +168,11 @@ export async function shot(view, path) {
 
 if (process.argv[1] && import.meta.path === resolve(process.argv[1])) {
   const theme = process.env.QA_THEME ?? "dark";
+  const port = Number(process.env.QA_PORT ?? 6104);
+  const storybookDir = process.env.QA_STORYBOOK_DIR ?? "storybook-static";
   try {
-    const view = await openStory("components-button--default", { theme });
+    await startServer(port, storybookDir);
+    const view = await openStory("components-button--default", { theme, port });
     await waitFor(
       view,
       `getComputedStyle(document.documentElement).getPropertyValue('--background').trim() !== ''`,
@@ -147,8 +182,9 @@ if (process.argv[1] && import.meta.path === resolve(process.argv[1])) {
     console.log(`theme=${theme} className="${cls}" --background=${bg}`);
     if (!cls.includes(theme))
       throw new Error(`expected className to contain "${theme}", got "${cls}"`);
-    if (bg !== "#0A1724" && bg !== "#0a1724") {
-      throw new Error(`expected --background #0A1724 in dark, got ${bg}`);
+    const expectedBackground = theme === "light" ? "#f6f8fb" : "#0d1117";
+    if (bg.toLowerCase() !== expectedBackground) {
+      throw new Error(`expected --background ${expectedBackground} in ${theme}, got ${bg}`);
     }
     await closeView();
   } finally {

@@ -21,37 +21,79 @@ import "@kood/components/styles.css";
 
 ## 스타일 커스텀 (오버라이딩)
 
-컴포넌트는 전부 CSS 변수 토큰(`--background`, `--primary`, `--ring`, `--sidebar*` 등)을 참조합니다. `globals.css`를 import한 뒤, **더 뒤에서(또는 `:root`보다 구체적인 선택자로) 변수만 다시 정의하면** 기본 디자인을 덮어쓸 수 있습니다. 덮어쓰는 변수만 골라서 정의하고 나머지는 두면 됩니다.
-
-```css
-/* my-theme.css — globals.css 다음에 배치 */
-:root {
-  --background: #0f172a;
-  --foreground: #f8fafc;
-  --primary: #6366f1;
-  --primary-foreground: #ffffff;
-  --ring: #6366f1;
-  --radius: 10px;
-}
-
-/* 다크·라이트를 별도로 바꾸려면 */
-.dark {
-  --background: #020617;
-}
-.light {
-  --background: #ffffff;
-}
-```
+`@kood/components/globals.css`는 컴포넌트 유틸리티와 토큰을 함께 포함한 **precompiled CSS**입니다. 소비자 Tailwind 설정 없이 import하고, 자체 오버라이드 파일을 그 뒤에 둡니다. 호환 경로인 `@kood/components/styles.css`도 같은 precompiled CSS를 제공합니다.
 
 ```tsx
 import "@kood/components/globals.css";
 import "./my-theme.css"; // 변수 오버라이딩 — 반드시 globals.css 다음에
+
+// 호환 경로가 필요한 기존 앱에서는 아래 import를 사용합니다.
+// import "@kood/components/styles.css";
 ```
 
-### 동작 원리
+다크는 `:root`와 `.dark`, 라이트는 `.light`에 정의됩니다. 모드별 값을 바꿀 때는 아래처럼 같은 역할 묶음을 함께 덮어씁니다. `--background` 또는 `--accent` 하나만 바꿔도 관련된 모든 색이 자동으로 바뀌지는 않습니다.
 
-- 컴포넌트의 스타일(`bg-primary`, `text-muted-foreground` 등)은 precompiled CSS 안에서 `var(--primary)`, `var(--muted-foreground)`를 참조합니다. 변수 값만 바꾸면 컴포넌트 전체에 즉시 반영됩니다.
-- 어떤 변수를 바꿀 수 있는지는 `dist/globals.css`의 `:root`, `.dark`, `.light` 블록에서 확인할 수 있습니다.
+```css
+/* my-theme.css — globals.css 다음에 배치 */
+:root {
+  /* 기준 radius: xs=.5x, sm=.75x, md=1x, lg=1.5x, xl=2x, 2xl=3x */
+  --radius: 10px;
+
+  /* named override는 해당 이름만 바꿉니다. */
+  --radius-md: 7px;
+
+  --kood-font-sans: "Pretendard Variable", "Pretendard", sans-serif;
+  --kood-font-mono: "Jetendard", "JetBrains Mono", monospace;
+}
+
+.dark {
+  /* 캔버스 + 본문 */
+  --background: #0d1117;
+  --foreground: #f3f7fb;
+  --foreground-muted: #b8c6d5;
+  --muted-foreground: #899aad;
+
+  /* 표면 단계 + 경계 */
+  --card: #161b22;
+  --popover: #272e37;
+  --secondary: #21262d;
+  --muted: #21262d;
+  --border: #30363d;
+  --input: #737d8c;
+  --sidebar: #161b22;
+  --sidebar-border: #30363d;
+
+  /* 동작 + 포커스 역할 */
+  --primary: #e7eef6;
+  --primary-foreground: #0d1117;
+  --accent: #172a45;
+  --accent-foreground: #7fa5de;
+  --ring: #7fa5de;
+}
+
+.light {
+  --background: #f6f8fb;
+  --foreground: #0a1724;
+  --card: #ffffff;
+  --secondary: #eff3f7;
+  --muted: #eff3f7;
+  --border: #d7e0e9;
+  --input: #7b8ea1;
+  --primary: #0a1724;
+  --primary-foreground: #ffffff;
+  --ring: #315c9f;
+}
+```
+
+### 역할 묶음
+
+- **캔버스/본문:** `--background`, `--foreground`, `--foreground-muted`, `--muted-foreground`
+- **표면/경계:** `--card`, `--card-foreground`, `--popover`, `--popover-foreground`, `--secondary`, `--secondary-foreground`, `--muted`, `--border`, `--input`, `--sidebar`, `--sidebar-foreground`, `--sidebar-border`
+- **동작/포커스:** `--primary`, `--primary-foreground`, `--primary-hover`, `--primary-active`, `--accent`, `--accent-foreground`, `--accent-hover`, `--ring`
+- **시맨틱/상태:** `--destructive`, `--destructive-foreground`, `--success`, `--success-foreground`, `--warning`, `--warning-foreground`, `--selection`, `--selection-foreground`, `--overlay`
+- **코드:** `--code`, `--code-foreground`, `--code-border`
+
+컴포넌트의 `bg-primary`, `text-muted-foreground` 같은 스타일은 이 역할 변수의 `var(...)`를 참조합니다. 전체 목록은 빌드된 `dist/globals.css`의 `:root`, `.dark`, `.light` 블록에서 확인할 수 있습니다.
 
 ## 개발
 

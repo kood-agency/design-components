@@ -1,3 +1,4 @@
+import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import {
   Select,
@@ -85,11 +86,34 @@ export const Small: Story = {
 
 export const Invalid: Story = {
   render: () => (
-    <Select defaultValue="apple">
-      <SelectTrigger aria-invalid={true}>
-        <SelectValue placeholder="Select a fruit" />
-      </SelectTrigger>
-      <SelectContent>{fruits}</SelectContent>
-    </Select>
+    <div className="flex flex-col gap-2">
+      <Select defaultValue="apple">
+        <SelectTrigger aria-describedby="select-invalid-description" aria-invalid={true}>
+          <SelectValue placeholder="Select a fruit" />
+        </SelectTrigger>
+        <SelectContent>{fruits}</SelectContent>
+      </Select>
+      <p id="select-invalid-description" role="alert" className="text-destructive text-sm">
+        Choose an available fruit.
+      </p>
+    </div>
   ),
+};
+
+export const ControlledNull: Story = {
+  render: function ControlledNullSelect() {
+    const [value, setValue] = React.useState<string | null>(null);
+
+    return (
+      <div className="flex flex-col gap-2">
+        <Select value={value} onValueChange={setValue}>
+          <SelectTrigger>
+            <SelectValue placeholder="Select a fruit" />
+          </SelectTrigger>
+          <SelectContent>{fruits}</SelectContent>
+        </Select>
+        <output data-slot="selection-status">Selected: {value ?? "None"}</output>
+      </div>
+    );
+  },
 };

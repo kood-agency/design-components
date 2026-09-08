@@ -1,7 +1,7 @@
 ---
 version: "alpha"
 name: "kood-design-system"
-description: "Kood is a dark-first design system on a #0A1724 canvas. A single restrained blue accent is reserved for links, focus, selection, and info — never a second hue, never a glow. Cards sit on a surface ladder behind hairline borders instead of shadows. Pretendard is the default sans, Wanted Sans is an opt-in preset, and Jetendard is the code face."
+description: "Kood is a dark-first design system on a #0D1117 charcoal canvas. A single restrained blue accent is reserved for links, focus, selection, and info — never a second hue, never a glow. Cards sit on a surface ladder behind hairline borders instead of shadows. Pretendard is the default sans, Wanted Sans is an opt-in preset, and Jetendard is the code face."
 mode-default: "dark"
 fonts:
   sans-default: "pretendard"
@@ -11,18 +11,18 @@ fonts:
   mono: '"Jetendard", "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Noto Sans Mono CJK KR", "D2Coding", "Pretendard Variable", "Pretendard", ui-monospace, monospace'
 colors:
   dark:
-    canvas: "#0A1724"
-    surface-1: "#101E2C"
-    surface-2: "#172635"
-    surface-3: "#1E2E3E"
-    hairline: "#2A3B4C"
-    hairline-strong: "#566F88"
+    canvas: "#0D1117"
+    surface-1: "#161B22"
+    surface-2: "#21262D"
+    surface-3: "#272E37"
+    hairline: "#30363D"
+    hairline-strong: "#737D8C"
     ink: "#F3F7FB"
     ink-muted: "#B8C6D5"
     ink-subtle: "#899AAD"
     ink-tertiary: "#64778A"
     primary: "#E7EEF6"
-    on-primary: "#0A1724"
+    on-primary: "#0D1117"
     primary-hover: "#F3F7FB"
     primary-active: "#CBD8E5"
     accent: "#7FA5DE"
@@ -33,21 +33,21 @@ colors:
     semantic-warning: "#E4B45B"
     semantic-danger: "#F18484"
     semantic-info: "#7FA5DE"
-    on-success: "#07131F"
-    on-warning: "#07131F"
-    on-danger: "#07131F"
-    on-info: "#07131F"
+    on-success: "#090C10"
+    on-warning: "#090C10"
+    on-danger: "#090C10"
+    on-info: "#090C10"
     selection-bg: "#264A78"
     selection-ink: "#F3F7FB"
-    code-bg: "#07131F"
-    code-border: "#2A3B4C"
+    code-bg: "#090C10"
+    code-border: "#30363D"
     code-ink: "#E7EEF6"
     code-comment: "#899AAD"
     code-keyword: "#7FA5DE"
     code-string: "#6BCB91"
     code-number: "#E4B45B"
     code-error: "#F18484"
-    overlay: "#02070DB8"
+    overlay: "#010409B8"
   light:
     canvas: "#F6F8FB"
     surface-1: "#FFFFFF"
@@ -199,47 +199,47 @@ components:
   button-primary:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   button-primary-hover:
     backgroundColor: "{colors.primary-hover}"
     textColor: "{colors.on-primary}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   button-primary-active:
     backgroundColor: "{colors.primary-active}"
     textColor: "{colors.on-primary}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   button-secondary:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
     borderColor: "{colors.hairline-strong}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   button-ghost:
     backgroundColor: "transparent"
     textColor: "{colors.ink-muted}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   button-destructive:
     backgroundColor: "{colors.semantic-danger}"
     textColor: "{colors.on-danger}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   button-disabled:
     backgroundColor: "{colors.surface-2}"
     textColor: "{colors.ink-subtle}"
     borderColor: "{colors.hairline-strong}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   card:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
@@ -258,30 +258,30 @@ components:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
     borderColor: "{colors.hairline-strong}"
-    typography: "{typography.body}"
+    typography: "16px/24px"
     rounded: "{rounded.md}"
-    padding: "8px 12px"
+    padding: "7px 12px"
   text-input-focused:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
     borderColor: "{colors.focus-ring}"
-    typography: "{typography.body}"
+    typography: "16px/24px"
     rounded: "{rounded.md}"
-    padding: "8px 12px"
+    padding: "7px 12px"
   text-input-error:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
     borderColor: "{colors.semantic-danger}"
-    typography: "{typography.body}"
+    typography: "16px/24px"
     rounded: "{rounded.md}"
-    padding: "8px 12px"
+    padding: "7px 12px"
   select:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
     borderColor: "{colors.hairline-strong}"
-    typography: "{typography.body}"
+    typography: "16px/24px"
     rounded: "{rounded.md}"
-    padding: "8px 12px"
+    padding: "7px 12px"
   checkbox-checked:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
@@ -398,7 +398,7 @@ components:
 
 ## Overview
 
-Kood는 다크를 기본으로 합니다. 페이지 배경은 기본 다크 모드에서 `{colors.canvas}` #0A1724이고 짝이 되는 라이트 값은 #F6F8FB입니다. 이 네이비가 브랜드 시드입니다. 다크에서는 캔버스이고 라이트에서는 잉크와 프라이머리입니다.
+Kood는 다크를 기본으로 합니다. 페이지 배경은 기본 다크 모드에서 `{colors.canvas}` #0D1117이고 짝이 되는 라이트 값은 #F6F8FB입니다. 다크 차콜 캔버스는 라이트 모드의 잉크와 프라이머리 #0A1724와 의도적으로 구분합니다.
 
 절제된 파랑 `{colors.accent}` 하나가 모든 색 단서를 맡습니다. 링크와 포커스 링, 텍스트 선택과 정보에만 쓰고 다른 곳에는 쓰지 않습니다. 두 번째 색상은 없습니다.
 
@@ -406,7 +406,7 @@ UI 서체는 기본이 Pretendard Variable입니다. Wanted Sans Variable은 선
 
 **Key Characteristics:**
 
-- **Dark default.** `{colors.canvas}` #0A1724가 기본 캔버스이며 라이트 모드는 #F6F8FB와 짝을 이룹니다.
+- **Dark default.** `{colors.canvas}` #0D1117이 기본 캔버스이며 라이트 모드는 #F6F8FB와 짝을 이룹니다.
 - **One restrained blue.** `{colors.accent}`는 링크와 포커스, 선택과 정보에만 씁니다.
 - **Hairline cards.** 표면은 드롭 섀도가 아니라 1px `{colors.hairline}` 테두리 뒤의 3단 사다리에 놓입니다.
 - **Shadow only where it lifts.** 다크 모드는 그림자를 쓰지 않습니다. 라이트 모드는 올린 그림자 하나를 쓰며 메뉴와 팝오버, 다이얼로그에만 적용합니다.
@@ -416,7 +416,7 @@ UI 서체는 기본이 Pretendard Variable입니다. Wanted Sans Variable은 선
 
 ## Colors
 
-팔레트는 다크와 라이트가 짝을 이루는 토큰 37 개입니다. `#0A1724`가 브랜드 시드입니다. 다크 모드에서는 `{colors.canvas}`이고 라이트 모드에서는 `{colors.ink}`와 `{colors.primary}`입니다. `{colors.primary}` 자체는 브랜드 시드가 아니라 시맨틱 동작 채움입니다. 다크 모드에서는 밝은 뉴트럴 #E7EEF6이 되어 채운 버튼이 캔버스에 가라앉지 않습니다.
+팔레트는 다크와 라이트가 짝을 이루는 토큰 37 개입니다. `#0D1117`은 다크 차콜 캔버스이고 라이트 `{colors.ink}`와 `{colors.primary}`는 #0A1724를 유지합니다. `{colors.primary}` 자체는 시맨틱 동작 채움이며 다크 모드에서는 밝은 뉴트럴 #E7EEF6이 되어 채운 버튼이 캔버스에 가라앉지 않습니다.
 
 `{colors.ink-tertiary}`는 장식 전용이며 텍스트로 쓰지 않습니다. `{colors.hairline}`은 카드와 테이블, 내비게이션 같은 컨테이너에는 허용하지만 인터랙티브 컨트롤의 유일한 경계로는 쓰지 않습니다. 인터랙티브 컨트롤은 `{colors.hairline-strong}`을 씁니다.
 
@@ -424,8 +424,8 @@ UI 서체는 기본이 Pretendard Variable입니다. Wanted Sans Variable은 선
 
 ### Brand & Accent
 
-- **Primary** ({colors.primary}): 기본 버튼과 체크된 컨트롤의 시맨틱 동작 채움입니다. 브랜드 시드가 아닙니다. #E7EEF6 / #0A1724
-- **On Primary** ({colors.on-primary}): 프라이머리 채움 위의 텍스트와 아이콘입니다. #0A1724 / #FFFFFF
+- **Primary** ({colors.primary}): 기본 버튼과 체크된 컨트롤의 시맨틱 동작 채움입니다. #E7EEF6 / #0A1724
+- **On Primary** ({colors.on-primary}): 프라이머리 채움 위의 텍스트와 아이콘입니다. #0D1117 / #FFFFFF
 - **Primary Hover** ({colors.primary-hover}): 호버된 프라이머리 채움입니다. #F3F7FB / #12283B
 - **Primary Active** ({colors.primary-active}): 눌린 프라이머리 채움입니다. #CBD8E5 / #06121E
 - **Accent** ({colors.accent}): 유일한 파랑이며 링크와 선택 강조, 정보에 씁니다. #7FA5DE / #315C9F
@@ -435,13 +435,13 @@ UI 서체는 기본이 Pretendard Variable입니다. Wanted Sans Variable은 선
 
 ### Surface
 
-- **Canvas** ({colors.canvas}): 페이지 배경입니다. 다크 모드의 브랜드 시드입니다. #0A1724 / #F6F8FB
-- **Surface 1** ({colors.surface-1}): 카드와 컨트롤입니다. #101E2C / #FFFFFF
-- **Surface 2** ({colors.surface-2}): 중첩 또는 인셋 영역과 비활성 배경입니다. #172635 / #EFF3F7
-- **Surface 3** ({colors.surface-3}): 드롭다운과 서브 내비게이션입니다. #1E2E3E / #E5EBF1
-- **Hairline** ({colors.hairline}): 장식용 1px 구분선입니다. 카드와 테이블, 내비게이션 컨테이너에는 허용하고 버튼이나 입력의 유일한 경계로는 쓰지 않습니다. #2A3B4C / #D7E0E9
-- **Hairline Strong** ({colors.hairline-strong}): 인터랙티브 컨트롤 테두리(비텍스트 3:1)입니다. #566F88 / #7B8EA1
-- **Overlay** ({colors.overlay}): 모달 스크린이며 8자리 hex에 알파 72% / 40%입니다. #02070DB8 / #07131F66
+- **Canvas** ({colors.canvas}): 페이지 배경입니다. #0D1117 / #F6F8FB
+- **Surface 1** ({colors.surface-1}): 카드와 컨트롤입니다. #161B22 / #FFFFFF
+- **Surface 2** ({colors.surface-2}): 중첩 또는 인셋 영역과 비활성 배경입니다. #21262D / #EFF3F7
+- **Surface 3** ({colors.surface-3}): 드롭다운과 서브 내비게이션입니다. #272E37 / #E5EBF1
+- **Hairline** ({colors.hairline}): 장식용 1px 구분선입니다. 카드와 테이블, 내비게이션 컨테이너에는 허용하고 버튼이나 입력의 유일한 경계로는 쓰지 않습니다. #30363D / #D7E0E9
+- **Hairline Strong** ({colors.hairline-strong}): 인터랙티브 컨트롤 테두리(비텍스트 3:1)입니다. #737D8C / #7B8EA1
+- **Overlay** ({colors.overlay}): 모달 스크린이며 8자리 hex에 알파 72% / 40%입니다. #010409B8 / #07131F66
 - **Selection Background** ({colors.selection-bg}): `::selection` 배경입니다. #264A78 / #CFE0FA
 - **Selection Ink** ({colors.selection-ink}): `::selection` 텍스트입니다. #F3F7FB / #0A1724
 
@@ -458,15 +458,15 @@ UI 서체는 기본이 Pretendard Variable입니다. Wanted Sans Variable은 선
 - **Warning** ({colors.semantic-warning}): 경고 채움입니다. #E4B45B / #80520A
 - **Danger** ({colors.semantic-danger}): 위험 채움입니다. #F18484 / #B8323E
 - **Info** ({colors.semantic-info}): 정보 채움이며 액센트를 재사용합니다. #7FA5DE / #315C9F
-- **On Success** ({colors.on-success}): 솔리드 성공 채움 위의 텍스트입니다. #07131F / #FFFFFF
-- **On Warning** ({colors.on-warning}): 솔리드 경고 채움 위의 텍스트입니다. #07131F / #FFFFFF
-- **On Danger** ({colors.on-danger}): 솔리드 위험 채움 위의 텍스트입니다. #07131F / #FFFFFF
-- **On Info** ({colors.on-info}): 솔리드 정보 채움 위의 텍스트입니다. #07131F / #FFFFFF
+- **On Success** ({colors.on-success}): 솔리드 성공 채움 위의 텍스트입니다. #090C10 / #FFFFFF
+- **On Warning** ({colors.on-warning}): 솔리드 경고 채움 위의 텍스트입니다. #090C10 / #FFFFFF
+- **On Danger** ({colors.on-danger}): 솔리드 위험 채움 위의 텍스트입니다. #090C10 / #FFFFFF
+- **On Info** ({colors.on-info}): 솔리드 정보 채움 위의 텍스트입니다. #090C10 / #FFFFFF
 
 ### Code
 
-- **Code Background** ({colors.code-bg}): 코드 블록 배경입니다. #07131F / #EFF3F7
-- **Code Border** ({colors.code-border}): 코드 블록 테두리입니다. #2A3B4C / #D7E0E9
+- **Code Background** ({colors.code-bg}): 코드 블록 배경입니다. #090C10 / #EFF3F7
+- **Code Border** ({colors.code-border}): 코드 블록 테두리입니다. #30363D / #D7E0E9
 - **Code Ink** ({colors.code-ink}): 기본 코드 텍스트입니다. #E7EEF6 / #0A1724
 - **Code Comment** ({colors.code-comment}): 주석입니다. #899AAD / #596B7D
 - **Code Keyword** ({colors.code-keyword}): 키워드이며 액센트를 재사용합니다. #7FA5DE / #315C9F
@@ -540,30 +540,30 @@ UI 서체는 산스 프리셋 2 개와 코드 서체 1 개입니다. Pretendard 
 
 :root,
 [data-font="pretendard"] {
-  --font-sans:
+  --kood-font-sans:
     "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-  --font-mono:
+  --kood-font-mono:
     "Jetendard", "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono",
     "Noto Sans Mono CJK KR", "D2Coding", "Pretendard Variable", "Pretendard", ui-monospace,
     monospace;
 }
 [data-font="wanted"] {
-  --font-sans:
+  --kood-font-sans:
     "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", "Pretendard", -apple-system,
     BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", sans-serif;
 }
 html {
-  font-family: var(--font-sans);
+  font-family: var(--kood-font-sans);
 }
 code,
 kbd,
 samp,
 pre {
-  font-family: var(--font-mono);
+  font-family: var(--kood-font-mono);
   font-synthesis: none;
 }
 :where(p, li, dd, blockquote, figcaption):lang(ko) {
@@ -621,7 +621,7 @@ Pretendard나 Wanted Sans가 로드되지 않으면 스택이 Apple SD Gothic Ne
 
 ### Spacing System
 
-기본 단위는 4px입니다. 스케일은 토큰 14 개이며 스케일에 있는 값이면 토큰을 씁니다. 카드 내부는 24px = `{spacing.6}`입니다. 버튼 패딩은 리터럴 `8px 14px`입니다(14px는 스케일 밖이므로 리터럴로 둡니다). 입력 패딩은 `8px 12px`입니다. 섹션 간격은 `{spacing.24}` 96px입니다.
+기본 단위는 4px입니다. 스케일은 토큰 14 개이며 스케일에 있는 값이면 토큰을 씁니다. 카드 내부는 24px = `{spacing.6}`입니다. 기본 버튼은 border-box 40px 행, 14px / 20px 타입, `9px 14px` 패딩을 씁니다. 기본 입력과 셀렉트는 border-box 40px 행, 16px / 24px 타입, `7px 12px` 패딩을 씁니다. 768px 미만에서는 각 최소 행 높이가 44px입니다. 섹션 간격은 `{spacing.24}` 96px입니다.
 
 | 토큰         | 값    | 용도                                    |
 | ------------ | ----- | --------------------------------------- |
@@ -664,7 +664,7 @@ Pretendard나 Wanted Sans가 로드되지 않으면 스택이 Apple SD Gothic Ne
 
 ## Shapes
 
-모서리는 고정된 8 단계 스케일을 따릅니다. 컴포넌트에 맞는 토큰을 고르고 중간 값은 만들지 않습니다.
+모서리는 문서의 `--radius` 기준값(기본 8px)에서 계산합니다. 컴포넌트에 맞는 토큰을 고르고 중간 값은 만들지 않습니다.
 
 ### Border Radius Scale
 
@@ -679,6 +679,8 @@ Pretendard나 Wanted Sans가 로드되지 않으면 스택이 Apple SD Gothic Ne
 | {rounded.xxl}  | 24px   | 큰 제품 스크린샷 프레임용으로 예약 |
 | {rounded.full} | 9999px | 배지와 필                          |
 
+CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--radius) * .75)`, `--radius-md: var(--radius)`, `--radius-lg: calc(var(--radius) * 1.5)`, `--radius-xl: calc(var(--radius) * 2)`, `--radius-2xl: calc(var(--radius) * 3)`입니다. `none`과 `full`은 별개입니다. 루트 `--radius` 오버라이드는 이름 있는 스케일을 바꾸며, 뒤의 `--radius-md: 7px` 같은 이름 오버라이드는 그 이름만 바꿉니다.
+
 사진과 일러스트 정책은 아직 없으며 Known Gaps에 둡니다. 제품 스크린샷은 `{rounded.lg}` 프레임을 씁니다. `{rounded.xxl}`은 큰 제품 스크린샷 프레임용으로 예약합니다.
 
 ## Components
@@ -687,15 +689,15 @@ Pretendard나 Wanted Sans가 로드되지 않으면 스택이 Apple SD Gothic Ne
 
 ### Buttons
 
-다크 모드에서 `{colors.primary}`는 네이비 브랜드 시드가 아니라 밝은 뉴트럴 채움(#E7EEF6)입니다. 채운 동작이 `{colors.canvas}` 위에서 선명하게 남습니다. `{colors.hairline}`은 인터랙티브 컨트롤의 유일한 경계가 되지 않습니다. 아웃라인 버튼과 입력은 `{colors.hairline-strong}`을 씁니다.
+다크 모드에서 `{colors.primary}`는 차콜 캔버스가 아니라 밝은 뉴트럴 채움(#E7EEF6)입니다. 채운 동작이 `{colors.canvas}` 위에서 선명하게 남습니다. `{colors.hairline}`은 인터랙티브 컨트롤의 유일한 경계가 되지 않습니다. 아웃라인 버튼과 입력은 `{colors.hairline-strong}`을 씁니다. 기본 버튼은 border-box 40px 행, 14px / 20px 타입, `9px 14px` 패딩을 쓰며 768px 미만에서는 최소 높이가 44px입니다.
 
-- **button-primary** (기본 채움 동작). bg {colors.primary} · text {colors.on-primary} · {typography.button} · {rounded.md} · padding 8px 14px
-- **button-primary-hover** (호버된 프라이머리 채움). bg {colors.primary-hover} · text {colors.on-primary} · {typography.button} · {rounded.md} · padding 8px 14px
-- **button-primary-active** (눌린 프라이머리 채움). bg {colors.primary-active} · text {colors.on-primary} · {typography.button} · {rounded.md} · padding 8px 14px
-- **button-secondary** (아웃라인 보조 동작). bg {colors.surface-1} · text {colors.ink} · border {colors.hairline-strong} · {typography.button} · {rounded.md} · padding 8px 14px
-- **button-ghost** (장식 없는 동작). bg transparent · text {colors.ink-muted} · {typography.button} · {rounded.md} · padding 8px 14px
-- **button-destructive** (삭제용 채움 동작). bg {colors.semantic-danger} · text {colors.on-danger} · {typography.button} · {rounded.md} · padding 8px 14px
-- **button-disabled** (비활성 컨트롤). bg {colors.surface-2} · text {colors.ink-subtle} · border {colors.hairline-strong} · {typography.button} · {rounded.md} · padding 8px 14px
+- **button-primary** (기본 채움 동작). bg {colors.primary} · text {colors.on-primary} · 14px/20px 컨트롤 타입 · {rounded.md} · padding 9px 14px
+- **button-primary-hover** (호버된 프라이머리 채움). bg {colors.primary-hover} · text {colors.on-primary} · 14px/20px 컨트롤 타입 · {rounded.md} · padding 9px 14px
+- **button-primary-active** (눌린 프라이머리 채움). bg {colors.primary-active} · text {colors.on-primary} · 14px/20px 컨트롤 타입 · {rounded.md} · padding 9px 14px
+- **button-secondary** (아웃라인 보조 동작). bg {colors.surface-1} · text {colors.ink} · border {colors.hairline-strong} · 14px/20px 컨트롤 타입 · {rounded.md} · padding 9px 14px
+- **button-ghost** (장식 없는 동작). bg transparent · text {colors.ink-muted} · 14px/20px 컨트롤 타입 · {rounded.md} · padding 9px 14px
+- **button-destructive** (삭제용 채움 동작). bg {colors.semantic-danger} · text {colors.on-danger} · 14px/20px 컨트롤 타입 · {rounded.md} · padding 9px 14px
+- **button-disabled** (비활성 컨트롤). bg {colors.surface-2} · text {colors.ink-subtle} · border {colors.hairline-strong} · 14px/20px 컨트롤 타입 · {rounded.md} · padding 9px 14px
 
 ### Cards & Containers
 
@@ -706,12 +708,12 @@ Pretendard나 Wanted Sans가 로드되지 않으면 스택이 Apple SD Gothic Ne
 
 ### Inputs & Forms
 
-인터랙티브 필드는 정지 상태에서 `{colors.hairline-strong}`을 씁니다. 포커스와 오류는 그 테두리를 바꾸며 box-shadow를 더하지 않습니다.
+인터랙티브 필드는 정지 상태에서 `{colors.hairline-strong}`을 씁니다. 포커스와 오류는 그 테두리를 바꾸며 box-shadow를 더하지 않습니다. 기본 입력과 셀렉트는 border-box 40px 행, 16px / 24px 타입, `7px 12px` 패딩을 쓰며 768px 미만에서는 최소 높이가 44px입니다.
 
-- **text-input** (한 줄 텍스트 필드). bg {colors.surface-1} · text {colors.ink} · border {colors.hairline-strong} · {typography.body} · {rounded.md} · padding 8px 12px
-- **text-input-focused** (포커스된 텍스트 필드). bg {colors.surface-1} · text {colors.ink} · border {colors.focus-ring} · {typography.body} · {rounded.md} · padding 8px 12px
-- **text-input-error** (잘못된 텍스트 필드). bg {colors.surface-1} · text {colors.ink} · border {colors.semantic-danger} · {typography.body} · {rounded.md} · padding 8px 12px
-- **select** (셀렉트 트리거). bg {colors.surface-1} · text {colors.ink} · border {colors.hairline-strong} · {typography.body} · {rounded.md} · padding 8px 12px
+- **text-input** (한 줄 텍스트 필드). bg {colors.surface-1} · text {colors.ink} · border {colors.hairline-strong} · 16px/24px 컨트롤 타입 · {rounded.md} · padding 7px 12px
+- **text-input-focused** (포커스된 텍스트 필드). bg {colors.surface-1} · text {colors.ink} · border {colors.focus-ring} · 16px/24px 컨트롤 타입 · {rounded.md} · padding 7px 12px
+- **text-input-error** (잘못된 텍스트 필드). bg {colors.surface-1} · text {colors.ink} · border {colors.semantic-danger} · 16px/24px 컨트롤 타입 · {rounded.md} · padding 7px 12px
+- **select** (셀렉트 트리거). bg {colors.surface-1} · text {colors.ink} · border {colors.hairline-strong} · 16px/24px 컨트롤 타입 · {rounded.md} · padding 7px 12px
 - **checkbox-checked** (체크된 체크박스 채움). bg {colors.primary} · text {colors.on-primary} · {typography.caption} · {rounded.xs} · padding 0px
 
 ### Badges, Pills & Alerts
@@ -801,11 +803,11 @@ Pretendard나 Wanted Sans가 로드되지 않으면 스택이 Apple SD Gothic Ne
 
 ### Mode switching
 
-다크가 기본입니다. 기존 `src/styles/globals.css`의 `@custom-variant dark (&:is(.dark *))`와 맞추려고 `<html>`에 `class="dark"`를 둡니다. 라이트 모드는 같은 문서에서 그 클래스를 뺀 상태입니다. 이 저장소는 이미 `next-themes`에 의존하므로 `<ThemeProvider attribute="class" defaultTheme="dark">`로 연결합니다.
+`:root`와 `.dark`가 다크 계약을 정의하므로 다크가 기본입니다. `class="dark"`는 `@custom-variant dark (&:is(.dark *))`와도 맞습니다. 라이트 모드는 명시적입니다. `<html>`에 `class="light"`를 둡니다. `.dark`만 빼면 `:root`의 다크 값이 남습니다. 이 저장소는 이미 `next-themes`에 의존하므로 class 속성을 쓰되 라이트에는 명시적인 `light` 클래스를 사용합니다.
 
 ### Mapping to shadcn and Tailwind tokens
 
-지금 `src/styles/globals.css`는 `:root` / `.dark`에 `--radius`와 `--sidebar*`만 정의하고 `@theme inline`은 `--color-sidebar*`를 노출합니다. shadcn 캔버스 토큰(`--background`, `--primary`와 표의 나머지)은 아직 없습니다. DESIGN 키를 그 변수에 다음과 같이 대응합니다.
+`src/styles/globals.css`는 다크 `:root` / `.dark`와 명시적 `.light`에 전체 shadcn 토큰 표를 정의하고 `@theme inline`은 대응 Tailwind 색을 노출합니다. 이름 있는 반지름은 `--radius`에서 계산하므로 문서 루트의 base 및 named-radius 오버라이드가 계속 작동합니다. DESIGN 키는 다음과 같이 대응합니다.
 
 | DESIGN 토큰     | shadcn CSS 변수             | Tailwind 유틸리티              |
 | --------------- | --------------------------- | ------------------------------ |
@@ -831,64 +833,38 @@ Pretendard나 Wanted Sans가 로드되지 않으면 스택이 Apple SD Gothic Ne
 | hairline        | --sidebar-border            | border-sidebar-border          |
 | focus-ring      | --sidebar-ring              | ring-sidebar-ring              |
 
-기존 `src/components/button.tsx`는 zinc 클래스(`bg-zinc-900`, `bg-zinc-100`, `border-zinc-200`와 나머지 cva 변형)를 하드코딩하므로 이 토큰으로 옮길 대상입니다(이 문서가 바꾸지 않습니다).
+컴포넌트는 위의 시맨틱 토큰 클래스를 소비합니다. 하드코딩한 팔레트 클래스로 바꾸지 않습니다.
 
-참조 스니펫입니다. 이 문서가 적용하지 않습니다.
+출시된 다크 매핑은 다음과 같습니다.
 
 ```css
-/* reference snippet — not applied by this document */
 :root,
 .dark {
-  --background: #0a1724;
-  --foreground: #f3f7fb;
-  --card: #101e2c;
-  --popover: #1e2e3e;
-  --primary: #e7eef6;
-  --primary-foreground: #0a1724;
-  --secondary: #172635;
-  --muted: #172635;
-  --muted-foreground: #899aad;
-  --accent: #172a45;
-  --accent-foreground: #7fa5de;
-  --destructive: #f18484;
-  --border: #2a3b4c;
-  --input: #566f88;
-  --ring: #7fa5de;
-  --sidebar: #101e2c;
-  --sidebar-foreground: #b8c6d5;
-  --sidebar-accent: #172a45;
-  --sidebar-accent-foreground: #7fa5de;
-  --sidebar-border: #2a3b4c;
-  --sidebar-ring: #7fa5de;
-}
-.light {
-  --background: #f6f8fb;
-  --foreground: #0a1724;
-  --card: #ffffff;
-  --popover: #e5ebf1;
-  --primary: #0a1724;
-  --primary-foreground: #ffffff;
-  --secondary: #eff3f7;
-  --muted: #eff3f7;
-  --muted-foreground: #596b7d;
-  --accent: #e7eef9;
-  --accent-foreground: #315c9f;
-  --destructive: #b8323e;
-  --border: #d7e0e9;
-  --input: #7b8ea1;
-  --ring: #315c9f;
-}
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-primary: var(--primary);
+  --background: #0d1117;
+  --card: #161b22;
+  --sidebar: #161b22;
+  --secondary: #21262d;
+  --muted: #21262d;
+  --popover: #272e37;
+  --border: #30363d;
+  --sidebar-border: #30363d;
+  --code-border: #30363d;
+  --input: #737d8c;
+  --code: #090c10;
+  --overlay: #010409b8;
+  --primary-foreground: #0d1117;
+  --sidebar-primary-foreground: #0d1117;
+  --destructive-foreground: #090c10;
+  --success-foreground: #090c10;
+  --warning-foreground: #090c10;
 }
 ```
 
+나머지 다크 텍스트와 프라이머리 채움, 파란 강조, 선택, 시맨틱 채움은 바꾸지 않습니다. `.light`는 기존 색과 `--kood-shadow-raised` 값을 유지합니다.
+
 ### Font preset switching
 
-`data-font` 속성이 없으면 기본 산스 Pretendard입니다. `<html data-font="wanted">`는 `--font-sans`를 Wanted Sans로 바꿉니다. `--font-sans`와 `--font-mono`는 Typography 절에서 정의한 변수이며 세 번째 패밀리 변수를 만들지 않습니다.
+`data-font` 속성이 없으면 기본 산스 Pretendard입니다. `<html data-font="wanted">`는 `--kood-font-sans`를 Wanted Sans로 바꿉니다. `--kood-font-sans`와 `--kood-font-mono`는 패키지 훅이고 Tailwind의 `--font-sans`와 `--font-mono`가 이를 alias합니다. 세 번째 패밀리 변수는 만들지 않습니다.
 
 ## Do's and Don'ts
 
@@ -903,7 +879,7 @@ Pretendard나 Wanted Sans가 로드되지 않으면 스택이 Apple SD Gothic Ne
 - 모든 토큰을 다크와 라이트에 같은 키로 한 번에 정의합니다.
 - Jetendard는 코드(`code`, `kbd`, `samp`, `pre`와 코드 토큰)에만 씁니다.
 - 테이블에서는 `font-variant-numeric: tabular-nums`를 씁니다.
-- 인터랙티브 히트 영역은 최소 44×44px로 잡고 모바일에서 버튼은 `min-height: 44px`도 둡니다.
+- 768px 이상에서는 기본 Button, Input, Select 행을 40px로 쓰고 768px 미만에서는 각각 `min-height: 44px`를 둡니다.
 - 변경 뒤에는 `bun scripts/verify-design-md.ts DESIGN.md DESIGN.ko.md`를 실행합니다.
 
 ### Don't
@@ -921,7 +897,7 @@ Pretendard나 Wanted Sans가 로드되지 않으면 스택이 Apple SD Gothic Ne
 
 ## Responsive Behavior
 
-레이아웃은 너비 스케일 5 단계에서 리플로우합니다. 터치 타깃은 모든 단계에서 44×44px를 유지합니다.
+레이아웃은 너비 스케일 5 단계에서 리플로우합니다. 기본 Button, Input, Select 행은 768px 이상에서 40px이고 768px 미만에서 최소 44px입니다.
 
 ### Breakpoints
 
@@ -935,7 +911,7 @@ Pretendard나 Wanted Sans가 로드되지 않으면 스택이 Apple SD Gothic Ne
 
 ### Touch Targets
 
-모든 인터랙티브 컨트롤은 최소 44×44px입니다. 768px 미만 뷰포트에서 버튼은 패딩만으로 더 낮아지더라도 `min-height: 44px`를 둡니다.
+768px 이상에서는 기본 Button, Input, Select 행이 40px입니다. 768px 미만에서는 패딩만으로 더 낮아지더라도 각각 `min-height: 44px`를 둡니다.
 
 ### Collapsing Strategy
 
@@ -953,25 +929,25 @@ Pretendard나 Wanted Sans가 로드되지 않으면 스택이 Apple SD Gothic Ne
 
 ## Known Gaps
 
-이 저장소는 작성 시점에 출시된 UI 증거가 없었으므로 이 파일의 토큰과 레시피는 모두 Proposed입니다.
+이 문서는 출시된 토큰과 지오메트리 계약을 기록하며 각 primitive와 화면의 브라우저 증거는 해당 구현 작업에서 추적합니다.
 
 - 아이콘 세트는 미정입니다(TODO).
 - 일러스트와 사진 정책이 없습니다.
 - 차트 팔레트가 없습니다.
 - Jetendard는 `/fonts/jetendard/` 아래에 자체 호스팅해야 하며 CDN이 없습니다.
 - Pretendard와 Wanted Sans의 메트릭이 달라 프리셋 사이 줄바꿈이 다릅니다. 두 프리셋에서 헤딩과 테이블, 버튼을 확인합니다.
-- 기존 `src/components/button.tsx`는 zinc 클래스를 하드코딩하고 `src/styles/globals.css`는 아직 shadcn 캔버스 변수를 정의하지 않습니다. 마이그레이션은 후속이며 이 문서의 범위가 아닙니다.
+- 컴포넌트 수준의 브라우저 커버리지는 primitive 구현 및 통합 작업의 책임입니다.
 
 ## Evidence and Assumptions
 
 이 파일의 접근성 주장은 WCAG 2.1 AA 대비율로 한정됩니다. 전체 WCAG 준수 주장이 아닙니다.
 
-| 주장                  | 근거                                                                        | 신뢰도 |
-| --------------------- | --------------------------------------------------------------------------- | ------ |
-| 프라이머리 색 #0A1724 | 사용자 요청                                                                 | 높음   |
-| 단정하고 정돈된 톤    | 사용자 요청과 awesome-design-md 예시(Vercel, HashiCorp, Linear)의 섹션 구조 | 중간   |
-| 액센트와 뉴트럴 값    | 플래너 제안과 WCAG 대비 계산                                                | 중간   |
-| 서체 URL              | 공식 README와 HTTP 200 확인                                                 | 높음   |
-| Jetendard 구조        | README와 LICENSE(정적 페이스 16 개, SIL OFL 1.1, Reserved Font Name)        | 높음   |
-| 타이포그래피 스케일   | 제안                                                                        | 중간   |
-| 컴포넌트 레시피       | 제안                                                                        | 낮음   |
+| 주장                | 근거                                                                        | 신뢰도 |
+| ------------------- | --------------------------------------------------------------------------- | ------ |
+| 다크 캔버스 #0D1117 | 승인된 charcoal 계약                                                        | 높음   |
+| 단정하고 정돈된 톤  | 사용자 요청과 awesome-design-md 예시(Vercel, HashiCorp, Linear)의 섹션 구조 | 중간   |
+| 액센트와 뉴트럴 값  | 플래너 제안과 WCAG 대비 계산                                                | 중간   |
+| 서체 URL            | 공식 README와 HTTP 200 확인                                                 | 높음   |
+| Jetendard 구조      | README와 LICENSE(정적 페이스 16 개, SIL OFL 1.1, Reserved Font Name)        | 높음   |
+| 타이포그래피 스케일 | 제안                                                                        | 중간   |
+| 컴포넌트 레시피     | 제안                                                                        | 낮음   |

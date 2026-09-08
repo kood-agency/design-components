@@ -1,7 +1,7 @@
 ---
 version: "alpha"
 name: "kood-design-system"
-description: "Kood is a dark-first design system on a #0A1724 canvas. A single restrained blue accent is reserved for links, focus, selection, and info — never a second hue, never a glow. Cards sit on a surface ladder behind hairline borders instead of shadows. Pretendard is the default sans, Wanted Sans is an opt-in preset, and Jetendard is the code face."
+description: "Kood is a dark-first design system on a #0D1117 charcoal canvas. A single restrained blue accent is reserved for links, focus, selection, and info — never a second hue, never a glow. Cards sit on a surface ladder behind hairline borders instead of shadows. Pretendard is the default sans, Wanted Sans is an opt-in preset, and Jetendard is the code face."
 mode-default: "dark"
 fonts:
   sans-default: "pretendard"
@@ -11,18 +11,18 @@ fonts:
   mono: '"Jetendard", "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Noto Sans Mono CJK KR", "D2Coding", "Pretendard Variable", "Pretendard", ui-monospace, monospace'
 colors:
   dark:
-    canvas: "#0A1724"
-    surface-1: "#101E2C"
-    surface-2: "#172635"
-    surface-3: "#1E2E3E"
-    hairline: "#2A3B4C"
-    hairline-strong: "#566F88"
+    canvas: "#0D1117"
+    surface-1: "#161B22"
+    surface-2: "#21262D"
+    surface-3: "#272E37"
+    hairline: "#30363D"
+    hairline-strong: "#737D8C"
     ink: "#F3F7FB"
     ink-muted: "#B8C6D5"
     ink-subtle: "#899AAD"
     ink-tertiary: "#64778A"
     primary: "#E7EEF6"
-    on-primary: "#0A1724"
+    on-primary: "#0D1117"
     primary-hover: "#F3F7FB"
     primary-active: "#CBD8E5"
     accent: "#7FA5DE"
@@ -33,21 +33,21 @@ colors:
     semantic-warning: "#E4B45B"
     semantic-danger: "#F18484"
     semantic-info: "#7FA5DE"
-    on-success: "#07131F"
-    on-warning: "#07131F"
-    on-danger: "#07131F"
-    on-info: "#07131F"
+    on-success: "#090C10"
+    on-warning: "#090C10"
+    on-danger: "#090C10"
+    on-info: "#090C10"
     selection-bg: "#264A78"
     selection-ink: "#F3F7FB"
-    code-bg: "#07131F"
-    code-border: "#2A3B4C"
+    code-bg: "#090C10"
+    code-border: "#30363D"
     code-ink: "#E7EEF6"
     code-comment: "#899AAD"
     code-keyword: "#7FA5DE"
     code-string: "#6BCB91"
     code-number: "#E4B45B"
     code-error: "#F18484"
-    overlay: "#02070DB8"
+    overlay: "#010409B8"
   light:
     canvas: "#F6F8FB"
     surface-1: "#FFFFFF"
@@ -199,47 +199,47 @@ components:
   button-primary:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   button-primary-hover:
     backgroundColor: "{colors.primary-hover}"
     textColor: "{colors.on-primary}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   button-primary-active:
     backgroundColor: "{colors.primary-active}"
     textColor: "{colors.on-primary}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   button-secondary:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
     borderColor: "{colors.hairline-strong}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   button-ghost:
     backgroundColor: "transparent"
     textColor: "{colors.ink-muted}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   button-destructive:
     backgroundColor: "{colors.semantic-danger}"
     textColor: "{colors.on-danger}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   button-disabled:
     backgroundColor: "{colors.surface-2}"
     textColor: "{colors.ink-subtle}"
     borderColor: "{colors.hairline-strong}"
-    typography: "{typography.button}"
+    typography: "14px/20px"
     rounded: "{rounded.md}"
-    padding: "8px 14px"
+    padding: "9px 14px"
   card:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
@@ -258,30 +258,30 @@ components:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
     borderColor: "{colors.hairline-strong}"
-    typography: "{typography.body}"
+    typography: "16px/24px"
     rounded: "{rounded.md}"
-    padding: "8px 12px"
+    padding: "7px 12px"
   text-input-focused:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
     borderColor: "{colors.focus-ring}"
-    typography: "{typography.body}"
+    typography: "16px/24px"
     rounded: "{rounded.md}"
-    padding: "8px 12px"
+    padding: "7px 12px"
   text-input-error:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
     borderColor: "{colors.semantic-danger}"
-    typography: "{typography.body}"
+    typography: "16px/24px"
     rounded: "{rounded.md}"
-    padding: "8px 12px"
+    padding: "7px 12px"
   select:
     backgroundColor: "{colors.surface-1}"
     textColor: "{colors.ink}"
     borderColor: "{colors.hairline-strong}"
-    typography: "{typography.body}"
+    typography: "16px/24px"
     rounded: "{rounded.md}"
-    padding: "8px 12px"
+    padding: "7px 12px"
   checkbox-checked:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.on-primary}"
@@ -398,7 +398,7 @@ components:
 
 ## Overview
 
-Kood is dark-first. The page background is `{colors.canvas}` #0A1724 in the default dark mode and its paired light counterpart #F6F8FB. That navy is the brand seed: canvas in dark, ink and primary in light.
+Kood is dark-first. The page background is `{colors.canvas}` #0D1117 in the default dark mode and its paired light counterpart #F6F8FB. The charcoal canvas is intentionally separate from the light mode's ink and primary #0A1724.
 
 A single restrained blue `{colors.accent}` carries every chromatic cue. Use it for links, focus rings, text selection, and info — and nowhere else. There is no second hue.
 
@@ -406,7 +406,7 @@ UI type is Pretendard Variable by default. Wanted Sans Variable is the opt-in sa
 
 **Key Characteristics:**
 
-- **Dark default.** `{colors.canvas}` #0A1724 is the home canvas; light mode pairs it with #F6F8FB.
+- **Dark default.** `{colors.canvas}` #0D1117 is the home canvas; light mode pairs it with #F6F8FB.
 - **One restrained blue.** `{colors.accent}` is reserved for links, focus, selection, and info.
 - **Hairline cards.** Surfaces sit on a three-step ladder behind 1px `{colors.hairline}` borders, not drop shadows.
 - **Shadow only where it lifts.** Dark mode uses no shadow. Light mode uses one raised shadow, and only on menus, popovers, and dialogs.
@@ -416,7 +416,7 @@ UI type is Pretendard Variable by default. Wanted Sans Variable is the opt-in sa
 
 ## Colors
 
-The palette is 37 tokens, paired dark and light. `#0A1724` is the brand seed — `{colors.canvas}` in dark mode, `{colors.ink}` and `{colors.primary}` in light mode. `{colors.primary}` itself is a semantic action fill, not the brand seed: in dark mode it becomes the light neutral #E7EEF6 so filled buttons do not sink into the canvas.
+The palette is 37 tokens, paired dark and light. `#0D1117` is the dark charcoal canvas; light `{colors.ink}` and `{colors.primary}` remain #0A1724. `{colors.primary}` itself is a semantic action fill: in dark mode it is the light neutral #E7EEF6 so filled buttons do not sink into the canvas.
 
 `{colors.ink-tertiary}` is decorative only and is never used as text. `{colors.hairline}` is allowed on containers (cards, tables, nav) but is never the sole boundary of an interactive control; those use `{colors.hairline-strong}`.
 
@@ -424,8 +424,8 @@ Contrast figures come from the sRGB relative-luminance formula and are re-checke
 
 ### Brand & Accent
 
-- **Primary** ({colors.primary}): Semantic action fill for default buttons and checked controls. Not the brand seed — #E7EEF6 / #0A1724
-- **On Primary** ({colors.on-primary}): Text and icons on a primary fill — #0A1724 / #FFFFFF
+- **Primary** ({colors.primary}): Semantic action fill for default buttons and checked controls — #E7EEF6 / #0A1724
+- **On Primary** ({colors.on-primary}): Text and icons on a primary fill — #0D1117 / #FFFFFF
 - **Primary Hover** ({colors.primary-hover}): Hovered primary fill — #F3F7FB / #12283B
 - **Primary Active** ({colors.primary-active}): Pressed primary fill — #CBD8E5 / #06121E
 - **Accent** ({colors.accent}): The single blue, used on links, selection emphasis, and info — #7FA5DE / #315C9F
@@ -435,13 +435,13 @@ Contrast figures come from the sRGB relative-luminance formula and are re-checke
 
 ### Surface
 
-- **Canvas** ({colors.canvas}): Page background. Brand seed in dark mode — #0A1724 / #F6F8FB
-- **Surface 1** ({colors.surface-1}): Cards and controls — #101E2C / #FFFFFF
-- **Surface 2** ({colors.surface-2}): Nested or inset regions, disabled backgrounds — #172635 / #EFF3F7
-- **Surface 3** ({colors.surface-3}): Dropdowns and sub-nav — #1E2E3E / #E5EBF1
-- **Hairline** ({colors.hairline}): Decorative 1px divider. Allowed on card, table, and nav containers; never the sole boundary of a button or input — #2A3B4C / #D7E0E9
-- **Hairline Strong** ({colors.hairline-strong}): Interactive control border (non-text 3:1) — #566F88 / #7B8EA1
-- **Overlay** ({colors.overlay}): Modal scrim, 8-digit hex at 72% / 40% alpha — #02070DB8 / #07131F66
+- **Canvas** ({colors.canvas}): Page background — #0D1117 / #F6F8FB
+- **Surface 1** ({colors.surface-1}): Cards and controls — #161B22 / #FFFFFF
+- **Surface 2** ({colors.surface-2}): Nested or inset regions, disabled backgrounds — #21262D / #EFF3F7
+- **Surface 3** ({colors.surface-3}): Dropdowns and sub-nav — #272E37 / #E5EBF1
+- **Hairline** ({colors.hairline}): Decorative 1px divider. Allowed on card, table, and nav containers; never the sole boundary of a button or input — #30363D / #D7E0E9
+- **Hairline Strong** ({colors.hairline-strong}): Interactive control border (non-text 3:1) — #737D8C / #7B8EA1
+- **Overlay** ({colors.overlay}): Modal scrim, 8-digit hex at 72% / 40% alpha — #010409B8 / #07131F66
 - **Selection Background** ({colors.selection-bg}): `::selection` background — #264A78 / #CFE0FA
 - **Selection Ink** ({colors.selection-ink}): `::selection` text — #F3F7FB / #0A1724
 
@@ -458,15 +458,15 @@ Contrast figures come from the sRGB relative-luminance formula and are re-checke
 - **Warning** ({colors.semantic-warning}): Warning fills — #E4B45B / #80520A
 - **Danger** ({colors.semantic-danger}): Destructive fills — #F18484 / #B8323E
 - **Info** ({colors.semantic-info}): Info fills; reuses accent — #7FA5DE / #315C9F
-- **On Success** ({colors.on-success}): Text on a solid success fill — #07131F / #FFFFFF
-- **On Warning** ({colors.on-warning}): Text on a solid warning fill — #07131F / #FFFFFF
-- **On Danger** ({colors.on-danger}): Text on a solid danger fill — #07131F / #FFFFFF
-- **On Info** ({colors.on-info}): Text on a solid info fill — #07131F / #FFFFFF
+- **On Success** ({colors.on-success}): Text on a solid success fill — #090C10 / #FFFFFF
+- **On Warning** ({colors.on-warning}): Text on a solid warning fill — #090C10 / #FFFFFF
+- **On Danger** ({colors.on-danger}): Text on a solid danger fill — #090C10 / #FFFFFF
+- **On Info** ({colors.on-info}): Text on a solid info fill — #090C10 / #FFFFFF
 
 ### Code
 
-- **Code Background** ({colors.code-bg}): Code block background — #07131F / #EFF3F7
-- **Code Border** ({colors.code-border}): Code block border — #2A3B4C / #D7E0E9
+- **Code Background** ({colors.code-bg}): Code block background — #090C10 / #EFF3F7
+- **Code Border** ({colors.code-border}): Code block border — #30363D / #D7E0E9
 - **Code Ink** ({colors.code-ink}): Default code text — #E7EEF6 / #0A1724
 - **Code Comment** ({colors.code-comment}): Comments — #899AAD / #596B7D
 - **Code Keyword** ({colors.code-keyword}): Keywords; reuses accent — #7FA5DE / #315C9F
@@ -540,30 +540,30 @@ Use the `<link>` block OR the `@import` block, not both.
 
 :root,
 [data-font="pretendard"] {
-  --font-sans:
+  --kood-font-sans:
     "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-  --font-mono:
+  --kood-font-mono:
     "Jetendard", "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono",
     "Noto Sans Mono CJK KR", "D2Coding", "Pretendard Variable", "Pretendard", ui-monospace,
     monospace;
 }
 [data-font="wanted"] {
-  --font-sans:
+  --kood-font-sans:
     "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", "Pretendard", -apple-system,
     BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", sans-serif;
 }
 html {
-  font-family: var(--font-sans);
+  font-family: var(--kood-font-sans);
 }
 code,
 kbd,
 samp,
 pre {
-  font-family: var(--font-mono);
+  font-family: var(--kood-font-mono);
   font-synthesis: none;
 }
 :where(p, li, dd, blockquote, figcaption):lang(ko) {
@@ -621,7 +621,7 @@ Layout is a 4px-base spacing scale inside a 1200px content column. On the dark c
 
 ### Spacing System
 
-The base unit is 4px. The scale is fourteen tokens; use a token whenever the value exists on the scale. Card interiors are 24px = `{spacing.6}`. Button padding is the literal `8px 14px` (14px is off-scale and stays a literal). Input padding is `8px 12px`. Section-to-section gap is `{spacing.24}` 96px.
+The base unit is 4px. The scale is fourteen tokens; use a token whenever the value exists on the scale. Card interiors are 24px = `{spacing.6}`. Default buttons are 40px border-box rows with 14px / 20px type and `9px 14px` padding; default inputs and selects are 40px border-box rows with 16px / 24px type and `7px 12px` padding. Below 768px, each minimum row height is 44px. Section-to-section gap is `{spacing.24}` 96px.
 
 | Token        | Value | Use                                          |
 | ------------ | ----- | -------------------------------------------- |
@@ -664,7 +664,7 @@ Light mode defines `--shadow-raised: 0 1px 2px rgb(10 23 36 / 6%), 0 8px 24px rg
 
 ## Shapes
 
-Corners follow a fixed eight-step scale. Pick the token that matches the component; do not interpolate.
+Corners derive from the document's `--radius` base (8px by default). Pick the token that matches the component; do not interpolate.
 
 ### Border Radius Scale
 
@@ -679,6 +679,8 @@ Corners follow a fixed eight-step scale. Pick the token that matches the compone
 | {rounded.xxl}  | 24px   | Reserved for large product-screenshot frames  |
 | {rounded.full} | 9999px | Badges and pills                              |
 
+The CSS contract is `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--radius) * .75)`, `--radius-md: var(--radius)`, `--radius-lg: calc(var(--radius) * 1.5)`, `--radius-xl: calc(var(--radius) * 2)`, and `--radius-2xl: calc(var(--radius) * 3)`. `none` and `full` stay independent. A root `--radius` override therefore changes the named scale; a later named override such as `--radius-md: 7px` changes only that name.
+
 There is no photography or illustration policy yet; that belongs in Known Gaps. Product screenshots use `{rounded.lg}` frames. `{rounded.xxl}` is reserved for large product-screenshot frames.
 
 ## Components
@@ -687,15 +689,15 @@ Thirty recipes, grouped below. Each line is rest appearance for the current mode
 
 ### Buttons
 
-In dark mode `{colors.primary}` is a light neutral fill (#E7EEF6), not the navy brand seed — filled actions stay readable on `{colors.canvas}`. `{colors.hairline}` is never the sole boundary of an interactive control; outlined buttons and inputs use `{colors.hairline-strong}`.
+In dark mode `{colors.primary}` is a light neutral fill (#E7EEF6), not the charcoal canvas — filled actions stay readable on `{colors.canvas}`. `{colors.hairline}` is never the sole boundary of an interactive control; outlined buttons and inputs use `{colors.hairline-strong}`. Default buttons use a 40px border-box row, 14px / 20px type, and `9px 14px` padding; their minimum height is 44px below 768px.
 
-- **button-primary** — Default filled action. bg {colors.primary} · text {colors.on-primary} · {typography.button} · {rounded.md} · padding 8px 14px
-- **button-primary-hover** — Hovered primary fill. bg {colors.primary-hover} · text {colors.on-primary} · {typography.button} · {rounded.md} · padding 8px 14px
-- **button-primary-active** — Pressed primary fill. bg {colors.primary-active} · text {colors.on-primary} · {typography.button} · {rounded.md} · padding 8px 14px
-- **button-secondary** — Outlined secondary action. bg {colors.surface-1} · text {colors.ink} · border {colors.hairline-strong} · {typography.button} · {rounded.md} · padding 8px 14px
-- **button-ghost** — Chrome-less action. bg transparent · text {colors.ink-muted} · {typography.button} · {rounded.md} · padding 8px 14px
-- **button-destructive** — Destructive filled action. bg {colors.semantic-danger} · text {colors.on-danger} · {typography.button} · {rounded.md} · padding 8px 14px
-- **button-disabled** — Disabled control. bg {colors.surface-2} · text {colors.ink-subtle} · border {colors.hairline-strong} · {typography.button} · {rounded.md} · padding 8px 14px
+- **button-primary** — Default filled action. bg {colors.primary} · text {colors.on-primary} · 14px/20px control type · {rounded.md} · padding 9px 14px
+- **button-primary-hover** — Hovered primary fill. bg {colors.primary-hover} · text {colors.on-primary} · 14px/20px control type · {rounded.md} · padding 9px 14px
+- **button-primary-active** — Pressed primary fill. bg {colors.primary-active} · text {colors.on-primary} · 14px/20px control type · {rounded.md} · padding 9px 14px
+- **button-secondary** — Outlined secondary action. bg {colors.surface-1} · text {colors.ink} · border {colors.hairline-strong} · 14px/20px control type · {rounded.md} · padding 9px 14px
+- **button-ghost** — Chrome-less action. bg transparent · text {colors.ink-muted} · 14px/20px control type · {rounded.md} · padding 9px 14px
+- **button-destructive** — Destructive filled action. bg {colors.semantic-danger} · text {colors.on-danger} · 14px/20px control type · {rounded.md} · padding 9px 14px
+- **button-disabled** — Disabled control. bg {colors.surface-2} · text {colors.ink-subtle} · border {colors.hairline-strong} · 14px/20px control type · {rounded.md} · padding 9px 14px
 
 ### Cards & Containers
 
@@ -706,12 +708,12 @@ Cards sit on the surface ladder behind a decorative `{colors.hairline}` edge, no
 
 ### Inputs & Forms
 
-Interactive fields use `{colors.hairline-strong}` at rest. Focus and error replace that border; they do not add a box-shadow.
+Interactive fields use `{colors.hairline-strong}` at rest. Focus and error replace that border; they do not add a box-shadow. Default inputs and selects use 40px border-box rows, 16px / 24px type, and `7px 12px` padding; their minimum height is 44px below 768px.
 
-- **text-input** — Single-line text field. bg {colors.surface-1} · text {colors.ink} · border {colors.hairline-strong} · {typography.body} · {rounded.md} · padding 8px 12px
-- **text-input-focused** — Focused text field. bg {colors.surface-1} · text {colors.ink} · border {colors.focus-ring} · {typography.body} · {rounded.md} · padding 8px 12px
-- **text-input-error** — Invalid text field. bg {colors.surface-1} · text {colors.ink} · border {colors.semantic-danger} · {typography.body} · {rounded.md} · padding 8px 12px
-- **select** — Select trigger. bg {colors.surface-1} · text {colors.ink} · border {colors.hairline-strong} · {typography.body} · {rounded.md} · padding 8px 12px
+- **text-input** — Single-line text field. bg {colors.surface-1} · text {colors.ink} · border {colors.hairline-strong} · 16px/24px control type · {rounded.md} · padding 7px 12px
+- **text-input-focused** — Focused text field. bg {colors.surface-1} · text {colors.ink} · border {colors.focus-ring} · 16px/24px control type · {rounded.md} · padding 7px 12px
+- **text-input-error** — Invalid text field. bg {colors.surface-1} · text {colors.ink} · border {colors.semantic-danger} · 16px/24px control type · {rounded.md} · padding 7px 12px
+- **select** — Select trigger. bg {colors.surface-1} · text {colors.ink} · border {colors.hairline-strong} · 16px/24px control type · {rounded.md} · padding 7px 12px
 - **checkbox-checked** — Checked checkbox fill. bg {colors.primary} · text {colors.on-primary} · {typography.caption} · {rounded.xs} · padding 0px
 
 ### Badges, Pills & Alerts
@@ -801,11 +803,11 @@ This section maps DESIGN tokens onto this repository's stack (Tailwind 4 `@theme
 
 ### Mode switching
 
-Dark is the default. Put `class="dark"` on `<html>` so it matches the existing `@custom-variant dark (&:is(.dark *))` in `src/styles/globals.css`. Light mode is the same document with that class removed. This repository already depends on `next-themes`; wire it with `<ThemeProvider attribute="class" defaultTheme="dark">`.
+Dark is the default because `:root` and `.dark` define the dark contract; `class="dark"` also matches `@custom-variant dark (&:is(.dark *))`. Light mode is explicit: put `class="light"` on `<html>`. Removing `.dark` alone leaves the `:root` dark values in force. This repository already depends on `next-themes`; use its class attribute with an explicit `light` class for light mode.
 
 ### Mapping to shadcn and Tailwind tokens
 
-Today `src/styles/globals.css` defines only `--radius` and `--sidebar*` on `:root` / `.dark`, and `@theme inline` exposes `--color-sidebar*`. The shadcn canvas tokens (`--background`, `--primary`, and the rest of the table) are not defined yet. Map DESIGN keys onto those variables as follows.
+`src/styles/globals.css` defines the full shadcn token table on dark `:root` / `.dark` and explicit `.light`; `@theme inline` exposes the corresponding Tailwind colors. The named radii derive from `--radius`, so document-root base and named-radius overrides remain effective. The DESIGN mapping is:
 
 | DESIGN token    | shadcn CSS variable         | Tailwind utility               |
 | --------------- | --------------------------- | ------------------------------ |
@@ -831,64 +833,38 @@ Today `src/styles/globals.css` defines only `--radius` and `--sidebar*` on `:roo
 | hairline        | --sidebar-border            | border-sidebar-border          |
 | focus-ring      | --sidebar-ring              | ring-sidebar-ring              |
 
-The existing `src/components/button.tsx` hardcodes zinc classes (`bg-zinc-900`, `bg-zinc-100`, `border-zinc-200`, and the other cva variants) and is a migration target for these tokens (not changed by this document).
+Components consume the semantic token classes above; do not substitute hardcoded palette classes.
 
-Reference snippet — not applied by this document:
+The shipped dark mapping is:
 
 ```css
-/* reference snippet — not applied by this document */
 :root,
 .dark {
-  --background: #0a1724;
-  --foreground: #f3f7fb;
-  --card: #101e2c;
-  --popover: #1e2e3e;
-  --primary: #e7eef6;
-  --primary-foreground: #0a1724;
-  --secondary: #172635;
-  --muted: #172635;
-  --muted-foreground: #899aad;
-  --accent: #172a45;
-  --accent-foreground: #7fa5de;
-  --destructive: #f18484;
-  --border: #2a3b4c;
-  --input: #566f88;
-  --ring: #7fa5de;
-  --sidebar: #101e2c;
-  --sidebar-foreground: #b8c6d5;
-  --sidebar-accent: #172a45;
-  --sidebar-accent-foreground: #7fa5de;
-  --sidebar-border: #2a3b4c;
-  --sidebar-ring: #7fa5de;
-}
-.light {
-  --background: #f6f8fb;
-  --foreground: #0a1724;
-  --card: #ffffff;
-  --popover: #e5ebf1;
-  --primary: #0a1724;
-  --primary-foreground: #ffffff;
-  --secondary: #eff3f7;
-  --muted: #eff3f7;
-  --muted-foreground: #596b7d;
-  --accent: #e7eef9;
-  --accent-foreground: #315c9f;
-  --destructive: #b8323e;
-  --border: #d7e0e9;
-  --input: #7b8ea1;
-  --ring: #315c9f;
-}
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-primary: var(--primary);
+  --background: #0d1117;
+  --card: #161b22;
+  --sidebar: #161b22;
+  --secondary: #21262d;
+  --muted: #21262d;
+  --popover: #272e37;
+  --border: #30363d;
+  --sidebar-border: #30363d;
+  --code-border: #30363d;
+  --input: #737d8c;
+  --code: #090c10;
+  --overlay: #010409b8;
+  --primary-foreground: #0d1117;
+  --sidebar-primary-foreground: #0d1117;
+  --destructive-foreground: #090c10;
+  --success-foreground: #090c10;
+  --warning-foreground: #090c10;
 }
 ```
 
+The remaining dark text, primary fill, blue emphasis, selection, and semantic fills are unchanged. `.light` keeps its existing colors and `--kood-shadow-raised` value.
+
 ### Font preset switching
 
-No `data-font` attribute means Pretendard, the default sans. `<html data-font="wanted">` switches `--font-sans` to Wanted Sans. `--font-sans` and `--font-mono` are the variables defined in the Typography section; do not introduce a third family variable.
+No `data-font` attribute means Pretendard, the default sans. `<html data-font="wanted">` switches `--kood-font-sans` to Wanted Sans. `--kood-font-sans` and `--kood-font-mono` are the package hooks; Tailwind's `--font-sans` and `--font-mono` alias them. Do not introduce a third family variable.
 
 ## Do's and Don'ts
 
@@ -903,7 +879,7 @@ These rules keep a new screen from drifting off the tokens. Follow them when you
 - Define every token in both dark and light at once, under the same key.
 - Reserve Jetendard for code (`code`, `kbd`, `samp`, `pre`, and the code tokens).
 - Use `font-variant-numeric: tabular-nums` in tables.
-- Size interactive hit areas to at least 44×44px; on mobile, buttons also set `min-height: 44px`.
+- Use 40px default Button, Input, and Select rows at 768px and above; below 768px each has `min-height: 44px`.
 - After every change, run `bun scripts/verify-design-md.ts DESIGN.md DESIGN.ko.md`.
 
 ### Don't
@@ -921,7 +897,7 @@ These rules keep a new screen from drifting off the tokens. Follow them when you
 
 ## Responsive Behavior
 
-Layout reflows on a five-step width scale. Touch targets stay at 44×44px at every step.
+Layout reflows on a five-step width scale. Default Button, Input, and Select rows are 40px at 768px and above, with 44px minimum rows below 768px.
 
 ### Breakpoints
 
@@ -935,7 +911,7 @@ Layout reflows on a five-step width scale. Touch targets stay at 44×44px at eve
 
 ### Touch Targets
 
-Every interactive control is at least 44×44px. On viewports below 768px, buttons also set `min-height: 44px` even when their padding would otherwise make them shorter.
+On viewports at least 768px, default Button, Input, and Select rows are 40px. Below 768px, each uses `min-height: 44px` even when its padding would otherwise make it shorter.
 
 ### Collapsing Strategy
 
@@ -953,14 +929,14 @@ Every interactive control is at least 44×44px. On viewports below 768px, button
 
 ## Known Gaps
 
-This repository had no shipped UI evidence at authoring time, so every token and recipe in this file is Proposed.
+This document records the shipped token and geometry contract; browser evidence for each primitive and screen is tracked with its implementation task.
 
 - Icon set is undecided (TODO).
 - There is no illustration or photography policy.
 - There is no chart palette.
 - Jetendard must be self-hosted under `/fonts/jetendard/`; there is no CDN.
 - Pretendard and Wanted Sans have different metrics, so line breaks differ between presets — check headings, tables, and buttons in both.
-- Existing `src/components/button.tsx` hardcodes zinc classes, and `src/styles/globals.css` does not yet define the shadcn canvas variables. Migration is a follow-up, not covered by this document.
+- Component-level browser coverage remains the responsibility of the primitive implementation and integration tasks.
 
 ## Evidence and Assumptions
 
@@ -968,7 +944,7 @@ Accessibility claims in this file are limited to WCAG 2.1 AA contrast ratios. Th
 
 | Claim                     | Evidence                                                                                          | Confidence |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ---------- |
-| Primary color #0A1724     | User request                                                                                      | high       |
+| Dark canvas #0D1117       | Approved charcoal contract                                                                        | high       |
 | Professional, clean tone  | User request plus the section structure of awesome-design-md examples (Vercel, HashiCorp, Linear) | medium     |
 | Accent and neutral values | Planner proposal plus WCAG contrast computation                                                   | medium     |
 | Font URLs                 | Official READMEs plus HTTP 200 checks                                                             | high       |

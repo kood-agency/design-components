@@ -5,33 +5,34 @@ export function SignupForm() {
   return (
     <form className="flex flex-col gap-6">
       <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-bold">Create your account</h1>
+        <h1 className="text-2xl font-bold">운영 계정을 만들고 팀과 함께 시작하세요</h1>
         <p className="text-muted-foreground text-sm text-balance">
-          Enter your email below to create your account
+          주식회사 코오드 디자인 시스템 운영 및 고객 성공 통합 관리 본부에서 사용할 업무용 이메일을
+          입력하세요.
         </p>
       </div>
       <div className="grid gap-6">
         <div className="grid gap-3">
-          <Label htmlFor="signup-email">Email</Label>
-          <Input id="signup-email" type="email" placeholder="m@example.com" required />
+          <Label htmlFor="signup-email">업무용 이메일</Label>
+          <Input id="signup-email" type="email" placeholder="name@kood.design" required />
         </div>
         <div className="grid gap-3">
-          <Label htmlFor="signup-password">Password</Label>
+          <Label htmlFor="signup-password">비밀번호</Label>
           <Input id="signup-password" type="password" required />
-          <p className="text-muted-foreground text-xs">Must be at least 8 characters long</p>
+          <p className="text-muted-foreground text-xs">비밀번호는 8자 이상으로 입력하세요.</p>
         </div>
         <div className="grid gap-3">
-          <Label htmlFor="signup-confirm">Confirm password</Label>
+          <Label htmlFor="signup-confirm">비밀번호 확인</Label>
           <Input id="signup-confirm" type="password" required />
         </div>
         <Button type="submit" className="w-full">
-          Sign up
+          계정 만들기
         </Button>
       </div>
       <div className="text-center text-sm">
-        Already have an account?{" "}
+        이미 계정이 있으신가요?{" "}
         <a href="#" className="underline underline-offset-4">
-          Login
+          로그인
         </a>
       </div>
     </form>
@@ -45,7 +46,7 @@ export function SignupFormLogo() {
         <GalleryVerticalEndIcon className="size-5" />
       </div>
       <p className="text-foreground text-center text-sm font-medium">
-        Acme Inc — the fastest way to build dashboards
+        주식회사 코오드 디자인 시스템 운영 및 고객 성공 통합 관리 본부
       </p>
     </div>
   );

@@ -15,7 +15,17 @@ export const Default: Story = {};
 
 export const Disabled: Story = { args: { disabled: true } };
 
-export const Invalid: Story = { args: { "aria-invalid": true } };
+export const Invalid: Story = {
+  args: { "aria-invalid": true },
+  render: (args) => (
+    <div className="flex w-64 flex-col gap-2">
+      <Input aria-describedby="input-invalid-description" {...args} />
+      <p id="input-invalid-description" role="alert" className="text-destructive text-sm">
+        Enter a valid email address.
+      </p>
+    </div>
+  ),
+};
 
 export const WithLabel: Story = {
   render: (args) => (

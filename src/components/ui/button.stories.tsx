@@ -1,3 +1,4 @@
+import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { PlusIcon } from "lucide-react";
 import { Button } from "./button";
@@ -96,4 +97,44 @@ export const AsLink: Story = {
 
 export const Focus: Story = {
   args: { autoFocus: true, children: "Focus" },
+};
+
+export const InteractionStates: Story = {
+  render: function InteractionStatesStory() {
+    const [enabledClicks, setEnabledClicks] = useState(0);
+    const [disabledClicks, setDisabledClicks] = useState(0);
+
+    return (
+      <div className="flex flex-col items-start gap-4">
+        <div className="flex items-center gap-3">
+          <Button
+            data-testid="enabled-button"
+            onClick={() => setEnabledClicks((count) => count + 1)}
+          >
+            클릭 가능한 버튼
+          </Button>
+          <output data-testid="enabled-click-count">{enabledClicks}</output>
+        </div>
+        <div className="flex items-center gap-3">
+          <Button
+            data-testid="disabled-button"
+            disabled
+            onClick={() => setDisabledClicks((count) => count + 1)}
+          >
+            비활성 버튼
+          </Button>
+          <output data-testid="disabled-click-count">{disabledClicks}</output>
+        </div>
+      </div>
+    );
+  },
+};
+
+export const LongKoreanLabel: Story = {
+  render: () => (
+    <Button data-testid="long-korean-button">
+      <PlusIcon />
+      <span data-testid="long-korean-label">연결된 모든 결제 내역을 검토하고 승인하기</span>
+    </Button>
+  ),
 };

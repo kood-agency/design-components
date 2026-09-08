@@ -5,37 +5,41 @@ export function LoginForm() {
   return (
     <form className="flex flex-col gap-6">
       <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-bold">Welcome back</h1>
-        <p className="text-muted-foreground text-sm text-balance">Login to your Acme Inc account</p>
+        <h1 className="text-2xl font-bold">코오드 디자인 시스템 운영 계정으로 다시 로그인하세요</h1>
+        <p className="text-muted-foreground text-sm text-balance">
+          주식회사 코오드 디자인 시스템 운영 및 고객 성공 통합 관리 본부 계정으로 계속합니다.
+        </p>
       </div>
       <div className="grid gap-6">
         <div className="grid gap-3">
-          <Label htmlFor="login-email">Email</Label>
-          <Input id="login-email" type="email" placeholder="m@example.com" required />
+          <Label htmlFor="login-email">업무용 이메일</Label>
+          <Input id="login-email" type="email" placeholder="name@kood.design" required />
         </div>
         <div className="grid gap-3">
           <div className="flex items-center">
-            <Label htmlFor="login-password">Password</Label>
+            <Label htmlFor="login-password">비밀번호</Label>
             <a href="#" className="ml-auto text-sm underline-offset-4 hover:underline">
-              Forgot your password?
+              비밀번호를 잊으셨나요?
             </a>
           </div>
           <Input id="login-password" type="password" required />
         </div>
         <Button type="submit" className="w-full">
-          Login
+          로그인
         </Button>
         <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
-          <span className="bg-card text-muted-foreground relative z-10 px-2">Or continue with</span>
+          <span className="bg-card text-muted-foreground relative z-10 px-2">
+            또는 이메일로 계속
+          </span>
         </div>
         <Button variant="outline" type="button" className="w-full">
-          Login with Email
+          이메일 로그인
         </Button>
       </div>
       <div className="text-center text-sm">
-        Don&apos;t have an account?{" "}
+        아직 계정이 없으신가요?{" "}
         <a href="#" className="underline underline-offset-4">
-          Sign up
+          계정 만들기
         </a>
       </div>
     </form>
@@ -49,7 +53,7 @@ export function LoginFormLogo() {
         <GalleryVerticalEndIcon className="size-5" />
       </div>
       <p className="text-foreground text-center text-sm font-medium">
-        Acme Inc — the fastest way to build dashboards
+        주식회사 코오드 디자인 시스템 운영 및 고객 성공 통합 관리 본부
       </p>
     </div>
   );

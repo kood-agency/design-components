@@ -13,13 +13,13 @@ export const Default: Story = {
   render: () => (
     <Tabs defaultValue="account">
       <TabsList>
-        <TabsTrigger value="account">Account</TabsTrigger>
-        <TabsTrigger value="password">Password</TabsTrigger>
-        <TabsTrigger value="team">Team</TabsTrigger>
+        <TabsTrigger value="account">계정</TabsTrigger>
+        <TabsTrigger value="password">보안</TabsTrigger>
+        <TabsTrigger value="team">팀 설정</TabsTrigger>
       </TabsList>
-      <TabsContent value="account">Account settings</TabsContent>
-      <TabsContent value="password">Password settings</TabsContent>
-      <TabsContent value="team">Team settings</TabsContent>
+      <TabsContent value="account">계정 설정</TabsContent>
+      <TabsContent value="password">보안 설정</TabsContent>
+      <TabsContent value="team">팀 설정</TabsContent>
     </Tabs>
   ),
 };
@@ -28,15 +28,15 @@ export const Disabled: Story = {
   render: () => (
     <Tabs defaultValue="account">
       <TabsList>
-        <TabsTrigger value="account">Account</TabsTrigger>
+        <TabsTrigger value="account">계정</TabsTrigger>
         <TabsTrigger value="password" disabled>
-          Password
+          보안
         </TabsTrigger>
-        <TabsTrigger value="team">Team</TabsTrigger>
+        <TabsTrigger value="team">팀 설정</TabsTrigger>
       </TabsList>
-      <TabsContent value="account">Account settings</TabsContent>
-      <TabsContent value="password">Password settings</TabsContent>
-      <TabsContent value="team">Team settings</TabsContent>
+      <TabsContent value="account">계정 설정</TabsContent>
+      <TabsContent value="password">보안 설정</TabsContent>
+      <TabsContent value="team">팀 설정</TabsContent>
     </Tabs>
   ),
 };
@@ -45,13 +45,13 @@ export const Vertical: Story = {
   render: () => (
     <Tabs defaultValue="account" orientation="vertical">
       <TabsList>
-        <TabsTrigger value="account">Account</TabsTrigger>
-        <TabsTrigger value="password">Password</TabsTrigger>
-        <TabsTrigger value="team">Team</TabsTrigger>
+        <TabsTrigger value="account">계정</TabsTrigger>
+        <TabsTrigger value="password">보안</TabsTrigger>
+        <TabsTrigger value="team">팀 설정</TabsTrigger>
       </TabsList>
-      <TabsContent value="account">Account settings</TabsContent>
-      <TabsContent value="password">Password settings</TabsContent>
-      <TabsContent value="team">Team settings</TabsContent>
+      <TabsContent value="account">계정 설정</TabsContent>
+      <TabsContent value="password">보안 설정</TabsContent>
+      <TabsContent value="team">팀 설정</TabsContent>
     </Tabs>
   ),
 };

@@ -23,10 +23,10 @@ export const Default: Story = {
   render: () => (
     <Card className="w-full max-w-96">
       <CardHeader>
-        <CardTitle>Project overview</CardTitle>
-        <CardDescription>Status of the current design system release.</CardDescription>
+        <CardTitle>분기별 고객 운영 현황과 서비스 안정성 검토</CardTitle>
+        <CardDescription>현재 디자인 시스템 릴리스의 상태를 확인합니다.</CardDescription>
       </CardHeader>
-      <CardContent>Eight surface components restyled to DESIGN.md recipes.</CardContent>
+      <CardContent>여덟 개의 표면 컴포넌트가 승인된 레시피를 따릅니다.</CardContent>
       <CardFooter>
         <Button size="sm">Continue</Button>
       </CardFooter>
@@ -38,15 +38,15 @@ export const WithAction: Story = {
   render: () => (
     <Card className="w-full max-w-96">
       <CardHeader>
-        <CardTitle>Notifications</CardTitle>
-        <CardDescription>You have 3 unread messages.</CardDescription>
+        <CardTitle>알림</CardTitle>
+        <CardDescription>읽지 않은 메시지가 3개 있습니다.</CardDescription>
         <CardAction>
           <Button variant="ghost" size="sm">
             Mark all
           </Button>
         </CardAction>
       </CardHeader>
-      <CardContent>New comments on the badge restyle.</CardContent>
+      <CardContent>배지 스타일 변경에 새 댓글이 있습니다.</CardContent>
     </Card>
   ),
 };
@@ -55,11 +55,11 @@ export const Nested: Story = {
   render: () => (
     <Card className="w-full max-w-96">
       <CardHeader>
-        <CardTitle>Nested region</CardTitle>
-        <CardDescription>One nested card, never a third level.</CardDescription>
+        <CardTitle>중첩 영역</CardTitle>
+        <CardDescription>중첩 영역은 한 단계만 사용합니다.</CardDescription>
       </CardHeader>
       <CardContent>
-        <CardNested>Inset surface-2 region with 16px padding.</CardNested>
+        <CardNested>16px 패딩을 사용하는 surface-2 중첩 영역입니다.</CardNested>
       </CardContent>
     </Card>
   ),
@@ -69,10 +69,10 @@ export const Small: Story = {
   render: () => (
     <Card size="sm" className="w-full max-w-80">
       <CardHeader>
-        <CardTitle>Compact card</CardTitle>
-        <CardDescription>Small size uses 16px padding.</CardDescription>
+        <CardTitle>긴 한국어 제목도 컨테이너 안에서 자연스럽게 줄바꿈됩니다</CardTitle>
+        <CardDescription>작은 크기는 16px 패딩을 사용합니다.</CardDescription>
       </CardHeader>
-      <CardContent>Use for dense metadata.</CardContent>
+      <CardContent>밀도 높은 메타데이터에 사용합니다.</CardContent>
     </Card>
   ),
 };
