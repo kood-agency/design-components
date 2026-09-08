@@ -45,15 +45,16 @@ export function ChartInteractive() {
 
   return (
     <Card className="@container/card">
-      <CardHeader>
+      <CardHeader className="flex flex-col gap-3 @lg/card:grid">
         <CardTitle>Total Visitors</CardTitle>
-        <CardDescription>
-          <span className="hidden @[5px]/card:block">Total for the last 3 months</span>
-          <span className="@[5px]/card:hidden">Last 3 months</span>
-        </CardDescription>
-        <CardAction>
+        <CardDescription>Total visitors over the selected period</CardDescription>
+        <CardAction className="w-full @lg/card:w-auto">
           <Select value={range} onValueChange={(v) => v && setRange(v)}>
-            <SelectTrigger size="sm" aria-label="Select a value" className="w-[160px]">
+            <SelectTrigger
+              size="sm"
+              aria-label="Select visitor date range"
+              className="w-full @lg/card:w-40"
+            >
               <SelectValue>{active.label}</SelectValue>
             </SelectTrigger>
             <SelectContent>
@@ -66,7 +67,7 @@ export function ChartInteractive() {
           </Select>
         </CardAction>
       </CardHeader>
-      <CardContent className="px-2 pt-4 sm:px-6 sm:py-6">
+      <CardContent className="min-w-0">
         <ChartContainer config={chartConfig} className="aspect-auto h-[250px] w-full">
           <AreaChart data={data}>
             <defs>

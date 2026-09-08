@@ -1,4 +1,3 @@
-import type { LucideIcon } from "lucide-react";
 import { ArrowDownRightIcon, ArrowUpRightIcon } from "lucide-react";
 import {
   Badge,
@@ -54,32 +53,30 @@ const vitals: Vital[] = [
   },
 ];
 
-function TrendIcon({ icon: Icon }: { icon: LucideIcon }) {
-  return <Icon className="size-3.5" />;
-}
-
 export function SectionCards() {
   return (
     <div className="grid grid-cols-1 gap-4 @xl/main:grid-cols-2 @5xl/main:grid-cols-4">
       {vitals.map((v) => (
-        <Card key={v.label} className="@container/card">
-          <CardHeader>
-            <CardDescription className="flex items-center gap-2">
-              <span>{v.trendText}</span>
-              <TrendIcon icon={v.trend === "up" ? ArrowUpRightIcon : ArrowDownRightIcon} />
-            </CardDescription>
-            <CardTitle className="text-2xl font-semibold tabular-nums @[2rem]/card:text-3xl">
+        <Card key={v.label} className="min-w-0">
+          <CardHeader className="gap-x-3 gap-y-2">
+            <CardDescription>{v.label}</CardDescription>
+            <CardTitle className="col-span-2 text-3xl leading-tight font-semibold tabular-nums">
               {v.value}
             </CardTitle>
-            <CardAction>
+            <CardAction className="row-span-1">
               <Badge variant={v.trend === "up" ? "accent" : "destructive"}>
                 {v.trend === "up" ? <ArrowUpRightIcon /> : <ArrowDownRightIcon />}
                 {v.delta}
               </Badge>
             </CardAction>
           </CardHeader>
-          <CardFooter className="text-muted-foreground justify-start text-xs">
-            {v.footer}
+          <CardFooter className="mt-auto flex-col items-start gap-2">
+            <p className="text-foreground-muted text-sm leading-relaxed [overflow-wrap:anywhere] break-keep">
+              {v.trendText}
+            </p>
+            <p className="text-muted-foreground text-xs leading-relaxed [overflow-wrap:anywhere] break-keep">
+              {v.footer}
+            </p>
           </CardFooter>
         </Card>
       ))}

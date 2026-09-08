@@ -3,10 +3,12 @@ import { Button, Input, Label } from "../../../ui";
 
 export function SignupForm() {
   return (
-    <form className="flex flex-col gap-6">
-      <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-bold">운영 계정을 만들고 팀과 함께 시작하세요</h1>
-        <p className="text-muted-foreground text-sm text-balance">
+    <form className="flex min-w-0 flex-col gap-8">
+      <div className="flex flex-col gap-3">
+        <h1 className="text-2xl leading-snug font-semibold text-balance [overflow-wrap:anywhere] break-keep">
+          운영 계정을 만들고 팀과 함께 시작하세요
+        </h1>
+        <p className="text-muted-foreground text-sm leading-relaxed [overflow-wrap:anywhere] break-keep">
           주식회사 코오드 디자인 시스템 운영 및 고객 성공 통합 관리 본부에서 사용할 업무용 이메일을
           입력하세요.
         </p>
@@ -29,9 +31,9 @@ export function SignupForm() {
           계정 만들기
         </Button>
       </div>
-      <div className="text-center text-sm">
+      <div className="text-muted-foreground text-center text-sm leading-relaxed">
         이미 계정이 있으신가요?{" "}
-        <a href="#" className="underline underline-offset-4">
+        <a href="#" className="text-accent-foreground underline underline-offset-4">
           로그인
         </a>
       </div>
@@ -41,11 +43,11 @@ export function SignupForm() {
 
 export function SignupFormLogo() {
   return (
-    <div className="bg-muted text-muted-foreground relative hidden min-h-svh flex-col items-center justify-center gap-4 p-6 md:flex md:w-1/2 lg:w-2/5">
+    <div className="bg-muted text-muted-foreground hidden min-h-svh flex-col items-center justify-center gap-6 border-r p-6 md:flex md:w-1/2 lg:w-2/5 xl:p-8">
       <div className="bg-primary text-primary-foreground flex size-11 items-center justify-center rounded-lg">
         <GalleryVerticalEndIcon className="size-5" />
       </div>
-      <p className="text-foreground text-center text-sm font-medium">
+      <p className="text-foreground max-w-xs text-center text-sm leading-relaxed font-medium text-balance [overflow-wrap:anywhere] break-keep">
         주식회사 코오드 디자인 시스템 운영 및 고객 성공 통합 관리 본부
       </p>
     </div>

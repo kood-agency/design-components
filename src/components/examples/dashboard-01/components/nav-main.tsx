@@ -107,7 +107,7 @@ interface NavUserProps {
 
 export function NavUser({ user }: NavUserProps) {
   return (
-    <SidebarFooter>
+    <SidebarFooter className="border-t p-3">
       <DropdownMenu>
         <DropdownMenuTrigger
           render={
@@ -118,7 +118,7 @@ export function NavUser({ user }: NavUserProps) {
               <span className="bg-sidebar-accent text-sidebar-accent-foreground flex size-8 shrink-0 items-center justify-center rounded-full text-xs font-medium">
                 {user.initials}
               </span>
-              <span className="grid flex-1 text-left text-sm leading-tight">
+              <span className="grid min-w-0 flex-1 gap-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>
                 <span className="text-muted-foreground truncate text-xs">{user.email}</span>
               </span>

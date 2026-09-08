@@ -61,23 +61,27 @@ const user = {
 export function Sidebar01() {
   return (
     <Sidebar>
-      <SidebarHeader>
+      <SidebarHeader className="border-b p-3">
         <NavHeader />
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="gap-4 py-3">
         <SidebarGroup>
           <SidebarGroupLabel>Platform</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {navMain.map((item) => (
                 <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton isActive={item.isActive} render={<a href={item.url} />}>
+                  <SidebarMenuButton
+                    isActive={item.isActive}
+                    className={item.badge ? "pr-14" : undefined}
+                    render={<a href={item.url} />}
+                  >
                     <item.icon />
                     <span>{item.title}</span>
                   </SidebarMenuButton>
                   {item.badge && (
                     <Badge
-                      className="pointer-events-none absolute top-1.5 right-2"
+                      className="pointer-events-none absolute top-1/2 right-2 -translate-y-1/2 group-data-[collapsible=icon]:hidden"
                       variant="accent"
                     >
                       {item.badge}
@@ -119,14 +123,12 @@ export function Sidebar01() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
-        <div className="p-2">
-          <Button size="sm" className="w-full">
-            <ArrowUpRightIcon /> Upgrade to Pro
-          </Button>
-        </div>
-        <NavUser user={user} />
+      <SidebarFooter className="p-3">
+        <Button size="sm" className="w-full">
+          <ArrowUpRightIcon /> Upgrade to Pro
+        </Button>
       </SidebarFooter>
+      <NavUser user={user} />
       <SidebarRail />
     </Sidebar>
   );

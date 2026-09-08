@@ -61,8 +61,8 @@ const menuGroups: { label: string; items: { icon: typeof BotIcon; title: string 
 
 export function SiteHeader() {
   return (
-    <header className="bg-background sticky top-0 z-50 flex w-full items-center border-b py-2.5">
-      <div className="flex w-full items-center gap-1.5 px-4 lg:gap-2">
+    <header className="bg-background sticky top-0 z-10 flex min-h-16 w-full items-center border-b py-2">
+      <div className="flex w-full min-w-0 items-center gap-1.5 px-4 md:px-6 xl:px-8">
         <SidebarTrigger className="-ml-1" />
         <Separator orientation="vertical" className="mx-2 data-[orientation=vertical]:h-4" />
         <Breadcrumb>
@@ -82,6 +82,13 @@ export function SiteHeader() {
               <DropdownMenuTrigger
                 render={<Button variant="ghost" size="icon-sm" className="max-md:hidden" />}
               >
+                {group.label === "Platform" ? (
+                  <SquareUserIcon />
+                ) : group.label === "Help Center" ? (
+                  <LifeBuoyIcon />
+                ) : (
+                  <CircleQuestionMarkIcon />
+                )}
                 <span className="sr-only">Open {group.label} menu</span>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-52">
@@ -101,7 +108,7 @@ export function SiteHeader() {
           <DropdownMenu>
             <DropdownMenuTrigger
               render={
-                <Button variant="ghost" size="icon-sm">
+                <Button variant="ghost" size="sm" className="gap-2">
                   <Avatar className="size-6">
                     <AvatarFallback className="text-xs">CN</AvatarFallback>
                   </Avatar>

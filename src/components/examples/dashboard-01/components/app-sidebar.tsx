@@ -21,10 +21,10 @@ const user = {
 export function AppSidebar() {
   return (
     <Sidebar>
-      <SidebarHeader>
+      <SidebarHeader className="border-b p-3">
         <NavHeader />
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="gap-4 py-3">
         <NavMain title="Platform" items={mainNav} />
         <NavProjects />
       </SidebarContent>

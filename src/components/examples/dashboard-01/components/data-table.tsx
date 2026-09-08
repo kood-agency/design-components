@@ -98,7 +98,7 @@ function DocumentsTable() {
 export function DataTable() {
   return (
     <Tabs value="outline" className="min-w-0">
-      <TabsList className="max-w-full flex-wrap justify-start">
+      <TabsList className="h-auto max-w-full flex-wrap justify-start gap-y-2">
         <TabsTrigger value="outline">개요</TabsTrigger>
         <TabsTrigger value="past-performance" className="gap-1.5">
           Past Performance{" "}
@@ -115,7 +115,7 @@ export function DataTable() {
         <TabsTrigger value="focus-documents">중점 문서</TabsTrigger>
       </TabsList>
       <TabsContent value="outline" className="mt-4">
-        <div className="mb-3 flex items-center justify-between gap-2">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
           <DropdownMenu>
             <DropdownMenuTrigger render={<Button variant="outline" size="sm" />}>
               <Settings2Icon className="size-4" /> 열 설정
@@ -139,7 +139,9 @@ export function DataTable() {
             <PlusIcon className="size-4" /> 문서 추가
           </Button>
         </div>
-        <DocumentsTable />
+        <div className="overflow-hidden rounded-lg border">
+          <DocumentsTable />
+        </div>
         <p className="text-muted-foreground mt-4 flex items-center gap-1.5 text-xs">
           <ChevronsUpDownIcon className="size-3.5" /> 드래그 핸들로 문서 순서를 바꿀 수 있습니다
         </p>
