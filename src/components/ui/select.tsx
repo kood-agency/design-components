@@ -110,7 +110,7 @@ function SelectItem({ className, children, ...props }: SelectPrimitive.Item.Prop
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-disabled:text-muted-foreground relative flex w-full cursor-default items-center gap-1.5 rounded-md px-2 py-1.5 pr-8 text-sm outline-none select-none data-disabled:pointer-events-none max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
+        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-disabled:text-muted-foreground relative flex w-full items-center gap-1.5 rounded-md px-2 py-1.5 pr-8 text-sm outline-none select-none data-disabled:pointer-events-none max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
         className,
       )}
       {...props}
@@ -147,7 +147,7 @@ function SelectScrollUpButton({
     <SelectPrimitive.ScrollUpArrow
       data-slot="select-scroll-up-button"
       className={cn(
-        "bg-popover text-muted-foreground top-0 z-10 flex w-full cursor-default items-center justify-center py-1 [&_svg:not([class*='size-'])]:size-4",
+        "bg-popover text-muted-foreground top-0 z-10 flex w-full items-center justify-center py-1 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}
@@ -165,7 +165,7 @@ function SelectScrollDownButton({
     <SelectPrimitive.ScrollDownArrow
       data-slot="select-scroll-down-button"
       className={cn(
-        "bg-popover text-muted-foreground bottom-0 z-10 flex w-full cursor-default items-center justify-center py-1 [&_svg:not([class*='size-'])]:size-4",
+        "bg-popover text-muted-foreground bottom-0 z-10 flex w-full items-center justify-center py-1 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}

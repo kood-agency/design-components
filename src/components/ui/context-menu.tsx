@@ -93,7 +93,7 @@ function ContextMenuItem({
       data-inset={inset}
       data-variant={variant}
       className={cn(
-        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:data-highlighted:bg-destructive data-[variant=destructive]:data-highlighted:text-destructive-foreground data-disabled:text-muted-foreground relative flex cursor-default items-center gap-1.5 rounded-md px-2 py-1.5 text-sm outline-hidden select-none data-disabled:pointer-events-none data-inset:pl-8 max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:data-highlighted:bg-destructive data-[variant=destructive]:data-highlighted:text-destructive-foreground data-disabled:text-muted-foreground relative flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm outline-hidden select-none data-disabled:pointer-events-none data-inset:pl-8 max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}
@@ -118,7 +118,7 @@ function ContextMenuSubTrigger({
       data-slot="context-menu-sub-trigger"
       data-inset={inset}
       className={cn(
-        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-popup-open:bg-secondary data-popup-open:text-foreground data-disabled:text-muted-foreground flex cursor-default items-center gap-1.5 rounded-md px-2 py-1.5 text-sm outline-hidden select-none data-disabled:pointer-events-none data-inset:pl-8 max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-popup-open:bg-secondary data-popup-open:text-foreground data-disabled:text-muted-foreground flex items-center gap-1.5 rounded-md px-2 py-1.5 text-sm outline-hidden select-none data-disabled:pointer-events-none data-inset:pl-8 max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}
@@ -147,7 +147,7 @@ function ContextMenuCheckboxItem({
       data-slot="context-menu-checkbox-item"
       data-inset={inset}
       className={cn(
-        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-disabled:text-muted-foreground relative flex cursor-default items-center gap-1.5 rounded-md py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-disabled:pointer-events-none data-inset:pl-8 max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-disabled:text-muted-foreground relative flex items-center gap-1.5 rounded-md py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-disabled:pointer-events-none data-inset:pl-8 max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       checked={checked}
@@ -180,7 +180,7 @@ function ContextMenuRadioItem({
       data-slot="context-menu-radio-item"
       data-inset={inset}
       className={cn(
-        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-disabled:text-muted-foreground relative flex cursor-default items-center gap-1.5 rounded-md py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-disabled:pointer-events-none data-inset:pl-8 max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-disabled:text-muted-foreground relative flex items-center gap-1.5 rounded-md py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-disabled:pointer-events-none data-inset:pl-8 max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}

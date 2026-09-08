@@ -60,6 +60,10 @@ export const WithIcon: Story = {
 
 export const Disabled: Story = { args: { disabled: true, children: "Disabled" } };
 
+export const CursorOverride: Story = {
+  args: { className: "cursor-help", children: "Cursor override" },
+};
+
 export const Loading: Story = {
   args: {
     disabled: true,
