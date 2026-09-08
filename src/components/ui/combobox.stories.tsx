@@ -30,7 +30,11 @@ function FruitOptions() {
       <ComboboxEmpty>No fruit found.</ComboboxEmpty>
       <ComboboxList>
         <ComboboxCollection>
-          {(fruit: string) => <ComboboxItem value={fruit}>{fruit}</ComboboxItem>}
+          {(fruit: string) => (
+            <ComboboxItem key={fruit} value={fruit}>
+              {fruit}
+            </ComboboxItem>
+          )}
         </ComboboxCollection>
       </ComboboxList>
     </ComboboxContent>
