@@ -38,10 +38,12 @@ function SheetContent({
   children,
   side = "right",
   showCloseButton = true,
+  variant = "default",
   ...props
 }: SheetPrimitive.Popup.Props & {
   side?: "top" | "right" | "bottom" | "left";
   showCloseButton?: boolean;
+  variant?: "default" | "glass" | "glass-strong";
 }) {
   return (
     <SheetPortal>
@@ -49,9 +51,15 @@ function SheetContent({
       <SheetPrimitive.Popup
         data-slot="sheet-content"
         data-side={side}
+        data-variant={variant}
         aria-modal="true"
         className={cn(
-          "border-input bg-card text-foreground shadow-raised ease-standard fixed z-50 flex h-full w-3/4 flex-col gap-4 rounded-xl border p-6 transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 data-[side=bottom]:inset-x-0 data-[side=bottom]:bottom-0 data-[side=bottom]:h-auto data-[side=bottom]:w-full data-[side=bottom]:rounded-t-xl data-[side=bottom]:rounded-b-none data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:rounded-l-none data-[side=left]:rounded-r-xl data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:rounded-l-xl data-[side=right]:rounded-r-none data-[side=top]:inset-x-0 data-[side=top]:top-0 data-[side=top]:h-auto data-[side=top]:w-full data-[side=top]:rounded-t-none data-[side=top]:rounded-b-xl motion-reduce:transition-none data-[side=left]:sm:max-w-sm data-[side=right]:sm:max-w-sm",
+          "border-input text-foreground shadow-raised ease-standard fixed z-50 flex h-full w-3/4 flex-col gap-4 rounded-xl border p-6 transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 data-[side=bottom]:inset-x-0 data-[side=bottom]:bottom-0 data-[side=bottom]:h-auto data-[side=bottom]:w-full data-[side=bottom]:rounded-t-xl data-[side=bottom]:rounded-b-none data-[side=left]:inset-y-0 data-[side=left]:left-0 data-[side=left]:rounded-l-none data-[side=left]:rounded-r-xl data-[side=right]:inset-y-0 data-[side=right]:right-0 data-[side=right]:rounded-l-xl data-[side=right]:rounded-r-none data-[side=top]:inset-x-0 data-[side=top]:top-0 data-[side=top]:h-auto data-[side=top]:w-full data-[side=top]:rounded-t-none data-[side=top]:rounded-b-xl motion-reduce:transition-none data-[side=left]:sm:max-w-sm data-[side=right]:sm:max-w-sm",
+          variant === "default"
+            ? "bg-card"
+            : variant === "glass"
+              ? "kood-glass"
+              : "kood-glass-strong",
           className,
         )}
         {...props}

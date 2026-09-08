@@ -31,9 +31,11 @@ function AlertDialogOverlay({ className, ...props }: AlertDialogPrimitive.Backdr
 function AlertDialogContent({
   className,
   size = "default",
+  variant = "default",
   ...props
 }: AlertDialogPrimitive.Popup.Props & {
   size?: "default" | "sm";
+  variant?: "default" | "glass" | "glass-strong";
 }) {
   return (
     <AlertDialogPortal>
@@ -41,9 +43,15 @@ function AlertDialogContent({
       <AlertDialogPrimitive.Popup
         data-slot="alert-dialog-content"
         data-size={size}
+        data-variant={variant}
         aria-modal="true"
         className={cn(
-          "border-input bg-card text-foreground shadow-raised ease-standard group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl border p-6 transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none sm:max-w-sm",
+          "border-input text-foreground shadow-raised ease-standard group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl border p-6 transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none sm:max-w-sm",
+          variant === "default"
+            ? "bg-card"
+            : variant === "glass"
+              ? "kood-glass"
+              : "kood-glass-strong",
           className,
         )}
         {...props}

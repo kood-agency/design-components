@@ -78,3 +78,32 @@ export const Bottom: Story = {
     </Sheet>
   ),
 };
+
+export const Glass: Story = {
+  render: () => (
+    <div className="bg-secondary flex min-h-80 items-center justify-center gap-3 p-6">
+      <Sheet>
+        <SheetTrigger data-testid="glass-trigger" render={<Button />}>
+          Open glass
+        </SheetTrigger>
+        <SheetContent data-testid="glass" side="right" variant="glass">
+          <SheetHeader>
+            <SheetTitle>Glass sheet</SheetTitle>
+            <SheetDescription>A translucent side panel.</SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
+      <Sheet>
+        <SheetTrigger data-testid="glass-strong-trigger" render={<Button />}>
+          Open strong glass
+        </SheetTrigger>
+        <SheetContent data-testid="glass-strong" side="right" variant="glass-strong">
+          <SheetHeader>
+            <SheetTitle>Strong glass sheet</SheetTitle>
+            <SheetDescription>A stronger material with unchanged transitions.</SheetDescription>
+          </SheetHeader>
+        </SheetContent>
+      </Sheet>
+    </div>
+  ),
+};
