@@ -113,3 +113,31 @@ export const List: Story = {
     </ItemGroup>
   ),
 };
+
+export const Glass: Story = {
+  render: () => (
+    <Item variant="glass" data-testid="glass" className="max-w-md">
+      <ItemMedia variant="icon">
+        <FolderIcon />
+      </ItemMedia>
+      <ItemContent>
+        <ItemTitle>Glass item</ItemTitle>
+        <ItemDescription>Only the item root owns the material.</ItemDescription>
+      </ItemContent>
+    </Item>
+  ),
+};
+
+export const GlassStrong: Story = {
+  render: () => (
+    <Item variant="glass-strong" data-testid="glass-strong" className="max-w-md">
+      <ItemMedia variant="icon">
+        <FolderIcon />
+      </ItemMedia>
+      <ItemContent>
+        <ItemTitle>Glass strong item</ItemTitle>
+        <ItemDescription>Media and content remain structural children.</ItemDescription>
+      </ItemContent>
+    </Item>
+  ),
+};

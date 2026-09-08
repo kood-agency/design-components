@@ -38,6 +38,8 @@ const itemVariants = cva(
         default: "",
         outline: "border border-border",
         muted: "bg-secondary",
+        glass: "kood-glass",
+        "glass-strong": "kood-glass-strong",
       },
       size: {
         default: "",

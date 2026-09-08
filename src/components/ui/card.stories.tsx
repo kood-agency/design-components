@@ -76,3 +76,43 @@ export const Small: Story = {
     </Card>
   ),
 };
+
+export const Glass: Story = {
+  render: () => (
+    <Card variant="glass" data-testid="glass" className="w-full max-w-96">
+      <CardHeader>
+        <CardTitle>Glass card</CardTitle>
+        <CardDescription>The root surface owns the material.</CardDescription>
+      </CardHeader>
+      <CardContent>Nested content remains structural and transparent.</CardContent>
+    </Card>
+  ),
+};
+
+export const GlassStrong: Story = {
+  render: () => (
+    <Card variant="glass-strong" data-testid="glass-strong" className="w-full max-w-96">
+      <CardHeader>
+        <CardTitle>Glass strong card</CardTitle>
+        <CardDescription>The stronger option increases opacity only.</CardDescription>
+      </CardHeader>
+      <CardContent>Material is applied once on the visible surface.</CardContent>
+    </Card>
+  ),
+};
+
+export const NestedGlass: Story = {
+  render: () => (
+    <CardNested variant="glass" data-testid="glass" className="max-w-96">
+      Explicit material on this nested surface.
+    </CardNested>
+  ),
+};
+
+export const NestedGlassStrong: Story = {
+  render: () => (
+    <CardNested variant="glass-strong" data-testid="glass-strong" className="max-w-96">
+      Strong explicit material on this nested surface.
+    </CardNested>
+  ),
+};

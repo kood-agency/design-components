@@ -48,20 +48,28 @@ function Calendar({
   showOutsideDays = true,
   captionLayout = "label",
   buttonVariant = "ghost",
+  variant = "default",
   locale,
   formatters,
   components,
   ...dayPickerProps
 }: React.ComponentProps<typeof DayPicker> & {
   buttonVariant?: React.ComponentProps<typeof Button>["variant"];
+  variant?: "default" | "glass" | "glass-strong";
 }) {
   const defaultClassNames = getDefaultClassNames();
 
   return (
     <DayPicker
       showOutsideDays={showOutsideDays}
+      data-variant={variant}
       className={cn(
-        "group/calendar bg-card border-border rounded-lg border p-3 in-data-[slot=card-content]:border-0 in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent",
+        "group/calendar border-border rounded-lg border p-3",
+        variant === "default"
+          ? "bg-card in-data-[slot=card-content]:border-0 in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent"
+          : variant === "glass"
+            ? "kood-glass"
+            : "kood-glass-strong",
         String.raw`rtl:**:[.rdp-button\_next>svg]:rotate-180`,
         String.raw`rtl:**:[.rdp-button\_previous>svg]:rotate-180`,
         className,
@@ -99,7 +107,8 @@ function Calendar({
           defaultClassNames.dropdowns,
         ),
         dropdown_root: cn(
-          "relative min-h-8 max-md:min-h-11 rounded-md border border-input bg-card px-2 py-1 text-sm text-foreground placeholder:text-muted-foreground selection:bg-selection selection:text-selection-foreground md:text-sm outline-none focus-visible:border-ring focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring transition-colors duration-(--duration-enter) ease-standard motion-reduce:transition-none disabled:cursor-not-allowed disabled:border-input disabled:bg-secondary disabled:text-muted-foreground disabled:placeholder:text-muted-foreground data-disabled:cursor-not-allowed data-disabled:border-input data-disabled:bg-secondary data-disabled:text-muted-foreground aria-invalid:border-destructive data-invalid:border-destructive",
+          "relative min-h-8 max-md:min-h-11 rounded-md border border-input px-2 py-1 text-sm text-foreground placeholder:text-muted-foreground selection:bg-selection selection:text-selection-foreground md:text-sm outline-none focus-visible:border-ring focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring transition-colors duration-(--duration-enter) ease-standard motion-reduce:transition-none disabled:cursor-not-allowed disabled:border-input disabled:bg-secondary disabled:text-muted-foreground disabled:placeholder:text-muted-foreground data-disabled:cursor-not-allowed data-disabled:border-input data-disabled:bg-secondary data-disabled:text-muted-foreground aria-invalid:border-destructive data-invalid:border-destructive",
+          variant === "default" ? "bg-card" : "bg-transparent",
           defaultClassNames.dropdown_root,
         ),
         dropdown: cn(

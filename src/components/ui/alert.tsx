@@ -8,6 +8,9 @@ const alertVariants = cva(
     variants: {
       variant: {
         default: "rounded-lg border border-border bg-card p-6 text-sm text-foreground",
+        glass: "rounded-lg border border-border kood-glass p-6 text-sm text-foreground",
+        "glass-strong":
+          "rounded-lg border border-border kood-glass-strong p-6 text-sm text-foreground",
         info: "rounded-md border border-accent-foreground bg-accent px-4 py-3 text-sm text-foreground",
         destructive:
           "rounded-md border border-destructive bg-card px-4 py-3 text-sm text-destructive",
@@ -21,12 +24,13 @@ const alertVariants = cva(
 
 function Alert({
   className,
-  variant,
+  variant = "default",
   ...props
 }: React.ComponentProps<"div"> & VariantProps<typeof alertVariants>) {
   return (
     <div
       data-slot="alert"
+      data-variant={variant}
       role="alert"
       className={cn(alertVariants({ variant }), className)}
       {...props}

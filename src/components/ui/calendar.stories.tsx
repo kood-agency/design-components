@@ -48,3 +48,38 @@ export const Dropdown: Story = {
 export const Disabled: Story = {
   render: () => <Calendar defaultMonth={monthStart} disabled={[disabledDay]} />,
 };
+
+export const Glass: Story = {
+  render: function GlassStory() {
+    const [date, setDate] = React.useState<Date | undefined>(selectedDay);
+    return (
+      <Calendar
+        mode="single"
+        selected={date}
+        onSelect={setDate}
+        defaultMonth={monthStart}
+        variant="glass"
+        data-testid="glass"
+      />
+    );
+  },
+};
+
+export const GlassStrong: Story = {
+  render: function GlassStrongStory() {
+    const [range, setRange] = React.useState<DateRange | undefined>({
+      from: new Date(today.getFullYear(), today.getMonth(), 10),
+      to: new Date(today.getFullYear(), today.getMonth(), 18),
+    });
+    return (
+      <Calendar
+        mode="range"
+        selected={range}
+        onSelect={setRange}
+        defaultMonth={monthStart}
+        variant="glass-strong"
+        data-testid="glass-strong"
+      />
+    );
+  },
+};
