@@ -38,3 +38,22 @@ export const Outline: Story = {
     </ToggleGroup>
   ),
 };
+
+export const Glass: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center justify-center gap-3">
+      <ToggleGroup variant="glass" defaultValue={["left"]}>
+        <ToggleGroupItem value="left">Selected</ToggleGroupItem>
+        <ToggleGroupItem value="center" data-testid="glass">
+          Glass
+        </ToggleGroupItem>
+      </ToggleGroup>
+      <ToggleGroup variant="glass-strong" defaultValue={["left"]}>
+        <ToggleGroupItem value="left">Selected</ToggleGroupItem>
+        <ToggleGroupItem value="center" data-testid="glass-strong">
+          Glass strong
+        </ToggleGroupItem>
+      </ToggleGroup>
+    </div>
+  ),
+};

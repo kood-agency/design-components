@@ -38,3 +38,22 @@ export const WithText: Story = {
     </ButtonGroup>
   ),
 };
+
+export const Glass: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center justify-center gap-3">
+      <ButtonGroup>
+        <ButtonGroupText variant="glass" data-testid="glass">
+          https://
+        </ButtonGroupText>
+        <Button variant="glass">kood.dev</Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <ButtonGroupText variant="glass-strong" data-testid="glass-strong">
+          https://
+        </ButtonGroupText>
+        <Button variant="glass-strong">kood.dev</Button>
+      </ButtonGroup>
+    </div>
+  ),
+};
