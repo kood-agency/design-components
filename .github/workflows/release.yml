@@ -11,8 +11,6 @@ concurrency:
 
 permissions:
   contents: write
-  issues: write
-  pull-requests: write
   id-token: write
 
 jobs:
@@ -32,7 +30,70 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm run check
       - run: pnpm run build
-      - run: pnpm exec semantic-release ${{ github.event_name == 'workflow_dispatch' && '--dry-run' || '' }}
+      - name: Publish package version and create release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          HUSKY: 0
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          package_name="$(node -p "require('./package.json').name")"
+          version="$(node -p "require('./package.json').version")"
+          package_spec="${package_name}@${version}"
+          npm_error="$(mktemp)"
+          release_error="$(mktemp)"
+          trap 'rm -f "$npm_error" "$release_error"' EXIT
+
+          if published_version="$(npm view "$package_spec" version 2>"$npm_error")"; then
+            if [ "$published_version" != "$version" ]; then
+              echo "Registry returned $published_version for $package_spec, expected $version." >&2
+              exit 1
+            fi
+            published=true
+            echo "$package_spec is already published."
+          elif grep -qE '(^|[[:space:]])E404([[:space:]]|$)' "$npm_error"; then
+            published=false
+            echo "$package_spec is not published."
+          else
+            cat "$npm_error" >&2
+            exit 1
+          fi
+
+          if [ "$DRY_RUN" = "true" ]; then
+            if [ "$published" = "false" ]; then
+              npm publish --access public --dry-run
+            fi
+            exit 0
+          fi
+
+          if [ "$published" = "false" ]; then
+            npm publish --access public
+          fi
+
+          tag="v${version}"
+          set +e
+          git ls-remote --exit-code --refs origin "refs/tags/$tag" >/dev/null
+          tag_status=$?
+          set -e
+          case "$tag_status" in
+            0) echo "$tag already exists." ;;
+            2)
+              git -c user.name="github-actions[bot]" \
+                -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+                tag -a "$tag" -m "Release $tag"
+              git push origin "$tag"
+              ;;
+            *) exit "$tag_status" ;;
+          esac
+
+          set +e
+          gh api --silent "repos/$GITHUB_REPOSITORY/releases/tags/$tag" >/dev/null 2>"$release_error"
+          release_status=$?
+          set -e
+          if [ "$release_status" -eq 0 ]; then
+            echo "GitHub release $tag already exists."
+          elif grep -q 'HTTP 404' "$release_error"; then
+            gh release create "$tag" --title "$tag" --generate-notes
+          else
+            cat "$release_error" >&2
+            exit "$release_status"
+          fi

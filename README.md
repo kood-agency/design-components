@@ -117,14 +117,9 @@ pnpm fix:ui
 
 ## 발행 (자동)
 
-`main`에 push되면 릴리스 봇이 커밋 메시지 규칙(conventional commits)으로 버전을 올리고 npm에 자동 발행합니다.
-`feat:`는 minor, `fix:`는 patch, `BREAKING CHANGE`는 major가 됩니다.
+`main`에 push되면 워크플로가 `package.json`의 명시된 버전을 그대로 npm에 발행합니다. 커밋 메시지로 버전을 계산하지 않으므로, 발행 전에 `package.json` 버전을 올려야 합니다. 이미 발행된 정확한 버전은 건너뛰며, 누락된 Git 태그 또는 GitHub 릴리스만 복구합니다.
 
-로컬에서 손으로 올릴 때만 아래 명령을 씁니다 (검사와 빌드는 워크플로에서 이미 돕니다).
-
-```bash
-pnpm publish --access public
-```
+수동 실행은 같은 검사와 빌드 뒤 `npm publish --dry-run`만 수행하며, npm 발행, 태그, GitHub 릴리스를 만들지 않습니다.
 
 ## 참고
 
