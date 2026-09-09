@@ -16,6 +16,48 @@ export default meta;
 
 type Story = StoryObj<typeof NavigationMenu>;
 
+export const Glass: Story = {
+  render: () => (
+    <div className="flex flex-col gap-24">
+      <NavigationMenu appearance="glass" data-testid="glass">
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Glass</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <NavigationMenuLink href="#glass">Overview</NavigationMenuLink>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+      <NavigationMenu appearance="glass-strong" data-testid="glass-strong">
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <NavigationMenuTrigger>Strong</NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <NavigationMenuLink href="#strong">Overview</NavigationMenuLink>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </div>
+  ),
+};
+
+export const ContentGlass: Story = {
+  render: () => (
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Content glass</NavigationMenuTrigger>
+          <NavigationMenuContent variant="glass" data-testid="glass">
+            <NavigationMenuLink href="#content-glass">Overview</NavigationMenuLink>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  ),
+};
+
 export const Default: Story = {
   render: () => (
     <NavigationMenu>

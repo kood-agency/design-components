@@ -26,6 +26,23 @@ export default meta;
 
 type Story = StoryObj<typeof DropdownMenu>;
 
+export const Glass: Story = {
+  render: () => (
+    <DropdownMenu>
+      <DropdownMenuTrigger render={<Button />}>Open glass menu</DropdownMenuTrigger>
+      <DropdownMenuContent variant="glass" data-testid="glass">
+        <DropdownMenuItem>Profile</DropdownMenuItem>
+        <DropdownMenuSub>
+          <DropdownMenuSubTrigger>More</DropdownMenuSubTrigger>
+          <DropdownMenuSubContent variant="glass-strong" data-testid="glass-strong">
+            <DropdownMenuItem>Settings</DropdownMenuItem>
+          </DropdownMenuSubContent>
+        </DropdownMenuSub>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  ),
+};
+
 export const Default: Story = {
   render: () => (
     <DropdownMenu>

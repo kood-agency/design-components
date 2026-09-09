@@ -4,24 +4,35 @@ import { cva } from "class-variance-authority";
 import { ChevronDownIcon } from "lucide-react";
 import { cn } from "../../lib/utils";
 
+type NavigationMenuAppearance = "default" | "glass" | "glass-strong";
+
+const NavigationMenuAppearanceContext = React.createContext<NavigationMenuAppearance>("default");
+
 function NavigationMenu({
   align = "start",
+  appearance = "default",
   className,
   children,
   ...props
-}: NavigationMenuPrimitive.Root.Props & Pick<NavigationMenuPrimitive.Positioner.Props, "align">) {
+}: NavigationMenuPrimitive.Root.Props &
+  Pick<NavigationMenuPrimitive.Positioner.Props, "align"> & {
+    appearance?: NavigationMenuAppearance;
+  }) {
   return (
-    <NavigationMenuPrimitive.Root
-      data-slot="navigation-menu"
-      className={cn(
-        "group/navigation-menu relative flex max-w-max flex-1 items-center justify-center",
-        className,
-      )}
-      {...props}
-    >
-      {children}
-      <NavigationMenuPositioner align={align} />
-    </NavigationMenuPrimitive.Root>
+    <NavigationMenuAppearanceContext.Provider value={appearance}>
+      <NavigationMenuPrimitive.Root
+        data-slot="navigation-menu"
+        data-appearance={appearance}
+        className={cn(
+          "group/navigation-menu relative flex max-w-max flex-1 items-center justify-center",
+          className,
+        )}
+        {...props}
+      >
+        {children}
+        <NavigationMenuPositioner align={align} appearance={appearance} />
+      </NavigationMenuPrimitive.Root>
+    </NavigationMenuAppearanceContext.Provider>
   );
 }
 
@@ -75,12 +86,25 @@ function NavigationMenuTrigger({
   );
 }
 
-function NavigationMenuContent({ className, ...props }: NavigationMenuPrimitive.Content.Props) {
+function NavigationMenuContent({
+  className,
+  variant = "default",
+  ...props
+}: NavigationMenuPrimitive.Content.Props & { variant?: NavigationMenuAppearance }) {
+  const appearance = React.useContext(NavigationMenuAppearanceContext);
+  const surfaceVariant = appearance === "default" ? variant : "default";
+
   return (
     <NavigationMenuPrimitive.Content
       data-slot="navigation-menu-content"
+      data-variant={variant}
       className={cn(
-        "border-input bg-popover text-foreground shadow-raised ease-standard h-full w-auto rounded-lg border p-1 transition-[opacity,transform] duration-(--duration-enter) data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 **:data-[slot=navigation-menu-link]:focus:outline-none motion-reduce:transition-none",
+        "text-foreground ease-standard h-full w-auto rounded-lg border p-1 transition-[opacity,transform] duration-(--duration-enter) data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 **:data-[slot=navigation-menu-link]:focus:outline-none motion-reduce:transition-none",
+        appearance !== "default"
+          ? "border-transparent bg-transparent"
+          : surfaceVariant === "default"
+            ? "border-input bg-popover shadow-raised"
+            : `border-input shadow-raised kood-${surfaceVariant}`,
         className,
       )}
       {...props}
@@ -94,8 +118,9 @@ function NavigationMenuPositioner({
   sideOffset = 8,
   align = "start",
   alignOffset = 0,
+  appearance = "default",
   ...props
-}: NavigationMenuPrimitive.Positioner.Props) {
+}: NavigationMenuPrimitive.Positioner.Props & { appearance?: NavigationMenuAppearance }) {
   return (
     <NavigationMenuPrimitive.Portal>
       <NavigationMenuPrimitive.Positioner
@@ -109,7 +134,13 @@ function NavigationMenuPositioner({
         )}
         {...props}
       >
-        <NavigationMenuPrimitive.Popup className="border-input bg-popover text-foreground shadow-raised ease-standard xs:w-(--popup-width) relative h-(--popup-height) w-(--popup-width) origin-(--transform-origin) rounded-lg border transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none">
+        <NavigationMenuPrimitive.Popup
+          data-appearance={appearance}
+          className={cn(
+            "border-input text-foreground shadow-raised ease-standard xs:w-(--popup-width) relative h-(--popup-height) w-(--popup-width) origin-(--transform-origin) rounded-lg border transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            appearance === "default" ? "bg-popover" : `kood-${appearance}`,
+          )}
+        >
           <NavigationMenuPrimitive.Viewport className="relative size-full overflow-hidden" />
         </NavigationMenuPrimitive.Popup>
       </NavigationMenuPrimitive.Positioner>

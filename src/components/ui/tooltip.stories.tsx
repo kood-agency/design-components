@@ -10,6 +10,31 @@ export default meta;
 
 type Story = StoryObj<typeof Tooltip>;
 
+export const Glass: Story = {
+  render: () => (
+    <TooltipProvider delay={0}>
+      <div className="flex gap-4">
+        <Tooltip>
+          <TooltipTrigger delay={0} render={<Button />}>
+            Glass tooltip
+          </TooltipTrigger>
+          <TooltipContent variant="glass" data-testid="glass">
+            Glass surface
+          </TooltipContent>
+        </Tooltip>
+        <Tooltip>
+          <TooltipTrigger delay={0} render={<Button />}>
+            Strong tooltip
+          </TooltipTrigger>
+          <TooltipContent variant="glass-strong" data-testid="glass-strong">
+            Strong glass surface
+          </TooltipContent>
+        </Tooltip>
+      </div>
+    </TooltipProvider>
+  ),
+};
+
 export const Default: Story = {
   render: () => (
     <TooltipProvider delay={0}>
