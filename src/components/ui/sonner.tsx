@@ -10,8 +10,36 @@ import {
 } from "lucide-react";
 import { buttonVariants } from "./button";
 
-const Toaster = ({ ...props }: ToasterProps) => {
+type ToasterAppearance = "default" | "glass" | "glass-strong";
+
+const Toaster = ({
+  appearance = "default",
+  ...props
+}: ToasterProps & {
+  appearance?: ToasterAppearance;
+}) => {
   const { resolvedTheme } = useTheme();
+  const neutralToastClass =
+    appearance === "default"
+      ? "flex w-89 items-center gap-2 rounded-lg border border-input bg-popover p-4 font-sans text-sm text-foreground shadow-raised"
+      : `flex w-89 items-center gap-2 rounded-lg border border-input p-4 font-sans text-sm text-foreground shadow-raised kood-${appearance}`;
+  const semanticToastClasses =
+    appearance === "default"
+      ? {
+          success: "bg-success text-success-foreground border-success",
+          error: "bg-destructive text-destructive-foreground border-destructive",
+          warning: "bg-warning text-warning-foreground border-warning",
+          info: "bg-accent text-accent-foreground border-accent-foreground",
+        }
+      : {
+          success:
+            "border-success bg-success text-success-foreground hover:bg-success active:bg-success backdrop-filter-none [&_[data-description]]:!text-success-foreground",
+          error:
+            "border-destructive bg-destructive text-destructive-foreground hover:bg-destructive active:bg-destructive backdrop-filter-none [&_[data-description]]:!text-destructive-foreground",
+          warning:
+            "border-warning bg-warning text-warning-foreground hover:bg-warning active:bg-warning backdrop-filter-none [&_[data-description]]:!text-warning-foreground",
+          info: "border-accent-foreground bg-accent text-accent-foreground hover:bg-accent active:bg-accent backdrop-filter-none [&_[data-description]]:!text-accent-foreground",
+        };
 
   return (
     <Sonner
@@ -28,12 +56,11 @@ const Toaster = ({ ...props }: ToasterProps) => {
       toastOptions={{
         unstyled: true,
         classNames: {
-          toast:
-            "flex w-89 items-center gap-2 rounded-lg border border-input bg-popover p-4 font-sans text-sm text-foreground shadow-raised",
-          success: "bg-success text-success-foreground border-success",
-          error: "bg-destructive text-destructive-foreground border-destructive",
-          warning: "bg-warning text-warning-foreground border-warning",
-          info: "bg-accent text-accent-foreground border-accent-foreground",
+          toast: neutralToastClass,
+          success: semanticToastClasses.success,
+          error: semanticToastClasses.error,
+          warning: semanticToastClasses.warning,
+          info: semanticToastClasses.info,
           title: "font-semibold",
           description: "text-foreground-muted",
           actionButton: buttonVariants({ size: "xs" }),

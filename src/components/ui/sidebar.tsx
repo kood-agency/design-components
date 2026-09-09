@@ -136,6 +136,7 @@ function SidebarProvider({
 function Sidebar({
   side = "left",
   variant = "sidebar",
+  appearance = "default",
   collapsible = "offcanvas",
   className,
   children,
@@ -144,6 +145,7 @@ function Sidebar({
 }: React.ComponentProps<"div"> & {
   side?: "left" | "right";
   variant?: "sidebar" | "floating" | "inset";
+  appearance?: "default" | "glass" | "glass-strong";
   collapsible?: "offcanvas" | "icon" | "none";
 }) {
   const { isMobile, state: sidebarState, openMobile, setOpenMobile } = useSidebar();
@@ -152,8 +154,10 @@ function Sidebar({
     return (
       <div
         data-slot="sidebar"
+        data-appearance={appearance}
         className={cn(
-          "bg-sidebar text-sidebar-foreground border-sidebar-border flex h-full w-(--sidebar-width) flex-col",
+          "text-sidebar-foreground border-sidebar-border flex h-full w-(--sidebar-width) flex-col",
+          appearance === "default" ? "bg-sidebar" : `kood-${appearance}`,
           side === "left" ? "border-r" : "border-l",
           className,
         )}
@@ -172,7 +176,12 @@ function Sidebar({
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
-          className="bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden"
+          data-appearance={appearance}
+          variant={appearance}
+          className={cn(
+            "text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden",
+            appearance === "default" && "bg-sidebar",
+          )}
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
@@ -196,6 +205,7 @@ function Sidebar({
       data-state={sidebarState}
       data-collapsible={sidebarState === "collapsed" ? collapsible : ""}
       data-variant={variant}
+      data-appearance={appearance}
       data-side={side}
       data-slot="sidebar"
     >
@@ -227,8 +237,10 @@ function Sidebar({
         <div
           data-sidebar="sidebar"
           data-slot="sidebar-inner"
+          data-appearance={appearance}
           className={cn(
-            "bg-sidebar text-sidebar-foreground border-sidebar-border flex size-full flex-col",
+            "text-sidebar-foreground border-sidebar-border flex size-full flex-col",
+            appearance === "default" ? "bg-sidebar" : `kood-${appearance}`,
             side === "left" ? "border-r" : "border-l",
             variant === "floating" && "border-sidebar-border rounded-lg border",
           )}
