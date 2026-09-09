@@ -1,6 +1,6 @@
 {
   "name": "@kood/components",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "kood design components — React + shadcn/ui + Base UI",
   "repository": {
     "type": "git",
