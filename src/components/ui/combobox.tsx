@@ -46,13 +46,15 @@ function ComboboxInput({
   disabled = false,
   showTrigger = true,
   showClear = false,
+  variant = "default",
   ...props
 }: ComboboxPrimitive.Input.Props & {
   showTrigger?: boolean;
   showClear?: boolean;
+  variant?: "default" | "glass" | "glass-strong";
 }) {
   return (
-    <InputGroup className={cn("w-auto", className)}>
+    <InputGroup variant={variant} className={cn("w-auto", className)}>
       <ComboboxPrimitive.Input render={<InputGroupInput disabled={disabled} />} {...props} />
       <InputGroupAddon align="inline-end">
         {showTrigger && (
@@ -79,12 +81,15 @@ function ComboboxContent({
   align = "start",
   alignOffset = 0,
   anchor,
+  variant = "default",
   ...props
 }: ComboboxPrimitive.Popup.Props &
   Pick<
     ComboboxPrimitive.Positioner.Props,
     "side" | "align" | "sideOffset" | "alignOffset" | "anchor"
-  >) {
+  > & {
+    variant?: "default" | "glass" | "glass-strong";
+  }) {
   return (
     <ComboboxPrimitive.Portal>
       <ComboboxPrimitive.Positioner
@@ -98,8 +103,12 @@ function ComboboxContent({
         <ComboboxPrimitive.Popup
           data-slot="combobox-content"
           data-chips={!!anchor}
+          data-variant={variant}
           className={cn(
-            "border-input bg-popover text-foreground shadow-raised ease-standard z-50 max-h-[min(24rem,var(--available-height))] w-(--anchor-width) overflow-y-auto rounded-lg border p-1 transition-[opacity,transform] duration-(--duration-enter) data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            "border-input text-foreground shadow-raised ease-standard z-50 max-h-[min(24rem,var(--available-height))] w-(--anchor-width) overflow-y-auto rounded-lg border p-1 transition-[opacity,transform] duration-(--duration-enter) data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            variant === "default" && "bg-popover",
+            variant === "glass" && "kood-glass",
+            variant === "glass-strong" && "kood-glass-strong",
             className,
           )}
           {...props}
@@ -183,13 +192,21 @@ function ComboboxSeparator({ className, ...props }: ComboboxPrimitive.Separator.
 
 function ComboboxChips({
   className,
+  variant = "default",
   ...props
-}: React.ComponentPropsWithRef<typeof ComboboxPrimitive.Chips> & ComboboxPrimitive.Chips.Props) {
+}: React.ComponentPropsWithRef<typeof ComboboxPrimitive.Chips> &
+  ComboboxPrimitive.Chips.Props & {
+    variant?: "default" | "glass" | "glass-strong";
+  }) {
   return (
     <ComboboxPrimitive.Chips
       data-slot="combobox-chips"
+      data-variant={variant}
       className={cn(
-        "border-input bg-card text-foreground placeholder:text-muted-foreground selection:bg-selection selection:text-selection-foreground focus-within:outline-ring focus-within:border-ring ease-standard disabled:border-input disabled:bg-secondary disabled:text-muted-foreground disabled:placeholder:text-muted-foreground data-disabled:border-input data-disabled:bg-secondary data-disabled:text-muted-foreground aria-invalid:border-destructive data-invalid:border-destructive has-aria-invalid:border-destructive relative flex min-h-9 flex-wrap gap-1 rounded-md border p-1.5 text-base transition-colors duration-(--duration-enter) outline-none focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-solid disabled:cursor-not-allowed data-disabled:cursor-not-allowed motion-reduce:transition-none max-md:min-h-11 md:text-sm",
+        "border-input text-foreground placeholder:text-muted-foreground selection:bg-selection selection:text-selection-foreground focus-within:outline-ring focus-within:border-ring ease-standard disabled:border-input disabled:bg-secondary disabled:text-muted-foreground disabled:placeholder:text-muted-foreground data-disabled:border-input data-disabled:bg-secondary data-disabled:text-muted-foreground aria-invalid:border-destructive data-invalid:border-destructive has-aria-invalid:border-destructive relative flex min-h-9 flex-wrap gap-1 rounded-md border p-1.5 text-base transition-colors duration-(--duration-enter) outline-none focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-solid disabled:cursor-not-allowed data-disabled:cursor-not-allowed motion-reduce:transition-none max-md:min-h-11 md:text-sm",
+        variant === "default" && "bg-card",
+        variant === "glass" && "kood-glass",
+        variant === "glass-strong" && "kood-glass-strong",
         className,
       )}
       {...props}

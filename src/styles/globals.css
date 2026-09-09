@@ -342,15 +342,25 @@
 
   .kood-glass:disabled,
   .kood-glass[data-disabled]:not([data-disabled="false"]),
+  .kood-glass:has([data-slot="input-group-control"]:disabled),
+  .kood-glass:has([data-slot="input-group-control"][data-disabled]:not([data-disabled="false"])),
   .kood-glass-strong:disabled,
-  .kood-glass-strong[data-disabled]:not([data-disabled="false"]) {
+  .kood-glass-strong[data-disabled]:not([data-disabled="false"]),
+  .kood-glass-strong:has([data-slot="input-group-control"]:disabled),
+  .kood-glass-strong:has(
+    [data-slot="input-group-control"][data-disabled]:not([data-disabled="false"])
+  ) {
     background-color: var(--glass-solid);
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
   }
 
   .kood-glass-strong:disabled,
-  .kood-glass-strong[data-disabled]:not([data-disabled="false"]) {
+  .kood-glass-strong[data-disabled]:not([data-disabled="false"]),
+  .kood-glass-strong:has([data-slot="input-group-control"]:disabled),
+  .kood-glass-strong:has(
+    [data-slot="input-group-control"][data-disabled]:not([data-disabled="false"])
+  ) {
     background-color: var(--glass-strong-solid);
   }
 

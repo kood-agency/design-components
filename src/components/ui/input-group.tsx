@@ -6,13 +6,23 @@ import { Button } from "./button";
 import { Input } from "./input";
 import { Textarea } from "./textarea";
 
-function InputGroup({ className, ...props }: React.ComponentProps<"div">) {
+function InputGroup({
+  className,
+  variant = "default",
+  ...props
+}: React.ComponentProps<"div"> & {
+  variant?: "default" | "glass" | "glass-strong";
+}) {
   return (
     <div
       data-slot="input-group"
+      data-variant={variant}
       role="group"
       className={cn(
-        "group/input-group border-input bg-card text-foreground ease-standard has-[[data-slot=input-group-control]:focus-visible]:border-ring has-[[data-slot=input-group-control]:focus-visible]:!border-ring has-[[data-slot=input-group-control]:focus-visible]:outline-ring has-[[data-slot=input-group-control]:focus-visible]:!outline-ring has-[[aria-invalid=true]]:border-destructive has-[:disabled]:bg-secondary has-[:disabled]:text-muted-foreground relative flex min-h-9 w-full min-w-0 items-center rounded-md border transition-colors duration-(--duration-enter) outline-none has-[[data-slot=input-group-control]:focus-visible]:outline-2 has-[[data-slot=input-group-control]:focus-visible]:outline-offset-2 has-[[data-slot=input-group-control]:focus-visible]:outline-solid has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:flex-col has-[>textarea]:h-auto motion-reduce:transition-none",
+        "group/input-group border-input text-foreground ease-standard has-[[data-slot=input-group-control]:focus-visible]:border-ring has-[[data-slot=input-group-control]:focus-visible]:!border-ring has-[[data-slot=input-group-control]:focus-visible]:outline-ring has-[[data-slot=input-group-control]:focus-visible]:!outline-ring has-[[aria-invalid=true]]:border-destructive has-[:disabled]:bg-secondary has-[:disabled]:text-muted-foreground relative flex min-h-9 w-full min-w-0 items-center rounded-md border transition-colors duration-(--duration-enter) outline-none has-[[data-slot=input-group-control]:focus-visible]:outline-2 has-[[data-slot=input-group-control]:focus-visible]:outline-offset-2 has-[[data-slot=input-group-control]:focus-visible]:outline-solid has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:flex-col has-[>textarea]:h-auto motion-reduce:transition-none",
+        variant === "default" && "bg-card",
+        variant === "glass" && "kood-glass",
+        variant === "glass-strong" && "kood-glass-strong",
         className,
       )}
       {...props}
