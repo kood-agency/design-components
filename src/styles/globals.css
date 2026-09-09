@@ -165,6 +165,13 @@
   --sidebar-accent-foreground: #7fa5de;
   --sidebar-border: #30363d;
   --sidebar-ring: #7fa5de;
+  --glass-background: rgb(22 27 34 / 82%);
+  --glass-strong-background: rgb(22 27 34 / 94%);
+  --glass-hover: rgb(22 27 34 / 96%);
+  --glass-active: rgb(22 27 34 / 98%);
+  --glass-solid: #161b22;
+  --glass-strong-solid: #161b22;
+  --glass-blur: 12px;
   --kood-shadow-raised: none;
   --duration-enter: 150ms;
   --duration-exit: 120ms;
@@ -214,6 +221,13 @@
   --sidebar-accent-foreground: #315c9f;
   --sidebar-border: #d7e0e9;
   --sidebar-ring: #315c9f;
+  --glass-background: rgb(255 255 255 / 86%);
+  --glass-strong-background: rgb(255 255 255 / 96%);
+  --glass-hover: rgb(255 255 255 / 98%);
+  --glass-active: rgb(255 255 255 / 99%);
+  --glass-solid: #ffffff;
+  --glass-strong-solid: #ffffff;
+  --glass-blur: 12px;
   --kood-shadow-raised: 0 1px 2px rgb(10 23 36 / 6%), 0 8px 24px rgb(10 23 36 / 8%);
   --duration-enter: 150ms;
   --duration-exit: 120ms;
@@ -325,6 +339,81 @@
     *::after {
       animation: none !important;
       transition: none !important;
+    }
+  }
+}
+
+@layer components {
+  .kood-glass {
+    background-color: var(--glass-solid);
+  }
+
+  .kood-glass-strong {
+    background-color: var(--glass-strong-solid);
+  }
+
+  @supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .kood-glass {
+      background-color: var(--glass-background);
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      backdrop-filter: blur(var(--glass-blur));
+    }
+
+    .kood-glass-strong {
+      background-color: var(--glass-strong-background);
+      -webkit-backdrop-filter: blur(var(--glass-blur));
+      backdrop-filter: blur(var(--glass-blur));
+    }
+
+    .kood-glass:hover,
+    .kood-glass-strong:hover {
+      background-color: var(--glass-hover);
+    }
+
+    .kood-glass:active,
+    .kood-glass-strong:active {
+      background-color: var(--glass-active);
+    }
+  }
+
+  .kood-glass:disabled,
+  .kood-glass[data-disabled]:not([data-disabled="false"]),
+  .kood-glass:has([data-slot="input-group-control"]:disabled),
+  .kood-glass:has([data-slot="input-group-control"][data-disabled]:not([data-disabled="false"])),
+  .kood-glass-strong:disabled,
+  .kood-glass-strong[data-disabled]:not([data-disabled="false"]),
+  .kood-glass-strong:has([data-slot="input-group-control"]:disabled),
+  .kood-glass-strong:has(
+    [data-slot="input-group-control"][data-disabled]:not([data-disabled="false"])
+  ) {
+    background-color: var(--glass-solid);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .kood-glass-strong:disabled,
+  .kood-glass-strong[data-disabled]:not([data-disabled="false"]),
+  .kood-glass-strong:has([data-slot="input-group-control"]:disabled),
+  .kood-glass-strong:has(
+    [data-slot="input-group-control"][data-disabled]:not([data-disabled="false"])
+  ) {
+    background-color: var(--glass-strong-solid);
+  }
+
+  @media (forced-colors: active), (prefers-reduced-transparency: reduce) {
+    .kood-glass,
+    .kood-glass-strong,
+    .kood-glass:hover,
+    .kood-glass:active,
+    .kood-glass-strong:hover,
+    .kood-glass-strong:active {
+      background-color: var(--glass-solid);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+
+    .kood-glass-strong {
+      background-color: var(--glass-strong-solid);
     }
   }
 }

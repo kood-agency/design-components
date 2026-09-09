@@ -28,6 +28,23 @@ type Story = StoryObj<typeof ContextMenu>;
 const targetClassName =
   "flex h-[120px] w-[200px] items-center justify-center rounded-md border border-input bg-card text-sm text-foreground";
 
+export const Glass: Story = {
+  render: () => (
+    <ContextMenu>
+      <ContextMenuTrigger className={targetClassName}>Right click for glass</ContextMenuTrigger>
+      <ContextMenuContent variant="glass" data-testid="glass">
+        <ContextMenuItem>Profile</ContextMenuItem>
+        <ContextMenuSub>
+          <ContextMenuSubTrigger>More</ContextMenuSubTrigger>
+          <ContextMenuSubContent variant="glass-strong" data-testid="glass-strong">
+            <ContextMenuItem>Settings</ContextMenuItem>
+          </ContextMenuSubContent>
+        </ContextMenuSub>
+      </ContextMenuContent>
+    </ContextMenu>
+  ),
+};
+
 export const Default: Story = {
   render: () => (
     <ContextMenu>

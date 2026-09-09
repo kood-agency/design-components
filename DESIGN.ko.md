@@ -835,6 +835,14 @@ CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--
 
 컴포넌트는 위의 시맨틱 토큰 클래스를 소비합니다. 하드코딩한 팔레트 클래스로 바꾸지 않습니다.
 
+**글래스 재질 계약.** `glass`와 `glass-strong`은 선택해서 쓰는 뉴트럴 표면 대안이며 기존 기본값은 모두 현재의 솔리드 출력을 유지합니다. 공유 CSS 예외는 공개 커스텀 프로퍼티 일곱 개로 한정합니다. `--glass-background`, `--glass-strong-background`, `--glass-hover`, `--glass-active`, `--glass-solid`, `--glass-strong-solid`, `--glass-blur`입니다. `kood-glass`와 `kood-glass-strong`은 재질의 채움과 필터만 맡습니다. 일반 재질은 절제된 12px blur를 쓰고 strong은 blur를 키우지 않고 불투명도만 높입니다.
+
+레시피는 먼저 표면이 맡은 불투명 솔리드 대체 표시를 제공합니다. 표준 또는 접두사 필터를 지원할 때만 반투명 채움과 같은 `backdrop-filter` 선언을 켭니다. disabled와 truthy `data-disabled` 표면, `forced-colors`, reduced-transparency 모드는 모든 상태에서 불투명하게 유지하고 필터를 끕니다. 레시피는 전경색과 테두리, 포커스, 시맨틱 상태, 그림자의 책임을 바꾸지 않으며 컴포넌트에서 임의 blur, alpha, shadow를 허용하지 않습니다.
+
+뉴트럴 API는 실제 표면에서 `variant="glass"` 또는 `variant="glass-strong"`을 쓰는 방식입니다. Button, Badge, Toggle, ToggleGroup과 ToggleGroupItem, Alert, Item은 기존 variant에 추가하며 시맨틱 variant는 솔리드 대안으로 남습니다. Input, Textarea, InputGroup, SelectTrigger와 SelectContent, ComboboxInput, ComboboxChips와 ComboboxContent, Card와 CardNested, Calendar, ButtonGroupText, Menubar, PopoverContent, HoverCardContent, TooltipContent, DropdownMenuContent와 DropdownMenuSubContent, ContextMenuContent와 ContextMenuSubContent, DialogContent, AlertDialogContent, SheetContent, DrawerContent, Command, CommandDialog는 기존 variant에 레이아웃 의미가 없을 때 `variant?: "default" | "glass" | "glass-strong"`을 씁니다. variant 값은 native DOM으로 전달하지 않고 클래스와 `data-variant`를 선택하며 wrapper alias는 기반 prop 타입을 상속합니다.
+
+Sidebar, NavigationMenu, Toaster는 기존 레이아웃 또는 시맨틱 API를 유지하면서 `appearance?: "default" | "glass" | "glass-strong"`을 추가합니다. Sidebar는 desktop과 mobile 표면으로 appearance를 전달합니다. NavigationMenu는 appearance를 내부 popup으로 전달하고 글래스 viewport 콘텐츠는 투명하게 유지하며 독립 렌더링 콘텐츠는 이중 필터 없이 opt-in할 수 있습니다. Toaster는 로컬에서 뉴트럴 재질을 적용하고 시맨틱 toast type은 기존 솔리드 채움을 유지하며 소비자의 `toastOptions` override가 계속 우선합니다. CommandDialog는 variant를 DialogContent로 넘기고 글래스 dialog 안의 Command는 투명하게 유지합니다. ToggleGroup은 item에만 필터를 적용하고 wrapper에는 적용하지 않습니다.
+
 출시된 다크 매핑은 다음과 같습니다.
 
 ```css
@@ -881,6 +889,7 @@ CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--
 - 테이블에서는 `font-variant-numeric: tabular-nums`를 씁니다.
 - 768px 이상에서는 기본 Button, Input, Select 행을 40px로 쓰고 768px 미만에서는 각각 `min-height: 44px`를 둡니다.
 - 변경 뒤에는 `bun scripts/verify-design-md.ts DESIGN.md DESIGN.ko.md`를 실행합니다.
+- 글래스를 바꿀 때는 일곱 프로퍼티 재질 계약 안에 두고 뉴트럴 두 variant와 불투명 대체 표시, 바뀌지 않은 기본 출력을 확인합니다.
 
 ### Don't
 
@@ -894,6 +903,7 @@ CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--
 - `opacity`를 낮춰 비활성을 표시하지 않습니다. **button-disabled** 레시피를 씁니다.
 - 강조하려고 한글을 이탤릭으로 두지 않습니다. 웨이트나 색을 씁니다. Jetendard 이탤릭은 한글을 직립으로 둡니다.
 - 다른 제품 DESIGN.md의 문장을 베끼지 않습니다. 구조만 취하고 문구는 취하지 않습니다.
+- 글래스에 컴포넌트 수준 blur, alpha 유틸리티, shadow를 더하지 않습니다. 문서화한 필터와 반투명 채움은 공유 재질 레시피만 사용합니다.
 
 ## Responsive Behavior
 

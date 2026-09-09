@@ -9,6 +9,29 @@ export default meta;
 
 type Story = StoryObj<typeof HoverCard>;
 
+export const Glass: Story = {
+  render: () => (
+    <div className="flex gap-8">
+      <HoverCard>
+        <HoverCardTrigger delay={0} closeDelay={0} render={<button type="button" />}>
+          Glass hover card
+        </HoverCardTrigger>
+        <HoverCardContent variant="glass" data-testid="glass">
+          Glass surface
+        </HoverCardContent>
+      </HoverCard>
+      <HoverCard>
+        <HoverCardTrigger delay={0} closeDelay={0} render={<button type="button" />}>
+          Strong hover card
+        </HoverCardTrigger>
+        <HoverCardContent variant="glass-strong" data-testid="glass-strong">
+          Strong glass surface
+        </HoverCardContent>
+      </HoverCard>
+    </div>
+  ),
+};
+
 export const Default: Story = {
   render: () => (
     <HoverCard>

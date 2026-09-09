@@ -24,6 +24,29 @@ export default meta;
 
 type Story = StoryObj<typeof Menubar>;
 
+export const Glass: Story = {
+  render: () => (
+    <div className="flex flex-col gap-4">
+      <Menubar variant="glass" data-testid="glass">
+        <MenubarMenu>
+          <MenubarTrigger>Glass</MenubarTrigger>
+          <MenubarContent variant="glass">
+            <MenubarItem>Profile</MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
+      <Menubar variant="glass-strong" data-testid="glass-strong">
+        <MenubarMenu>
+          <MenubarTrigger>Strong</MenubarTrigger>
+          <MenubarContent variant="glass-strong">
+            <MenubarItem>Settings</MenubarItem>
+          </MenubarContent>
+        </MenubarMenu>
+      </Menubar>
+    </div>
+  ),
+};
+
 export const Default: Story = {
   render: function DefaultStory() {
     const [showBookmarks, setShowBookmarks] = React.useState(true);

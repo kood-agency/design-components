@@ -8,12 +8,25 @@ import { cn } from "../../lib/utils";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "./dialog";
 import { InputGroup, InputGroupAddon } from "./input-group";
 
-function Command({ className, ...props }: React.ComponentProps<typeof CommandPrimitive>) {
+type CommandVariant = "default" | "glass" | "glass-strong";
+
+const CommandDialogVariantContext = React.createContext<CommandVariant>("default");
+
+function Command({
+  className,
+  variant = "default",
+  ...props
+}: React.ComponentProps<typeof CommandPrimitive> & { variant?: CommandVariant }) {
+  const dialogVariant = React.useContext(CommandDialogVariantContext);
+  const isTransparentInGlassDialog = dialogVariant !== "default";
+
   return (
     <CommandPrimitive
       data-slot="command"
+      data-variant={variant}
       className={cn(
-        "bg-popover text-foreground flex h-full w-full flex-col overflow-hidden rounded-lg",
+        "text-foreground flex h-full w-full flex-col overflow-hidden rounded-lg",
+        !isTransparentInGlassDialog && (variant === "default" ? "bg-popover" : `kood-${variant}`),
         className,
       )}
       {...props}
@@ -27,12 +40,14 @@ function CommandDialog({
   children,
   className,
   showCloseButton = false,
+  variant = "default",
   ...props
 }: Omit<React.ComponentProps<typeof Dialog>, "children"> & {
   title?: string;
   description?: string;
   className?: string;
   showCloseButton?: boolean;
+  variant?: CommandVariant;
   children: React.ReactNode;
 }) {
   return (
@@ -42,13 +57,17 @@ function CommandDialog({
         <DialogDescription>{description}</DialogDescription>
       </DialogHeader>
       <DialogContent
+        variant={variant}
         className={cn(
-          "border-input bg-card text-foreground shadow-raised overflow-hidden rounded-xl border p-0 sm:max-w-lg",
+          "border-input text-foreground shadow-raised overflow-hidden rounded-xl border p-0 sm:max-w-lg",
+          variant === "default" && "bg-card",
           className,
         )}
         showCloseButton={showCloseButton}
       >
-        {children}
+        <CommandDialogVariantContext.Provider value={variant}>
+          {children}
+        </CommandDialogVariantContext.Provider>
       </DialogContent>
     </Dialog>
   );

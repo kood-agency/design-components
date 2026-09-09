@@ -34,6 +34,25 @@ export const Default: Story = {
   ),
 };
 
+export const Glass: Story = {
+  render: () => (
+    <div className="flex flex-wrap gap-4">
+      <Popover>
+        <PopoverTrigger render={<Button />}>Glass popover</PopoverTrigger>
+        <PopoverContent variant="glass" data-testid="glass">
+          <PopoverTitle>Glass surface</PopoverTitle>
+        </PopoverContent>
+      </Popover>
+      <Popover>
+        <PopoverTrigger render={<Button />}>Strong popover</PopoverTrigger>
+        <PopoverContent variant="glass-strong" data-testid="glass-strong">
+          <PopoverTitle>Strong glass surface</PopoverTitle>
+        </PopoverContent>
+      </Popover>
+    </div>
+  ),
+};
+
 export const Form: Story = {
   render: () => (
     <Popover>

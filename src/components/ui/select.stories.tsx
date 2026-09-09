@@ -39,6 +39,19 @@ export const Default: Story = {
   ),
 };
 
+export const Glass: Story = {
+  render: () => (
+    <Select defaultValue="apple">
+      <SelectTrigger variant="glass" data-testid="glass">
+        <SelectValue placeholder="Glass trigger" />
+      </SelectTrigger>
+      <SelectContent variant="glass-strong" data-testid="glass-strong" align="start">
+        {fruits}
+      </SelectContent>
+    </Select>
+  ),
+};
+
 export const Groups: Story = {
   render: () => (
     <Select defaultValue="apple">

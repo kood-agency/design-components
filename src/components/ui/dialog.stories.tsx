@@ -62,3 +62,36 @@ export const NoClose: Story = {
     </Dialog>
   ),
 };
+
+export const Glass: Story = {
+  render: () => (
+    <div className="bg-secondary flex min-h-80 items-center justify-center gap-3 p-6">
+      <Dialog>
+        <DialogTrigger data-testid="glass-trigger" render={<Button />}>
+          Open glass
+        </DialogTrigger>
+        <DialogContent data-testid="glass" variant="glass">
+          <DialogHeader>
+            <DialogTitle>Glass dialog</DialogTitle>
+            <DialogDescription>
+              A translucent modal panel over the existing scrim.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+      <Dialog>
+        <DialogTrigger data-testid="glass-strong-trigger" render={<Button />}>
+          Open strong glass
+        </DialogTrigger>
+        <DialogContent data-testid="glass-strong" variant="glass-strong">
+          <DialogHeader>
+            <DialogTitle>Strong glass dialog</DialogTitle>
+            <DialogDescription>
+              A higher-opacity modal panel with the same filter.
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+    </div>
+  ),
+};

@@ -20,12 +20,18 @@ import {
 } from "./dropdown-menu";
 import { CheckIcon } from "lucide-react";
 
-function Menubar({ className, ...props }: MenubarPrimitive.Props) {
+function Menubar({
+  className,
+  variant = "default",
+  ...props
+}: MenubarPrimitive.Props & { variant?: "default" | "glass" | "glass-strong" }) {
   return (
     <MenubarPrimitive
       data-slot="menubar"
+      data-variant={variant}
       className={cn(
-        "border-input bg-card flex h-9 items-center gap-1 rounded-md border p-1",
+        "border-input flex h-9 items-center gap-1 rounded-md border p-1",
+        variant === "default" ? "bg-card" : `kood-${variant}`,
         className,
       )}
       {...props}

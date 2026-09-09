@@ -37,21 +37,43 @@ function ButtonGroup({
   );
 }
 
-function ButtonGroupText({ className, render, ...props }: useRender.ComponentProps<"div">) {
+const buttonGroupTextVariants = cva(
+  "border-input text-foreground-muted flex items-center gap-2 border px-3 text-sm [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
+  {
+    variants: {
+      variant: {
+        default: "bg-card",
+        glass: "kood-glass",
+        "glass-strong": "kood-glass-strong",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  },
+);
+
+function ButtonGroupText({
+  className,
+  variant = "default",
+  render,
+  ...props
+}: useRender.ComponentProps<"div"> & VariantProps<typeof buttonGroupTextVariants>) {
   return useRender({
     defaultTagName: "div",
     props: mergeProps<"div">(
       {
-        className: cn(
-          "border-input bg-card text-foreground-muted flex items-center gap-2 border px-3 text-sm [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
-          className,
-        ),
+        className: cn(buttonGroupTextVariants({ variant }), className),
       },
       props,
     ),
     render,
     state: {
       slot: "button-group-text",
+      variant,
+    } satisfies {
+      slot: "button-group-text";
+      variant: VariantProps<typeof buttonGroupTextVariants>["variant"];
     },
   });
 }
