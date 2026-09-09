@@ -138,7 +138,9 @@ function NavigationMenuPositioner({
           data-appearance={appearance}
           className={cn(
             "border-input text-foreground shadow-raised ease-standard xs:w-(--popup-width) relative h-(--popup-height) w-(--popup-width) origin-(--transform-origin) rounded-lg border transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
-            appearance === "default" ? "bg-popover" : `kood-${appearance}`,
+            appearance === "default"
+              ? "bg-popover [&:has([data-slot=navigation-menu-content][data-variant=glass-strong]:not([data-ending-style]))]:bg-transparent [&:has([data-slot=navigation-menu-content][data-variant=glass]:not([data-ending-style]))]:bg-transparent"
+              : `kood-${appearance}`,
           )}
         >
           <NavigationMenuPrimitive.Viewport className="relative size-full overflow-hidden" />
