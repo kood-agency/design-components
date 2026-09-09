@@ -39,18 +39,26 @@ function DialogContent({
   className,
   children,
   showCloseButton = true,
+  variant = "default",
   ...props
 }: DialogPrimitive.Popup.Props & {
   showCloseButton?: boolean;
+  variant?: "default" | "glass" | "glass-strong";
 }) {
   return (
     <DialogPortal>
       <DialogOverlay />
       <DialogPrimitive.Popup
         data-slot="dialog-content"
+        data-variant={variant}
         aria-modal="true"
         className={cn(
-          "border-input bg-card text-foreground shadow-raised ease-standard fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl border p-6 transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none sm:max-w-lg",
+          "border-input text-foreground shadow-raised ease-standard fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl border p-6 transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none sm:max-w-lg",
+          variant === "default"
+            ? "bg-card"
+            : variant === "glass"
+              ? "kood-glass"
+              : "kood-glass-strong",
           className,
         )}
         {...props}

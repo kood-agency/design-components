@@ -28,17 +28,23 @@ function SelectValue({ className, ...props }: SelectPrimitive.Value.Props) {
 function SelectTrigger({
   className,
   size = "default",
+  variant = "default",
   children,
   ...props
 }: SelectPrimitive.Trigger.Props & {
   size?: "sm" | "default";
+  variant?: "default" | "glass" | "glass-strong";
 }) {
   return (
     <SelectPrimitive.Trigger
       data-slot="select-trigger"
       data-size={size}
+      data-variant={variant}
       className={cn(
-        "border-input bg-card text-foreground selection:bg-selection selection:text-selection-foreground placeholder:text-muted-foreground ease-standard focus-visible:border-ring focus-visible:outline-ring disabled:border-input disabled:bg-secondary disabled:text-muted-foreground disabled:placeholder:text-muted-foreground data-disabled:border-input data-disabled:bg-secondary data-disabled:text-muted-foreground aria-invalid:border-destructive data-invalid:border-destructive data-placeholder:text-muted-foreground box-border flex min-h-10 w-fit items-center justify-between gap-2 rounded-md border px-3 py-[7px] text-base leading-6 whitespace-nowrap transition-colors duration-(--duration-enter) outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid disabled:cursor-not-allowed data-disabled:cursor-not-allowed *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-1.5 motion-reduce:transition-none max-md:min-h-11 md:data-[size=sm]:min-h-8 md:data-[size=sm]:py-2 md:data-[size=sm]:text-sm md:data-[size=sm]:leading-5 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "border-input text-foreground selection:bg-selection selection:text-selection-foreground placeholder:text-muted-foreground ease-standard focus-visible:border-ring focus-visible:outline-ring disabled:border-input disabled:bg-secondary disabled:text-muted-foreground disabled:placeholder:text-muted-foreground data-disabled:border-input data-disabled:bg-secondary data-disabled:text-muted-foreground aria-invalid:border-destructive data-invalid:border-destructive data-placeholder:text-muted-foreground box-border flex min-h-10 w-fit items-center justify-between gap-2 rounded-md border px-3 py-[7px] text-base leading-6 whitespace-nowrap transition-colors duration-(--duration-enter) outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid disabled:cursor-not-allowed data-disabled:cursor-not-allowed *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-1.5 motion-reduce:transition-none max-md:min-h-11 md:data-[size=sm]:min-h-8 md:data-[size=sm]:py-2 md:data-[size=sm]:text-sm md:data-[size=sm]:leading-5 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        variant === "default" && "bg-card",
+        variant === "glass" && "kood-glass",
+        variant === "glass-strong" && "kood-glass-strong",
         className,
       )}
       {...props}
@@ -60,12 +66,15 @@ function SelectContent({
   alignOffset = 0,
   alignItemWithTrigger = true,
   finalFocus = true,
+  variant = "default",
   ...props
 }: SelectPrimitive.Popup.Props &
   Pick<
     SelectPrimitive.Positioner.Props,
     "align" | "alignOffset" | "side" | "sideOffset" | "alignItemWithTrigger"
-  >) {
+  > & {
+    variant?: "default" | "glass" | "glass-strong";
+  }) {
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Positioner
@@ -79,9 +88,13 @@ function SelectContent({
         <SelectPrimitive.Popup
           data-slot="select-content"
           data-align-trigger={alignItemWithTrigger}
+          data-variant={variant}
           finalFocus={finalFocus}
           className={cn(
-            "border-input bg-popover text-foreground shadow-raised ease-standard relative isolate z-50 max-h-(--available-height) w-(--anchor-width) min-w-32 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg border p-1 transition-[opacity,transform] duration-(--duration-enter) data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            "border-input text-foreground shadow-raised ease-standard relative isolate z-50 max-h-(--available-height) w-(--anchor-width) min-w-32 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg border p-1 transition-[opacity,transform] duration-(--duration-enter) data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            variant === "default" && "bg-popover",
+            variant === "glass" && "kood-glass",
+            variant === "glass-strong" && "kood-glass-strong",
             className,
           )}
           {...props}

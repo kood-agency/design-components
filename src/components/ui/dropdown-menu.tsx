@@ -29,9 +29,12 @@ function DropdownMenuContent({
   side = "bottom",
   sideOffset = 4,
   className,
+  variant = "default",
   ...props
 }: MenuPrimitive.Popup.Props &
-  Pick<MenuPrimitive.Positioner.Props, "align" | "alignOffset" | "side" | "sideOffset">) {
+  Pick<MenuPrimitive.Positioner.Props, "align" | "alignOffset" | "side" | "sideOffset"> & {
+    variant?: "default" | "glass" | "glass-strong";
+  }) {
   return (
     <MenuPrimitive.Portal>
       <MenuPrimitive.Positioner
@@ -43,8 +46,10 @@ function DropdownMenuContent({
       >
         <MenuPrimitive.Popup
           data-slot="dropdown-menu-content"
+          data-variant={variant}
           className={cn(
-            "border-input bg-popover text-foreground shadow-raised ease-standard z-50 max-h-(--available-height) min-w-32 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg border p-1 transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            "border-input text-foreground shadow-raised ease-standard z-50 max-h-(--available-height) min-w-32 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg border p-1 transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            variant === "default" ? "bg-popover" : `kood-${variant}`,
             className,
           )}
           {...props}

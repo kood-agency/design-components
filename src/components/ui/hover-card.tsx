@@ -21,9 +21,12 @@ function HoverCardContent({
   sideOffset = 4,
   align = "center",
   alignOffset = 4,
+  variant = "default",
   ...props
 }: PreviewCardPrimitive.Popup.Props &
-  Pick<PreviewCardPrimitive.Positioner.Props, "align" | "alignOffset" | "side" | "sideOffset">) {
+  Pick<PreviewCardPrimitive.Positioner.Props, "align" | "alignOffset" | "side" | "sideOffset"> & {
+    variant?: "default" | "glass" | "glass-strong";
+  }) {
   return (
     <PreviewCardPrimitive.Portal data-slot="hover-card-portal">
       <PreviewCardPrimitive.Positioner
@@ -35,8 +38,10 @@ function HoverCardContent({
       >
         <PreviewCardPrimitive.Popup
           data-slot="hover-card-content"
+          data-variant={variant}
           className={cn(
-            "border-input bg-popover text-foreground shadow-raised ease-standard z-50 w-64 origin-(--transform-origin) rounded-lg border p-4 transition-[opacity,transform] duration-(--duration-enter) data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            "border-input text-foreground shadow-raised ease-standard z-50 w-64 origin-(--transform-origin) rounded-lg border p-4 transition-[opacity,transform] duration-(--duration-enter) data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            variant === "default" ? "bg-popover" : `kood-${variant}`,
             className,
           )}
           {...props}

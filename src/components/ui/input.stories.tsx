@@ -15,6 +15,15 @@ export const Default: Story = {};
 
 export const Disabled: Story = { args: { disabled: true } };
 
+export const Glass: Story = {
+  render: () => (
+    <div className="flex w-64 flex-col gap-3">
+      <Input variant="glass" data-testid="glass" placeholder="Glass input" />
+      <Input variant="glass-strong" data-testid="glass-strong" placeholder="Strong glass input" />
+    </div>
+  ),
+};
+
 export const Invalid: Story = {
   args: { "aria-invalid": true },
   render: (args) => (

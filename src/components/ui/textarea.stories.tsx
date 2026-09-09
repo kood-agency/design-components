@@ -15,6 +15,19 @@ export const Default: Story = {};
 
 export const Disabled: Story = { args: { disabled: true } };
 
+export const Glass: Story = {
+  render: () => (
+    <div className="flex w-64 flex-col gap-3">
+      <Textarea variant="glass" data-testid="glass" placeholder="Glass textarea" />
+      <Textarea
+        variant="glass-strong"
+        data-testid="glass-strong"
+        placeholder="Strong glass textarea"
+      />
+    </div>
+  ),
+};
+
 export const Invalid: Story = { args: { "aria-invalid": true } };
 
 export const WithLabel: Story = {

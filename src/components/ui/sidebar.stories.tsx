@@ -205,3 +205,28 @@ export const Mobile: Story = {
     </div>
   ),
 };
+
+function GlassSidebar({ appearance }: { appearance: "glass" | "glass-strong" }) {
+  return (
+    <SidebarProvider>
+      <Sidebar appearance={appearance} collapsible="icon" data-testid={appearance}>
+        <DemoNav />
+      </Sidebar>
+      <SidebarInset>
+        <header className="flex h-12 items-center gap-2 px-3">
+          <SidebarTrigger />
+          <span className="text-sm">{appearance} sidebar</span>
+        </header>
+        <div className="p-6 text-sm">Workspace content</div>
+      </SidebarInset>
+    </SidebarProvider>
+  );
+}
+
+export const Glass: Story = {
+  render: () => <GlassSidebar appearance="glass" />,
+};
+
+export const GlassStrong: Story = {
+  render: () => <GlassSidebar appearance="glass-strong" />,
+};

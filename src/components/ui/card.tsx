@@ -4,14 +4,24 @@ import { cn } from "../../lib/utils";
 function Card({
   className,
   size = "default",
+  variant = "default",
   ...props
-}: React.ComponentProps<"div"> & { size?: "default" | "sm" }) {
+}: React.ComponentProps<"div"> & {
+  size?: "default" | "sm";
+  variant?: "default" | "glass" | "glass-strong";
+}) {
   return (
     <div
       data-slot="card"
       data-size={size}
+      data-variant={variant}
       className={cn(
-        "group/card border-border bg-card text-foreground flex flex-col gap-6 rounded-lg border p-6 data-[size=sm]:gap-4 data-[size=sm]:p-4 data-[size=sm]:text-sm",
+        "group/card border-border text-foreground flex flex-col gap-6 rounded-lg border p-6 data-[size=sm]:gap-4 data-[size=sm]:p-4 data-[size=sm]:text-sm",
+        variant === "default"
+          ? "bg-card"
+          : variant === "glass"
+            ? "kood-glass"
+            : "kood-glass-strong",
         className,
       )}
       {...props}
@@ -73,11 +83,24 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
   return <div data-slot="card-footer" className={cn("flex items-center", className)} {...props} />;
 }
 
-function CardNested({ className, ...props }: React.ComponentProps<"div">) {
+function CardNested({
+  className,
+  variant = "default",
+  ...props
+}: React.ComponentProps<"div"> & { variant?: "default" | "glass" | "glass-strong" }) {
   return (
     <div
       data-slot="card-nested"
-      className={cn("border-border bg-secondary rounded-md border p-4 text-sm", className)}
+      data-variant={variant}
+      className={cn(
+        "border-border rounded-md border p-4 text-sm",
+        variant === "default"
+          ? "bg-secondary"
+          : variant === "glass"
+            ? "kood-glass"
+            : "kood-glass-strong",
+        className,
+      )}
       {...props}
     />
   );

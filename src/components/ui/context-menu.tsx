@@ -32,9 +32,12 @@ function ContextMenuContent({
   alignOffset = 4,
   side = "right",
   sideOffset = 0,
+  variant = "default",
   ...props
 }: ContextMenuPrimitive.Popup.Props &
-  Pick<ContextMenuPrimitive.Positioner.Props, "align" | "alignOffset" | "side" | "sideOffset">) {
+  Pick<ContextMenuPrimitive.Positioner.Props, "align" | "alignOffset" | "side" | "sideOffset"> & {
+    variant?: "default" | "glass" | "glass-strong";
+  }) {
   return (
     <ContextMenuPrimitive.Portal>
       <ContextMenuPrimitive.Positioner
@@ -46,8 +49,10 @@ function ContextMenuContent({
       >
         <ContextMenuPrimitive.Popup
           data-slot="context-menu-content"
+          data-variant={variant}
           className={cn(
-            "border-input bg-popover text-foreground shadow-raised ease-standard z-50 max-h-(--available-height) min-w-32 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg border p-1 transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            "border-input text-foreground shadow-raised ease-standard z-50 max-h-(--available-height) min-w-32 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg border p-1 transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            variant === "default" ? "bg-popover" : `kood-${variant}`,
             className,
           )}
           {...props}

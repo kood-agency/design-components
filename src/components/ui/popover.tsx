@@ -18,9 +18,12 @@ function PopoverContent({
   alignOffset = 0,
   side = "bottom",
   sideOffset = 4,
+  variant = "default",
   ...props
 }: PopoverPrimitive.Popup.Props &
-  Pick<PopoverPrimitive.Positioner.Props, "align" | "alignOffset" | "side" | "sideOffset">) {
+  Pick<PopoverPrimitive.Positioner.Props, "align" | "alignOffset" | "side" | "sideOffset"> & {
+    variant?: "default" | "glass" | "glass-strong";
+  }) {
   return (
     <PopoverPrimitive.Portal>
       <PopoverPrimitive.Positioner
@@ -32,8 +35,10 @@ function PopoverContent({
       >
         <PopoverPrimitive.Popup
           data-slot="popover-content"
+          data-variant={variant}
           className={cn(
-            "border-input bg-popover text-foreground shadow-raised ease-standard z-50 w-72 origin-(--transform-origin) rounded-lg border p-4 transition-[opacity,transform] duration-(--duration-enter) data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            "border-input text-foreground shadow-raised ease-standard z-50 w-72 origin-(--transform-origin) rounded-lg border p-4 transition-[opacity,transform] duration-(--duration-enter) data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            variant === "default" ? "bg-popover" : `kood-${variant}`,
             className,
           )}
           {...props}

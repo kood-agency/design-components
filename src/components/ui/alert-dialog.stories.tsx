@@ -67,3 +67,40 @@ export const Destructive: Story = {
     </AlertDialog>
   ),
 };
+
+export const Glass: Story = {
+  render: () => (
+    <div className="bg-secondary flex min-h-80 items-center justify-center gap-3 p-6">
+      <AlertDialog>
+        <AlertDialogTrigger data-testid="glass-trigger" render={<Button />}>
+          Open glass
+        </AlertDialogTrigger>
+        <AlertDialogContent data-testid="glass" variant="glass">
+          <AlertDialogHeader>
+            <AlertDialogTitle>Glass alert</AlertDialogTitle>
+            <AlertDialogDescription>Alert semantics remain unchanged.</AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+      <AlertDialog>
+        <AlertDialogTrigger data-testid="glass-strong-trigger" render={<Button />}>
+          Open strong glass
+        </AlertDialogTrigger>
+        <AlertDialogContent data-testid="glass-strong" variant="glass-strong">
+          <AlertDialogHeader>
+            <AlertDialogTitle>Strong glass alert</AlertDialogTitle>
+            <AlertDialogDescription>
+              Higher opacity preserves the same behavior.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </div>
+  ),
+};

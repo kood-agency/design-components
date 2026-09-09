@@ -835,6 +835,14 @@ Dark is the default because `:root` and `.dark` define the dark contract; `class
 
 Components consume the semantic token classes above; do not substitute hardcoded palette classes.
 
+**Glass material contract.** `glass` and `glass-strong` are opt-in neutral surface alternatives; every existing default keeps its current solid output. The shared CSS exception is limited to these seven public custom properties: `--glass-background`, `--glass-strong-background`, `--glass-hover`, `--glass-active`, `--glass-solid`, `--glass-strong-solid`, and `--glass-blur`. `kood-glass` and `kood-glass-strong` own the material fill and filter only. The normal material uses a modest 12px blur; strong increases opacity, not blur.
+
+The recipes start with the owning surface's opaque solid fallback. Only standard or prefixed filter support enables the translucent fill and matching `backdrop-filter` declarations. Disabled and truthy `data-disabled` surfaces, `forced-colors`, and reduced-transparency modes stay opaque and disable filtering in every state. The recipes do not change foreground, border, focus, semantic state, or shadow ownership, and they do not authorize arbitrary component blur, alpha, or shadows.
+
+The neutral API is `variant="glass"` or `variant="glass-strong"` on the visible surface. Button, Badge, Toggle, ToggleGroup and ToggleGroupItem, Alert, and Item extend their existing variants; semantic variants remain solid alternatives. Input, Textarea, InputGroup, SelectTrigger and SelectContent, ComboboxInput, ComboboxChips and ComboboxContent, Card and CardNested, Calendar, ButtonGroupText, Menubar, PopoverContent, HoverCardContent, TooltipContent, DropdownMenuContent and DropdownMenuSubContent, ContextMenuContent and ContextMenuSubContent, DialogContent, AlertDialogContent, SheetContent, DrawerContent, Command, and CommandDialog use `variant?: "default" | "glass" | "glass-strong"` unless an existing variant has layout meaning. Variant values stay off native DOM and select classes plus `data-variant`; wrapper aliases inherit the underlying prop types.
+
+Sidebar, NavigationMenu, and Toaster retain their existing layout or semantic APIs and add `appearance?: "default" | "glass" | "glass-strong"`. Sidebar forwards appearance to its desktop and mobile surface. NavigationMenu forwards appearance to its internal popup, keeps glass viewport content transparent, and lets independently rendered content opt in without double filtering. Toaster applies the neutral material locally; semantic toast types keep their original solid fills and consumer `toastOptions` overrides still win. CommandDialog passes its variant to DialogContent and keeps its inner Command transparent for a glass dialog. ToggleGroup filters its items only; its wrapper never filters.
+
 The shipped dark mapping is:
 
 ```css
@@ -881,6 +889,7 @@ These rules keep a new screen from drifting off the tokens. Follow them when you
 - Use `font-variant-numeric: tabular-nums` in tables.
 - Use 40px default Button, Input, and Select rows at 768px and above; below 768px each has `min-height: 44px`.
 - After every change, run `bun scripts/verify-design-md.ts DESIGN.md DESIGN.ko.md`.
+- Keep glass changes within the seven-property material contract and verify both neutral variants, their opaque fallback, and the unchanged default output.
 
 ### Don't
 
@@ -894,6 +903,7 @@ These rules keep a new screen from drifting off the tokens. Follow them when you
 - Do not mark disabled by lowering `opacity`; use the **button-disabled** recipe.
 - Do not italicize Hangul for emphasis; use weight or color. Jetendard italics keep Hangul upright.
 - Do not copy sentences from other products' DESIGN.md files; take structure, not wording.
+- Do not add component-level blur, alpha utilities, or shadows for glass; only the shared material recipe may use its documented filter and translucent fills.
 
 ## Responsive Behavior
 

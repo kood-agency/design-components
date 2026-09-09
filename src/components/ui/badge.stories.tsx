@@ -14,6 +14,19 @@ export const Default: Story = {};
 
 export const Accent: Story = { args: { variant: "accent", children: "Accent" } };
 
+export const Glass: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center justify-center gap-3">
+      <Badge variant="glass" data-testid="glass">
+        Glass
+      </Badge>
+      <Badge variant="glass-strong" data-testid="glass-strong">
+        Glass strong
+      </Badge>
+    </div>
+  ),
+};
+
 export const Success: Story = { args: { variant: "success", children: "Success" } };
 
 export const Warning: Story = { args: { variant: "warning", children: "Warning" } };

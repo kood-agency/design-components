@@ -52,3 +52,40 @@ export const Right: Story = {
     </Drawer>
   ),
 };
+
+export const Glass: Story = {
+  render: () => (
+    <div className="bg-secondary flex min-h-80 items-center justify-center gap-3 p-6">
+      <Drawer swipeDirection="down" showSwipeHandle>
+        <DrawerTrigger data-testid="glass-trigger" render={<Button />}>
+          Open glass
+        </DrawerTrigger>
+        <DrawerContent data-testid="glass" variant="glass">
+          <DrawerHeader>
+            <DrawerTitle>Glass drawer</DrawerTitle>
+            <DrawerDescription>The bleed uses the matching material tint.</DrawerDescription>
+          </DrawerHeader>
+          <DrawerFooter>
+            <DrawerClose render={<Button variant="secondary" />}>Close</DrawerClose>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+      <Drawer swipeDirection="down" showSwipeHandle>
+        <DrawerTrigger data-testid="glass-strong-trigger" render={<Button />}>
+          Open strong glass
+        </DrawerTrigger>
+        <DrawerContent data-testid="glass-strong" variant="glass-strong">
+          <DrawerHeader>
+            <DrawerTitle>Strong glass drawer</DrawerTitle>
+            <DrawerDescription>
+              The stronger material keeps the same interaction model.
+            </DrawerDescription>
+          </DrawerHeader>
+          <DrawerFooter>
+            <DrawerClose render={<Button variant="secondary" />}>Close</DrawerClose>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
+    </div>
+  ),
+};

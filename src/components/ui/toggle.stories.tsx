@@ -14,6 +14,19 @@ export const Default: Story = {};
 
 export const Outline: Story = { args: { variant: "outline" } };
 
+export const Glass: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center justify-center gap-3">
+      <Toggle variant="glass" data-testid="glass">
+        Glass
+      </Toggle>
+      <Toggle variant="glass-strong" data-testid="glass-strong">
+        Glass strong
+      </Toggle>
+    </div>
+  ),
+};
+
 export const Disabled: Story = { args: { disabled: true, children: "Disabled" } };
 
 export const Sizes: Story = {

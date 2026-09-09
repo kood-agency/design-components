@@ -49,3 +49,23 @@ export const WithIcon: Story = {
     </Alert>
   ),
 };
+
+export const Glass: Story = {
+  render: () => (
+    <Alert variant="glass" data-testid="glass" className="w-full max-w-96">
+      <AlertTitle>Glass alert</AlertTitle>
+      <AlertDescription>
+        Neutral material remains separate from semantic alert variants.
+      </AlertDescription>
+    </Alert>
+  ),
+};
+
+export const GlassStrong: Story = {
+  render: () => (
+    <Alert variant="glass-strong" data-testid="glass-strong" className="w-full max-w-96">
+      <AlertTitle>Glass strong alert</AlertTitle>
+      <AlertDescription>The semantic info and destructive variants remain solid.</AlertDescription>
+    </Alert>
+  ),
+};

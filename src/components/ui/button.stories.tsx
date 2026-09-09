@@ -16,6 +16,19 @@ export const Default: Story = {};
 
 export const Secondary: Story = { args: { variant: "secondary" } };
 
+export const Glass: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center justify-center gap-3">
+      <Button variant="glass" data-testid="glass">
+        Glass
+      </Button>
+      <Button variant="glass-strong" data-testid="glass-strong">
+        Glass strong
+      </Button>
+    </div>
+  ),
+};
+
 export const Outline: Story = { args: { variant: "outline" } };
 
 export const Ghost: Story = { args: { variant: "ghost" } };
