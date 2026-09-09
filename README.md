@@ -42,6 +42,67 @@ import를 깨지 않게 합니다. 둘 중 하나만 import합니다.
 전체 export 목록은 [`src/index.ts`](src/index.ts)를, 컴포넌트별 사용법과 스토리는
 [스토리북](https://storybook.kood.kr)을 참고하세요.
 
+### Glass 재질
+
+중립 표면이 필요한 경우 `glass`(반투명) 또는 `glass-strong`(더 높은 불투명도)을
+명시적으로 선택합니다. 두 값은 같은 12px blur를 사용하며, `glass-strong`은 blur를
+더 크게 하는 값이 아닙니다.
+
+```tsx
+import { Button, Card, CardContent, CardHeader, CardTitle, Input } from "@kood/components";
+
+export function ReviewPanel() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Review</CardTitle>
+      </CardHeader>
+      <CardContent className="grid gap-3">
+        <Input variant="glass-strong" placeholder="Reviewer" />
+        <Button variant="glass-strong">Save</Button>
+      </CardContent>
+    </Card>
+  );
+}
+```
+
+`variant="glass" | "glass-strong"`를 지원하는 표면은 Button, Badge, Toggle,
+ToggleGroup, ToggleGroupItem, Alert, Item, Input, Textarea, InputGroup,
+SelectTrigger, SelectContent, ComboboxInput, ComboboxChips, ComboboxContent, Card,
+CardNested, Calendar, ButtonGroupText, Menubar, PopoverContent, HoverCardContent,
+TooltipContent, DropdownMenuContent, DropdownMenuSubContent, ContextMenuContent,
+ContextMenuSubContent, DialogContent, AlertDialogContent, SheetContent, DrawerContent,
+Command, CommandDialog, NavigationMenuContent입니다. Sidebar, NavigationMenu와 Toaster는
+기존 레이아웃 `variant`와 구분되는
+`appearance="default" | "glass" | "glass-strong"`를 사용합니다. NavigationMenu는
+root의 `appearance`가 포지셔너와 viewport 표면을 소유하며, 독립적으로 렌더한
+NavigationMenuContent에만 `variant`를 지정합니다.
+
+공개 glass 토큰은 `--glass-background`, `--glass-strong-background`, `--glass-hover`,
+`--glass-active`, `--glass-solid`, `--glass-strong-solid`, `--glass-blur`입니다. 다른
+역할 토큰처럼 `globals.css` **다음**에 오버라이드합니다. `--glass-solid`와
+`--glass-strong-solid`는 필터를 쓸 수 없는 환경과 접근성 선호에서 쓰는 불투명
+fallback이므로 함께 유지해야 합니다.
+
+```css
+.light {
+  --glass-background: rgb(255 255 255 / 88%);
+  --glass-strong-background: rgb(255 255 255 / 97%);
+  --glass-solid: #fff;
+  --glass-strong-solid: #fff;
+}
+```
+
+Glass는 `backdrop-filter` 또는 `-webkit-backdrop-filter`가 지원되는 브라우저에서만
+반투명/blur 강화가 적용됩니다. 지원하지 않는 브라우저, 강제 색상, 투명도 감소 선호,
+비활성 컨트롤에서는 읽을 수 있는 불투명 표면으로 fallback합니다. 따라서 blur가
+정보 전달이나 대비의 유일한 수단이어서는 안 됩니다.
+
+Dialog, menu, popover, toast처럼 portal로 렌더하는 표면도 현재 테마를 상속받도록
+`.light` 또는 `.dark`를 `html`에 두세요. 중첩된 glass 소유 표면은 피합니다. 한
+레이어만 재질을 소유하고 구조적 자식은 투명하게 유지하며, 더 분명한 경계가 필요할 때만
+안쪽의 독립 표면에 `glass-strong`을 사용하세요.
+
 ## 테마 커스텀 (오버라이딩)
 
 스타일은 역할(role) 기반 CSS 변수로 이뤄집니다. 컴포넌트의 `bg-primary`,
