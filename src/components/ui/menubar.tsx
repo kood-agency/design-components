@@ -56,7 +56,7 @@ function MenubarTrigger({ className, ...props }: React.ComponentProps<typeof Dro
     <DropdownMenuTrigger
       data-slot="menubar-trigger"
       className={cn(
-        "text-foreground-muted hover:bg-secondary data-popup-open:bg-secondary data-popup-open:text-foreground focus-visible:outline-ring ease-standard flex items-center rounded-sm px-2 py-1 text-sm font-medium transition-colors duration-(--duration-enter) outline-none select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid motion-reduce:transition-none max-md:min-h-11 max-md:min-w-11",
+        "text-foreground-muted hover:bg-secondary data-popup-open:bg-secondary data-popup-open:text-foreground focus-visible:outline-ring ease-standard flex items-center rounded-sm px-2 py-1 text-sm font-medium transition-colors duration-(--duration-enter) select-none focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-solid motion-reduce:transition-none max-md:min-h-11 max-md:min-w-11",
         className,
       )}
       {...props}
@@ -116,7 +116,7 @@ function MenubarCheckboxItem({
       data-slot="menubar-checkbox-item"
       data-inset={inset}
       className={cn(
-        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-disabled:text-muted-foreground relative flex items-center gap-1.5 rounded-md py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-disabled:pointer-events-none data-inset:pl-8 max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-highlighted:before:bg-ring data-disabled:text-muted-foreground relative flex items-center gap-1.5 rounded-md py-1.5 pr-8 pl-2 text-sm select-none before:absolute before:inset-y-1.5 before:left-0 before:w-0.5 before:rounded-full data-disabled:pointer-events-none data-inset:pl-8 max-md:min-h-11 forced-colors:data-highlighted:outline-1 forced-colors:data-highlighted:-outline-offset-1 forced-colors:data-highlighted:outline-solid [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       checked={checked}
@@ -149,7 +149,7 @@ function MenubarRadioItem({
       data-slot="menubar-radio-item"
       data-inset={inset}
       className={cn(
-        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-disabled:text-muted-foreground relative flex items-center gap-1.5 rounded-md py-1.5 pr-8 pl-2 text-sm outline-hidden select-none data-disabled:pointer-events-none data-inset:pl-8 max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-highlighted:before:bg-ring data-disabled:text-muted-foreground relative flex items-center gap-1.5 rounded-md py-1.5 pr-8 pl-2 text-sm select-none before:absolute before:inset-y-1.5 before:left-0 before:w-0.5 before:rounded-full data-disabled:pointer-events-none data-inset:pl-8 max-md:min-h-11 forced-colors:data-highlighted:outline-1 forced-colors:data-highlighted:-outline-offset-1 forced-colors:data-highlighted:outline-solid [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}

@@ -79,6 +79,19 @@ export const Bottom: Story = {
   ),
 };
 
+export const EnglishOverride: Story = {
+  render: () => (
+    <Sheet>
+      <SheetTrigger render={<Button />}>Open sheet</SheetTrigger>
+      <SheetContent closeLabel="Close" side="right">
+        <SheetHeader>
+          <SheetTitle>English override</SheetTitle>
+        </SheetHeader>
+      </SheetContent>
+    </Sheet>
+  ),
+};
+
 export const Glass: Story = {
   render: () => (
     <div className="bg-secondary flex min-h-80 items-center justify-center gap-3 p-6">

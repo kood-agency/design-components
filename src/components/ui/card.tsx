@@ -18,7 +18,7 @@ function Card({
       className={cn(
         "group/card border-border text-foreground flex flex-col gap-6 rounded-lg border p-6 data-[size=sm]:gap-4 data-[size=sm]:p-4 data-[size=sm]:text-sm",
         variant === "default"
-          ? "bg-card"
+          ? "bg-card border-0"
           : variant === "glass"
             ? "kood-glass"
             : "kood-glass-strong",
@@ -95,7 +95,7 @@ function CardNested({
       className={cn(
         "border-border rounded-md border p-4 text-sm",
         variant === "default"
-          ? "bg-secondary"
+          ? "bg-secondary border-0"
           : variant === "glass"
             ? "kood-glass"
             : "kood-glass-strong",

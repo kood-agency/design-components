@@ -53,7 +53,7 @@ export function LoginForm() {
 
 export function LoginFormLogo() {
   return (
-    <div className="bg-muted text-muted-foreground hidden min-h-svh flex-col items-center justify-center gap-6 border-r p-6 md:flex md:w-1/2 lg:w-2/5 xl:p-8">
+    <div className="border-border bg-muted text-muted-foreground hidden min-h-svh flex-col items-center justify-center gap-6 border-r p-6 md:flex md:w-1/2 lg:w-2/5 xl:p-8">
       <div className="bg-primary text-primary-foreground flex size-11 items-center justify-center rounded-lg">
         <GalleryVerticalEndIcon className="size-5" />
       </div>

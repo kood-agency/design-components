@@ -61,7 +61,7 @@ const menuGroups: { label: string; items: { icon: typeof BotIcon; title: string 
 
 export function SiteHeader() {
   return (
-    <header className="bg-background sticky top-0 z-10 flex min-h-16 w-full items-center border-b py-2">
+    <header className="border-border bg-background sticky top-0 z-10 flex min-h-16 w-full items-center border-b py-2">
       <div className="flex w-full min-w-0 items-center gap-1.5 px-4 md:px-6 xl:px-8">
         <SidebarTrigger className="-ml-1" />
         <Separator orientation="vertical" className="mx-2 data-[orientation=vertical]:h-4" />

@@ -60,3 +60,15 @@ export const WithEllipsis: Story = {
     </Breadcrumb>
   ),
 };
+
+export const EnglishOverride: Story = {
+  render: () => (
+    <Breadcrumb label="breadcrumb">
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbEllipsis label="More" />
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
+  ),
+};

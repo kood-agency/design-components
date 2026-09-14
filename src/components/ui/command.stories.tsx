@@ -62,9 +62,13 @@ export const Inline: Story = {
 function CommandDialogExample({
   variant = "default",
   testId,
+  title,
+  description,
 }: {
   variant?: "default" | "glass" | "glass-strong";
   testId?: string;
+  title?: string;
+  description?: string;
 }) {
   const [open, setOpen] = React.useState(false);
 
@@ -84,7 +88,13 @@ function CommandDialogExample({
       <Button data-testid={testId ? `${testId}-trigger` : undefined} onClick={() => setOpen(true)}>
         Open command palette (Cmd+K)
       </Button>
-      <CommandDialog variant={variant} open={open} onOpenChange={setOpen}>
+      <CommandDialog
+        variant={variant}
+        open={open}
+        onOpenChange={setOpen}
+        title={title}
+        description={description}
+      >
         <CommandContents testId={testId} />
       </CommandDialog>
     </>
@@ -93,6 +103,12 @@ function CommandDialogExample({
 
 export const Dialog: Story = {
   render: () => <CommandDialogExample />,
+};
+
+export const EnglishOverride: Story = {
+  render: () => (
+    <CommandDialogExample title="Command Palette" description="Search for a command to run..." />
+  ),
 };
 
 export const Glass: Story = {

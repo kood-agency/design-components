@@ -206,6 +206,28 @@ export const Mobile: Story = {
   ),
 };
 
+export const EnglishOverride: Story = {
+  render: () => (
+    <div style={{ width: "100%", height: 640 }}>
+      <SidebarProvider>
+        <Sidebar
+          collapsible="offcanvas"
+          label="Sidebar"
+          mobileTitle="Sidebar"
+          mobileDescription="Displays the mobile sidebar."
+        >
+          <DemoNav />
+        </Sidebar>
+        <SidebarInset>
+          <header className="flex h-12 items-center gap-2 px-3">
+            <SidebarTrigger label="Toggle Sidebar" />
+          </header>
+        </SidebarInset>
+      </SidebarProvider>
+    </div>
+  ),
+};
+
 function GlassSidebar({ appearance }: { appearance: "glass" | "glass-strong" }) {
   return (
     <SidebarProvider>

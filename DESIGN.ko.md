@@ -1,8 +1,8 @@
 ---
 version: "alpha"
 name: "kood-design-system"
-description: "Kood is a dark-first design system on a #0D1117 charcoal canvas. A single restrained blue accent is reserved for links, focus, selection, and info — never a second hue, never a glow. Cards sit on a surface ladder behind hairline borders instead of shadows. Pretendard is the default sans, Wanted Sans is an opt-in preset, and Jetendard is the code face."
-mode-default: "dark"
+description: "Kood is a light-first design system on a #F3F5F8 canvas with a #101217 dark counterpart. One blue family carries every chromatic cue — primary for actions and accent for links, focus, selection, and info — never a second hue, never a glow. Cards sit on a surface ladder behind hairline borders instead of shadows. Pretendard is the default sans, Wanted Sans is an opt-in preset, and Jetendard is the code face."
+mode-default: "light"
 fonts:
   sans-default: "pretendard"
   sans-presets:
@@ -11,81 +11,81 @@ fonts:
   mono: '"Jetendard", "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Noto Sans Mono CJK KR", "D2Coding", "Pretendard Variable", "Pretendard", ui-monospace, monospace'
 colors:
   dark:
-    canvas: "#0D1117"
-    surface-1: "#161B22"
-    surface-2: "#21262D"
-    surface-3: "#272E37"
-    hairline: "#30363D"
-    hairline-strong: "#737D8C"
-    ink: "#F3F7FB"
-    ink-muted: "#B8C6D5"
-    ink-subtle: "#899AAD"
+    canvas: "#101217"
+    surface-1: "#191C22"
+    surface-2: "#23272E"
+    surface-3: "#2A2F37"
+    hairline: "#2D323A"
+    hairline-strong: "#7A8390"
+    ink: "#F2F4F7"
+    ink-muted: "#B9C0CA"
+    ink-subtle: "#929BA7"
     ink-tertiary: "#64778A"
-    primary: "#E7EEF6"
-    on-primary: "#0D1117"
-    primary-hover: "#F3F7FB"
-    primary-active: "#CBD8E5"
-    accent: "#7FA5DE"
-    accent-hover: "#96B5E2"
-    accent-subtle: "#172A45"
-    focus-ring: "#7FA5DE"
-    semantic-success: "#6BCB91"
-    semantic-warning: "#E4B45B"
-    semantic-danger: "#F18484"
-    semantic-info: "#7FA5DE"
-    on-success: "#090C10"
-    on-warning: "#090C10"
-    on-danger: "#090C10"
-    on-info: "#090C10"
-    selection-bg: "#264A78"
-    selection-ink: "#F3F7FB"
-    code-bg: "#090C10"
-    code-border: "#30363D"
-    code-ink: "#E7EEF6"
-    code-comment: "#899AAD"
-    code-keyword: "#7FA5DE"
-    code-string: "#6BCB91"
-    code-number: "#E4B45B"
-    code-error: "#F18484"
-    overlay: "#010409B8"
-  light:
-    canvas: "#F6F8FB"
-    surface-1: "#FFFFFF"
-    surface-2: "#EFF3F7"
-    surface-3: "#E5EBF1"
-    hairline: "#D7E0E9"
-    hairline-strong: "#7B8EA1"
-    ink: "#0A1724"
-    ink-muted: "#394B5E"
-    ink-subtle: "#596B7D"
-    ink-tertiary: "#748395"
-    primary: "#0A1724"
+    primary: "#3A6FE0"
     on-primary: "#FFFFFF"
-    primary-hover: "#12283B"
-    primary-active: "#06121E"
-    accent: "#315C9F"
-    accent-hover: "#244D83"
-    accent-subtle: "#E7EEF9"
-    focus-ring: "#315C9F"
-    semantic-success: "#1E7147"
-    semantic-warning: "#80520A"
-    semantic-danger: "#B8323E"
-    semantic-info: "#315C9F"
+    primary-hover: "#3264D2"
+    primary-active: "#2A58BD"
+    accent: "#82A9F6"
+    accent-hover: "#9DBBF8"
+    accent-subtle: "#1A2840"
+    focus-ring: "#6F9BF3"
+    semantic-success: "#5DC78A"
+    semantic-warning: "#E5AF4E"
+    semantic-danger: "#F0858B"
+    semantic-info: "#82A9F6"
+    on-success: "#101217"
+    on-warning: "#101217"
+    on-danger: "#101217"
+    on-info: "#101217"
+    selection-bg: "#24457A"
+    selection-ink: "#F2F4F7"
+    code-bg: "#0B0D11"
+    code-border: "#2D323A"
+    code-ink: "#E6EAF0"
+    code-comment: "#929BA7"
+    code-keyword: "#82A9F6"
+    code-string: "#5DC78A"
+    code-number: "#E5AF4E"
+    code-error: "#F0858B"
+    overlay: "#05070AB3"
+  light:
+    canvas: "#F3F5F8"
+    surface-1: "#FFFFFF"
+    surface-2: "#EDF0F4"
+    surface-3: "#FFFFFF"
+    hairline: "#E3E7EC"
+    hairline-strong: "#808A97"
+    ink: "#171C24"
+    ink-muted: "#454F5C"
+    ink-subtle: "#5E6875"
+    ink-tertiary: "#748395"
+    primary: "#2861DB"
+    on-primary: "#FFFFFF"
+    primary-hover: "#2154C4"
+    primary-active: "#1B47A8"
+    accent: "#2258CC"
+    accent-hover: "#1B47A8"
+    accent-subtle: "#EAF1FD"
+    focus-ring: "#2861DB"
+    semantic-success: "#12774A"
+    semantic-warning: "#8F5600"
+    semantic-danger: "#CC2F3C"
+    semantic-info: "#2258CC"
     on-success: "#FFFFFF"
     on-warning: "#FFFFFF"
     on-danger: "#FFFFFF"
     on-info: "#FFFFFF"
-    selection-bg: "#CFE0FA"
-    selection-ink: "#0A1724"
-    code-bg: "#EFF3F7"
-    code-border: "#D7E0E9"
-    code-ink: "#0A1724"
-    code-comment: "#596B7D"
-    code-keyword: "#315C9F"
-    code-string: "#1E7147"
-    code-number: "#80520A"
-    code-error: "#B8323E"
-    overlay: "#07131F66"
+    selection-bg: "#D5E3FB"
+    selection-ink: "#171C24"
+    code-bg: "#F3F5F8"
+    code-border: "#E3E7EC"
+    code-ink: "#171C24"
+    code-comment: "#5E6875"
+    code-keyword: "#2258CC"
+    code-string: "#12774A"
+    code-number: "#8F5600"
+    code-error: "#CC2F3C"
+    overlay: "#10141B80"
 typography:
   display-xl:
     fontFamily: "Pretendard Variable"
@@ -173,12 +173,12 @@ typography:
     letterSpacing: "0"
 rounded:
   none: "0px"
-  xs: "4px"
-  sm: "6px"
-  md: "8px"
-  lg: "12px"
-  xl: "16px"
-  xxl: "24px"
+  xs: "5px"
+  sm: "7.5px"
+  md: "10px"
+  lg: "15px"
+  xl: "20px"
+  xxl: "30px"
   full: "9999px"
 spacing:
   "0": "0px"
@@ -398,81 +398,86 @@ components:
 
 ## Overview
 
-Kood는 다크를 기본으로 합니다. 페이지 배경은 기본 다크 모드에서 `{colors.canvas}` #0D1117이고 짝이 되는 라이트 값은 #F6F8FB입니다. 다크 차콜 캔버스는 라이트 모드의 잉크와 프라이머리 #0A1724와 의도적으로 구분합니다.
+Kood는 라이트를 기본으로 합니다. 페이지 배경은 기본 라이트 모드에서 `{colors.canvas}` #F3F5F8이고 짝이 되는 다크 값은 #101217입니다.
 
-절제된 파랑 `{colors.accent}` 하나가 모든 색 단서를 맡습니다. 링크와 포커스 링, 텍스트 선택과 정보에만 쓰고 다른 곳에는 쓰지 않습니다. 두 번째 색상은 없습니다.
+파랑 패밀리 하나가 모든 색 단서를 맡습니다. `{colors.primary}` #2861DB는 버튼과 체크된 컨트롤의 동작 채움이고 `{colors.accent}` #2258CC는 링크와 포커스, 선택, 정보에 쓰는 색입니다. 다른 곳에는 쓰지 않으며 두 번째 색상이나 글로우를 더하지 않습니다.
 
 UI 서체는 기본이 Pretendard Variable입니다. Wanted Sans Variable은 선택형 산스이며 문서에 `[data-font="wanted"]`를 붙여 전환합니다. Jetendard는 코드 전용 서체입니다.
 
+2.0의 내장 문구는 한국어를 기본으로 합니다. breadcrumb와 pagination, carousel, dialog, sheet, sidebar가 한국어 레이블을 기본 제공하고 각각 기존 레이블 prop을 영어 오버라이드 경로로 유지합니다. 따라서 1.x에서 이관하는 소비자는 명시적인 영어 레이블을 넘기거나 한국어 기본값을 채택합니다. 이관은 소비자 측 변경이며 이 라이브러리 계약과 별도로 추적합니다.
+
 **Key Characteristics:**
 
-- **Dark default.** `{colors.canvas}` #0D1117이 기본 캔버스이며 라이트 모드는 #F6F8FB와 짝을 이룹니다.
-- **One restrained blue.** `{colors.accent}`는 링크와 포커스, 선택과 정보에만 씁니다.
+- **Light default.** `{colors.canvas}` #F3F5F8이 기본 캔버스이며 다크 모드는 #101217와 짝을 이룹니다.
+- **One blue family.** `{colors.primary}`가 동작을 채우고 `{colors.accent}`는 링크와 포커스, 선택, 정보에 씁니다.
 - **Hairline cards.** 표면은 드롭 섀도가 아니라 1px `{colors.hairline}` 테두리 뒤의 3단 사다리에 놓입니다.
 - **Shadow only where it lifts.** 다크 모드는 그림자를 쓰지 않습니다. 라이트 모드는 올린 그림자 하나를 쓰며 메뉴와 팝오버, 다이얼로그에만 적용합니다.
 - **Korean and Latin type.** Pretendard Variable이 기본 산스이고 Wanted Sans Variable은 `[data-font="wanted"]` 프리셋이며 Jetendard는 코드 전용입니다. 한국어 본문은 line-height 1.5–1.67, 트래킹 0 또는 -0.01em, `word-break: keep-all`, `overflow-wrap: anywhere`를 유지합니다.
 - **Token-for-token pairing.** 색과 서체, 반지름과 간격 키는 두 모드에 같은 이름으로 모두 존재합니다.
 - **Two-language documentation.** 영어 문서는 `DESIGN.md`이고 이 파일 `DESIGN.ko.md`는 프론트매터와 헤딩 순서가 같은 한국어 쌍둥이입니다.
+- **Korean by default.** 2.0의 내장 레이블(breadcrumb, pagination, carousel, dialog, sheet, sidebar)은 한국어를 기본으로 하며 기존 레이블 prop으로 영어를 덮어쓸 수 있습니다. 1.x에서 이관하는 소비자는 명시적인 영어 레이블을 넘기거나 한국어 기본값을 받아들입니다.
 
 ## Colors
 
-팔레트는 다크와 라이트가 짝을 이루는 토큰 37 개입니다. `#0D1117`은 다크 차콜 캔버스이고 라이트 `{colors.ink}`와 `{colors.primary}`는 #0A1724를 유지합니다. `{colors.primary}` 자체는 시맨틱 동작 채움이며 다크 모드에서는 밝은 뉴트럴 #E7EEF6이 되어 채운 버튼이 캔버스에 가라앉지 않습니다.
+팔레트는 라이트와 다크가 짝을 이루는 토큰 37 개이며 아래 목록은 라이트 / 다크 순서입니다. `#F3F5F8`이 라이트 캔버스이고 `#101217`이 다크 짝입니다. `{colors.primary}`는 두 모드 모두의 파랑 동작 채움이고(#2861DB / #3A6FE0), `{colors.accent}`는 링크와 포커스, 선택, 정보에 쓰는 더 깊은 파랑입니다(#2258CC / #82A9F6).
 
 `{colors.ink-tertiary}`는 장식 전용이며 텍스트로 쓰지 않습니다. `{colors.hairline}`은 카드와 테이블, 내비게이션 같은 컨테이너에는 허용하지만 인터랙티브 컨트롤의 유일한 경계로는 쓰지 않습니다. 인터랙티브 컨트롤은 `{colors.hairline-strong}`을 씁니다.
 
-대비 수치는 sRGB 상대 휘도 공식으로 계산하며 `scripts/verify-design-md.ts`가 다시 확인합니다. 텍스트 역할은 두 모드 모두 캔버스와 surface-1, surface-2 위에서 4.5:1 이상입니다(최솟값: 라이트 `{colors.ink-subtle}` on `{colors.surface-2}` 4.93). 비텍스트 역할은 캔버스와 surface-1 위에서 3.0:1 이상입니다(최솟값: 라이트 `{colors.hairline-strong}` on `{colors.canvas}` 3.17). on-토큰과 시맨틱 쌍은 4.5:1 이상입니다(최솟값: 라이트 `{colors.on-danger}` on `{colors.semantic-danger}` 5.89).
+대비 수치는 sRGB 상대 휘도 공식으로 계산하며 `scripts/verify-design-md.ts`가 다시 확인합니다. 텍스트 역할은 두 모드 모두 캔버스와 surface-1, surface-2 위에서 4.5:1 이상입니다(최솟값: 라이트 `{colors.semantic-danger}` on `{colors.surface-2}` 4.55). 비텍스트 역할은 캔버스와 surface-1 위에서 3.0:1 이상입니다(최솟값: 라이트 `{colors.hairline-strong}` on `{colors.canvas}` 3.20). on-토큰과 시맨틱 쌍은 4.5:1 이상입니다(최솟값: 다크 `{colors.on-primary}` on `{colors.primary}` 4.64).
 
 ### Brand & Accent
 
-- **Primary** ({colors.primary}): 기본 버튼과 체크된 컨트롤의 시맨틱 동작 채움입니다. #E7EEF6 / #0A1724
-- **On Primary** ({colors.on-primary}): 프라이머리 채움 위의 텍스트와 아이콘입니다. #0D1117 / #FFFFFF
-- **Primary Hover** ({colors.primary-hover}): 호버된 프라이머리 채움입니다. #F3F7FB / #12283B
-- **Primary Active** ({colors.primary-active}): 눌린 프라이머리 채움입니다. #CBD8E5 / #06121E
-- **Accent** ({colors.accent}): 유일한 파랑이며 링크와 선택 강조, 정보에 씁니다. #7FA5DE / #315C9F
-- **Accent Hover** ({colors.accent-hover}): 호버된 액센트입니다. #96B5E2 / #244D83
-- **Accent Subtle** ({colors.accent-subtle}): 선택된 행과 배지, 정보 알림용 액센트 틴트 배경입니다. #172A45 / #E7EEF9
-- **Focus Ring** ({colors.focus-ring}): `outline: 2px solid; outline-offset: 2px`입니다. #7FA5DE / #315C9F
+- **Primary** ({colors.primary}): 기본 버튼과 체크된 컨트롤의 파랑 동작 채움입니다. #2861DB / #3A6FE0
+- **On Primary** ({colors.on-primary}): 프라이머리 채움 위의 텍스트와 아이콘입니다. #FFFFFF / #FFFFFF
+- **Primary Hover** ({colors.primary-hover}): 호버된 프라이머리 채움입니다. #2154C4 / #3264D2
+- **Primary Active** ({colors.primary-active}): 눌린 프라이머리 채움입니다. #1B47A8 / #2A58BD
+- **Accent** ({colors.accent}): 링크와 선택 강조, 정보에 쓰는 강조 파랑입니다. #2258CC / #82A9F6
+- **Accent Hover** ({colors.accent-hover}): 호버된 액센트입니다. #1B47A8 / #9DBBF8
+- **Accent Subtle** ({colors.accent-subtle}): 선택된 행과 배지, 정보 알림용 액센트 틴트 배경입니다. #EAF1FD / #1A2840
+- **Focus Ring** ({colors.focus-ring}): 1px 인셋 아웃라인과 포커스된 컨트롤의 테두리 색 교체입니다. #2861DB / #6F9BF3
 
 ### Surface
 
-- **Canvas** ({colors.canvas}): 페이지 배경입니다. #0D1117 / #F6F8FB
-- **Surface 1** ({colors.surface-1}): 카드와 컨트롤입니다. #161B22 / #FFFFFF
-- **Surface 2** ({colors.surface-2}): 중첩 또는 인셋 영역과 비활성 배경입니다. #21262D / #EFF3F7
-- **Surface 3** ({colors.surface-3}): 드롭다운과 서브 내비게이션입니다. #272E37 / #E5EBF1
-- **Hairline** ({colors.hairline}): 장식용 1px 구분선입니다. 카드와 테이블, 내비게이션 컨테이너에는 허용하고 버튼이나 입력의 유일한 경계로는 쓰지 않습니다. #30363D / #D7E0E9
-- **Hairline Strong** ({colors.hairline-strong}): 인터랙티브 컨트롤 테두리(비텍스트 3:1)입니다. #737D8C / #7B8EA1
-- **Overlay** ({colors.overlay}): 모달 스크린이며 8자리 hex에 알파 72% / 40%입니다. #010409B8 / #07131F66
-- **Selection Background** ({colors.selection-bg}): `::selection` 배경입니다. #264A78 / #CFE0FA
-- **Selection Ink** ({colors.selection-ink}): `::selection` 텍스트입니다. #F3F7FB / #0A1724
+- **Canvas** ({colors.canvas}): 페이지 배경입니다. #F3F5F8 / #101217
+- **Surface 1** ({colors.surface-1}): 카드와 컨트롤입니다. #FFFFFF / #191C22
+- **Surface 2** ({colors.surface-2}): 중첩 또는 인셋 영역과 비활성 배경입니다. #EDF0F4 / #23272E
+- **Surface 3** ({colors.surface-3}): 드롭다운과 서브 내비게이션입니다. #FFFFFF / #2A2F37
+- **Hairline** ({colors.hairline}): 장식용 1px 구분선입니다. 카드와 테이블, 내비게이션 컨테이너에는 허용하고 버튼이나 입력의 유일한 경계로는 쓰지 않습니다. #E3E7EC / #2D323A
+- **Hairline Strong** ({colors.hairline-strong}): 인터랙티브 컨트롤 테두리(비텍스트 3:1)입니다. #808A97 / #7A8390
+- **Overlay** ({colors.overlay}): 모달 스크린이며 8자리 hex에 알파 50% / 70%입니다. #10141B80 / #05070AB3
+- **Selection Background** ({colors.selection-bg}): `::selection` 배경입니다. #D5E3FB / #24457A
+- **Selection Ink** ({colors.selection-ink}): `::selection` 텍스트입니다. #171C24 / #F2F4F7
+
+shadcn 레이어는 DESIGN 토큰 37 개와 별도로 뉴트럴을 하나 더 가집니다. `{colors.surface-2}`는 `--secondary`로 #EDF0F4 / #23272E이고 `--muted`는 더 깊은 별도 채움으로 #E6EAEF / #2C3139입니다. 둘은 중첩 표면 역할을 공유하지만 같은 값이 아니며 `--muted`를 표면 사다리의 추가 단계로 취급하지 않습니다.
 
 ### Text
 
-- **Ink** ({colors.ink}): 본문과 헤딩입니다. #F3F7FB / #0A1724
-- **Ink Muted** ({colors.ink-muted}): 보조 텍스트입니다. #B8C6D5 / #394B5E
-- **Ink Subtle** ({colors.ink-subtle}): 캡션과 플레이스홀더, 비활성 레이블입니다. #899AAD / #596B7D
-- **Ink Tertiary** ({colors.ink-tertiary}): 장식 아이콘 전용이며 텍스트로 쓰지 않습니다. #64778A / #748395
+- **Ink** ({colors.ink}): 본문과 헤딩입니다. #171C24 / #F2F4F7
+- **Ink Muted** ({colors.ink-muted}): 보조 텍스트입니다. #454F5C / #B9C0CA
+- **Ink Subtle** ({colors.ink-subtle}): 캡션과 플레이스홀더, 비활성 레이블입니다. #5E6875 / #929BA7
+- **Ink Tertiary** ({colors.ink-tertiary}): 장식 아이콘 전용이며 텍스트로 쓰지 않습니다. #748395 / #64778A
 
 ### Semantic
 
-- **Success** ({colors.semantic-success}): 성공 채움입니다. #6BCB91 / #1E7147
-- **Warning** ({colors.semantic-warning}): 경고 채움입니다. #E4B45B / #80520A
-- **Danger** ({colors.semantic-danger}): 위험 채움입니다. #F18484 / #B8323E
-- **Info** ({colors.semantic-info}): 정보 채움이며 액센트를 재사용합니다. #7FA5DE / #315C9F
-- **On Success** ({colors.on-success}): 솔리드 성공 채움 위의 텍스트입니다. #090C10 / #FFFFFF
-- **On Warning** ({colors.on-warning}): 솔리드 경고 채움 위의 텍스트입니다. #090C10 / #FFFFFF
-- **On Danger** ({colors.on-danger}): 솔리드 위험 채움 위의 텍스트입니다. #090C10 / #FFFFFF
-- **On Info** ({colors.on-info}): 솔리드 정보 채움 위의 텍스트입니다. #090C10 / #FFFFFF
+- **Success** ({colors.semantic-success}): 성공 채움입니다. #12774A / #5DC78A
+- **Warning** ({colors.semantic-warning}): 경고 채움입니다. #8F5600 / #E5AF4E
+- **Danger** ({colors.semantic-danger}): 위험 채움입니다. #CC2F3C / #F0858B
+- **Info** ({colors.semantic-info}): 정보 채움이며 액센트를 재사용합니다. #2258CC / #82A9F6
+- **On Success** ({colors.on-success}): 솔리드 성공 채움 위의 텍스트입니다. #FFFFFF / #101217
+- **On Warning** ({colors.on-warning}): 솔리드 경고 채움 위의 텍스트입니다. #FFFFFF / #101217
+- **On Danger** ({colors.on-danger}): 솔리드 위험 채움 위의 텍스트입니다. #FFFFFF / #101217
+- **On Info** ({colors.on-info}): 솔리드 정보 채움 위의 텍스트입니다. #FFFFFF / #101217
 
 ### Code
 
-- **Code Background** ({colors.code-bg}): 코드 블록 배경입니다. #090C10 / #EFF3F7
-- **Code Border** ({colors.code-border}): 코드 블록 테두리입니다. #30363D / #D7E0E9
-- **Code Ink** ({colors.code-ink}): 기본 코드 텍스트입니다. #E7EEF6 / #0A1724
-- **Code Comment** ({colors.code-comment}): 주석입니다. #899AAD / #596B7D
-- **Code Keyword** ({colors.code-keyword}): 키워드이며 액센트를 재사용합니다. #7FA5DE / #315C9F
-- **Code String** ({colors.code-string}): 문자열이며 성공을 재사용합니다. #6BCB91 / #1E7147
-- **Code Number** ({colors.code-number}): 숫자이며 경고를 재사용합니다. #E4B45B / #80520A
-- **Code Error** ({colors.code-error}): 오류이며 위험을 재사용합니다. #F18484 / #B8323E
+- **Code Background** ({colors.code-bg}): 코드 블록 배경입니다. #F3F5F8 / #0B0D11
+- **Code Border** ({colors.code-border}): 코드 블록 테두리입니다. #E3E7EC / #2D323A
+- **Code Ink** ({colors.code-ink}): 기본 코드 텍스트입니다. #171C24 / #E6EAF0
+- **Code Comment** ({colors.code-comment}): 주석입니다. #5E6875 / #929BA7
+- **Code Keyword** ({colors.code-keyword}): 키워드이며 액센트를 재사용합니다. #2258CC / #82A9F6
+- **Code String** ({colors.code-string}): 문자열이며 성공을 재사용합니다. #12774A / #5DC78A
+- **Code Number** ({colors.code-number}): 숫자이며 경고를 재사용합니다. #8F5600 / #E5AF4E
+- **Code Error** ({colors.code-error}): 오류이며 위험을 재사용합니다. #CC2F3C / #F0858B
 
 ## Typography
 
@@ -652,31 +657,31 @@ Pretendard나 Wanted Sans가 로드되지 않으면 스택이 Apple SD Gothic Ne
 
 깊이는 드롭 섀도가 아니라 표면 한 단과 테두리입니다. 다크 모드는 box-shadow를 쓰지 않습니다. 라이트 모드는 그림자 토큰을 정확히 하나 정의하며 떠 있는 오버레이에만 씁니다.
 
-| 단계 | 처리                                                          | 용도                             |
-| ---- | ------------------------------------------------------------- | -------------------------------- |
-| 0    | 평면 `{colors.canvas}`                                        | 페이지 배경                      |
-| 1    | `{colors.surface-1}` + 1px `{colors.hairline}`                | 카드                             |
-| 2    | `{colors.surface-2}` + 1px `{colors.hairline}`                | 중첩 또는 인셋 영역              |
-| 3    | `{colors.surface-3}` + `{colors.hairline-strong}`             | 드롭다운과 툴팁, 서브 내비게이션 |
-| 4    | `outline: 2px solid {colors.focus-ring}; outline-offset: 2px` | 포커스                           |
+| 단계 | 처리                                                                    | 용도                             |
+| ---- | ----------------------------------------------------------------------- | -------------------------------- |
+| 0    | 평면 `{colors.canvas}`                                                  | 페이지 배경                      |
+| 1    | `{colors.surface-1}` + 1px `{colors.hairline}`                          | 카드                             |
+| 2    | `{colors.surface-2}` + 1px `{colors.hairline}`                          | 중첩 또는 인셋 영역              |
+| 3    | `{colors.surface-3}` + `{colors.hairline-strong}`                       | 드롭다운과 툴팁, 서브 내비게이션 |
+| 4    | `1px inset {colors.focus-ring}` 아웃라인 + `{colors.focus-ring}` 테두리 | 포커스                           |
 
 라이트 모드는 `--shadow-raised: 0 1px 2px rgb(10 23 36 / 6%), 0 8px 24px rgb(10 23 36 / 8%)`를 정의합니다. 메뉴와 팝오버, 다이얼로그에만 쓰고 카드에는 쓰지 않습니다. 다크 모드는 `--shadow-raised`를 `none`으로 둡니다.
 
 ## Shapes
 
-모서리는 문서의 `--radius` 기준값(기본 8px)에서 계산합니다. 컴포넌트에 맞는 토큰을 고르고 중간 값은 만들지 않습니다.
+모서리는 문서의 `--radius` 기준값(기본 10px)에서 계산합니다. 컴포넌트에 맞는 토큰을 고르고 중간 값은 만들지 않습니다.
 
 ### Border Radius Scale
 
 | 토큰           | 값     | 용도                               |
 | -------------- | ------ | ---------------------------------- |
 | {rounded.none} | 0px    | 내비게이션 바와 탭, 테이블         |
-| {rounded.xs}   | 4px    | 체크박스                           |
-| {rounded.sm}   | 6px    | 툴팁과 선택된 사이드바 항목        |
-| {rounded.md}   | 8px    | 버튼과 입력, 중첩 카드, 코드 블록  |
-| {rounded.lg}   | 12px   | 카드와 제품 스크린샷 프레임        |
-| {rounded.xl}   | 16px   | 모달                               |
-| {rounded.xxl}  | 24px   | 큰 제품 스크린샷 프레임용으로 예약 |
+| {rounded.xs}   | 5px    | 체크박스                           |
+| {rounded.sm}   | 7.5px  | 툴팁과 선택된 사이드바 항목        |
+| {rounded.md}   | 10px   | 버튼과 입력, 중첩 카드, 코드 블록  |
+| {rounded.lg}   | 15px   | 카드와 다이얼로그, 스크린샷 프레임 |
+| {rounded.xl}   | 20px   | 큰 오버레이                        |
+| {rounded.xxl}  | 30px   | 큰 제품 스크린샷 프레임용 예약     |
 | {rounded.full} | 9999px | 배지와 필                          |
 
 CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--radius) * .75)`, `--radius-md: var(--radius)`, `--radius-lg: calc(var(--radius) * 1.5)`, `--radius-xl: calc(var(--radius) * 2)`, `--radius-2xl: calc(var(--radius) * 3)`입니다. `none`과 `full`은 별개입니다. 루트 `--radius` 오버라이드는 이름 있는 스케일을 바꾸며, 뒤의 `--radius-md: 7px` 같은 이름 오버라이드는 그 이름만 바꿉니다.
@@ -687,9 +692,11 @@ CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--
 
 레시피 30 개를 아래에 모았습니다. 각 줄은 현재 모드의 정지 상태 모습입니다. `{colors.X}`는 `colors.dark.X` 또는 `colors.light.X`로 해석됩니다. 레시피에 테두리가 없으면 테두리 칸을 생략합니다. 패딩 값은 프론트매터의 리터럴입니다(14px는 간격 스케일 밖이므로 리터럴로 둡니다).
 
+이 레시피 위에 2.0 정책 네 가지가 올라갑니다. 반지름은 10px `--radius` 기준에서 나옵니다. 채운 동작은 파랑 `{colors.primary}`를 쓰고 아웃라인 동작은 회색 `{colors.surface-2}` 호버 채움을 얻으며 기본 버튼은 최소 44px 행을 유지합니다(`lg`는 `min-h-11`, `icon-lg`는 `size-11`). 선택과 하이라이트는 테두리가 아니라 토큰 채움입니다. 활성 필 탭이나 페이지네이션 항목은 `{colors.canvas}` 위 `{colors.ink}`로 반전되고, 눌린 토글은 `{colors.surface-2}`에 `{colors.hairline-strong}` 테두리, 사이드바 활성 항목은 액센트 틴트에 3px `{colors.primary}` 막대와 `font-semibold`, 하이라이트된 메뉴나 목록 항목은 `{colors.surface-2}`에 2px `{colors.focus-ring}` 막대를 씁니다. 내장 레이블은 한국어가 기본이며 레이블 prop이 오버라이드 경로로 남습니다.
+
 ### Buttons
 
-다크 모드에서 `{colors.primary}`는 차콜 캔버스가 아니라 밝은 뉴트럴 채움(#E7EEF6)입니다. 채운 동작이 `{colors.canvas}` 위에서 선명하게 남습니다. `{colors.hairline}`은 인터랙티브 컨트롤의 유일한 경계가 되지 않습니다. 아웃라인 버튼과 입력은 `{colors.hairline-strong}`을 씁니다. 기본 버튼은 border-box 40px 행, 14px / 20px 타입, `9px 14px` 패딩을 쓰며 768px 미만에서는 최소 높이가 44px입니다.
+두 모드 모두에서 `{colors.primary}`는 파랑 동작 채움입니다(#2861DB / #3A6FE0). `{colors.hairline}`은 인터랙티브 컨트롤의 유일한 경계가 되지 않습니다. 아웃라인 버튼과 입력은 `{colors.hairline-strong}`을 씁니다. 기본 버튼은 border-box 40px 행, 14px / 20px 타입, `9px 14px` 패딩을 쓰며 768px 미만에서는 최소 높이가 44px이고 큰 크기는 `min-h-11` / `size-11`로 올립니다.
 
 - **button-primary** (기본 채움 동작). bg {colors.primary} · text {colors.on-primary} · 14px/20px 컨트롤 타입 · {rounded.md} · padding 9px 14px
 - **button-primary-hover** (호버된 프라이머리 채움). bg {colors.primary-hover} · text {colors.on-primary} · 14px/20px 컨트롤 타입 · {rounded.md} · padding 9px 14px
@@ -708,7 +715,7 @@ CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--
 
 ### Inputs & Forms
 
-인터랙티브 필드는 정지 상태에서 `{colors.hairline-strong}`을 씁니다. 포커스와 오류는 그 테두리를 바꾸며 box-shadow를 더하지 않습니다. 기본 입력과 셀렉트는 border-box 40px 행, 16px / 24px 타입, `7px 12px` 패딩을 쓰며 768px 미만에서는 최소 높이가 44px입니다.
+인터랙티브 필드는 정지 상태에서 `{colors.hairline-strong}`을 씁니다. 포커스는 테두리 색을 `{colors.focus-ring}`으로 바꾸고 1px 인셋 아웃라인을 더합니다. 오류는 테두리를 `{colors.semantic-danger}`로 바꾸고 포커스 시 `{colors.ink}` 색 인셋 아웃라인을 유지합니다. 어느 쪽도 box-shadow를 더하지 않습니다. 기본 입력과 셀렉트는 border-box 40px 행, 16px / 24px 타입, `7px 12px` 패딩을 쓰며 768px 미만에서는 최소 높이가 44px입니다.
 
 - **text-input** (한 줄 텍스트 필드). bg {colors.surface-1} · text {colors.ink} · border {colors.hairline-strong} · 16px/24px 컨트롤 타입 · {rounded.md} · padding 7px 12px
 - **text-input-focused** (포커스된 텍스트 필드). bg {colors.surface-1} · text {colors.ink} · border {colors.focus-ring} · 16px/24px 컨트롤 타입 · {rounded.md} · padding 7px 12px
@@ -763,12 +770,12 @@ CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--
 
 - **Hover.** 프라이머리 채움은 `{colors.primary}` → `{colors.primary-hover}`로 이동합니다(**button-primary-hover**). 고스트는 `{colors.surface-2}` 배경을 얻습니다. 링크는 `{colors.accent-hover}`를 씁니다.
 - **Active.** 프라이머리 채움은 `{colors.primary-active}`로 이동합니다(**button-primary-active**). 누름은 스케일이나 인셋 그림자가 아니라 색 변경입니다.
-- **Focus-visible.** 키보드 포커스는 아웃라인이며 box-shadow 대용을 쓰지 않습니다.
+- **Focus-visible.** 키보드 포커스는 1px 인셋 아웃라인과 테두리 색 교체이며 box-shadow 대용을 쓰지 않습니다. 전역 규칙은 기본 폴백일 뿐이고 kood 컴포넌트는 자체 포커스 유틸리티를 선언합니다.
 
 ```css
 :focus-visible {
-  outline: 2px solid {colors.focus-ring};
-  outline-offset: 2px;
+  outline: 1px solid {colors.focus-ring};
+  outline-offset: -1px;
 }
 @media (forced-colors: active) {
   :focus-visible {
@@ -777,8 +784,17 @@ CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--
 }
 ```
 
+- **Focus model (B-2).** 포커스된 컨트롤은 정지 기하를 유지하고 색만 바꿉니다. 1px 인셋 아웃라인이 `outline-offset: -1px`로 나타나고 테두리가 `{colors.focus-ring}`으로 이동합니다. 컴포넌트별 규칙은 다음과 같습니다.
+  - 필드와 테두리 컨트롤(Input, Textarea, Select trigger, Combobox input, InputOTP, Calendar dropdown, InputGroup)은 `focus-visible:border-ring focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-ring`을 씁니다. 잘못된 컨트롤은 `aria-invalid:focus-visible:outline-foreground`를 더하며 테두리는 `{colors.semantic-danger}`를 유지합니다.
+  - 채운 동작(Button default와 destructive)은 인셋 아웃라인을 `{colors.on-primary}` / `{colors.on-danger}`로 씁니다. 링 색이 채움 위에 놓이지 않기 때문입니다.
+  - Checkbox, RadioGroup, Switch, Slider thumb은 `focus-visible:border-foreground focus-visible:outline-hidden`을 쓰고 잘못된 체크박스는 `aria-invalid:focus-visible:border-foreground`를 더합니다.
+  - Tabs와 NavigationMenuLink는 같은 인셋 링 상자를 씁니다. 필 탭의 활성 아웃라인은 채움 위 `{colors.canvas}`이고 NavigationMenuLink는 예전 자손 `focus:outline-none` 규칙을 제거합니다.
+  - 메뉴와 Select, Combobox, Command 항목은 `focus-visible:outline-hidden`에 2px 인셋 `data-highlighted` 막대를 `{colors.focus-ring}`으로 쓰고 destructive 항목은 `{colors.on-danger}`를 씁니다. forced-colors에서는 막대를 1px 아웃라인으로 바꿉니다.
+  - 접두 없는 `outline-hidden`은 금지하고 `outline-2`는 같은 클래스 목록에 `-outline-offset-2`가 있을 때만 허용합니다.
+- **Focus combinations.** 추가 명시도는 뒤의 동률 규칙이 포커스를 가릴 때만 필요합니다. 필드와 체크박스의 `aria-invalid`, 그리고 활성 필 탭 아웃라인입니다. 사이드바 활성 항목과 `data-checked`, `data-active`는 이미 `:where()` 선택자이므로 결합이 필요 없습니다.
 - **Disabled.** `opacity`로 흐리지 않습니다. **button-disabled**를 씁니다. 배경 `{colors.surface-2}`, 레이블 `{colors.ink-subtle}`, 테두리 `{colors.hairline-strong}`. 포인터 이벤트는 끕니다.
-- **Selected.** 배경 `{colors.accent-subtle}`와 텍스트 `{colors.accent}`이며 **sidebar-item-selected**와 **badge-accent**와 같습니다.
+- **Selected.** 배경 `{colors.accent-subtle}`와 텍스트 `{colors.accent}`이며 **sidebar-item-selected**와 **badge-accent**와 같습니다. 활성 필 탭이나 페이지네이션 항목은 대신 반전합니다. `{colors.ink}` 배경에 `{colors.canvas}` 텍스트입니다.
+- **Highlighted.** 메뉴와 Select, Combobox, Command 항목은 현재 하이라이트를 `{colors.surface-2}` 채움과 2px 인셋 `{colors.focus-ring}` 막대(**`data-highlighted`**)로 표시하고 테두리는 쓰지 않습니다.
 - **Error.** 컨트롤 테두리는 `{colors.semantic-danger}`입니다(**text-input-error**). 필드 아래 캡션도 `{colors.semantic-danger}`이고 입력 값은 `{colors.ink}`로 남습니다.
 - **Loading.** 레이블은 유지합니다. 옆에 `{colors.ink-subtle}` 스피너를 둡니다. 컨트롤을 스피너만 있는 상태로 바꾸지 않습니다.
 
@@ -803,7 +819,7 @@ CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--
 
 ### Mode switching
 
-`:root`와 `.dark`가 다크 계약을 정의하므로 다크가 기본입니다. `class="dark"`는 `@custom-variant dark (&:is(.dark *))`와도 맞습니다. 라이트 모드는 명시적입니다. `<html>`에 `class="light"`를 둡니다. `.dark`만 빼면 `:root`의 다크 값이 남습니다. 이 저장소는 이미 `next-themes`에 의존하므로 class 속성을 쓰되 라이트에는 명시적인 `light` 클래스를 사용합니다.
+라이트가 기본입니다. `:root`와 `.light`가 라이트 계약을 정의하므로 라이트 모드에는 클래스가 필요 없습니다. 다크 모드는 명시적입니다. `<html>`에 `class="dark"`를 두며 이는 `@custom-variant dark (&:is(.dark *))`와도 맞습니다. 서버 렌더링은 클래스를 명시적으로 지정해야 하며 시스템 `prefers-color-scheme`은 따르지 않습니다. 이 저장소는 이미 `next-themes`에 의존하므로 그 class 속성을 쓰고 기본에는 `class="light"`를 렌더링합니다. 예전 다크 기본값을 기대하고 `:root`를 덮어쓴 소비자는 그 오버라이드를 `.light`로 옮기거나 `class="dark"`를 두고 `.dark`를 덮어씁니다.
 
 ### Mapping to shadcn and Tailwind tokens
 
@@ -819,6 +835,7 @@ CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--
 | on-primary      | --primary-foreground        | text-primary-foreground        |
 | surface-2       | --secondary                 | bg-secondary                   |
 | surface-2       | --muted                     | bg-muted                       |
+| ink-muted       | --foreground-muted          | text-foreground-muted          |
 | ink-subtle      | --muted-foreground          | text-muted-foreground          |
 | accent-subtle   | --accent                    | bg-accent                      |
 | accent          | --accent-foreground         | text-accent-foreground         |
@@ -833,7 +850,7 @@ CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--
 | hairline        | --sidebar-border            | border-sidebar-border          |
 | focus-ring      | --sidebar-ring              | ring-sidebar-ring              |
 
-컴포넌트는 위의 시맨틱 토큰 클래스를 소비합니다. 하드코딩한 팔레트 클래스로 바꾸지 않습니다.
+컴포넌트는 위의 시맨틱 토큰 클래스를 소비합니다. 하드코딩한 팔레트 클래스로 바꾸지 않습니다. `{colors.surface-2}`는 값이 다른 shadcn 변수 두 개로 들어갑니다. `--secondary`는 #EDF0F4 / #23272E이고 `--muted`는 #E6EAEF / #2C3139입니다. 한쪽을 덮어써도 다른 쪽은 움직이지 않습니다.
 
 **글래스 재질 계약.** `glass`와 `glass-strong`은 선택해서 쓰는 뉴트럴 표면 대안이며 기존 기본값은 모두 현재의 솔리드 출력을 유지합니다. 공유 CSS 예외는 공개 커스텀 프로퍼티 일곱 개로 한정합니다. `--glass-background`, `--glass-strong-background`, `--glass-hover`, `--glass-active`, `--glass-solid`, `--glass-strong-solid`, `--glass-blur`입니다. `kood-glass`와 `kood-glass-strong`은 재질의 채움과 필터만 맡습니다. 일반 재질은 절제된 12px blur를 쓰고 strong은 blur를 키우지 않고 불투명도만 높입니다.
 
@@ -843,32 +860,57 @@ CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--
 
 Sidebar, NavigationMenu, Toaster는 기존 레이아웃 또는 시맨틱 API를 유지하면서 `appearance?: "default" | "glass" | "glass-strong"`을 추가합니다. Sidebar는 desktop과 mobile 표면으로 appearance를 전달합니다. NavigationMenu는 appearance를 내부 popup으로 전달하고 글래스 viewport 콘텐츠는 투명하게 유지하며 독립 렌더링 콘텐츠는 이중 필터 없이 opt-in할 수 있습니다. Toaster는 로컬에서 뉴트럴 재질을 적용하고 시맨틱 toast type은 기존 솔리드 채움을 유지하며 소비자의 `toastOptions` override가 계속 우선합니다. CommandDialog는 variant를 DialogContent로 넘기고 글래스 dialog 안의 Command는 투명하게 유지합니다. ToggleGroup은 item에만 필터를 적용하고 wrapper에는 적용하지 않습니다.
 
-출시된 다크 매핑은 다음과 같습니다.
+출시 매핑은 다음과 같습니다.
 
 ```css
 :root,
+.light {
+  --background: #f3f5f8;
+  --card: #ffffff;
+  --sidebar: #ffffff;
+  --secondary: #edf0f4;
+  --muted: #e6eaef;
+  --popover: #ffffff;
+  --border: #e3e7ec;
+  --sidebar-border: #e3e7ec;
+  --code-border: #e3e7ec;
+  --input: #808a97;
+  --code: #f3f5f8;
+  --overlay: #10141b80;
+  --primary: #2861db;
+  --primary-foreground: #ffffff;
+  --accent: #eaf1fd;
+  --accent-foreground: #2258cc;
+  --ring: #2861db;
+  --radius: 10px;
+  --kood-shadow-raised: 0 1px 2px rgb(10 23 36 / 6%), 0 8px 24px rgb(10 23 36 / 8%);
+}
 .dark {
-  --background: #0d1117;
-  --card: #161b22;
-  --sidebar: #161b22;
-  --secondary: #21262d;
-  --muted: #21262d;
-  --popover: #272e37;
-  --border: #30363d;
-  --sidebar-border: #30363d;
-  --code-border: #30363d;
-  --input: #737d8c;
-  --code: #090c10;
-  --overlay: #010409b8;
-  --primary-foreground: #0d1117;
-  --sidebar-primary-foreground: #0d1117;
-  --destructive-foreground: #090c10;
-  --success-foreground: #090c10;
-  --warning-foreground: #090c10;
+  --background: #101217;
+  --card: #191c22;
+  --sidebar: #191c22;
+  --secondary: #23272e;
+  --muted: #2c3139;
+  --popover: #2a2f37;
+  --border: #2d323a;
+  --sidebar-border: #2d323a;
+  --code-border: #2d323a;
+  --input: #7a8390;
+  --code: #0b0d11;
+  --overlay: #05070ab3;
+  --primary: #3a6fe0;
+  --primary-foreground: #ffffff;
+  --accent: #1a2840;
+  --accent-foreground: #82a9f6;
+  --ring: #6f9bf3;
+  --radius: 10px;
+  --kood-shadow-raised: none;
 }
 ```
 
-나머지 다크 텍스트와 프라이머리 채움, 파란 강조, 선택, 시맨틱 채움은 바꾸지 않습니다. `.light`는 기존 색과 `--kood-shadow-raised` 값을 유지합니다.
+나머지 텍스트와 호버/활성 채움, 파랑 강조, 선택, 시맨틱 채움은 프론트매터 색상 표를 따릅니다. `--secondary`와 `--muted`는 위의 서로 다른 값을 유지하며 그 외 표면은 모두 DESIGN 키 하나로 대응합니다. `--radius`는 두 모드 모두 10px이고 `--kood-shadow-raised`가 유일하게 모드별로 다른 그림자 값입니다.
+
+**소비자 CSS 오버라이드 계약.** `globals.css`(`@kood/components/globals.css`로 배포되며 `./styles.css`는 동일한 사본)는 반지름과 폰트, 경계 기본값을 비레이어 `:root` 블록에 선언합니다. 따라서 소비자가 kood 뒤에 Tailwind를 import해도 `--radius-md: var(--radius)`, `--radius-lg: calc(var(--radius) * 1.5)`, `--font-sans: var(--kood-font-sans)`, `--font-mono: var(--kood-font-mono)`, `border-color: var(--border)`가 kood에서 해석됩니다. 커스터마이즈는 소비자가 import 뒤에 같은 블록에서 덮어씁니다. 라이트는 `:root`나 `.light`, 다크는 `.dark`입니다. `--radius`를 설정하면 `--radius-xs`부터 `--radius-2xl`까지 다시 계산되고 `--radius-md: 7px` 같은 이름 지정 반지름은 그 이름만 바뀝니다. 산스와 모노는 Tailwind의 `--font-sans`를 재정의하지 않고 공개 훅 `--kood-font-sans` / `--kood-font-mono`로 리브랜딩합니다. 소비자 자신의 비레이어 `:root` / `.dark` / `.light` 블록은 kood 선언을 여전히 이깁니다.
 
 ### Font preset switching
 
@@ -888,8 +930,9 @@ Sidebar, NavigationMenu, Toaster는 기존 레이아웃 또는 시맨틱 API를 
 - Jetendard는 코드(`code`, `kbd`, `samp`, `pre`와 코드 토큰)에만 씁니다.
 - 테이블에서는 `font-variant-numeric: tabular-nums`를 씁니다.
 - 768px 이상에서는 기본 Button, Input, Select 행을 40px로 쓰고 768px 미만에서는 각각 `min-height: 44px`를 둡니다.
-- 변경 뒤에는 `bun scripts/verify-design-md.ts DESIGN.md DESIGN.ko.md`를 실행합니다.
+- 변경 뒤에는 `bun scripts/verify-design-md.ts --offline DESIGN.md DESIGN.ko.md`를 실행합니다.
 - 글래스를 바꿀 때는 일곱 프로퍼티 재질 계약 안에 두고 뉴트럴 두 variant와 불투명 대체 표시, 바뀌지 않은 기본 출력을 확인합니다.
+- 키보드 포커스는 B-2 모델로 유지합니다. `outline-offset: -1px`의 1px 인셋 `{colors.focus-ring}` 아웃라인과 테두리 색 교체를 쓰고 Interaction States의 `aria-invalid`와 필 탭 활성 결합을 따릅니다.
 
 ### Don't
 
@@ -904,6 +947,7 @@ Sidebar, NavigationMenu, Toaster는 기존 레이아웃 또는 시맨틱 API를 
 - 강조하려고 한글을 이탤릭으로 두지 않습니다. 웨이트나 색을 씁니다. Jetendard 이탤릭은 한글을 직립으로 둡니다.
 - 다른 제품 DESIGN.md의 문장을 베끼지 않습니다. 구조만 취하고 문구는 취하지 않습니다.
 - 글래스에 컴포넌트 수준 blur, alpha 유틸리티, shadow를 더하지 않습니다. 문서화한 필터와 반투명 채움은 공유 재질 레시피만 사용합니다.
+- 접두 없는 `outline-hidden`이나 짝이 되는 `-outline-offset-2` 없는 `outline-2` 링을 배포하지 않고 예전 2px 오프셋 포커스 아웃라인을 되살리지 않습니다.
 
 ## Responsive Behavior
 
@@ -946,18 +990,21 @@ Sidebar, NavigationMenu, Toaster는 기존 레이아웃 또는 시맨틱 API를 
 - 차트 팔레트가 없습니다.
 - Jetendard는 `/fonts/jetendard/` 아래에 자체 호스팅해야 하며 CDN이 없습니다.
 - Pretendard와 Wanted Sans의 메트릭이 달라 프리셋 사이 줄바꿈이 다릅니다. 두 프리셋에서 헤딩과 테이블, 버튼을 확인합니다.
+- 한국어 내장 레이블 기본값은 2.0(B5)에 들어갑니다. 1.x 소비자는 이관 전까지 영어 레이블을 유지합니다.
+- 2.0의 무테 카드와 배지, 알림, 빈 상태, 페이지네이션 처리와 타이포그래피는 B3 게이트에서 정해집니다. 위 프론트매터 레시피는 현재의 정지 기하를 기록합니다.
+- 소비자 저장소 이관은 별도의 이후 단계이며 이 문서의 범위가 아닙니다.
 - 컴포넌트 수준의 브라우저 커버리지는 primitive 구현 및 통합 작업의 책임입니다.
 
 ## Evidence and Assumptions
 
 이 파일의 접근성 주장은 WCAG 2.1 AA 대비율로 한정됩니다. 전체 WCAG 준수 주장이 아닙니다.
 
-| 주장                | 근거                                                                        | 신뢰도 |
-| ------------------- | --------------------------------------------------------------------------- | ------ |
-| 다크 캔버스 #0D1117 | 승인된 charcoal 계약                                                        | 높음   |
-| 단정하고 정돈된 톤  | 사용자 요청과 awesome-design-md 예시(Vercel, HashiCorp, Linear)의 섹션 구조 | 중간   |
-| 액센트와 뉴트럴 값  | 플래너 제안과 WCAG 대비 계산                                                | 중간   |
-| 서체 URL            | 공식 README와 HTTP 200 확인                                                 | 높음   |
-| Jetendard 구조      | README와 LICENSE(정적 페이스 16 개, SIL OFL 1.1, Reserved Font Name)        | 높음   |
-| 타이포그래피 스케일 | 제안                                                                        | 중간   |
-| 컴포넌트 레시피     | 제안                                                                        | 낮음   |
+| 주장                  | 근거                                                                        | 신뢰도 |
+| --------------------- | --------------------------------------------------------------------------- | ------ |
+| 라이트 캔버스 #F3F5F8 | 승인된 라이트 우선 계약                                                     | 높음   |
+| 단정하고 정돈된 톤    | 사용자 요청과 awesome-design-md 예시(Vercel, HashiCorp, Linear)의 섹션 구조 | 중간   |
+| 액센트와 뉴트럴 값    | 플래너 제안과 WCAG 대비 계산                                                | 중간   |
+| 서체 URL              | 공식 README와 HTTP 200 확인                                                 | 높음   |
+| Jetendard 구조        | README와 LICENSE(정적 페이스 16 개, SIL OFL 1.1, Reserved Font Name)        | 높음   |
+| 타이포그래피 스케일   | 제안                                                                        | 중간   |
+| 컴포넌트 레시피       | 제안                                                                        | 낮음   |
