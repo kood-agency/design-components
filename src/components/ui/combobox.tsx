@@ -133,7 +133,7 @@ function ComboboxItem({ className, children, ...props }: ComboboxPrimitive.Item.
     <ComboboxPrimitive.Item
       data-slot="combobox-item"
       className={cn(
-        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-disabled:text-muted-foreground relative flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm outline-hidden select-none data-disabled:pointer-events-none max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "text-foreground data-highlighted:bg-secondary data-highlighted:text-foreground data-highlighted:before:bg-ring data-disabled:text-muted-foreground relative flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-sm select-none before:absolute before:inset-y-1.5 before:left-0 before:w-0.5 before:rounded-full focus-visible:outline-hidden data-disabled:pointer-events-none max-md:min-h-11 forced-colors:data-highlighted:outline-1 forced-colors:data-highlighted:-outline-offset-1 forced-colors:data-highlighted:outline-solid [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}
@@ -203,7 +203,7 @@ function ComboboxChips({
       data-slot="combobox-chips"
       data-variant={variant}
       className={cn(
-        "border-input text-foreground placeholder:text-muted-foreground selection:bg-selection selection:text-selection-foreground focus-within:outline-ring focus-within:border-ring ease-standard disabled:border-input disabled:bg-secondary disabled:text-muted-foreground disabled:placeholder:text-muted-foreground data-disabled:border-input data-disabled:bg-secondary data-disabled:text-muted-foreground aria-invalid:border-destructive data-invalid:border-destructive has-aria-invalid:border-destructive relative flex min-h-9 flex-wrap gap-1 rounded-md border p-1.5 text-base transition-colors duration-(--duration-enter) outline-none focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-solid disabled:cursor-not-allowed data-disabled:cursor-not-allowed motion-reduce:transition-none max-md:min-h-11 md:text-sm",
+        "border-input text-foreground placeholder:text-muted-foreground selection:bg-selection selection:text-selection-foreground focus-within:outline-ring focus-within:!border-ring aria-invalid:focus-within:outline-foreground ease-standard disabled:border-input disabled:bg-secondary disabled:text-muted-foreground disabled:placeholder:text-muted-foreground data-disabled:border-input data-disabled:bg-secondary data-disabled:text-muted-foreground aria-invalid:!border-destructive data-invalid:!border-destructive has-aria-invalid:!border-destructive relative flex min-h-9 flex-wrap gap-1 rounded-md border p-1.5 text-base leading-6 transition-colors duration-(--duration-enter) focus-within:outline-1 focus-within:-outline-offset-1 focus-within:outline-solid disabled:cursor-not-allowed data-disabled:cursor-not-allowed motion-reduce:transition-none max-md:min-h-11 md:text-sm md:leading-5",
         variant === "default" && "bg-card",
         variant === "glass" && "kood-glass",
         variant === "glass-strong" && "kood-glass-strong",
@@ -249,7 +249,7 @@ function ComboboxChipsInput({ className, ...props }: ComboboxPrimitive.Input.Pro
   return (
     <ComboboxPrimitive.Input
       data-slot="combobox-chip-input"
-      className={cn("min-w-16 flex-1 outline-none", className)}
+      className={cn("min-w-16 flex-1 focus-visible:outline-hidden", className)}
       {...props}
     />
   );

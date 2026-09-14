@@ -18,7 +18,7 @@ export default meta;
 type Story = StoryObj<typeof Popover>;
 
 const fieldClassName =
-  "min-h-9 w-full rounded-md border border-input bg-card px-3 py-2 text-base text-foreground placeholder:text-muted-foreground outline-none selection:bg-selection selection:text-selection-foreground focus-visible:border-ring focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring md:text-sm";
+  "min-h-9 w-full rounded-md border border-input bg-card px-3 py-2 text-base text-foreground placeholder:text-muted-foreground focus-visible:outline-hidden selection:bg-selection selection:text-selection-foreground focus-visible:border-ring focus-visible:outline-solid focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-ring md:text-sm";
 
 export const Default: Story = {
   render: () => (

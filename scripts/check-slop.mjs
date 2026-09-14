@@ -166,6 +166,87 @@ function extractClassStrings(text) {
   return found;
 }
 
+// A boundary declaration is safe only when its color is owned by the same class
+// group. `cn()`/`cva()` calls are one group, even when their class strings are
+// conditional arguments; a raw className literal is a group by itself.
+function extractClassStringGroups(text) {
+  const groups = [];
+  const seen = new Set();
+  const push = (strings, start) => {
+    const value = strings.join(" ");
+    const key = `${start}:${value}`;
+    if (!seen.has(key)) {
+      seen.add(key);
+      groups.push({ text: value, start });
+    }
+  };
+
+  const attrRe = /\b(?:className|class)\s*=\s*/g;
+  let m;
+  while ((m = attrRe.exec(text)) !== null) {
+    let i = m.index + m[0].length;
+    if (text[i] === "{") {
+      i++;
+      while (i < text.length && /\s/.test(text[i])) i++;
+    }
+    const lit = matchStringAt(text, i);
+    if (lit) push([lit.text.slice(1, -1)], lit.start);
+  }
+
+  const callRe = /\b(?:cva|cn)\(/g;
+  while ((m = callRe.exec(text)) !== null) {
+    const open = m.index + m[0].length - 1;
+    const end = matchingParen(text, open);
+    if (end === -1) continue;
+    const inner = text.slice(open, end + 1);
+    const literals = [...inner.matchAll(new RegExp(STRING_LITERAL.source, "g"))].map((literal) =>
+      literal[0].slice(1, -1),
+    );
+    if (literals.length > 0) push(literals, open);
+  }
+
+  return groups;
+}
+
+function splitVariant(token) {
+  let bracketDepth = 0;
+  let separator = -1;
+  for (let index = 0; index < token.length; index++) {
+    if (token[index] === "[") bracketDepth++;
+    else if (token[index] === "]") bracketDepth--;
+    else if (token[index] === ":" && bracketDepth === 0) separator = index;
+  }
+  return separator === -1
+    ? { prefix: "", utility: token }
+    : { prefix: token.slice(0, separator), utility: token.slice(separator + 1) };
+}
+
+function boundaryHits(group) {
+  const tokens = group.trim().split(/\s+/).filter(Boolean);
+  const colored = new Set();
+  for (const token of tokens) {
+    const { prefix, utility } = splitVariant(token);
+    const borderColor =
+      utility.startsWith("border-") &&
+      !/^border(?:-[trblxyse])?(?:-0)?$/.test(utility) &&
+      !/^border(?:-[trblxyse])?-(?:solid|dashed|dotted|double|hidden|none)$/.test(utility);
+    const divideColor = utility.startsWith("divide-") && !/^divide-[xy]$/.test(utility);
+    if (borderColor || divideColor) colored.add(`${prefix}|color`);
+  }
+
+  return tokens.filter((token) => {
+    if (token.includes("[&_") || token.includes("[&>")) return false;
+    const { prefix, utility } = splitVariant(token);
+    const family = /^(border)(?:-[trblxyse])?$/.test(utility)
+      ? "border"
+      : /^divide-[xy]$/.test(utility)
+        ? "divide"
+        : null;
+    if (!family) return false;
+    return !colored.has(`${prefix}|color`) && !colored.has(`|color`);
+  });
+}
+
 // Expand a match to the whitespace/quote-delimited token (the offending class)
 // so output lists e.g. `disabled:opacity-50` rather than the bare regex slice.
 function tokenAt(line, index) {
@@ -201,6 +282,12 @@ function scanFile(absPath) {
     }
   }
 
+  for (const group of extractClassStringGroups(text)) {
+    for (const token of boundaryHits(group.text)) {
+      hits.push(`${rel}:${lineAt(text, group.start)}: 16 ${token}`);
+    }
+  }
+
   const base = rel.split("/").pop();
   if (!RAISED_ALLOWLIST.has(base)) {
     const raisedRe = new RegExp(RAISED_RE.source, "g");
@@ -210,6 +297,24 @@ function scanFile(absPath) {
 
   return hits;
 }
+
+const BOUNDARY_SELF_TESTS = {
+  pos: [
+    "border-t",
+    "border-t border-solid",
+    "bg-secondary border-t font-medium [&>tr]:last:border-b-0",
+    "data-horizontal:border-t",
+    "divide-y",
+  ],
+  neg: [
+    "border-border border-t",
+    "border-t border-input",
+    "border border-input border-transparent",
+    "data-horizontal:border-t data-horizontal:border-t-transparent",
+    "[&_tr]:border-b",
+    "divide-y divide-border",
+  ],
+};
 
 const SELF_TESTS = [
   {
@@ -318,6 +423,12 @@ function selfTest() {
       if (rule.re.test(s)) failures.push(`rule ${t.id}: expected no match, matched: ${s}`);
     }
   }
+  for (const s of BOUNDARY_SELF_TESTS.pos) {
+    if (boundaryHits(s).length === 0) failures.push(`rule 16: expected match, got none: ${s}`);
+  }
+  for (const s of BOUNDARY_SELF_TESTS.neg) {
+    if (boundaryHits(s).length > 0) failures.push(`rule 16: expected no match, matched: ${s}`);
+  }
   return failures;
 }
 
@@ -329,7 +440,7 @@ function main() {
       for (const f of failures) process.stderr.write(`  ${f}\n`);
       process.exit(1);
     }
-    console.log(`check-slop: self-test passed (${RULES.length} regexes)`);
+    console.log(`check-slop: self-test passed (${RULES.length} regexes + rule 16)`);
     process.exit(0);
   }
 

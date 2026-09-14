@@ -48,3 +48,21 @@ export const Default: Story = {
     </Pagination>
   ),
 };
+
+export const EnglishOverride: Story = {
+  render: () => (
+    <Pagination label="pagination">
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious href="#" text="Previous" label="Go to previous page" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationEllipsis label="More pages" />
+        </PaginationItem>
+        <PaginationItem>
+          <PaginationNext href="#" text="Next" label="Go to next page" />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
+  ),
+};

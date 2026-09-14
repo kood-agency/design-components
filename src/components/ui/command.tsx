@@ -35,8 +35,8 @@ function Command({
 }
 
 function CommandDialog({
-  title = "Command Palette",
-  description = "Search for a command to run...",
+  title = "명령 팔레트",
+  description = "실행할 명령을 검색하세요.",
   children,
   className,
   showCloseButton = false,
@@ -79,11 +79,11 @@ function CommandInput({
 }: React.ComponentProps<typeof CommandPrimitive.Input>) {
   return (
     <div data-slot="command-input-wrapper" className="border-border border-b px-3">
-      <InputGroup className="has-[input:focus-visible]:outline-ring border-0 has-[input:focus-visible]:outline-2 has-[input:focus-visible]:outline-offset-2 has-[input:focus-visible]:outline-solid">
+      <InputGroup className="has-[input:focus-visible]:outline-ring border-0 has-[input:focus-visible]:outline-1 has-[input:focus-visible]:-outline-offset-1 has-[input:focus-visible]:outline-solid">
         <CommandPrimitive.Input
           data-slot="command-input"
           className={cn(
-            "text-foreground placeholder:text-muted-foreground disabled:text-muted-foreground min-h-6 w-full text-sm outline-none disabled:cursor-not-allowed max-md:min-h-11",
+            "text-foreground placeholder:text-muted-foreground disabled:text-muted-foreground min-h-6 w-full text-sm focus-visible:outline-hidden disabled:cursor-not-allowed max-md:min-h-11",
             className,
           )}
           {...props}
@@ -100,7 +100,7 @@ function CommandList({ className, ...props }: React.ComponentProps<typeof Comman
   return (
     <CommandPrimitive.List
       data-slot="command-list"
-      className={cn("max-h-72 overflow-y-auto p-1 outline-none", className)}
+      className={cn("max-h-72 overflow-y-auto p-1 focus-visible:outline-hidden", className)}
       {...props}
     />
   );
@@ -157,7 +157,7 @@ function CommandItem({
     <CommandPrimitive.Item
       data-slot="command-item"
       className={cn(
-        "text-foreground data-[selected=true]:bg-secondary data-[selected=true]:text-foreground data-[disabled=true]:text-muted-foreground relative flex items-center gap-2 rounded-md px-2 py-1.5 text-sm outline-hidden select-none data-[disabled=true]:pointer-events-none max-md:min-h-11 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "text-foreground data-[selected=true]:bg-secondary data-[selected=true]:text-foreground data-[selected=true]:before:bg-ring data-[disabled=true]:text-muted-foreground relative flex items-center gap-2 rounded-md px-2 py-1.5 text-sm select-none before:absolute before:inset-y-1.5 before:left-0 before:w-0.5 before:rounded-full focus-visible:outline-hidden data-[disabled=true]:pointer-events-none max-md:min-h-11 forced-colors:data-[selected=true]:outline-1 forced-colors:data-[selected=true]:-outline-offset-1 forced-colors:data-[selected=true]:outline-solid [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}

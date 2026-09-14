@@ -84,3 +84,21 @@ export const WithClickHandler: Story = {
     );
   },
 };
+
+export const EnglishOverride: Story = {
+  render: () => (
+    <div className="mx-12 max-w-sm">
+      <Carousel label="carousel">
+        <CarouselContent>
+          <CarouselItem>
+            <div className="bg-secondary text-foreground flex h-40 items-center justify-center rounded-md text-sm font-medium">
+              One
+            </div>
+          </CarouselItem>
+        </CarouselContent>
+        <CarouselPrevious label="Previous slide" />
+        <CarouselNext label="Next slide" />
+      </Carousel>
+    </div>
+  ),
+};

@@ -139,7 +139,7 @@ export function DataTable() {
             <PlusIcon className="size-4" /> 문서 추가
           </Button>
         </div>
-        <div className="overflow-hidden rounded-lg border">
+        <div className="border-border overflow-hidden rounded-lg border">
           <DocumentsTable />
         </div>
         <p className="text-muted-foreground mt-4 flex items-center gap-1.5 text-xs">
