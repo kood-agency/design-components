@@ -18,7 +18,7 @@ function InputOTP({
       containerClassName={cn("cn-input-otp flex items-center max-md:min-h-11", containerClassName)}
       spellCheck={false}
       className={cn(
-        "focus-visible:outline-ring focus-visible:!outline-ring outline-none focus-visible:!outline-2 focus-visible:outline-2 focus-visible:!outline-offset-2 focus-visible:outline-offset-2 focus-visible:!outline-solid focus-visible:outline-solid disabled:cursor-not-allowed max-md:min-h-11",
+        "focus-visible:outline-ring focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-solid disabled:cursor-not-allowed max-md:min-h-11",
         className,
       )}
       {...props}
@@ -51,7 +51,7 @@ function InputOTPSlot({
       data-slot="input-otp-slot"
       data-active={isActive}
       className={cn(
-        "border-input bg-card text-foreground selection:bg-selection selection:text-selection-foreground ease-standard placeholder:text-muted-foreground focus-visible:border-ring focus-visible:outline-ring disabled:border-input disabled:bg-secondary disabled:text-muted-foreground disabled:placeholder:text-muted-foreground data-disabled:border-input data-disabled:bg-secondary data-disabled:text-muted-foreground aria-invalid:border-destructive data-invalid:border-destructive data-[active=true]:border-ring data-active:outline-ring relative flex size-9 items-center justify-center rounded-md border text-sm transition-colors duration-(--duration-enter) outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid disabled:cursor-not-allowed data-active:outline-2 data-active:outline-offset-2 data-active:outline-solid data-disabled:cursor-not-allowed data-[active=true]:z-10 motion-reduce:transition-none max-md:min-h-11",
+        "border-input bg-card text-foreground selection:bg-selection selection:text-selection-foreground ease-standard placeholder:text-muted-foreground focus-visible:!border-ring focus-visible:outline-ring aria-invalid:focus-visible:outline-foreground disabled:border-input disabled:bg-secondary disabled:text-muted-foreground disabled:placeholder:text-muted-foreground data-disabled:border-input data-disabled:bg-secondary data-disabled:text-muted-foreground aria-invalid:border-destructive data-invalid:border-destructive data-[active=true]:border-ring data-active:outline-ring relative flex size-9 items-center justify-center rounded-md border text-sm transition-colors duration-(--duration-enter) focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-solid disabled:cursor-not-allowed data-active:outline-1 data-active:-outline-offset-1 data-active:outline-solid data-disabled:cursor-not-allowed data-[active=true]:z-10 motion-reduce:transition-none max-md:min-h-11",
         className,
       )}
       {...props}

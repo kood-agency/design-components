@@ -61,7 +61,7 @@ const user = {
 export function Sidebar01() {
   return (
     <Sidebar>
-      <SidebarHeader className="border-b p-3">
+      <SidebarHeader className="border-sidebar-border border-b p-3">
         <NavHeader />
       </SidebarHeader>
       <SidebarContent className="gap-4 py-3">

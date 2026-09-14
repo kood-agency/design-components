@@ -14,40 +14,42 @@ const CDP_PORT = Number(process.env.QA_CDP_PORT ?? 9276);
 const TIMEOUT = 15_000;
 
 const darkTokens = {
-  "--background": "#0d1117",
-  "--card": "#161b22",
-  "--sidebar": "#161b22",
-  "--secondary": "#21262d",
-  "--muted": "#21262d",
-  "--popover": "#272e37",
-  "--border": "#30363d",
-  "--sidebar-border": "#30363d",
-  "--code-border": "#30363d",
-  "--input": "#737d8c",
-  "--code": "#090c10",
-  "--overlay": "#010409b8",
-  "--primary-foreground": "#0d1117",
-  "--sidebar-primary-foreground": "#0d1117",
-  "--destructive-foreground": "#090c10",
-  "--success-foreground": "#090c10",
-  "--warning-foreground": "#090c10",
+  "--radius": "10px",
+  "--background": "#101217",
+  "--card": "#191c22",
+  "--sidebar": "#191c22",
+  "--secondary": "#23272e",
+  "--muted": "#2c3139",
+  "--popover": "#2a2f37",
+  "--border": "#2d323a",
+  "--sidebar-border": "#2d323a",
+  "--code-border": "#2d323a",
+  "--input": "#7a8390",
+  "--code": "#0b0d11",
+  "--overlay": "#05070ab3",
+  "--primary-foreground": "#ffffff",
+  "--sidebar-primary-foreground": "#ffffff",
+  "--destructive-foreground": "#101217",
+  "--success-foreground": "#101217",
+  "--warning-foreground": "#101217",
 } as const;
 const lightTokens = {
-  "--background": "#f6f8fb",
-  "--foreground": "#0a1724",
+  "--radius": "10px",
+  "--background": "#f3f5f8",
+  "--foreground": "#171c24",
   "--card": "#ffffff",
-  "--popover": "#e5ebf1",
-  "--secondary": "#eff3f7",
-  "--muted": "#eff3f7",
-  "--primary": "#0a1724",
+  "--popover": "#ffffff",
+  "--secondary": "#edf0f4",
+  "--muted": "#e6eaef",
+  "--primary": "#2861db",
   "--primary-foreground": "#ffffff",
-  "--border": "#d7e0e9",
-  "--input": "#7b8ea1",
-  "--overlay": "#07131f66",
-  "--code": "#eff3f7",
-  "--code-border": "#d7e0e9",
+  "--border": "#e3e7ec",
+  "--input": "#808a97",
+  "--overlay": "#10141b80",
+  "--code": "#f3f5f8",
+  "--code-border": "#e3e7ec",
   "--sidebar": "#ffffff",
-  "--sidebar-border": "#d7e0e9",
+  "--sidebar-border": "#e3e7ec",
   "--kood-shadow-raised": "0 1px 2px #0a17240f, 0 8px 24px #0a172414",
 } as const;
 const radiusNames = [
@@ -300,7 +302,7 @@ async function verifyContrast(cdp: Cdp) {
       const contrast = (a, b) => { const [high, low] = [luminance(a), luminance(b)].sort((left, right) => right - left); return (high + 0.05) / (low + 0.05); };
       const composite = (foreground, background) => ({ r: foreground.r * foreground.a + background.r * (1 - foreground.a), g: foreground.g * foreground.a + background.g * (1 - foreground.a), b: foreground.b * foreground.a + background.b * (1 - foreground.a) });
       const background = rgb("--background"), card = rgb("--card"), popover = rgb("--popover"), foreground = rgb("--foreground"), popoverForeground = rgb("--popover-foreground"), input = rgb("--input"), ring = rgb("--ring"), border = rgb("--border"), overlay = rgb("--overlay");
-      return { textOnCanvas: contrast(foreground, background), textOnPopover: contrast(popoverForeground, popover), inputOnCard: contrast(input, card), ringOnCanvas: contrast(ring, background), borderOnCard: contrast(border, card), overlayOnCanvas: contrast(composite(overlay, background), background) };
+      return { textOnCanvas: contrast(foreground, background), textOnPopover: contrast(popoverForeground, popover), inputOnCard: contrast(input, card), ringOnCanvas: contrast(ring, background), ringOnCard: contrast(ring, card), borderOnCard: contrast(border, card), overlayOnCanvas: contrast(composite(overlay, background), background) };
     })()`,
     );
     assert(values.textOnCanvas >= 4.5, `${theme} text contrast is ${values.textOnCanvas}`);
@@ -310,6 +312,7 @@ async function verifyContrast(cdp: Cdp) {
     );
     assert(values.inputOnCard >= 3, `${theme} input boundary contrast is ${values.inputOnCard}`);
     assert(values.ringOnCanvas >= 3, `${theme} focus ring contrast is ${values.ringOnCanvas}`);
+    assert(values.ringOnCard >= 3, `${theme} focus ring against card is ${values.ringOnCard}`);
     report[theme] = values;
   }
   return report;

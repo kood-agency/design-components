@@ -45,8 +45,9 @@ function Carousel({
   plugins,
   className,
   children,
+  label = "슬라이드",
   ...props
-}: React.ComponentProps<"div"> & CarouselProps) {
+}: React.ComponentProps<"div"> & CarouselProps & { label?: string }) {
   const [carouselRef, api] = useEmblaCarousel(
     {
       ...opts,
@@ -135,6 +136,7 @@ function Carousel({
         onKeyDownCapture={handleKeyDown}
         className={cn("relative", className)}
         role="region"
+        aria-label={label}
         aria-roledescription="carousel"
         data-slot="carousel"
         {...props}
@@ -181,8 +183,9 @@ function CarouselPrevious({
   variant = "secondary",
   size = "icon-sm",
   onClick,
+  label = "이전 슬라이드",
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<typeof Button> & { label?: string }) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
@@ -205,7 +208,7 @@ function CarouselPrevious({
       {...props}
     >
       <ChevronLeftIcon />
-      <span className="sr-only">Previous slide</span>
+      <span className="sr-only">{label}</span>
     </Button>
   );
 }
@@ -215,8 +218,9 @@ function CarouselNext({
   variant = "secondary",
   size = "icon-sm",
   onClick,
+  label = "다음 슬라이드",
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<typeof Button> & { label?: string }) {
   const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
@@ -239,7 +243,7 @@ function CarouselNext({
       {...props}
     >
       <ChevronRightIcon />
-      <span className="sr-only">Next slide</span>
+      <span className="sr-only">{label}</span>
     </Button>
   );
 }

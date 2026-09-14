@@ -19,7 +19,7 @@ function InputGroup({
       data-variant={variant}
       role="group"
       className={cn(
-        "group/input-group border-input text-foreground ease-standard has-[[data-slot=input-group-control]:focus-visible]:border-ring has-[[data-slot=input-group-control]:focus-visible]:!border-ring has-[[data-slot=input-group-control]:focus-visible]:outline-ring has-[[data-slot=input-group-control]:focus-visible]:!outline-ring has-[[aria-invalid=true]]:border-destructive has-[:disabled]:bg-secondary has-[:disabled]:text-muted-foreground relative flex min-h-9 w-full min-w-0 items-center rounded-md border transition-colors duration-(--duration-enter) outline-none has-[[data-slot=input-group-control]:focus-visible]:outline-2 has-[[data-slot=input-group-control]:focus-visible]:outline-offset-2 has-[[data-slot=input-group-control]:focus-visible]:outline-solid has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:flex-col has-[>textarea]:h-auto motion-reduce:transition-none",
+        "group/input-group border-input text-foreground ease-standard has-[[data-slot=input-group-control]:focus-visible]:!border-ring has-[[data-slot=input-group-control]:focus-visible]:outline-ring has-[[aria-invalid=true]]:!border-destructive has-[[aria-invalid=true]]:has-[[data-slot=input-group-control]:focus-visible]:outline-foreground has-[:disabled]:bg-secondary has-[:disabled]:text-muted-foreground relative flex min-h-9 w-full min-w-0 items-center rounded-md border transition-colors duration-(--duration-enter) has-[[data-slot=input-group-control]:focus-visible]:outline-1 has-[[data-slot=input-group-control]:focus-visible]:-outline-offset-1 has-[[data-slot=input-group-control]:focus-visible]:outline-solid has-[>[data-align=block-end]]:flex-col has-[>[data-align=block-start]]:flex-col has-[>textarea]:h-auto motion-reduce:transition-none",
         variant === "default" && "bg-card",
         variant === "glass" && "kood-glass",
         variant === "glass-strong" && "kood-glass-strong",
@@ -117,7 +117,7 @@ function InputGroupInput({ className, ...props }: React.ComponentProps<"input">)
     <Input
       data-slot="input-group-control"
       className={cn(
-        "flex-1 border-0 bg-transparent px-3 py-2 outline-none focus-visible:outline-none",
+        "flex-1 border-0 bg-transparent px-3 py-2 focus-visible:outline-hidden",
         className,
       )}
       {...props}
@@ -130,7 +130,7 @@ function InputGroupTextarea({ className, ...props }: React.ComponentProps<"texta
     <Textarea
       data-slot="input-group-control"
       className={cn(
-        "flex-1 resize-none border-0 bg-transparent px-3 py-2 outline-none focus-visible:outline-none",
+        "flex-1 resize-none border-0 bg-transparent px-3 py-2 focus-visible:outline-hidden",
         className,
       )}
       {...props}

@@ -160,6 +160,157 @@ async function verifyTextAndOverrideCursors() {
   );
 }
 
+async function verifyB3DefaultSurfaces() {
+  for (const theme of ["light", "dark"] as const) {
+    const secondary = await openStory("components-button--secondary", { theme });
+    assert(
+      (await computed(secondary, "[data-slot=button]", "background-color")) ===
+        (await expectedColor(secondary, "--secondary")),
+      `${theme} secondary Button must use the secondary fill`,
+    );
+
+    const sizes = await openStory("components-button--sizes", { theme });
+    assert(
+      (await computed(sizes, "[data-size=lg]", "min-height")) === "44px",
+      `${theme} lg Button must provide a 44px minimum row`,
+    );
+    assert(
+      (await computed(sizes, "[data-size=icon-lg]", "height")) === "44px" &&
+        (await computed(sizes, "[data-size=icon-lg]", "width")) === "44px",
+      `${theme} icon-lg Button must be 44px square`,
+    );
+
+    const toggle = await openStory("components-toggle--default", { theme });
+    await toggle.cdp("Emulation.setEmulatedMedia", {
+      features: [{ name: "prefers-reduced-motion", value: "reduce" }],
+    });
+    await toggle.evaluate(`document.querySelector("[data-slot=toggle]").focus()`);
+    await toggle.press(" ");
+    assert(
+      (await computed(toggle, "[data-slot=toggle]", "background-color")) ===
+        (await expectedColor(toggle, "--secondary")),
+      `${theme} pressed Toggle must use the secondary fill`,
+    );
+    assert(
+      (await computed(toggle, "[data-slot=toggle]", "border-top-width")) === "1px" &&
+        (await computed(toggle, "[data-slot=toggle]", "border-top-color")) ===
+          (await expectedColor(toggle, "--input")),
+      `${theme} pressed Toggle must use the input border`,
+    );
+
+    const toggleGroup = await openStory("components-togglegroup--single", { theme });
+    assert(
+      (await computed(
+        toggleGroup,
+        "[data-slot=toggle-group-item][aria-pressed=true]",
+        "background-color",
+      )) === (await expectedColor(toggleGroup, "--secondary")),
+      `${theme} pressed ToggleGroup item must use the secondary fill`,
+    );
+
+    for (const [story, selector] of [
+      ["components-input--default", "[data-slot=input]"],
+      ["components-textarea--default", "[data-slot=textarea]"],
+      ["components-select--default", "[data-slot=select-trigger]"],
+    ] as const) {
+      const field = await openStory(story, { theme });
+      assert(
+        (await computed(field, selector, "font-size")) === "14px" &&
+          (await computed(field, selector, "line-height")) === "20px",
+        `${theme} ${story} must use the compact desktop input type`,
+      );
+    }
+
+    const textarea = await openStory("components-textarea--default", { theme });
+    const textareaResize = await textarea.evaluate(`(() => ({
+      supportsFieldSizing: CSS.supports("field-sizing", "content"),
+      resize: getComputedStyle(document.querySelector("[data-slot=textarea]")).resize,
+    }))()`);
+    assert(
+      !textareaResize.supportsFieldSizing || textareaResize.resize === "none",
+      `${theme} Textarea must disable manual resizing when field sizing is supported`,
+    );
+
+    for (const [story, selector] of [
+      ["components-card--default", "[data-slot=card]"],
+      ["components-card--nested", "[data-slot=card-nested]"],
+      ["components-badge--default", "[data-slot=badge]"],
+      ["components-alert--default", "[data-slot=alert]"],
+      ["components-empty--default", "[data-slot=empty]"],
+    ] as const) {
+      const surface = await openStory(story, { theme });
+      assert(
+        (await computed(surface, selector, "border-top-width")) === "0px",
+        `${theme} ${story} default surface must be borderless`,
+      );
+    }
+
+    const pagination = await openStory("components-pagination--default", { theme });
+    assert(
+      (await computed(
+        pagination,
+        "[data-slot=pagination-link][data-active]",
+        "background-color",
+      )) === (await expectedColor(pagination, "--foreground")),
+      `${theme} active pagination item must use the foreground fill`,
+    );
+    assert(
+      (await computed(pagination, "[data-slot=pagination-link][data-active]", "color")) ===
+        (await expectedColor(pagination, "--background")),
+      `${theme} active pagination item must use the canvas foreground`,
+    );
+
+    for (const [story, selector, background, foreground] of [
+      ["components-alert--info", "[data-slot=alert]", "--accent", "--accent-foreground"],
+      [
+        "components-alert--destructive",
+        "[data-slot=alert]",
+        "--destructive",
+        "--destructive-foreground",
+      ],
+    ] as const) {
+      const alert = await openStory(story, { theme });
+      assert(
+        (await computed(alert, selector, "background-color")) ===
+          (await expectedColor(alert, background)) &&
+          (await computed(alert, selector, "color")) === (await expectedColor(alert, foreground)),
+        `${theme} ${story} must use its semantic background and foreground roles`,
+      );
+    }
+
+    for (const [story, trigger, content] of [
+      ["components-dialog--default", "[data-slot=dialog-trigger]", "[data-slot=dialog-content]"],
+      [
+        "components-alertdialog--default",
+        "[data-slot=alert-dialog-trigger]",
+        "[data-slot=alert-dialog-content]",
+      ],
+    ] as const) {
+      const dialog = await openStory(story, { theme });
+      await dialog.evaluate(`document.querySelector(${JSON.stringify(trigger)}).focus()`);
+      await dialog.press("Enter");
+      await waitFor(dialog, `document.querySelector(${JSON.stringify(content)})`);
+      assert(
+        (await computed(dialog, content, "border-top-width")) === "0px" &&
+          (await computed(dialog, content, "border-top-left-radius")) === "15px",
+        `${theme} ${story} default surface must be borderless and rounded-lg`,
+      );
+    }
+
+    const alertDialog = await openStory("components-alertdialog--default", { theme });
+    await alertDialog.evaluate(
+      `document.querySelector("[data-slot=alert-dialog-trigger]").focus()`,
+    );
+    await alertDialog.press("Enter");
+    await waitFor(alertDialog, `document.querySelector("[data-slot=alert-dialog-cancel]")`);
+    assert(
+      (await computed(alertDialog, "[data-slot=alert-dialog-cancel]", "background-color")) ===
+        (await expectedColor(alertDialog, "--secondary")),
+      `${theme} AlertDialog Cancel must use the secondary Button default`,
+    );
+  }
+}
+
 async function main() {
   assert(
     existsSync(resolve(ROOT, "storybook-static")),
@@ -176,6 +327,8 @@ async function main() {
     await verifyMenuAndCommand();
     console.log("verifying text and override cursors");
     await verifyTextAndOverrideCursors();
+    console.log("verifying B3 default surfaces");
+    await verifyB3DefaultSurfaces();
     console.log("interaction state QA passed");
   } finally {
     await closeView();

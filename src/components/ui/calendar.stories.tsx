@@ -1,5 +1,6 @@
 import * as React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+import { enUS } from "date-fns/locale/en-US";
 import type { DateRange } from "react-day-picker";
 import { Calendar } from "./calendar";
 
@@ -47,6 +48,14 @@ export const Dropdown: Story = {
 
 export const Disabled: Story = {
   render: () => <Calendar defaultMonth={monthStart} disabled={[disabledDay]} />,
+};
+
+export const KoreanDefault: Story = {
+  render: () => <Calendar defaultMonth={new Date(2026, 8, 1)} />,
+};
+
+export const EnglishOverride: Story = {
+  render: () => <Calendar defaultMonth={new Date(2026, 8, 1)} locale={enUS} />,
 };
 
 export const Glass: Story = {

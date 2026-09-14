@@ -19,10 +19,11 @@ const Toaster = ({
   appearance?: ToasterAppearance;
 }) => {
   const { resolvedTheme } = useTheme();
+  const toastClass = "flex w-89 items-center gap-2 rounded-lg p-4 font-sans text-sm";
   const neutralToastClass =
     appearance === "default"
-      ? "flex w-89 items-center gap-2 rounded-lg border border-input bg-popover p-4 font-sans text-sm text-foreground shadow-raised"
-      : `flex w-89 items-center gap-2 rounded-lg border border-input p-4 font-sans text-sm text-foreground shadow-raised kood-${appearance}`;
+      ? "border border-input bg-popover text-foreground shadow-raised"
+      : `border border-input text-foreground shadow-raised kood-${appearance}`;
   const semanticToastClasses =
     appearance === "default"
       ? {
@@ -56,7 +57,9 @@ const Toaster = ({
       toastOptions={{
         unstyled: true,
         classNames: {
-          toast: neutralToastClass,
+          toast: toastClass,
+          default: neutralToastClass,
+          loading: neutralToastClass,
           success: semanticToastClasses.success,
           error: semanticToastClasses.error,
           warning: semanticToastClasses.warning,
