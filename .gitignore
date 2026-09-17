@@ -35,4 +35,5 @@ coverage/
 # 개인 AI 작업 파일 (공유 안 함)
 .omo/
 .omc/
+.gjc/
 CLAUDE.local.md
