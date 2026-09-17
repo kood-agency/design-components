@@ -93,7 +93,16 @@ async function ensureView({ width, height }) {
   return _view;
 }
 
-export async function openStory(id, { theme, font, width = 1024, height = 768, port = 6104 } = {}) {
+export async function openStory(
+  id: string,
+  {
+    theme,
+    font,
+    width = 1024,
+    height = 768,
+    port = 6104,
+  }: { theme?: string; font?: string; width?: number; height?: number; port?: number } = {},
+) {
   await startServer(port);
   const view = await ensureView({ width, height });
   await view.navigate(storyUrl(id, { theme, font, port }));
@@ -182,7 +191,7 @@ if (process.argv[1] && import.meta.path === resolve(process.argv[1])) {
     console.log(`theme=${theme} className="${cls}" --background=${bg}`);
     if (!cls.includes(theme))
       throw new Error(`expected className to contain "${theme}", got "${cls}"`);
-    const expectedBackground = theme === "light" ? "#f6f8fb" : "#0d1117";
+    const expectedBackground = theme === "light" ? "#f3f5f8" : "#101217";
     if (bg.toLowerCase() !== expectedBackground) {
       throw new Error(`expected --background ${expectedBackground} in ${theme}, got ${bg}`);
     }

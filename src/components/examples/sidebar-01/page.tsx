@@ -6,7 +6,7 @@ export function Sidebar01Page() {
     <SidebarProvider>
       <Sidebar01 />
       <SidebarInset>
-        <header className="flex min-h-16 items-center gap-3 border-b px-4 md:px-6 xl:px-8">
+        <header className="border-border flex min-h-16 items-center gap-3 border-b px-4 md:px-6 xl:px-8">
           <SidebarTrigger />
           <Separator orientation="vertical" className="data-[orientation=vertical]:h-4" />
           <span className="text-sm font-medium">Navigation</span>

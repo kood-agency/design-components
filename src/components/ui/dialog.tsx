@@ -39,10 +39,12 @@ function DialogContent({
   className,
   children,
   showCloseButton = true,
+  closeLabel = "닫기",
   variant = "default",
   ...props
 }: DialogPrimitive.Popup.Props & {
   showCloseButton?: boolean;
+  closeLabel?: string;
   variant?: "default" | "glass" | "glass-strong";
 }) {
   return (
@@ -53,9 +55,9 @@ function DialogContent({
         data-variant={variant}
         aria-modal="true"
         className={cn(
-          "border-input text-foreground shadow-raised ease-standard fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl border p-6 transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none sm:max-w-lg",
+          "border-input text-foreground shadow-raised ease-standard fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-lg border p-6 transition-[opacity,transform] duration-(--duration-enter) focus-visible:outline-hidden data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none sm:max-w-lg",
           variant === "default"
-            ? "bg-card"
+            ? "bg-card border-0"
             : variant === "glass"
               ? "kood-glass"
               : "kood-glass-strong",
@@ -70,7 +72,7 @@ function DialogContent({
             render={<Button variant="ghost" className="absolute top-4 right-4" size="icon-sm" />}
           >
             <XIcon />
-            <span className="sr-only">Close</span>
+            <span className="sr-only">{closeLabel}</span>
           </DialogPrimitive.Close>
         )}
       </DialogPrimitive.Popup>
@@ -88,9 +90,11 @@ function DialogFooter({
   className,
   showCloseButton = false,
   children,
+  closeLabel = "닫기",
   ...props
 }: React.ComponentProps<"div"> & {
   showCloseButton?: boolean;
+  closeLabel?: string;
 }) {
   return (
     <div
@@ -100,7 +104,9 @@ function DialogFooter({
     >
       {children}
       {showCloseButton && (
-        <DialogPrimitive.Close render={<Button variant="outline" />}>Close</DialogPrimitive.Close>
+        <DialogPrimitive.Close render={<Button variant="secondary" />}>
+          {closeLabel}
+        </DialogPrimitive.Close>
       )}
     </div>
   );

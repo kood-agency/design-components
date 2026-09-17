@@ -120,107 +120,62 @@
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
 }
 
-:root,
-.dark {
-  color-scheme: dark;
-  --radius: 8px;
-  --background: #0d1117;
-  --foreground: #f3f7fb;
-  --foreground-muted: #b8c6d5;
-  --muted-foreground: #899aad;
-  --card: #161b22;
-  --card-foreground: #f3f7fb;
-  --popover: #272e37;
-  --popover-foreground: #f3f7fb;
-  --secondary: #21262d;
-  --secondary-foreground: #f3f7fb;
-  --muted: #21262d;
-  --primary: #e7eef6;
-  --primary-foreground: #0d1117;
-  --primary-hover: #f3f7fb;
-  --primary-active: #cbd8e5;
-  --accent: #172a45;
-  --accent-foreground: #7fa5de;
-  --accent-hover: #96b5e2;
-  --destructive: #f18484;
-  --destructive-foreground: #090c10;
-  --success: #6bcb91;
-  --success-foreground: #090c10;
-  --warning: #e4b45b;
-  --warning-foreground: #090c10;
-  --border: #30363d;
-  --input: #737d8c;
-  --ring: #7fa5de;
-  --overlay: #010409b8;
-  --selection: #264a78;
-  --selection-foreground: #f3f7fb;
-  --code: #090c10;
-  --code-foreground: #e7eef6;
-  --code-border: #30363d;
-  --sidebar: #161b22;
-  --sidebar-foreground: #b8c6d5;
-  --sidebar-primary: #e7eef6;
-  --sidebar-primary-foreground: #0d1117;
-  --sidebar-accent: #172a45;
-  --sidebar-accent-foreground: #7fa5de;
-  --sidebar-border: #30363d;
-  --sidebar-ring: #7fa5de;
-  --glass-background: rgb(22 27 34 / 82%);
-  --glass-strong-background: rgb(22 27 34 / 94%);
-  --glass-hover: rgb(22 27 34 / 96%);
-  --glass-active: rgb(22 27 34 / 98%);
-  --glass-solid: #161b22;
-  --glass-strong-solid: #161b22;
-  --glass-blur: 12px;
-  --kood-shadow-raised: none;
-  --duration-enter: 150ms;
-  --duration-exit: 120ms;
+:root {
+  --radius-xs: calc(var(--radius) * 0.5);
+  --radius-sm: calc(var(--radius) * 0.75);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) * 1.5);
+  --radius-xl: calc(var(--radius) * 2);
+  --radius-2xl: calc(var(--radius) * 3);
+  --font-sans: var(--kood-font-sans);
+  --font-mono: var(--kood-font-mono);
 }
 
+:root,
 .light {
   color-scheme: light;
-  --radius: 8px;
-  --background: #f6f8fb;
-  --foreground: #0a1724;
-  --foreground-muted: #394b5e;
-  --muted-foreground: #596b7d;
+  --radius: 10px;
+  --background: #fafafa;
+  --foreground: #171c24;
+  --foreground-muted: #5e6875;
+  --muted-foreground: #5e6875;
   --card: #ffffff;
-  --card-foreground: #0a1724;
-  --popover: #e5ebf1;
-  --popover-foreground: #0a1724;
-  --secondary: #eff3f7;
-  --secondary-foreground: #0a1724;
-  --muted: #eff3f7;
+  --card-foreground: #171c24;
+  --popover: #ffffff;
+  --popover-foreground: #171c24;
+  --secondary: #f5f7fa;
+  --secondary-foreground: #171c24;
+  --muted: #eff2f6;
   --primary: #0a1724;
   --primary-foreground: #ffffff;
-  --primary-hover: #12283b;
-  --primary-active: #06121e;
-  --accent: #e7eef9;
-  --accent-foreground: #315c9f;
-  --accent-hover: #244d83;
-  --destructive: #b8323e;
+  --primary-hover: #1d2b38;
+  --primary-active: #06111c;
+  --accent: #f1f5f9;
+  --accent-foreground: #0a1724;
+  --accent-hover: #1d2b38;
+  --destructive: #cc2f3c;
   --destructive-foreground: #ffffff;
-  --success: #1e7147;
+  --success: #12774a;
   --success-foreground: #ffffff;
-  --warning: #80520a;
+  --warning: #8f5600;
   --warning-foreground: #ffffff;
-  --border: #d7e0e9;
-  --input: #7b8ea1;
-  --ring: #315c9f;
-  --overlay: #07131f66;
-  --selection: #cfe0fa;
+  --border: #e3e7ec;
+  --input: #5e6875;
+  --ring: #0a1724;
+  --overlay: #0a172480;
+  --selection: #f1f5f9;
   --selection-foreground: #0a1724;
-  --code: #eff3f7;
-  --code-foreground: #0a1724;
-  --code-border: #d7e0e9;
+  --code: #f5f7fa;
+  --code-foreground: #171c24;
+  --code-border: #e3e7ec;
   --sidebar: #ffffff;
-  --sidebar-foreground: #394b5e;
+  --sidebar-foreground: #5e6875;
   --sidebar-primary: #0a1724;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e7eef9;
-  --sidebar-accent-foreground: #315c9f;
-  --sidebar-border: #d7e0e9;
-  --sidebar-ring: #315c9f;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #0a1724;
+  --sidebar-border: #e3e7ec;
+  --sidebar-ring: #0a1724;
   --glass-background: rgb(255 255 255 / 86%);
   --glass-strong-background: rgb(255 255 255 / 96%);
   --glass-hover: rgb(255 255 255 / 98%);
@@ -229,6 +184,62 @@
   --glass-strong-solid: #ffffff;
   --glass-blur: 12px;
   --kood-shadow-raised: 0 1px 2px rgb(10 23 36 / 6%), 0 8px 24px rgb(10 23 36 / 8%);
+  --duration-enter: 150ms;
+  --duration-exit: 120ms;
+}
+
+.dark {
+  color-scheme: dark;
+  --radius: 10px;
+  --background: #020c18;
+  --foreground: #f2f4f7;
+  --foreground-muted: #aab2bd;
+  --muted-foreground: #7d8793;
+  --card: #151a21;
+  --card-foreground: #f2f4f7;
+  --popover: #1a1f27;
+  --popover-foreground: #f2f4f7;
+  --secondary: #1a1f27;
+  --secondary-foreground: #f2f4f7;
+  --muted: #22272f;
+  --primary: #ffffff;
+  --primary-foreground: #151a21;
+  --primary-hover: #f2f2f2;
+  --primary-active: #e0e0e0;
+  --accent: #1c2733;
+  --accent-foreground: #c8dcec;
+  --accent-hover: #a8c8e2;
+  --destructive: #f0858b;
+  --destructive-foreground: #151a21;
+  --success: #49aa19;
+  --success-foreground: #151a21;
+  --warning: #d89614;
+  --warning-foreground: #151a21;
+  --border: #22272f;
+  --input: #4e6a86;
+  --ring: #ffffff;
+  --overlay: #020c18b3;
+  --selection: #1c2733;
+  --selection-foreground: #c8dcec;
+  --code: #1a1f27;
+  --code-foreground: #f2f4f7;
+  --code-border: #22272f;
+  --sidebar: #151a21;
+  --sidebar-foreground: #aab2bd;
+  --sidebar-primary: #ffffff;
+  --sidebar-primary-foreground: #151a21;
+  --sidebar-accent: #1c2733;
+  --sidebar-accent-foreground: #c8dcec;
+  --sidebar-border: #22272f;
+  --sidebar-ring: #ffffff;
+  --glass-background: rgb(21 26 33 / 82%);
+  --glass-strong-background: rgb(21 26 33 / 94%);
+  --glass-hover: rgb(21 26 33 / 96%);
+  --glass-active: rgb(21 26 33 / 98%);
+  --glass-solid: #151a21;
+  --glass-strong-solid: #151a21;
+  --glass-blur: 12px;
+  --kood-shadow-raised: none;
   --duration-enter: 150ms;
   --duration-exit: 120ms;
 }
@@ -253,11 +264,15 @@
     "Segoe UI Symbol", sans-serif;
 }
 
-@layer base {
-  * {
-    border-color: var(--border);
-  }
+html *,
+html ::before,
+html ::after,
+html ::backdrop,
+html ::file-selector-button {
+  border-color: var(--border);
+}
 
+@layer base {
   html {
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;

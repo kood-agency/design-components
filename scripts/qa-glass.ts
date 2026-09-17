@@ -15,16 +15,16 @@ const TIMEOUT = 15_000;
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const BASELINE_TOKENS = {
   dark: {
-    buttonBackground: "rgb(231, 238, 246)",
-    buttonColor: "rgb(13, 17, 23)",
-    cardBackground: "rgb(22, 27, 34)",
-    cardColor: "rgb(243, 247, 251)",
+    buttonBackground: "rgb(58, 111, 224)",
+    buttonColor: "rgb(255, 255, 255)",
+    cardBackground: "rgb(25, 28, 34)",
+    cardColor: "rgb(242, 244, 247)",
   },
   light: {
-    buttonBackground: "rgb(10, 23, 36)",
+    buttonBackground: "rgb(40, 97, 219)",
     buttonColor: "rgb(255, 255, 255)",
     cardBackground: "rgb(255, 255, 255)",
-    cardColor: "rgb(10, 23, 36)",
+    cardColor: "rgb(23, 28, 36)",
   },
 } as const;
 
@@ -905,7 +905,7 @@ async function measureFocusedControl(page: any, testId: string) {
       composited: {
         stageEffectiveBackground,
         controlEffectiveBackground,
-        focusContrast: contrast(outline, stageEffectiveBackground),
+        focusContrast: contrast(outline, controlEffectiveBackground),
         textContrast: contrast(parseColor(controlStyle.color).rgb, controlEffectiveBackground),
       },
     };
@@ -964,13 +964,13 @@ async function runPlaywrightScenario(
     finalCheck(
       `${mode}-${width}-keyboard-focused-contrast`,
       focusedControls,
-      "actual keyboard-focused Button and Input: text >= 4.5 and offset outline >= 3 against the composited adjacent glass stage",
+      "actual keyboard-focused Button and Input: text >= 4.5 and 1px inset outline >= 3 against the composited control surface",
       focusedControls.every(
         (control) =>
           control.focusVisible &&
           control.outline.style === "solid" &&
-          control.outline.width === "2px" &&
-          control.outline.offset === "2px" &&
+          control.outline.width === "1px" &&
+          control.outline.offset === "-1px" &&
           control.composited.textContrast >= 4.5 &&
           control.composited.focusContrast >= 3,
       ),
@@ -1475,9 +1475,11 @@ function finalStaticContract() {
   const assertions: Assertion[] = [];
   const distCss = resolve(ROOT, "dist/globals.css");
   const stylesCss = resolve(ROOT, "dist/styles.css");
-  const prior = JSON.parse(
-    readFileSync(resolve(ROOT, ".omo/evidence/kood-glass-variants/task-12/report.json"), "utf8"),
-  ) as { generatedArtifacts: { dist: { keyFiles: Record<string, string> } } };
+  const priorReport =
+    process.env.QA_GLASS_PRIOR_REPORT ?? ".omo/evidence/kood-glass-variants/task-12/report.json";
+  const prior = JSON.parse(readFileSync(resolve(ROOT, priorReport), "utf8")) as {
+    generatedArtifacts: { dist: { keyFiles: Record<string, string> } };
+  };
   const latestInput = Math.max(
     ...[
       resolve(ROOT, "src/styles/globals.css"),

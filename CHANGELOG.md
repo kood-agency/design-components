@@ -1,3 +1,37 @@
+## 2.0.0 (2026-09-14)
+
+### Breaking changes
+
+* **theme:** light is now the unclassed `:root` default; set `class="dark"` on `html` for dark mode and move old root-dark overrides to `.dark`.
+* **localization:** breadcrumb, pagination, carousel, dialog, sheet, sidebar, command, and spinner built-in labels now default to Korean. Pass the existing label, closeLabel, text, title, or description props to retain English copy.
+* **focus:** interactive controls use the B-2 1px inset focus outline and border-color swap instead of the former 2px offset outline.
+
+### Added
+
+* **examples:** add the Storybook-only Korean Notice List 01 showcase with 전체, 읽지 않음, and 보관함 navigation.
+* **release:** publish the 2.0.0 package contract with precompiled `globals.css` and the identical `styles.css` compatibility subpath.
+
+### Changed
+
+* **theme:** make the Korean SaaS token system light-first with an explicit dark override.
+* **components:** apply the 2.0 default surfaces, state contrast, overlay treatment, and Korean calendar locale.
+
+## 1.1.0 (2026-09-14)
+
+### Added
+
+* **tabs:** add the `pill` TabsList variant and Storybook story
+* **accessibility:** add English-default localization props for breadcrumb, pagination, carousel, dialog, sheet, and sidebar labels
+* **examples:** add Storybook-only Korean influencer and channel Before, After, and AfterEmpty examples
+
+### Fixed (visual)
+
+* **consumer CSS:** preserve kood radius, font hooks, and border colors when a consumer imports Tailwind after `@kood/components` CSS
+* **sidebar:** align the inset seam with the sidebar surface
+* **table:** give TableFooter its explicit token border
+* **sonner:** retain semantic toast surface colors
+* **calendar:** pass the configured locale to day buttons
+
 ## 1.0.0 (2026-09-06)
 
 ### Features

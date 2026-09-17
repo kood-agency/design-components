@@ -63,7 +63,7 @@ function NavigationMenuItem({
 }
 
 const navigationMenuTriggerStyle = cva(
-  "group/navigation-menu-trigger inline-flex w-max max-md:min-h-11 items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-foreground-muted outline-none transition-colors duration-(--duration-enter) ease-standard hover:bg-secondary hover:text-foreground focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:pointer-events-none disabled:border-input disabled:bg-secondary disabled:text-muted-foreground data-disabled:pointer-events-none data-disabled:border-input data-disabled:bg-secondary data-disabled:text-muted-foreground data-popup-open:bg-secondary data-popup-open:text-foreground motion-reduce:transition-none",
+  "group/navigation-menu-trigger inline-flex w-max max-md:min-h-11 items-center justify-center rounded-md px-3 py-2 text-sm font-semibold text-foreground-muted transition-colors duration-(--duration-enter) ease-standard hover:bg-secondary hover:text-foreground focus-visible:outline-solid focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-ring disabled:pointer-events-none disabled:border-input disabled:bg-secondary disabled:text-muted-foreground data-disabled:pointer-events-none data-disabled:border-input data-disabled:bg-secondary data-disabled:text-muted-foreground data-popup-open:bg-secondary data-popup-open:text-foreground motion-reduce:transition-none",
 );
 
 function NavigationMenuTrigger({
@@ -99,7 +99,7 @@ function NavigationMenuContent({
       data-slot="navigation-menu-content"
       data-variant={variant}
       className={cn(
-        "text-foreground ease-standard h-full w-auto rounded-lg border p-1 transition-[opacity,transform] duration-(--duration-enter) data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 **:data-[slot=navigation-menu-link]:focus:outline-none motion-reduce:transition-none",
+        "text-foreground ease-standard h-full w-auto rounded-lg border p-1 transition-[opacity,transform] duration-(--duration-enter) data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
         appearance !== "default"
           ? "border-transparent bg-transparent"
           : surfaceVariant === "default"
@@ -137,7 +137,7 @@ function NavigationMenuPositioner({
         <NavigationMenuPrimitive.Popup
           data-appearance={appearance}
           className={cn(
-            "border-input text-foreground shadow-raised ease-standard xs:w-(--popup-width) relative h-(--popup-height) w-(--popup-width) origin-(--transform-origin) rounded-lg border transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            "border-input text-foreground shadow-raised ease-standard xs:w-(--popup-width) relative h-(--popup-height) w-(--popup-width) origin-(--transform-origin) rounded-lg border transition-[opacity,transform] duration-(--duration-enter) focus-visible:outline-hidden data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
             appearance === "default"
               ? "bg-popover [&:has([data-slot=navigation-menu-content][data-variant=glass-strong]:not([data-ending-style]))]:bg-transparent [&:has([data-slot=navigation-menu-content][data-variant=glass]:not([data-ending-style]))]:bg-transparent"
               : `kood-${appearance}`,
@@ -155,7 +155,7 @@ function NavigationMenuLink({ className, ...props }: NavigationMenuPrimitive.Lin
     <NavigationMenuPrimitive.Link
       data-slot="navigation-menu-link"
       className={cn(
-        "text-foreground ease-standard hover:bg-secondary hover:text-foreground focus-visible:outline-ring data-highlighted:bg-secondary data-highlighted:text-foreground data-disabled:text-muted-foreground data-active:bg-secondary data-active:text-foreground flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors duration-(--duration-enter) outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid data-disabled:pointer-events-none motion-reduce:transition-none max-md:min-h-11 [&_svg:not([class*='size-'])]:size-4",
+        "text-foreground ease-standard hover:bg-secondary hover:text-foreground focus-visible:outline-ring data-highlighted:bg-secondary data-highlighted:text-foreground data-disabled:text-muted-foreground data-active:bg-secondary data-active:text-foreground flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors duration-(--duration-enter) focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-solid data-disabled:pointer-events-none motion-reduce:transition-none max-md:min-h-11 [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}

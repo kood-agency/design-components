@@ -55,6 +55,13 @@ function ToastControls({
         </Button>
         <Button
           variant="outline"
+          data-testid={`${appearance}-warning-trigger`}
+          onClick={() => toast.warning("Warning toast", { testId: `${appearance}-warning` })}
+        >
+          Warning toast
+        </Button>
+        <Button
+          variant="outline"
           data-testid={`${appearance}-error-trigger`}
           onClick={() => toast.error("Error toast", { testId: `${appearance}-error` })}
         >

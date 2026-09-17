@@ -12,7 +12,7 @@ function ScrollArea({ className, children, ...props }: ScrollAreaPrimitive.Root.
     >
       <ScrollAreaPrimitive.Viewport
         data-slot="scroll-area-viewport"
-        className="focus-visible:outline-ring size-full rounded-[inherit] outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-solid"
+        className="focus-visible:outline-ring size-full rounded-[inherit] focus-visible:outline-1 focus-visible:-outline-offset-1 focus-visible:outline-solid"
       >
         {children}
       </ScrollAreaPrimitive.Viewport>

@@ -68,6 +68,24 @@ export const Destructive: Story = {
   ),
 };
 
+export const Small: Story = {
+  render: () => (
+    <AlertDialog>
+      <AlertDialogTrigger render={<Button />}>삭제 확인</AlertDialogTrigger>
+      <AlertDialogContent size="sm">
+        <AlertDialogHeader>
+          <AlertDialogTitle>프로젝트를 삭제할까요?</AlertDialogTitle>
+          <AlertDialogDescription>삭제한 프로젝트는 복구할 수 없습니다.</AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>취소</AlertDialogCancel>
+          <AlertDialogAction variant="destructive">삭제</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  ),
+};
+
 export const Glass: Story = {
   render: () => (
     <div className="bg-secondary flex min-h-80 items-center justify-center gap-3 p-6">

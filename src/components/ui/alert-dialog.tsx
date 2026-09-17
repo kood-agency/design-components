@@ -46,9 +46,9 @@ function AlertDialogContent({
         data-variant={variant}
         aria-modal="true"
         className={cn(
-          "border-input text-foreground shadow-raised ease-standard group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl border p-6 transition-[opacity,transform] duration-(--duration-enter) outline-none data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none sm:max-w-sm",
+          "border-input text-foreground shadow-raised ease-standard group/alert-dialog-content fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-lg border p-6 transition-[opacity,transform] duration-(--duration-enter) focus-visible:outline-hidden data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none sm:max-w-sm",
           variant === "default"
-            ? "bg-card"
+            ? "bg-card border-0"
             : variant === "glass"
               ? "kood-glass"
               : "kood-glass-strong",
@@ -77,7 +77,10 @@ function AlertDialogFooter({ className, ...props }: React.ComponentProps<"div">)
   return (
     <div
       data-slot="alert-dialog-footer"
-      className={cn("flex flex-col-reverse gap-2 sm:flex-row sm:justify-end", className)}
+      className={cn(
+        "flex flex-col-reverse gap-2 sm:flex-row sm:justify-end sm:group-data-[size=sm]/alert-dialog-content:grid sm:group-data-[size=sm]/alert-dialog-content:grid-cols-2 sm:group-data-[size=sm]/alert-dialog-content:[&>*]:flex-1",
+        className,
+      )}
       {...props}
     />
   );
@@ -134,7 +137,7 @@ function AlertDialogAction({ className, ...props }: React.ComponentProps<typeof 
 
 function AlertDialogCancel({
   className,
-  variant = "outline",
+  variant = "secondary",
   size = "default",
   ...props
 }: AlertDialogPrimitive.Close.Props &

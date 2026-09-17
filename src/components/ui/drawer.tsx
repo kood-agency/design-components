@@ -110,7 +110,7 @@ function DrawerContent({
           data-snap-points={hasSnapPoints ? "" : undefined}
           data-variant={variant}
           className={cn(
-            "group/drawer-popup border-input text-foreground shadow-raised ease-standard pointer-events-auto fixed z-50 m-(--drawer-inset,0px) flex h-(--drawer-content-height) max-h-(--drawer-content-max-height,none) min-h-0 w-(--drawer-content-width,auto) transform-[translate3d(var(--translate-x,0px),var(--translate-y,0px),0)_scale(var(--stack-scale))] flex-col border p-6 text-sm transition-[opacity,transform] duration-(--duration-enter) will-change-transform outline-none select-none [interpolate-size:allow-keywords] data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
+            "group/drawer-popup border-input text-foreground shadow-raised ease-standard pointer-events-auto fixed z-50 m-(--drawer-inset,0px) flex h-(--drawer-content-height) max-h-(--drawer-content-max-height,none) min-h-0 w-(--drawer-content-width,auto) transform-[translate3d(var(--translate-x,0px),var(--translate-y,0px),0)_scale(var(--stack-scale))] flex-col border p-6 text-sm transition-[opacity,transform] duration-(--duration-enter) will-change-transform select-none [interpolate-size:allow-keywords] focus-visible:outline-hidden data-ending-style:opacity-0 data-ending-style:duration-(--duration-exit) data-starting-style:opacity-0 motion-reduce:transition-none",
             variant === "default"
               ? "bg-card"
               : variant === "glass"

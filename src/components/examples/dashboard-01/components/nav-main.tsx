@@ -107,7 +107,7 @@ interface NavUserProps {
 
 export function NavUser({ user }: NavUserProps) {
   return (
-    <SidebarFooter className="border-t p-3">
+    <SidebarFooter className="border-sidebar-border border-t p-3">
       <DropdownMenu>
         <DropdownMenuTrigger
           render={

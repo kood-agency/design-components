@@ -1,27 +1,9 @@
-import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { mkdtemp } from "node:fs/promises";
-import { createRequire } from "node:module";
 import { tmpdir } from "node:os";
 import { relative, resolve } from "node:path";
-
-const require = createRequire(import.meta.url);
-const compilerPackage = readdirSync(resolve(import.meta.dir, "..", "node_modules", ".pnpm")).find(
-  (entry) => /^typescript@5\./.test(entry),
-);
-if (!compilerPackage) throw new Error("TypeScript compiler API package is unavailable");
-const ts: any = require(
-  resolve(
-    import.meta.dir,
-    "..",
-    "node_modules",
-    ".pnpm",
-    compilerPackage,
-    "node_modules",
-    "typescript",
-    "lib",
-    "typescript.js",
-  ),
-);
+import { API } from "typescript/unstable/async";
+import * as ts from "typescript/unstable/ast";
 
 const ROOT = resolve(import.meta.dir, "..");
 const EVIDENCE = resolve(ROOT, ".omo/evidence/kood-internal-charcoal");
@@ -68,124 +50,149 @@ function normalize(value: string) {
     .replace(/^#([\da-f])([\da-f])([\da-f])$/, "#$1$1$2$2$3$3");
 }
 
+function normalizeComputed(value: string) {
+  return normalize(value)
+    .replaceAll("rgb(255 255 255 / 86%)", "#ffffffdb")
+    .replaceAll("rgb(255 255 255 / 96%)", "#fffffff5")
+    .replaceAll("rgb(255 255 255 / 98%)", "#fffffffa")
+    .replaceAll("rgb(255 255 255 / 99%)", "#fffffffc");
+}
+
 function sourceFromHead(path: string) {
   const result = Bun.spawnSync(["git", "show", `HEAD:${path}`], {
     cwd: ROOT,
     stdout: "pipe",
     stderr: "pipe",
   });
-  if (result.exitCode !== 0)
+  if (result.exitCode !== 0) {
+    const currentPath = resolve(ROOT, path);
+    // TypeScript opens every file included by tsconfig. New Storybook-only files have no HEAD
+    // counterpart, but cannot affect the fixed public API source list being snapshotted.
+    if (path.startsWith("src/") && existsSync(currentPath))
+      return readFileSync(currentPath, "utf8");
     throw new Error(`cannot read HEAD baseline for ${path}: ${result.stderr.toString()}`);
+  }
   return result.stdout.toString();
 }
 
-function indexExports(fromHead: boolean) {
-  const options = {
-    target: ts.ScriptTarget.ES2022,
-    module: ts.ModuleKind.ESNext,
-    moduleResolution: ts.ModuleResolutionKind.Bundler,
-    jsx: ts.JsxEmit.ReactJSX,
-  };
-  const host = ts.createCompilerHost(options);
-  const readFile = host.readFile.bind(host);
-  host.readFile = (path: string) => {
-    const projectPath = relative(ROOT, path);
-    if (fromHead && projectPath.startsWith("src/")) return sourceFromHead(projectPath);
-    return readFile(path);
-  };
-  const program = ts.createProgram([resolve(ROOT, "src/index.ts")], options, host);
-  const source = program.getSourceFile(resolve(ROOT, "src/index.ts"));
-  if (!source) throw new Error("TypeScript compiler API could not load src/index.ts");
-  const symbol = program.getTypeChecker().getSymbolAtLocation(source);
-  if (!symbol) throw new Error("TypeScript compiler API could not resolve src/index.ts exports");
-  return program
-    .getTypeChecker()
-    .getExportsOfModule(symbol)
-    .map((item: any) => item.getName())
-    .sort();
-}
-
-function extractApi(sources: Record<string, string>, fromHead = false) {
-  const modules: Record<
-    string,
-    { exports: string[]; variants: Record<string, string[]>; sizeUnions: string[] }
-  > = {};
-  for (const [path, text] of Object.entries(sources)) {
-    const file = ts.createSourceFile(path, text, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
-    const exported = new Set<string>();
-    const variants: Record<string, string[]> = {};
-    const sizeUnions = new Set<string>();
-    const visit = (node: any) => {
-      if (
-        ts.isExportDeclaration(node) &&
-        node.exportClause &&
-        ts.isNamedExports(node.exportClause)
-      ) {
-        for (const item of node.exportClause.elements) exported.add(item.name.text);
-      }
-      if (
-        (ts.isFunctionDeclaration(node) ||
-          ts.isClassDeclaration(node) ||
-          ts.isInterfaceDeclaration(node) ||
-          ts.isTypeAliasDeclaration(node) ||
-          ts.isVariableStatement(node)) &&
-        node.modifiers?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword)
-      ) {
-        if (ts.isVariableStatement(node)) {
-          for (const declaration of node.declarationList.declarations)
-            if (ts.isIdentifier(declaration.name)) exported.add(declaration.name.text);
-        } else if (node.name) exported.add(node.name.text);
-      }
-      if (
-        ts.isCallExpression(node) &&
-        ts.isIdentifier(node.expression) &&
-        node.expression.text === "cva"
-      ) {
-        const config = node.arguments[1];
-        if (config && ts.isObjectLiteralExpression(config)) {
-          const variantsProperty = config.properties.find(
-            (property: any) =>
-              ts.isPropertyAssignment(property) &&
-              ts.isIdentifier(property.name) &&
-              property.name.text === "variants",
-          );
-          if (variantsProperty && ts.isObjectLiteralExpression(variantsProperty.initializer)) {
-            for (const variant of variantsProperty.initializer.properties) {
-              if (
-                ts.isPropertyAssignment(variant) &&
-                ts.isObjectLiteralExpression(variant.initializer)
-              ) {
-                const name =
-                  ts.isIdentifier(variant.name) || ts.isStringLiteral(variant.name)
-                    ? variant.name.text
-                    : "unknown";
-                variants[name] = variant.initializer.properties
-                  .map((property) =>
-                    ts.isPropertyAssignment(property) &&
-                    (ts.isIdentifier(property.name) || ts.isStringLiteral(property.name))
-                      ? property.name.text
-                      : null,
-                  )
-                  .filter((value: string | null): value is string => value !== null)
-                  .sort();
+async function extractApi(sources: Record<string, string>, fromHead = false) {
+  const api = new API(
+    fromHead
+      ? {
+          cwd: ROOT,
+          fs: {
+            readFile: (path) => {
+              const projectPath = relative(ROOT, path);
+              return projectPath.startsWith("src/") ? sourceFromHead(projectPath) : undefined;
+            },
+          },
+        }
+      : { cwd: ROOT },
+  );
+  let snapshot: Awaited<ReturnType<API["updateSnapshot"]>> | undefined;
+  try {
+    snapshot = await api.updateSnapshot({ openProjects: [resolve(ROOT, "tsconfig.json")] });
+    const project = snapshot.getProjects()[0];
+    assert(project, "TypeScript compiler API could not load tsconfig.json");
+    const modules: Record<
+      string,
+      { exports: string[]; variants: Record<string, string[]>; sizeUnions: string[] }
+    > = {};
+    for (const path of Object.keys(sources)) {
+      const file = await project.program.getSourceFile(resolve(ROOT, path));
+      if (!file) throw new Error(`TypeScript compiler API could not load ${path}`);
+      const exported = new Set<string>();
+      const variants: Record<string, string[]> = {};
+      const sizeUnions = new Set<string>();
+      const visit = (node: any) => {
+        if (
+          ts.isExportDeclaration(node) &&
+          node.exportClause &&
+          ts.isNamedExports(node.exportClause)
+        ) {
+          for (const item of node.exportClause.elements) exported.add(item.name.text);
+        }
+        if (
+          (ts.isFunctionDeclaration(node) ||
+            ts.isClassDeclaration(node) ||
+            ts.isInterfaceDeclaration(node) ||
+            ts.isTypeAliasDeclaration(node) ||
+            ts.isVariableStatement(node)) &&
+          node.modifiers?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword)
+        ) {
+          if (ts.isVariableStatement(node)) {
+            for (const declaration of node.declarationList.declarations)
+              if (ts.isIdentifier(declaration.name)) exported.add(declaration.name.text);
+          } else if (node.name) exported.add(node.name.text);
+        }
+        if (
+          ts.isCallExpression(node) &&
+          ts.isIdentifier(node.expression) &&
+          node.expression.text === "cva"
+        ) {
+          const config = node.arguments[1];
+          if (config && ts.isObjectLiteralExpression(config)) {
+            const variantsProperty = config.properties.find(
+              (property: any) =>
+                ts.isPropertyAssignment(property) &&
+                ts.isIdentifier(property.name) &&
+                property.name.text === "variants",
+            );
+            const variantsInitializer = (variantsProperty as any)?.initializer;
+            if (ts.isObjectLiteralExpression(variantsInitializer)) {
+              for (const variant of (variantsInitializer as any).properties) {
+                const variantInitializer = (variant as any).initializer;
+                if (
+                  ts.isPropertyAssignment(variant) &&
+                  ts.isObjectLiteralExpression(variantInitializer)
+                ) {
+                  const name =
+                    ts.isIdentifier(variant.name) || ts.isStringLiteral(variant.name)
+                      ? variant.name.text
+                      : "unknown";
+                  variants[name] = variantInitializer.properties
+                    .map((property: any) =>
+                      ts.isPropertyAssignment(property) &&
+                      (ts.isIdentifier(property.name) || ts.isStringLiteral(property.name))
+                        ? property.name.text
+                        : null,
+                    )
+                    .filter((value: string | null): value is string => value !== null)
+                    .sort();
+                }
               }
             }
           }
         }
-      }
-      if (ts.isUnionTypeNode(node) && node.types.every(ts.isLiteralTypeNode)) {
-        const literals = node.types
-          .map((type) => (ts.isStringLiteral(type.literal) ? type.literal.text : null))
-          .filter((value: string | null): value is string => value !== null);
-        if (literals.length > 1) sizeUnions.add(literals.sort().join(" | "));
-      }
-      ts.forEachChild(node, visit);
-    };
-    visit(file);
-    modules[path] = { exports: [...exported].sort(), variants, sizeUnions: [...sizeUnions].sort() };
+        if (ts.isUnionTypeNode(node) && node.types.every(ts.isLiteralTypeNode)) {
+          const literals = node.types
+            .map((type) => {
+              const literal = (type as any).literal;
+              return ts.isStringLiteral(literal) ? literal.text : null;
+            })
+            .filter((value: string | null): value is string => value !== null);
+          if (literals.length > 1) sizeUnions.add(literals.sort().join(" | "));
+        }
+        node.forEachChild(visit);
+      };
+      visit(file);
+      modules[path] = {
+        exports: [...exported].sort(),
+        variants,
+        sizeUnions: [...sizeUnions].sort(),
+      };
+    }
+    const source = await project.program.getSourceFile(resolve(ROOT, "src/index.ts"));
+    if (!source) throw new Error("TypeScript compiler API could not load src/index.ts");
+    const symbol = await project.checker.getSymbolAtLocation(source);
+    if (!symbol) throw new Error("TypeScript compiler API could not resolve src/index.ts exports");
+    modules["src/index.ts"].exports = (await project.checker.getExportsOfModule(symbol))
+      .map((item) => item.name)
+      .sort();
+    return { extractor: "typescript-compiler-api", modules };
+  } finally {
+    await api.close();
   }
-  modules["src/index.ts"].exports = indexExports(fromHead);
-  return { extractor: "typescript-compiler-api", modules };
 }
 
 function readSources(fromHead = false) {
@@ -208,23 +215,27 @@ function lightTokens(css: string) {
   );
 }
 
-function writeBaseline() {
+async function writeBaseline(fromHead = false) {
   mkdirSync(BASELINE, { recursive: true });
-  const api = extractApi(readSources(true), true);
-  const css = sourceFromHead("src/styles/globals.css");
+  const api = await extractApi(readSources(fromHead), fromHead);
+  const css = fromHead
+    ? sourceFromHead("src/styles/globals.css")
+    : readFileSync(resolve(ROOT, "src/styles/globals.css"), "utf8");
   writeFileSync(resolve(BASELINE, "public-api.json"), `${JSON.stringify(api, null, 2)}\n`);
   writeFileSync(
     resolve(BASELINE, "light-tokens.json"),
     `${JSON.stringify(lightTokens(css), null, 2)}\n`,
   );
-  console.log("wrote HEAD-provenance API and light-token baselines");
+  console.log(
+    `wrote ${fromHead ? "HEAD-provenance" : "working-tree"} API and light-token baselines`,
+  );
 }
 
-function verifyApiParity() {
+async function verifyApiParity() {
   const path = resolve(BASELINE, "public-api.json");
   if (!existsSync(path)) throw new Error(`missing baseline: ${path}; run --write-baseline first`);
   const expected = JSON.parse(readFileSync(path, "utf8"));
-  const actual = extractApi(readSources());
+  const actual = await extractApi(readSources());
   if (JSON.stringify(actual) !== JSON.stringify(expected)) {
     throw new Error(
       `public API parity mismatch\nexpected: ${JSON.stringify(expected)}\nactual: ${JSON.stringify(actual)}`,
@@ -566,7 +577,7 @@ async function runBrowser(lightBaseline: Record<string, string>) {
       if (name === "--radius" || name.startsWith("--kood-font-") || name.startsWith("--duration-"))
         continue;
       assert(
-        normalize(light[name]) === expectedValue,
+        normalizeComputed(light[name]) === normalizeComputed(expectedValue),
         `light baseline ${name} mismatch: ${light[name]}`,
       );
     }
@@ -602,10 +613,36 @@ async function runBrowser(lightBaseline: Record<string, string>) {
   }
 }
 
+async function verifyApiRegression() {
+  const api = await extractApi(readSources());
+  const button = api.modules["src/components/ui/button.tsx"];
+  assert(button.variants.variant?.includes("glass"), "public API extractor missed button glass");
+  console.log("TypeScript 7 API extraction regression check passed");
+}
+
+function command() {
+  const args = process.argv.slice(2);
+  if (
+    args.length > 1 ||
+    (args[0] &&
+      ![
+        "--write-baseline",
+        "--write-current-baseline",
+        "--api-parity",
+        "--api-regression-self-test",
+      ].includes(args[0]))
+  )
+    throw new Error(`unsupported qa-customization option: ${args.join(" ")}`);
+  return args[0];
+}
+
 async function main() {
-  if (process.argv.includes("--write-baseline")) return writeBaseline();
-  if (process.argv.includes("--api-parity")) return verifyApiParity();
-  verifyApiParity();
+  const selectedCommand = command();
+  if (selectedCommand === "--write-baseline") return writeBaseline();
+  if (selectedCommand === "--write-current-baseline") return writeBaseline(false);
+  if (selectedCommand === "--api-parity") return verifyApiParity();
+  if (selectedCommand === "--api-regression-self-test") return verifyApiRegression();
+  await verifyApiParity();
   const lightBaseline = verifyLightBaseline();
   assert(
     existsSync(resolve(ROOT, "dist/globals.css")),

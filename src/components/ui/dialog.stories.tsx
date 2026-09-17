@@ -54,10 +54,23 @@ export const NoClose: Story = {
           <DialogTitle>Confirm action</DialogTitle>
           <DialogDescription>This dialog has no icon close control.</DialogDescription>
         </DialogHeader>
-        <DialogFooter>
+        <DialogFooter showCloseButton>
           <DialogClose render={<Button variant="secondary" />}>Cancel</DialogClose>
           <Button>Continue</Button>
         </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  ),
+};
+
+export const EnglishOverride: Story = {
+  render: () => (
+    <Dialog>
+      <DialogTrigger render={<Button />}>Open dialog</DialogTrigger>
+      <DialogContent closeLabel="Close">
+        <DialogHeader>
+          <DialogTitle>English override</DialogTitle>
+        </DialogHeader>
       </DialogContent>
     </Dialog>
   ),

@@ -7,13 +7,13 @@ const alertVariants = cva(
   {
     variants: {
       variant: {
-        default: "rounded-lg border border-border bg-card p-6 text-sm text-foreground",
+        default: "rounded-lg border-0 bg-card p-6 text-sm text-foreground",
         glass: "rounded-lg border border-border kood-glass p-6 text-sm text-foreground",
         "glass-strong":
           "rounded-lg border border-border kood-glass-strong p-6 text-sm text-foreground",
-        info: "rounded-md border border-accent-foreground bg-accent px-4 py-3 text-sm text-foreground",
+        info: "rounded-md border-0 bg-accent px-4 py-3 text-sm text-accent-foreground",
         destructive:
-          "rounded-md border border-destructive bg-card px-4 py-3 text-sm text-destructive",
+          "rounded-md border-0 bg-destructive px-4 py-3 text-sm text-destructive-foreground",
       },
     },
     defaultVariants: {
@@ -52,7 +52,10 @@ function AlertDescription({ className, ...props }: React.ComponentProps<"div">) 
   return (
     <div
       data-slot="alert-description"
-      className={cn("text-foreground-muted text-sm group-has-[>svg]/alert:col-start-2", className)}
+      className={cn(
+        "text-foreground-muted group-data-[variant=info]/alert:text-accent-foreground group-data-[variant=destructive]/alert:text-destructive-foreground text-sm group-has-[>svg]/alert:col-start-2",
+        className,
+      )}
       {...props}
     />
   );

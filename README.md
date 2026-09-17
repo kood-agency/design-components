@@ -39,6 +39,43 @@ precompiled CSS입니다. 컴포넌트 스타일에는 Tailwind 설정이 필요
 1.0.0부터 있던 하위 경로를 유지하는 동일한 precompiled CSS 사본으로, 기존 앱의
 import를 깨지 않게 합니다. 둘 중 하나만 import합니다.
 
+### 스타일시트 import 순서와 소비자 CSS 계약
+
+소비자 루트 CSS에서는 **빌드된** kood 스타일시트를 반드시 첫 번째로 import합니다.
+그 다음에 Tailwind와 앱 CSS, 마지막에 오버라이드를 둡니다. `globals.css`와
+`styles.css`는 같은 precompiled 산출물이며, `styles.css`는 기존 import를 위한 호환
+경로입니다. 둘 중 하나만 사용하세요. `src/styles/globals.css`를 직접 import하면
+소비자 Tailwind 파이프라인이 런타임 토큰 값을 제거할 수 있으므로 배포 경로로 쓰면 안 됩니다.
+
+```css
+@import "@kood/components/globals.css"; /* 반드시 첫 번째 */
+@import "tailwindcss";
+@import "./my-theme.css";
+```
+
+오버라이드는 kood import **뒤**의 비레이어 블록에서, 적용할 모드와 같은 블록에
+선언합니다. `:root`와 `.light`는 라이트, `.dark`는 다크입니다. 역순으로
+`my-theme.css`를 먼저 import하는 것은 음성 사례이며 오버라이드가 이기지 않아야 합니다.
+
+```css
+:root,
+.light {
+  --radius: 12px;
+  --kood-font-sans: "Brand Sans", sans-serif;
+}
+
+.dark {
+  --radius-md: 7px; /* 이 이름의 반경만 변경 */
+  --kood-font-mono: "Brand Mono", monospace;
+}
+```
+
+`--radius`는 기준값(2.0 기본 `10px`)이고 `--radius-xs/sm/md/lg/xl/2xl`은 각각
+`.5/.75/1/1.5/2/3`배입니다. 이름이 있는 값은 해당 반경만 덮어씁니다. 글꼴은
+공개 훅 `--kood-font-sans`, `--kood-font-mono`로 바꾸세요. Tailwind의
+`--font-sans`, `--font-mono`는 이 훅을 가리키므로 kood와 소비자 `font-sans`/
+`font-mono` 유틸리티가 같은 글꼴을 사용합니다.
+
 전체 export 목록은 [`src/index.ts`](src/index.ts)를, 컴포넌트별 사용법과 스토리는
 [스토리북](https://storybook.kood.kr)을 참고하세요.
 
@@ -135,9 +172,9 @@ import "./my-theme.css"; // 변수 오버라이딩 — 반드시 globals.css 다
 블록에 있습니다. 같은 역할 묶음을 함께 덮어써야 하며, `--background` 하나만
 바꿔도 관련 색이 자동으로 바뀌지는 않습니다.
 
-다크는 기본값으로 `:root`와 `.dark`에, 라이트는 `.light`에 정의됩니다. `html`에
-`.light`를 추가하면 라이트, `.dark`를 추가하거나 클래스를 빼면 다크가
-적용됩니다.
+라이트가 기본값으로 `:root`와 `.light`에 정의되고, 다크는 `.dark`에만
+정의됩니다. `html`에 클래스를 두지 않거나 `.light`를 추가하면 라이트가 적용됩니다.
+다크는 SSR을 포함해 `html`에 명시적으로 `.dark`를 추가해야 합니다.
 
 ```css
 :root {
@@ -157,13 +194,66 @@ import "./my-theme.css"; // 변수 오버라이딩 — 반드시 globals.css 다
 }
 ```
 
-`--radius`가 기준값(기본 `8px`)이고 `--radius-xs/sm/md/lg/xl/2xl`은 각각
+`--radius`가 기준값(기본 `10px`)이고 `--radius-xs/sm/md/lg/xl/2xl`은 각각
 `.5/.75/1/1.5/2/3`배로 파생됩니다. `--radius-md: 7px`처럼 이름을 지정하면 해당
-radius만 덮어씁니다.
+radius만 덮어씁니다. 이 값은 소비자 Tailwind theme 레이어보다 우선하지만, kood import
+뒤의 일반 `:root`, `.dark`, `.light` 선언으로 계속 덮어쓸 수 있습니다.
 
 폰트 훅은 `--kood-font-sans`, `--kood-font-mono`이며 Tailwind
 `--font-sans`/`--font-mono`가 이를 가리킵니다. 기본 sans는 Pretendard 계열이고,
 `html`에 `data-font="wanted"`를 주면 Wanted Sans로 바뀝니다.
+
+## 2.1.0 마이그레이션
+
+2.1.0은 색 팔레트를 파랑 계열에서 뉴트럴 잉크 계열로 교체한 릴리스입니다. 토큰
+이름과 역할 구조는 그대로이므로 오버라이드를 두지 않은 소비자는 import만으로 새
+팔레트를 받습니다.
+
+- 캔버스 — 라이트 `#FAFAFA`, 다크 `#020C18`
+- primary — 라이트 `#0A1724`, 다크 `#FFFFFF`
+- accent — 라이트 `#F1F5F9`, 다크 `#1C2733`
+- 포커스 링 — 라이트 `#0A1724`, 다크 `#FFFFFF`
+
+자체 테마를 덮어쓴 소비자는 역할 묶음(캔버스/표면/동작)을 다시 확인하세요. 링크·
+포커스·선택 강조까지 accent에서 primary로 옮겨졌으므로, 이전 파랑 값을 accent에만
+남겨 두면 두 색이 섞여 보입니다.
+
+## 2.0.0 마이그레이션
+
+2.0.0은 라이트 기본 테마, 한국어 내장 접근성 문구, 그리고 B-2 포커스 표시를 포함한
+breaking release입니다. 기존에 다크 값을 `:root`에 선언했다면 `.dark`로 옮기고,
+서버 렌더링에서도 `html.dark`를 명시하세요. 영어 UI를 유지하려면 기존 `label`,
+`closeLabel`, `text`, `title`, `description` prop에 영어 값을 넘기면 됩니다. 키보드
+포커스는 2px 바깥 outline 대신 1px inset outline과 border-color 변경으로 표시되므로,
+소비자 CSS에서 이전 `outline-offset: 2px` 가정을 제거하세요.
+
+Storybook의 **Examples/Notice List 01**은 한국어 전체/읽지 않음/보관함 탭과 섹션을
+보여주는 조합 예제입니다. 예제는 패키지 root에서 export되지 않습니다.
+
+## 1.1.0 API 추가 (2.0에서도 유지)
+
+`TabsList`는 기존 `default`와 `line` 외에 `pill` variant를 지원합니다. `pill`은
+선택 상태가 분명한 좁은 범위의 전환에 적합합니다.
+
+```tsx
+<Tabs defaultValue="channels">
+  <TabsList variant="pill">
+    <TabsTrigger value="channels">채널</TabsTrigger>
+    <TabsTrigger value="influencers">인플루언서</TabsTrigger>
+  </TabsList>
+</Tabs>
+```
+
+접근성 문구를 현지화할 수 있도록 `Breadcrumb`, `Pagination`, `Carousel`,
+`DialogContent`, `DialogFooter`, `SheetContent`, `Sidebar`, `SidebarTrigger`,
+`SidebarRail`에 영어 기본값의 `label` 또는 `closeLabel` prop을 추가했습니다.
+`PaginationPrevious`/`PaginationNext`는 `text`와 `label`을, `BreadcrumbEllipsis`와
+`PaginationEllipsis`는 `label`을, `CarouselPrevious`/`CarouselNext`는 `label`을
+받습니다. `Sidebar`의 `label`, `mobileTitle`, `mobileDescription`도 모바일 Sheet
+제목과 설명을 현지화합니다. Storybook의 각 컴포넌트 스토리에 한국어 사용 예가 있습니다.
+
+`src/components/examples/influencer-channels-01/`은 Before, After, AfterEmpty 비교를
+보이는 Storybook 전용 예제입니다. 이 예제는 패키지 root에서 export하지 않습니다.
 
 ## 개발
 
