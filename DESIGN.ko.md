@@ -1,7 +1,7 @@
 ---
 version: "alpha"
 name: "kood-design-system"
-description: "Kood is a light-first design system on a #F3F5F8 canvas with a #101217 dark counterpart. One blue family carries every chromatic cue — primary for actions and accent for links, focus, selection, and info — never a second hue, never a glow. Cards sit on a surface ladder behind hairline borders instead of shadows. Pretendard is the default sans, Wanted Sans is an opt-in preset, and Jetendard is the code face."
+description: "Kood is a light-first design system on a #FAFAFA canvas with a #020C18 dark counterpart. A neutral ink family carries every chromatic cue — primary for actions and accent for links, focus, selection, and info — never a second hue, never a glow. Cards sit on a surface ladder behind hairline borders instead of shadows. Pretendard is the default sans, Wanted Sans is an opt-in preset, and Jetendard is the code face."
 mode-default: "light"
 fonts:
   sans-default: "pretendard"
@@ -11,81 +11,81 @@ fonts:
   mono: '"Jetendard", "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Noto Sans Mono CJK KR", "D2Coding", "Pretendard Variable", "Pretendard", ui-monospace, monospace'
 colors:
   dark:
-    canvas: "#101217"
-    surface-1: "#191C22"
-    surface-2: "#23272E"
-    surface-3: "#2A2F37"
-    hairline: "#2D323A"
-    hairline-strong: "#7A8390"
+    canvas: "#020C18"
+    surface-1: "#151A21"
+    surface-2: "#1A1F27"
+    surface-3: "#1A1F27"
+    hairline: "#22272F"
+    hairline-strong: "#4E6A86"
     ink: "#F2F4F7"
-    ink-muted: "#B9C0CA"
-    ink-subtle: "#929BA7"
-    ink-tertiary: "#64778A"
-    primary: "#3A6FE0"
-    on-primary: "#FFFFFF"
-    primary-hover: "#3264D2"
-    primary-active: "#2A58BD"
-    accent: "#82A9F6"
-    accent-hover: "#9DBBF8"
-    accent-subtle: "#1A2840"
-    focus-ring: "#6F9BF3"
-    semantic-success: "#5DC78A"
-    semantic-warning: "#E5AF4E"
+    ink-muted: "#AAB2BD"
+    ink-subtle: "#7D8793"
+    ink-tertiary: "#7D8793"
+    primary: "#FFFFFF"
+    on-primary: "#151A21"
+    primary-hover: "#F2F2F2"
+    primary-active: "#E0E0E0"
+    accent: "#C8DCEC"
+    accent-hover: "#A8C8E2"
+    accent-subtle: "#1C2733"
+    focus-ring: "#FFFFFF"
+    semantic-success: "#49AA19"
+    semantic-warning: "#D89614"
     semantic-danger: "#F0858B"
-    semantic-info: "#82A9F6"
-    on-success: "#101217"
-    on-warning: "#101217"
-    on-danger: "#101217"
-    on-info: "#101217"
-    selection-bg: "#24457A"
-    selection-ink: "#F2F4F7"
-    code-bg: "#0B0D11"
-    code-border: "#2D323A"
-    code-ink: "#E6EAF0"
-    code-comment: "#929BA7"
-    code-keyword: "#82A9F6"
-    code-string: "#5DC78A"
-    code-number: "#E5AF4E"
+    semantic-info: "#8FB4D4"
+    on-success: "#151A21"
+    on-warning: "#151A21"
+    on-danger: "#151A21"
+    on-info: "#151A21"
+    selection-bg: "#1C2733"
+    selection-ink: "#C8DCEC"
+    code-bg: "#1A1F27"
+    code-border: "#22272F"
+    code-ink: "#F2F4F7"
+    code-comment: "#7D8793"
+    code-keyword: "#8FB4D4"
+    code-string: "#49AA19"
+    code-number: "#D89614"
     code-error: "#F0858B"
-    overlay: "#05070AB3"
+    overlay: "#020C18B3"
   light:
-    canvas: "#F3F5F8"
+    canvas: "#FAFAFA"
     surface-1: "#FFFFFF"
-    surface-2: "#EDF0F4"
+    surface-2: "#F5F7FA"
     surface-3: "#FFFFFF"
     hairline: "#E3E7EC"
-    hairline-strong: "#808A97"
+    hairline-strong: "#5E6875"
     ink: "#171C24"
-    ink-muted: "#454F5C"
+    ink-muted: "#5E6875"
     ink-subtle: "#5E6875"
-    ink-tertiary: "#748395"
-    primary: "#2861DB"
+    ink-tertiary: "#5E6875"
+    primary: "#0A1724"
     on-primary: "#FFFFFF"
-    primary-hover: "#2154C4"
-    primary-active: "#1B47A8"
-    accent: "#2258CC"
-    accent-hover: "#1B47A8"
-    accent-subtle: "#EAF1FD"
-    focus-ring: "#2861DB"
+    primary-hover: "#1D2B38"
+    primary-active: "#06111C"
+    accent: "#0A1724"
+    accent-hover: "#1D2B38"
+    accent-subtle: "#F1F5F9"
+    focus-ring: "#0A1724"
     semantic-success: "#12774A"
     semantic-warning: "#8F5600"
     semantic-danger: "#CC2F3C"
-    semantic-info: "#2258CC"
+    semantic-info: "#0A1724"
     on-success: "#FFFFFF"
     on-warning: "#FFFFFF"
     on-danger: "#FFFFFF"
     on-info: "#FFFFFF"
-    selection-bg: "#D5E3FB"
-    selection-ink: "#171C24"
-    code-bg: "#F3F5F8"
+    selection-bg: "#F1F5F9"
+    selection-ink: "#0A1724"
+    code-bg: "#F5F7FA"
     code-border: "#E3E7EC"
     code-ink: "#171C24"
     code-comment: "#5E6875"
-    code-keyword: "#2258CC"
+    code-keyword: "#0A1724"
     code-string: "#12774A"
     code-number: "#8F5600"
     code-error: "#CC2F3C"
-    overlay: "#10141B80"
+    overlay: "#0A172480"
 typography:
   display-xl:
     fontFamily: "Pretendard Variable"
@@ -398,9 +398,9 @@ components:
 
 ## Overview
 
-Kood는 라이트를 기본으로 합니다. 페이지 배경은 기본 라이트 모드에서 `{colors.canvas}` #F3F5F8이고 짝이 되는 다크 값은 #101217입니다.
+Kood는 라이트를 기본으로 합니다. 페이지 배경은 기본 라이트 모드에서 `{colors.canvas}` #FAFAFA이고 짝이 되는 다크 값은 #020C18입니다.
 
-파랑 패밀리 하나가 모든 색 단서를 맡습니다. `{colors.primary}` #2861DB는 버튼과 체크된 컨트롤의 동작 채움이고 `{colors.accent}` #2258CC는 링크와 포커스, 선택, 정보에 쓰는 색입니다. 다른 곳에는 쓰지 않으며 두 번째 색상이나 글로우를 더하지 않습니다.
+중성 잉크 패밀리 하나가 모든 색 단서를 맡습니다. `{colors.primary}` #0A1724는 버튼과 체크된 컨트롤의 동작 채움이고 `{colors.accent}` #0A1724는 링크와 포커스, 선택, 정보에 쓰는 색입니다. 다른 곳에는 쓰지 않으며 두 번째 색상이나 글로우를 더하지 않습니다.
 
 UI 서체는 기본이 Pretendard Variable입니다. Wanted Sans Variable은 선택형 산스이며 문서에 `[data-font="wanted"]`를 붙여 전환합니다. Jetendard는 코드 전용 서체입니다.
 
@@ -408,7 +408,7 @@ UI 서체는 기본이 Pretendard Variable입니다. Wanted Sans Variable은 선
 
 **Key Characteristics:**
 
-- **Light default.** `{colors.canvas}` #F3F5F8이 기본 캔버스이며 다크 모드는 #101217와 짝을 이룹니다.
+- **Light default.** `{colors.canvas}` #FAFAFA이 기본 캔버스이며 다크 모드는 #020C18와 짝을 이룹니다.
 - **One blue family.** `{colors.primary}`가 동작을 채우고 `{colors.accent}`는 링크와 포커스, 선택, 정보에 씁니다.
 - **Hairline cards.** 표면은 드롭 섀도가 아니라 1px `{colors.hairline}` 테두리 뒤의 3단 사다리에 놓입니다.
 - **Shadow only where it lifts.** 다크 모드는 그림자를 쓰지 않습니다. 라이트 모드는 올린 그림자 하나를 쓰며 메뉴와 팝오버, 다이얼로그에만 적용합니다.
@@ -419,7 +419,7 @@ UI 서체는 기본이 Pretendard Variable입니다. Wanted Sans Variable은 선
 
 ## Colors
 
-팔레트는 라이트와 다크가 짝을 이루는 토큰 37 개이며 아래 목록은 라이트 / 다크 순서입니다. `#F3F5F8`이 라이트 캔버스이고 `#101217`이 다크 짝입니다. `{colors.primary}`는 두 모드 모두의 파랑 동작 채움이고(#2861DB / #3A6FE0), `{colors.accent}`는 링크와 포커스, 선택, 정보에 쓰는 더 깊은 파랑입니다(#2258CC / #82A9F6).
+팔레트는 라이트와 다크가 짝을 이루는 토큰 37 개이며 아래 목록은 라이트 / 다크 순서입니다. `#FAFAFA`이 라이트 캔버스이고 `#020C18`이 다크 짝입니다. `{colors.primary}`는 라이트의 잉크 동작 채움이며 다크에서는 흰색으로 반전되고(#0A1724 / #FFFFFF), `{colors.accent}`는 링크와 포커스, 선택, 정보에 쓰는 대응 강조색입니다(#0A1724 / #C8DCEC).
 
 `{colors.ink-tertiary}`는 장식 전용이며 텍스트로 쓰지 않습니다. `{colors.hairline}`은 카드와 테이블, 내비게이션 같은 컨테이너에는 허용하지만 인터랙티브 컨트롤의 유일한 경계로는 쓰지 않습니다. 인터랙티브 컨트롤은 `{colors.hairline-strong}`을 씁니다.
 
@@ -427,56 +427,56 @@ UI 서체는 기본이 Pretendard Variable입니다. Wanted Sans Variable은 선
 
 ### Brand & Accent
 
-- **Primary** ({colors.primary}): 기본 버튼과 체크된 컨트롤의 파랑 동작 채움입니다. #2861DB / #3A6FE0
-- **On Primary** ({colors.on-primary}): 프라이머리 채움 위의 텍스트와 아이콘입니다. #FFFFFF / #FFFFFF
-- **Primary Hover** ({colors.primary-hover}): 호버된 프라이머리 채움입니다. #2154C4 / #3264D2
-- **Primary Active** ({colors.primary-active}): 눌린 프라이머리 채움입니다. #1B47A8 / #2A58BD
-- **Accent** ({colors.accent}): 링크와 선택 강조, 정보에 쓰는 강조 파랑입니다. #2258CC / #82A9F6
-- **Accent Hover** ({colors.accent-hover}): 호버된 액센트입니다. #1B47A8 / #9DBBF8
-- **Accent Subtle** ({colors.accent-subtle}): 선택된 행과 배지, 정보 알림용 액센트 틴트 배경입니다. #EAF1FD / #1A2840
-- **Focus Ring** ({colors.focus-ring}): 1px 인셋 아웃라인과 포커스된 컨트롤의 테두리 색 교체입니다. #2861DB / #6F9BF3
+- **Primary** ({colors.primary}): 기본 버튼과 체크된 컨트롤의 잉크 동작 채움입니다. #0A1724 / #FFFFFF
+- **On Primary** ({colors.on-primary}): 프라이머리 채움 위의 텍스트와 아이콘입니다. #FFFFFF / #151A21
+- **Primary Hover** ({colors.primary-hover}): 호버된 프라이머리 채움입니다. #1D2B38 / #F2F2F2
+- **Primary Active** ({colors.primary-active}): 눌린 프라이머리 채움입니다. #06111C / #E0E0E0
+- **Accent** ({colors.accent}): 링크와 선택 강조, 정보에 쓰는 강조 잉크입니다. #0A1724 / #C8DCEC
+- **Accent Hover** ({colors.accent-hover}): 호버된 액센트입니다. #1D2B38 / #A8C8E2
+- **Accent Subtle** ({colors.accent-subtle}): 선택된 행과 배지, 정보 알림용 액센트 틴트 배경입니다. #F1F5F9 / #1C2733
+- **Focus Ring** ({colors.focus-ring}): 1px 인셋 아웃라인과 포커스된 컨트롤의 테두리 색 교체입니다. #0A1724 / #FFFFFF
 
 ### Surface
 
-- **Canvas** ({colors.canvas}): 페이지 배경입니다. #F3F5F8 / #101217
-- **Surface 1** ({colors.surface-1}): 카드와 컨트롤입니다. #FFFFFF / #191C22
-- **Surface 2** ({colors.surface-2}): 중첩 또는 인셋 영역과 비활성 배경입니다. #EDF0F4 / #23272E
-- **Surface 3** ({colors.surface-3}): 드롭다운과 서브 내비게이션입니다. #FFFFFF / #2A2F37
-- **Hairline** ({colors.hairline}): 장식용 1px 구분선입니다. 카드와 테이블, 내비게이션 컨테이너에는 허용하고 버튼이나 입력의 유일한 경계로는 쓰지 않습니다. #E3E7EC / #2D323A
-- **Hairline Strong** ({colors.hairline-strong}): 인터랙티브 컨트롤 테두리(비텍스트 3:1)입니다. #808A97 / #7A8390
-- **Overlay** ({colors.overlay}): 모달 스크린이며 8자리 hex에 알파 50% / 70%입니다. #10141B80 / #05070AB3
-- **Selection Background** ({colors.selection-bg}): `::selection` 배경입니다. #D5E3FB / #24457A
-- **Selection Ink** ({colors.selection-ink}): `::selection` 텍스트입니다. #171C24 / #F2F4F7
+- **Canvas** ({colors.canvas}): 페이지 배경입니다. #FAFAFA / #020C18
+- **Surface 1** ({colors.surface-1}): 카드와 컨트롤입니다. #FFFFFF / #151A21
+- **Surface 2** ({colors.surface-2}): 중첩 또는 인셋 영역과 비활성 배경입니다. #F5F7FA / #1A1F27
+- **Surface 3** ({colors.surface-3}): 드롭다운과 서브 내비게이션입니다. #FFFFFF / #1A1F27
+- **Hairline** ({colors.hairline}): 장식용 1px 구분선입니다. 카드와 테이블, 내비게이션 컨테이너에는 허용하고 버튼이나 입력의 유일한 경계로는 쓰지 않습니다. #E3E7EC / #22272F
+- **Hairline Strong** ({colors.hairline-strong}): 인터랙티브 컨트롤 테두리(비텍스트 3:1)입니다. #5E6875 / #4E6A86
+- **Overlay** ({colors.overlay}): 모달 스크린이며 8자리 hex에 알파 50% / 70%입니다. #0A172480 / #020C18B3
+- **Selection Background** ({colors.selection-bg}): `::selection` 배경입니다. #F1F5F9 / #1C2733
+- **Selection Ink** ({colors.selection-ink}): `::selection` 텍스트입니다. #0A1724 / #C8DCEC
 
-shadcn 레이어는 DESIGN 토큰 37 개와 별도로 뉴트럴을 하나 더 가집니다. `{colors.surface-2}`는 `--secondary`로 #EDF0F4 / #23272E이고 `--muted`는 더 깊은 별도 채움으로 #E6EAEF / #2C3139입니다. 둘은 중첩 표면 역할을 공유하지만 같은 값이 아니며 `--muted`를 표면 사다리의 추가 단계로 취급하지 않습니다.
+shadcn 레이어는 DESIGN 토큰 37 개와 별도로 뉴트럴을 하나 더 가집니다. `{colors.surface-2}`는 `--secondary`로 #F5F7FA / #1A1F27이고 `--muted`는 더 깊은 별도 채움으로 #EFF2F6 / #22272F입니다. 둘은 중첩 표면 역할을 공유하지만 같은 값이 아니며 `--muted`를 표면 사다리의 추가 단계로 취급하지 않습니다.
 
 ### Text
 
 - **Ink** ({colors.ink}): 본문과 헤딩입니다. #171C24 / #F2F4F7
-- **Ink Muted** ({colors.ink-muted}): 보조 텍스트입니다. #454F5C / #B9C0CA
-- **Ink Subtle** ({colors.ink-subtle}): 캡션과 플레이스홀더, 비활성 레이블입니다. #5E6875 / #929BA7
-- **Ink Tertiary** ({colors.ink-tertiary}): 장식 아이콘 전용이며 텍스트로 쓰지 않습니다. #748395 / #64778A
+- **Ink Muted** ({colors.ink-muted}): 보조 텍스트입니다. #5E6875 / #AAB2BD
+- **Ink Subtle** ({colors.ink-subtle}): 캡션과 플레이스홀더, 비활성 레이블입니다. #5E6875 / #7D8793
+- **Ink Tertiary** ({colors.ink-tertiary}): 장식 아이콘 전용이며 텍스트로 쓰지 않습니다. #5E6875 / #7D8793
 
 ### Semantic
 
-- **Success** ({colors.semantic-success}): 성공 채움입니다. #12774A / #5DC78A
-- **Warning** ({colors.semantic-warning}): 경고 채움입니다. #8F5600 / #E5AF4E
+- **Success** ({colors.semantic-success}): 성공 채움입니다. #12774A / #49AA19
+- **Warning** ({colors.semantic-warning}): 경고 채움입니다. #8F5600 / #D89614
 - **Danger** ({colors.semantic-danger}): 위험 채움입니다. #CC2F3C / #F0858B
-- **Info** ({colors.semantic-info}): 정보 채움이며 액센트를 재사용합니다. #2258CC / #82A9F6
-- **On Success** ({colors.on-success}): 솔리드 성공 채움 위의 텍스트입니다. #FFFFFF / #101217
-- **On Warning** ({colors.on-warning}): 솔리드 경고 채움 위의 텍스트입니다. #FFFFFF / #101217
-- **On Danger** ({colors.on-danger}): 솔리드 위험 채움 위의 텍스트입니다. #FFFFFF / #101217
-- **On Info** ({colors.on-info}): 솔리드 정보 채움 위의 텍스트입니다. #FFFFFF / #101217
+- **Info** ({colors.semantic-info}): 정보 채움이며 액센트를 재사용합니다. #0A1724 / #8FB4D4
+- **On Success** ({colors.on-success}): 솔리드 성공 채움 위의 텍스트입니다. #FFFFFF / #151A21
+- **On Warning** ({colors.on-warning}): 솔리드 경고 채움 위의 텍스트입니다. #FFFFFF / #151A21
+- **On Danger** ({colors.on-danger}): 솔리드 위험 채움 위의 텍스트입니다. #FFFFFF / #151A21
+- **On Info** ({colors.on-info}): 솔리드 정보 채움 위의 텍스트입니다. #FFFFFF / #151A21
 
 ### Code
 
-- **Code Background** ({colors.code-bg}): 코드 블록 배경입니다. #F3F5F8 / #0B0D11
-- **Code Border** ({colors.code-border}): 코드 블록 테두리입니다. #E3E7EC / #2D323A
-- **Code Ink** ({colors.code-ink}): 기본 코드 텍스트입니다. #171C24 / #E6EAF0
-- **Code Comment** ({colors.code-comment}): 주석입니다. #5E6875 / #929BA7
-- **Code Keyword** ({colors.code-keyword}): 키워드이며 액센트를 재사용합니다. #2258CC / #82A9F6
-- **Code String** ({colors.code-string}): 문자열이며 성공을 재사용합니다. #12774A / #5DC78A
-- **Code Number** ({colors.code-number}): 숫자이며 경고를 재사용합니다. #8F5600 / #E5AF4E
+- **Code Background** ({colors.code-bg}): 코드 블록 배경입니다. #F5F7FA / #1A1F27
+- **Code Border** ({colors.code-border}): 코드 블록 테두리입니다. #E3E7EC / #22272F
+- **Code Ink** ({colors.code-ink}): 기본 코드 텍스트입니다. #171C24 / #F2F4F7
+- **Code Comment** ({colors.code-comment}): 주석입니다. #5E6875 / #7D8793
+- **Code Keyword** ({colors.code-keyword}): 키워드이며 액센트를 재사용합니다. #0A1724 / #8FB4D4
+- **Code String** ({colors.code-string}): 문자열이며 성공을 재사용합니다. #12774A / #49AA19
+- **Code Number** ({colors.code-number}): 숫자이며 경고를 재사용합니다. #8F5600 / #D89614
 - **Code Error** ({colors.code-error}): 오류이며 위험을 재사용합니다. #CC2F3C / #F0858B
 
 ## Typography
@@ -696,7 +696,7 @@ CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--
 
 ### Buttons
 
-두 모드 모두에서 `{colors.primary}`는 파랑 동작 채움입니다(#2861DB / #3A6FE0). `{colors.hairline}`은 인터랙티브 컨트롤의 유일한 경계가 되지 않습니다. 아웃라인 버튼과 입력은 `{colors.hairline-strong}`을 씁니다. 기본 버튼은 border-box 40px 행, 14px / 20px 타입, `9px 14px` 패딩을 쓰며 768px 미만에서는 최소 높이가 44px이고 큰 크기는 `min-h-11` / `size-11`로 올립니다.
+라이트 모드에서 `{colors.primary}`는 잉크 동작 채움이며 다크 모드에서는 흰색으로 반전됩니다(#0A1724 / #FFFFFF). `{colors.hairline}`은 인터랙티브 컨트롤의 유일한 경계가 되지 않습니다. 아웃라인 버튼과 입력은 `{colors.hairline-strong}`을 씁니다. 기본 버튼은 border-box 40px 행, 14px / 20px 타입, `9px 14px` 패딩을 쓰며 768px 미만에서는 최소 높이가 44px이고 큰 크기는 `min-h-11` / `size-11`로 올립니다.
 
 - **button-primary** (기본 채움 동작). bg {colors.primary} · text {colors.on-primary} · 14px/20px 컨트롤 타입 · {rounded.md} · padding 9px 14px
 - **button-primary-hover** (호버된 프라이머리 채움). bg {colors.primary-hover} · text {colors.on-primary} · 14px/20px 컨트롤 타입 · {rounded.md} · padding 9px 14px
@@ -850,7 +850,7 @@ CSS 계약은 `--radius-xs: calc(var(--radius) * .5)`, `--radius-sm: calc(var(--
 | hairline        | --sidebar-border            | border-sidebar-border          |
 | focus-ring      | --sidebar-ring              | ring-sidebar-ring              |
 
-컴포넌트는 위의 시맨틱 토큰 클래스를 소비합니다. 하드코딩한 팔레트 클래스로 바꾸지 않습니다. `{colors.surface-2}`는 값이 다른 shadcn 변수 두 개로 들어갑니다. `--secondary`는 #EDF0F4 / #23272E이고 `--muted`는 #E6EAEF / #2C3139입니다. 한쪽을 덮어써도 다른 쪽은 움직이지 않습니다.
+컴포넌트는 위의 시맨틱 토큰 클래스를 소비합니다. 하드코딩한 팔레트 클래스로 바꾸지 않습니다. `{colors.surface-2}`는 값이 다른 shadcn 변수 두 개로 들어갑니다. `--secondary`는 #F5F7FA / #1A1F27이고 `--muted`는 #EFF2F6 / #22272F입니다. 한쪽을 덮어써도 다른 쪽은 움직이지 않습니다.
 
 **글래스 재질 계약.** `glass`와 `glass-strong`은 선택해서 쓰는 뉴트럴 표면 대안이며 기존 기본값은 모두 현재의 솔리드 출력을 유지합니다. 공유 CSS 예외는 공개 커스텀 프로퍼티 일곱 개로 한정합니다. `--glass-background`, `--glass-strong-background`, `--glass-hover`, `--glass-active`, `--glass-solid`, `--glass-strong-solid`, `--glass-blur`입니다. `kood-glass`와 `kood-glass-strong`은 재질의 채움과 필터만 맡습니다. 일반 재질은 절제된 12px blur를 쓰고 strong은 blur를 키우지 않고 불투명도만 높입니다.
 
@@ -865,44 +865,44 @@ Sidebar, NavigationMenu, Toaster는 기존 레이아웃 또는 시맨틱 API를 
 ```css
 :root,
 .light {
-  --background: #f3f5f8;
+  --background: #fafafa;
   --card: #ffffff;
   --sidebar: #ffffff;
-  --secondary: #edf0f4;
-  --muted: #e6eaef;
+  --secondary: #f5f7fa;
+  --muted: #eff2f6;
   --popover: #ffffff;
   --border: #e3e7ec;
   --sidebar-border: #e3e7ec;
   --code-border: #e3e7ec;
-  --input: #808a97;
-  --code: #f3f5f8;
-  --overlay: #10141b80;
-  --primary: #2861db;
+  --input: #5e6875;
+  --code: #f5f7fa;
+  --overlay: #0a172480;
+  --primary: #0a1724;
   --primary-foreground: #ffffff;
-  --accent: #eaf1fd;
-  --accent-foreground: #2258cc;
-  --ring: #2861db;
+  --accent: #f1f5f9;
+  --accent-foreground: #0a1724;
+  --ring: #0a1724;
   --radius: 10px;
   --kood-shadow-raised: 0 1px 2px rgb(10 23 36 / 6%), 0 8px 24px rgb(10 23 36 / 8%);
 }
 .dark {
-  --background: #101217;
-  --card: #191c22;
-  --sidebar: #191c22;
-  --secondary: #23272e;
-  --muted: #2c3139;
-  --popover: #2a2f37;
-  --border: #2d323a;
-  --sidebar-border: #2d323a;
-  --code-border: #2d323a;
-  --input: #7a8390;
-  --code: #0b0d11;
-  --overlay: #05070ab3;
-  --primary: #3a6fe0;
-  --primary-foreground: #ffffff;
-  --accent: #1a2840;
-  --accent-foreground: #82a9f6;
-  --ring: #6f9bf3;
+  --background: #020c18;
+  --card: #151a21;
+  --sidebar: #151a21;
+  --secondary: #1a1f27;
+  --muted: #22272f;
+  --popover: #1a1f27;
+  --border: #22272f;
+  --sidebar-border: #22272f;
+  --code-border: #22272f;
+  --input: #4e6a86;
+  --code: #1a1f27;
+  --overlay: #020c18b3;
+  --primary: #ffffff;
+  --primary-foreground: #151a21;
+  --accent: #1c2733;
+  --accent-foreground: #c8dcec;
+  --ring: #ffffff;
   --radius: 10px;
   --kood-shadow-raised: none;
 }
@@ -1001,7 +1001,7 @@ Sidebar, NavigationMenu, Toaster는 기존 레이아웃 또는 시맨틱 API를 
 
 | 주장                  | 근거                                                                        | 신뢰도 |
 | --------------------- | --------------------------------------------------------------------------- | ------ |
-| 라이트 캔버스 #F3F5F8 | 승인된 라이트 우선 계약                                                     | 높음   |
+| 라이트 캔버스 #FAFAFA | 승인된 라이트 우선 계약                                                     | 높음   |
 | 단정하고 정돈된 톤    | 사용자 요청과 awesome-design-md 예시(Vercel, HashiCorp, Linear)의 섹션 구조 | 중간   |
 | 액센트와 뉴트럴 값    | 플래너 제안과 WCAG 대비 계산                                                | 중간   |
 | 서체 URL              | 공식 README와 HTTP 200 확인                                                 | 높음   |

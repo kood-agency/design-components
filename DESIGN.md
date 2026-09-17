@@ -1,7 +1,7 @@
 ---
 version: "alpha"
 name: "kood-design-system"
-description: "Kood is a light-first design system on a #F3F5F8 canvas with a #101217 dark counterpart. One blue family carries every chromatic cue — primary for actions and accent for links, focus, selection, and info — never a second hue, never a glow. Cards sit on a surface ladder behind hairline borders instead of shadows. Pretendard is the default sans, Wanted Sans is an opt-in preset, and Jetendard is the code face."
+description: "Kood is a light-first design system on a #FAFAFA canvas with a #020C18 dark counterpart. A neutral ink family carries every chromatic cue — primary for actions and accent for links, focus, selection, and info — never a second hue, never a glow. Cards sit on a surface ladder behind hairline borders instead of shadows. Pretendard is the default sans, Wanted Sans is an opt-in preset, and Jetendard is the code face."
 mode-default: "light"
 fonts:
   sans-default: "pretendard"
@@ -11,81 +11,81 @@ fonts:
   mono: '"Jetendard", "JetBrains Mono", "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Noto Sans Mono CJK KR", "D2Coding", "Pretendard Variable", "Pretendard", ui-monospace, monospace'
 colors:
   dark:
-    canvas: "#101217"
-    surface-1: "#191C22"
-    surface-2: "#23272E"
-    surface-3: "#2A2F37"
-    hairline: "#2D323A"
-    hairline-strong: "#7A8390"
+    canvas: "#020C18"
+    surface-1: "#151A21"
+    surface-2: "#1A1F27"
+    surface-3: "#1A1F27"
+    hairline: "#22272F"
+    hairline-strong: "#4E6A86"
     ink: "#F2F4F7"
-    ink-muted: "#B9C0CA"
-    ink-subtle: "#929BA7"
-    ink-tertiary: "#64778A"
-    primary: "#3A6FE0"
-    on-primary: "#FFFFFF"
-    primary-hover: "#3264D2"
-    primary-active: "#2A58BD"
-    accent: "#82A9F6"
-    accent-hover: "#9DBBF8"
-    accent-subtle: "#1A2840"
-    focus-ring: "#6F9BF3"
-    semantic-success: "#5DC78A"
-    semantic-warning: "#E5AF4E"
+    ink-muted: "#AAB2BD"
+    ink-subtle: "#7D8793"
+    ink-tertiary: "#7D8793"
+    primary: "#FFFFFF"
+    on-primary: "#151A21"
+    primary-hover: "#F2F2F2"
+    primary-active: "#E0E0E0"
+    accent: "#C8DCEC"
+    accent-hover: "#A8C8E2"
+    accent-subtle: "#1C2733"
+    focus-ring: "#FFFFFF"
+    semantic-success: "#49AA19"
+    semantic-warning: "#D89614"
     semantic-danger: "#F0858B"
-    semantic-info: "#82A9F6"
-    on-success: "#101217"
-    on-warning: "#101217"
-    on-danger: "#101217"
-    on-info: "#101217"
-    selection-bg: "#24457A"
-    selection-ink: "#F2F4F7"
-    code-bg: "#0B0D11"
-    code-border: "#2D323A"
-    code-ink: "#E6EAF0"
-    code-comment: "#929BA7"
-    code-keyword: "#82A9F6"
-    code-string: "#5DC78A"
-    code-number: "#E5AF4E"
+    semantic-info: "#8FB4D4"
+    on-success: "#151A21"
+    on-warning: "#151A21"
+    on-danger: "#151A21"
+    on-info: "#151A21"
+    selection-bg: "#1C2733"
+    selection-ink: "#C8DCEC"
+    code-bg: "#1A1F27"
+    code-border: "#22272F"
+    code-ink: "#F2F4F7"
+    code-comment: "#7D8793"
+    code-keyword: "#8FB4D4"
+    code-string: "#49AA19"
+    code-number: "#D89614"
     code-error: "#F0858B"
-    overlay: "#05070AB3"
+    overlay: "#020C18B3"
   light:
-    canvas: "#F3F5F8"
+    canvas: "#FAFAFA"
     surface-1: "#FFFFFF"
-    surface-2: "#EDF0F4"
+    surface-2: "#F5F7FA"
     surface-3: "#FFFFFF"
     hairline: "#E3E7EC"
-    hairline-strong: "#808A97"
+    hairline-strong: "#5E6875"
     ink: "#171C24"
-    ink-muted: "#454F5C"
+    ink-muted: "#5E6875"
     ink-subtle: "#5E6875"
-    ink-tertiary: "#748395"
-    primary: "#2861DB"
+    ink-tertiary: "#5E6875"
+    primary: "#0A1724"
     on-primary: "#FFFFFF"
-    primary-hover: "#2154C4"
-    primary-active: "#1B47A8"
-    accent: "#2258CC"
-    accent-hover: "#1B47A8"
-    accent-subtle: "#EAF1FD"
-    focus-ring: "#2861DB"
+    primary-hover: "#1D2B38"
+    primary-active: "#06111C"
+    accent: "#0A1724"
+    accent-hover: "#1D2B38"
+    accent-subtle: "#F1F5F9"
+    focus-ring: "#0A1724"
     semantic-success: "#12774A"
     semantic-warning: "#8F5600"
     semantic-danger: "#CC2F3C"
-    semantic-info: "#2258CC"
+    semantic-info: "#0A1724"
     on-success: "#FFFFFF"
     on-warning: "#FFFFFF"
     on-danger: "#FFFFFF"
     on-info: "#FFFFFF"
-    selection-bg: "#D5E3FB"
-    selection-ink: "#171C24"
-    code-bg: "#F3F5F8"
+    selection-bg: "#F1F5F9"
+    selection-ink: "#0A1724"
+    code-bg: "#F5F7FA"
     code-border: "#E3E7EC"
     code-ink: "#171C24"
     code-comment: "#5E6875"
-    code-keyword: "#2258CC"
+    code-keyword: "#0A1724"
     code-string: "#12774A"
     code-number: "#8F5600"
     code-error: "#CC2F3C"
-    overlay: "#10141B80"
+    overlay: "#0A172480"
 typography:
   display-xl:
     fontFamily: "Pretendard Variable"
@@ -398,9 +398,9 @@ components:
 
 ## Overview
 
-Kood is light-first. The page background is `{colors.canvas}` #F3F5F8 in the default light mode and its paired dark counterpart #101217.
+Kood is light-first. The page background is `{colors.canvas}` #FAFAFA in the default light mode and its paired dark counterpart #020C18.
 
-One blue family carries every chromatic cue. `{colors.primary}` #2861DB is the action fill for buttons and checked controls; `{colors.accent}` #2258CC is the link, focus, selection, and info color. Use them for nothing else, and never add a second hue or a glow.
+A neutral ink family carries every chromatic cue. `{colors.primary}` #0A1724 is the action fill for buttons and checked controls; `{colors.accent}` #0A1724 is the link, focus, selection, and info color. Use them for nothing else, and never add a second hue or a glow.
 
 UI type is Pretendard Variable by default. Wanted Sans Variable is the opt-in sans, switched with `[data-font="wanted"]` on the document. Jetendard is the code face.
 
@@ -408,8 +408,8 @@ Built-in copy is Korean by default in 2.0: breadcrumb, pagination, carousel, dia
 
 **Key Characteristics:**
 
-- **Light default.** `{colors.canvas}` #F3F5F8 is the home canvas; dark mode pairs it with #101217.
-- **One blue family.** `{colors.primary}` fills actions and `{colors.accent}` is reserved for links, focus, selection, and info.
+- **Light default.** `{colors.canvas}` #FAFAFA is the home canvas; dark mode pairs it with #020C18.
+- **One neutral family.** `{colors.primary}` fills actions and `{colors.accent}` is reserved for links, focus, selection, and info.
 - **Hairline cards.** Surfaces sit on a three-step ladder behind 1px `{colors.hairline}` borders, not drop shadows.
 - **Shadow only where it lifts.** Dark mode uses no shadow. Light mode uses one raised shadow, and only on menus, popovers, and dialogs.
 - **Korean and Latin type.** Pretendard Variable is the default sans; Wanted Sans Variable is the `[data-font="wanted"]` preset; Jetendard is reserved for code. Korean body keeps line-height 1.5–1.67, tracking at 0 or -0.01em, `word-break: keep-all`, and `overflow-wrap: anywhere`.
@@ -419,64 +419,64 @@ Built-in copy is Korean by default in 2.0: breadcrumb, pagination, carousel, dia
 
 ## Colors
 
-The palette is 37 tokens, paired light and dark; the lists below read light / dark. `#F3F5F8` is the light canvas and `#101217` the dark counterpart. `{colors.primary}` is the blue action fill in both modes (#2861DB / #3A6FE0); `{colors.accent}` is the slightly deeper blue used for links, focus, selection, and info (#2258CC / #82A9F6).
+The palette is 37 tokens, paired light and dark; the lists below read light / dark. `#FAFAFA` is the light canvas and `#020C18` the dark counterpart. `{colors.primary}` is the ink action fill in light mode and inverts to white in dark mode (#0A1724 / #FFFFFF); `{colors.accent}` is the matching emphasis color used for links, focus, selection, and info (#0A1724 / #C8DCEC).
 
 `{colors.ink-tertiary}` is decorative only and is never used as text. `{colors.hairline}` is allowed on containers (cards, tables, nav) but is never the sole boundary of an interactive control; those use `{colors.hairline-strong}`.
 
-Contrast figures come from the sRGB relative-luminance formula and are re-checked by `scripts/verify-design-md.ts`. Text roles sit at or above 4.5:1 on canvas, surface-1, and surface-2 in both modes (minimum: light `{colors.semantic-danger}` on `{colors.surface-2}` at 4.55). Non-text roles sit at or above 3.0:1 on canvas and surface-1 (minimum: light `{colors.hairline-strong}` on `{colors.canvas}` at 3.20). On-token / semantic pairs sit at or above 4.5:1 (minimum: dark `{colors.on-primary}` on `{colors.primary}` at 4.64).
+Contrast figures come from the sRGB relative-luminance formula and are re-checked by `scripts/verify-design-md.ts`. Text roles sit at or above 4.5:1 on canvas, surface-1, and surface-2 in both modes (minimum: light `{colors.semantic-danger}` on `{colors.surface-2}` at 4.55). Non-text roles sit at or above 3.0:1 on canvas and surface-1 (minimum: light `{colors.hairline-strong}` on `{colors.canvas}` at 5.42). On-token / semantic pairs sit at or above 4.5:1 (minimum: dark `{colors.on-primary}` on `{colors.primary}` at 17.48).
 
 ### Brand & Accent
 
-- **Primary** ({colors.primary}): Blue action fill for default buttons and checked controls — #2861DB / #3A6FE0
-- **On Primary** ({colors.on-primary}): Text and icons on a primary fill — #FFFFFF / #FFFFFF
-- **Primary Hover** ({colors.primary-hover}): Hovered primary fill — #2154C4 / #3264D2
-- **Primary Active** ({colors.primary-active}): Pressed primary fill — #1B47A8 / #2A58BD
-- **Accent** ({colors.accent}): The link and emphasis blue, used on links, selection emphasis, and info — #2258CC / #82A9F6
-- **Accent Hover** ({colors.accent-hover}): Hovered accent — #1B47A8 / #9DBBF8
-- **Accent Subtle** ({colors.accent-subtle}): Tinted accent background for selected rows, badges, and info alerts — #EAF1FD / #1A2840
-- **Focus Ring** ({colors.focus-ring}): 1px inset outline plus a border-color swap on the focused control — #2861DB / #6F9BF3
+- **Primary** ({colors.primary}): Ink action fill for default buttons and checked controls — #0A1724 / #FFFFFF
+- **On Primary** ({colors.on-primary}): Text and icons on a primary fill — #FFFFFF / #151A21
+- **Primary Hover** ({colors.primary-hover}): Hovered primary fill — #1D2B38 / #F2F2F2
+- **Primary Active** ({colors.primary-active}): Pressed primary fill — #06111C / #E0E0E0
+- **Accent** ({colors.accent}): The link and emphasis ink, used on links, selection emphasis, and info — #0A1724 / #C8DCEC
+- **Accent Hover** ({colors.accent-hover}): Hovered accent — #1D2B38 / #A8C8E2
+- **Accent Subtle** ({colors.accent-subtle}): Tinted accent background for selected rows, badges, and info alerts — #F1F5F9 / #1C2733
+- **Focus Ring** ({colors.focus-ring}): 1px inset outline plus a border-color swap on the focused control — #0A1724 / #FFFFFF
 
 ### Surface
 
-- **Canvas** ({colors.canvas}): Page background — #F3F5F8 / #101217
-- **Surface 1** ({colors.surface-1}): Cards and controls — #FFFFFF / #191C22
-- **Surface 2** ({colors.surface-2}): Nested or inset regions, disabled backgrounds — #EDF0F4 / #23272E
-- **Surface 3** ({colors.surface-3}): Dropdowns and sub-nav — #FFFFFF / #2A2F37
-- **Hairline** ({colors.hairline}): Decorative 1px divider. Allowed on card, table, and nav containers; never the sole boundary of a button or input — #E3E7EC / #2D323A
-- **Hairline Strong** ({colors.hairline-strong}): Interactive control border (non-text 3:1) — #808A97 / #7A8390
-- **Overlay** ({colors.overlay}): Modal scrim, 8-digit hex at 50% / 70% alpha — #10141B80 / #05070AB3
-- **Selection Background** ({colors.selection-bg}): `::selection` background — #D5E3FB / #24457A
-- **Selection Ink** ({colors.selection-ink}): `::selection` text — #171C24 / #F2F4F7
+- **Canvas** ({colors.canvas}): Page background — #FAFAFA / #020C18
+- **Surface 1** ({colors.surface-1}): Cards and controls — #FFFFFF / #151A21
+- **Surface 2** ({colors.surface-2}): Nested or inset regions, disabled backgrounds — #F5F7FA / #1A1F27
+- **Surface 3** ({colors.surface-3}): Dropdowns and sub-nav — #FFFFFF / #1A1F27
+- **Hairline** ({colors.hairline}): Decorative 1px divider. Allowed on card, table, and nav containers; never the sole boundary of a button or input — #E3E7EC / #22272F
+- **Hairline Strong** ({colors.hairline-strong}): Interactive control border (non-text 3:1) — #5E6875 / #4E6A86
+- **Overlay** ({colors.overlay}): Modal scrim, 8-digit hex at 50% / 70% alpha — #0A172480 / #020C18B3
+- **Selection Background** ({colors.selection-bg}): `::selection` background — #F1F5F9 / #1C2733
+- **Selection Ink** ({colors.selection-ink}): `::selection` text — #0A1724 / #C8DCEC
 
-The shadcn layer carries one neutral beyond the 37 DESIGN tokens. `{colors.surface-2}` is `--secondary` at #EDF0F4 / #23272E, while `--muted` is a distinct deeper fill at #E6EAEF / #2C3139. They share the nested-surface role but are not the same value; `--muted` is never treated as an extra surface-ladder step.
+The shadcn layer carries one neutral beyond the 37 DESIGN tokens. `{colors.surface-2}` is `--secondary` at #F5F7FA / #1A1F27, while `--muted` is a distinct deeper fill at #EFF2F6 / #22272F. They share the nested-surface role but are not the same value; `--muted` is never treated as an extra surface-ladder step.
 
 ### Text
 
 - **Ink** ({colors.ink}): Body and headings — #171C24 / #F2F4F7
-- **Ink Muted** ({colors.ink-muted}): Secondary text — #454F5C / #B9C0CA
-- **Ink Subtle** ({colors.ink-subtle}): Captions, placeholders, disabled labels — #5E6875 / #929BA7
-- **Ink Tertiary** ({colors.ink-tertiary}): Decorative icons only; never text — #748395 / #64778A
+- **Ink Muted** ({colors.ink-muted}): Secondary text — #5E6875 / #AAB2BD
+- **Ink Subtle** ({colors.ink-subtle}): Captions, placeholders, disabled labels — #5E6875 / #7D8793
+- **Ink Tertiary** ({colors.ink-tertiary}): Decorative icons only; never text — #5E6875 / #7D8793
 
 ### Semantic
 
-- **Success** ({colors.semantic-success}): Success fills — #12774A / #5DC78A
-- **Warning** ({colors.semantic-warning}): Warning fills — #8F5600 / #E5AF4E
+- **Success** ({colors.semantic-success}): Success fills — #12774A / #49AA19
+- **Warning** ({colors.semantic-warning}): Warning fills — #8F5600 / #D89614
 - **Danger** ({colors.semantic-danger}): Destructive fills — #CC2F3C / #F0858B
-- **Info** ({colors.semantic-info}): Info fills; reuses accent — #2258CC / #82A9F6
-- **On Success** ({colors.on-success}): Text on a solid success fill — #FFFFFF / #101217
-- **On Warning** ({colors.on-warning}): Text on a solid warning fill — #FFFFFF / #101217
-- **On Danger** ({colors.on-danger}): Text on a solid danger fill — #FFFFFF / #101217
-- **On Info** ({colors.on-info}): Text on a solid info fill — #FFFFFF / #101217
+- **Info** ({colors.semantic-info}): Info fills; reuses accent — #0A1724 / #8FB4D4
+- **On Success** ({colors.on-success}): Text on a solid success fill — #FFFFFF / #151A21
+- **On Warning** ({colors.on-warning}): Text on a solid warning fill — #FFFFFF / #151A21
+- **On Danger** ({colors.on-danger}): Text on a solid danger fill — #FFFFFF / #151A21
+- **On Info** ({colors.on-info}): Text on a solid info fill — #FFFFFF / #151A21
 
 ### Code
 
-- **Code Background** ({colors.code-bg}): Code block background — #F3F5F8 / #0B0D11
-- **Code Border** ({colors.code-border}): Code block border — #E3E7EC / #2D323A
-- **Code Ink** ({colors.code-ink}): Default code text — #171C24 / #E6EAF0
-- **Code Comment** ({colors.code-comment}): Comments — #5E6875 / #929BA7
-- **Code Keyword** ({colors.code-keyword}): Keywords; reuses accent — #2258CC / #82A9F6
-- **Code String** ({colors.code-string}): Strings; reuses success — #12774A / #5DC78A
-- **Code Number** ({colors.code-number}): Numbers; reuses warning — #8F5600 / #E5AF4E
+- **Code Background** ({colors.code-bg}): Code block background — #F5F7FA / #1A1F27
+- **Code Border** ({colors.code-border}): Code block border — #E3E7EC / #22272F
+- **Code Ink** ({colors.code-ink}): Default code text — #171C24 / #F2F4F7
+- **Code Comment** ({colors.code-comment}): Comments — #5E6875 / #7D8793
+- **Code Keyword** ({colors.code-keyword}): Keywords; reuses accent — #0A1724 / #8FB4D4
+- **Code String** ({colors.code-string}): Strings; reuses success — #12774A / #49AA19
+- **Code Number** ({colors.code-number}): Numbers; reuses warning — #8F5600 / #D89614
 - **Code Error** ({colors.code-error}): Errors; reuses danger — #CC2F3C / #F0858B
 
 ## Typography
@@ -696,7 +696,7 @@ Four 2.0 policies sit on top of these recipes. Radii come from the 10px `--radiu
 
 ### Buttons
 
-In both modes `{colors.primary}` is the blue action fill (#2861DB / #3A6FE0). `{colors.hairline}` is never the sole boundary of an interactive control; outlined buttons and inputs use `{colors.hairline-strong}`. Default buttons use a 40px border-box row, 14px / 20px type, and `9px 14px` padding; their minimum height is 44px below 768px, and the large sizes raise it to `min-h-11` / `size-11`.
+In light mode `{colors.primary}` is the ink action fill and in dark mode it inverts to white (#0A1724 / #FFFFFF). `{colors.hairline}` is never the sole boundary of an interactive control; outlined buttons and inputs use `{colors.hairline-strong}`. Default buttons use a 40px border-box row, 14px / 20px type, and `9px 14px` padding; their minimum height is 44px below 768px, and the large sizes raise it to `min-h-11` / `size-11`.
 
 - **button-primary** — Default filled action. bg {colors.primary} · text {colors.on-primary} · 14px/20px control type · {rounded.md} · padding 9px 14px
 - **button-primary-hover** — Hovered primary fill. bg {colors.primary-hover} · text {colors.on-primary} · 14px/20px control type · {rounded.md} · padding 9px 14px
@@ -850,7 +850,7 @@ Light is the default because `:root` and `.light` define the light contract, so 
 | hairline        | --sidebar-border            | border-sidebar-border          |
 | focus-ring      | --sidebar-ring              | ring-sidebar-ring              |
 
-Components consume the semantic token classes above; do not substitute hardcoded palette classes. `{colors.surface-2}` feeds two shadcn variables with different 2.0 values: `--secondary` is #EDF0F4 / #23272E and `--muted` is #E6EAEF / #2C3139. An override of one does not move the other.
+Components consume the semantic token classes above; do not substitute hardcoded palette classes. `{colors.surface-2}` feeds two shadcn variables with different values: `--secondary` is #F5F7FA / #1A1F27 and `--muted` is #EFF2F6 / #22272F. An override of one does not move the other.
 
 **Glass material contract.** `glass` and `glass-strong` are opt-in neutral surface alternatives; every existing default keeps its current solid output. The shared CSS exception is limited to these seven public custom properties: `--glass-background`, `--glass-strong-background`, `--glass-hover`, `--glass-active`, `--glass-solid`, `--glass-strong-solid`, and `--glass-blur`. `kood-glass` and `kood-glass-strong` own the material fill and filter only. The normal material uses a modest 12px blur; strong increases opacity, not blur.
 
@@ -865,44 +865,44 @@ The shipped mapping is:
 ```css
 :root,
 .light {
-  --background: #f3f5f8;
+  --background: #fafafa;
   --card: #ffffff;
   --sidebar: #ffffff;
-  --secondary: #edf0f4;
-  --muted: #e6eaef;
+  --secondary: #f5f7fa;
+  --muted: #eff2f6;
   --popover: #ffffff;
   --border: #e3e7ec;
   --sidebar-border: #e3e7ec;
   --code-border: #e3e7ec;
-  --input: #808a97;
-  --code: #f3f5f8;
-  --overlay: #10141b80;
-  --primary: #2861db;
+  --input: #5e6875;
+  --code: #f5f7fa;
+  --overlay: #0a172480;
+  --primary: #0a1724;
   --primary-foreground: #ffffff;
-  --accent: #eaf1fd;
-  --accent-foreground: #2258cc;
-  --ring: #2861db;
+  --accent: #f1f5f9;
+  --accent-foreground: #0a1724;
+  --ring: #0a1724;
   --radius: 10px;
   --kood-shadow-raised: 0 1px 2px rgb(10 23 36 / 6%), 0 8px 24px rgb(10 23 36 / 8%);
 }
 .dark {
-  --background: #101217;
-  --card: #191c22;
-  --sidebar: #191c22;
-  --secondary: #23272e;
-  --muted: #2c3139;
-  --popover: #2a2f37;
-  --border: #2d323a;
-  --sidebar-border: #2d323a;
-  --code-border: #2d323a;
-  --input: #7a8390;
-  --code: #0b0d11;
-  --overlay: #05070ab3;
-  --primary: #3a6fe0;
-  --primary-foreground: #ffffff;
-  --accent: #1a2840;
-  --accent-foreground: #82a9f6;
-  --ring: #6f9bf3;
+  --background: #020c18;
+  --card: #151a21;
+  --sidebar: #151a21;
+  --secondary: #1a1f27;
+  --muted: #22272f;
+  --popover: #1a1f27;
+  --border: #22272f;
+  --sidebar-border: #22272f;
+  --code-border: #22272f;
+  --input: #4e6a86;
+  --code: #1a1f27;
+  --overlay: #020c18b3;
+  --primary: #ffffff;
+  --primary-foreground: #151a21;
+  --accent: #1c2733;
+  --accent-foreground: #c8dcec;
+  --ring: #ffffff;
   --radius: 10px;
   --kood-shadow-raised: none;
 }
@@ -1001,7 +1001,7 @@ Accessibility claims in this file are limited to WCAG 2.1 AA contrast ratios. Th
 
 | Claim                     | Evidence                                                                                          | Confidence |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ---------- |
-| Light canvas #F3F5F8      | Approved light-first contract                                                                     | high       |
+| Light canvas #FAFAFA      | Approved light-first contract                                                                     | high       |
 | Professional, clean tone  | User request plus the section structure of awesome-design-md examples (Vercel, HashiCorp, Linear) | medium     |
 | Accent and neutral values | Planner proposal plus WCAG contrast computation                                                   | medium     |
 | Font URLs                 | Official READMEs plus HTTP 200 checks                                                             | high       |
